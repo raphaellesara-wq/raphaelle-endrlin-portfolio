@@ -67,10 +67,9 @@ const ContactSection = () => {
         </div>
 
         <p
-          className={`text-sm md:text-base leading-relaxed max-w-md transition-all duration-700 delay-100 ${
+          className={`text-sm md:text-base leading-relaxed max-w-md text-muted-foreground transition-all duration-700 delay-100 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`
-          }
-          style={{ color: "rgba(255,255,255,0.55)" }}>
+          }>
           
           {t(
             "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
