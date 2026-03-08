@@ -105,10 +105,16 @@ const AboutIllustration = () => (
     <path d="M340 245 Q355 238 358 225" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
     <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
 
-    {/* Small accent dots */}
-    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.5" />
-    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.5" />
-    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.45" />
+    {/* Small accent dots — animated */}
+    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.55">
+      <animate attributeName="opacity" values="0.55;0.2;0.55" dur="3.5s" repeatCount="indefinite" />
+    </circle>
   </svg>
 );
 
