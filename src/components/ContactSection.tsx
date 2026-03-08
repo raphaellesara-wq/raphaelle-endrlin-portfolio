@@ -46,7 +46,7 @@ const ContactSection = () => {
     : "hover:-translate-x-1";
 
   return (
-    <section id="contact" ref={sectionRef} className="py-10 md:py-16" style={{ backgroundColor: "#F8F5F0" }}>
+    <section id="contact" ref={sectionRef} className="py-10 md:py-16" style={{ backgroundColor: "#F5FBF8" }}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left — Info */}
@@ -65,7 +65,7 @@ const ContactSection = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
                 {t("נשמח", "Let's")}
                 <br />
-                <span className="text-accent-pink italic">{t("לדבר", "Talk")}</span>
+                <span className="text-accent-green italic">{t("לדבר", "Talk")}</span>
               </h2>
             </div>
 

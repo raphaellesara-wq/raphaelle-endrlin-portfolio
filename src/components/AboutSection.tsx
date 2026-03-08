@@ -41,7 +41,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-10 md:py-16 border-y border-border" style={{ backgroundColor: "#FAF7F2" }}>
+    <section id="about" ref={sectionRef} className="py-10 md:py-16 border-y border-border" style={{ backgroundColor: "#FBF8FD" }}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content — wider column */}
@@ -65,7 +65,7 @@ const AboutSection = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
-              <div className="w-8 h-px bg-accent-pink" />
+              <div className="w-8 h-px bg-accent-purple" />
               <span className="text-sm tracking-wide text-muted-foreground font-medium">
                 {t("אודות", "About")}
               </span>
@@ -79,7 +79,7 @@ const AboutSection = () => {
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
               <br />
-              <span className="text-accent-pink italic">
+              <span className="text-accent-purple italic">
                 {t("טכנולוגיה", "Technology")}
               </span>
             </h2>

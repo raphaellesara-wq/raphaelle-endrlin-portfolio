@@ -61,7 +61,7 @@ const SkillsSection = () => {
       id="skills"
       ref={sectionRef}
       className="py-10 md:py-16 relative overflow-hidden"
-      style={{ backgroundColor: "#FAF7F2" }}
+      style={{ backgroundColor: "#F5F8FD" }}
     >
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
@@ -89,14 +89,14 @@ const SkillsSection = () => {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px" style={{ backgroundColor: "#F09A60" }} />
-            <span className="text-sm tracking-wide font-medium" style={{ color: "#F09A60" }}>
+            <div className="w-8 h-px" style={{ backgroundColor: "#72AEE8" }} />
+            <span className="text-sm tracking-wide font-medium" style={{ color: "#72AEE8" }}>
               {t("כלים ומיומנויות", "Tools & Skills")}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#2C2C3A" }}>
             {t("ה-", "My ")}
-            <span className="italic" style={{ color: "#F09A60" }}>Arsenal</span>
+            <span className="italic" style={{ color: "#72AEE8" }}>Arsenal</span>
             {t(" שלי", "")}
           </h2>
         </div>
