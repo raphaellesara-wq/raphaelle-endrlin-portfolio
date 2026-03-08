@@ -79,7 +79,7 @@ function useVisibleCount() {
 }
 
 const ProjectsSection = () => {
-  const { t, isRTL, lang } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
   const visibleCount = useVisibleCount();
   const [currentIndex, setCurrentIndex] = useState(0);
