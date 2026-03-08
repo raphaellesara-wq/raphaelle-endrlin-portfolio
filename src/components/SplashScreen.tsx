@@ -12,30 +12,30 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-1200 ${
         phase === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
       style={{ background: "#FAFAF8" }}
     >
       {/* Logo */}
       <div
-        className={`mb-6 text-center transition-all duration-1000 ${
+        className={`mb-10 text-center transition-all duration-1000 ${
           phase === "logo" || phase === "exit" ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95"
         }`}
       >
         <span
-          className="block text-6xl md:text-7xl tracking-tight"
+          className="block text-8xl md:text-9xl tracking-tight"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: "hsl(348,30%,70%)", letterSpacing: "-0.02em", lineHeight: 1 }}
         >
           R.E
         </span>
-        <p className="text-sm md:text-base text-muted-foreground mt-3 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.15em" }}>
+        <p className="text-base md:text-lg text-muted-foreground mt-4 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
           Raphaëlle Enderlin
         </p>
       </div>
 
-      {/* Automation flow — large */}
-      <div className="w-[96vw] max-w-[900px] h-auto aspect-[900/340]">
+      {/* Automation flow — extra large */}
+      <div className="w-[98vw] max-w-[1100px] h-auto aspect-[900/340]">
         <svg viewBox="0 0 900 340" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
 
           {/* ═══ LEVEL 1: Root ═══ */}
