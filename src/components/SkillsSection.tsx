@@ -160,13 +160,11 @@ const SkillsSection = () => {
           {categories.map((cat, i) => (
             <div
               key={i}
-              className={`group relative rounded-[20px] border border-border transition-all duration-250 ease-out flex flex-col bg-card ${
+              className={`group relative rounded-[20px] border border-border transition-all duration-250 ease-out flex flex-col bg-card p-5 md:p-7 min-h-[200px] md:min-h-[280px] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{
                 transitionDelay: `${200 + i * 150}ms`,
-                padding: window.innerWidth < 768 ? "24px 20px" : "32px 28px",
-                minHeight: window.innerWidth < 768 ? 200 : 280,
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
