@@ -444,8 +444,8 @@ section#contact {
   letter-spacing: 0.02em;
 }
 
-.contact-submit:hover {
-  background: hsl(155, 25%, 45%);
+  .contact-submit:hover {
+  background: hsl(155, 30%, 55%);
   transform: translateY(-1px);
 }
 

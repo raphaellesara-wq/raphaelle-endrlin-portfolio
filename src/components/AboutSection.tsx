@@ -22,48 +22,55 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-10 md:py-16 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
+    <section id="about" ref={sectionRef} className="py-8 md:py-12 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto lg:mx-0 space-y-6">
-          <div
-            className={`flex items-center gap-3 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            <div className="w-8 h-px bg-muted-foreground/30" />
-            <span className="text-sm tracking-wide text-muted-foreground font-medium">
-              {t("אודות", "About")}
-            </span>
-          </div>
-
-          <h2
-            className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            {t("אסטרטגיה שפוגשת", "Strategy Meets")}
-            <br />
-            <em className="not-italic text-muted-foreground">
-              {t("טכנולוגיה", "Technology")}
-            </em>
-          </h2>
-
-          {paragraphs.map((para, i) => (
-            <p
-              key={i}
-              className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-700 ${
+        <div className="grid lg:grid-cols-[1fr_auto] items-center gap-8 lg:gap-12">
+          {/* Text column */}
+          <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
+            <div
+              className={`flex items-center gap-3 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ transitionDelay: `${200 + i * 150}ms` }}
             >
-              {para}
-            </p>
-          ))}
-        </div>
+              <div className="w-8 h-px bg-muted-foreground/30" />
+              <span className="text-sm tracking-wide text-muted-foreground font-medium">
+                {t("אודות", "About")}
+              </span>
+            </div>
 
-        {/* Illustration — below content */}
-        <div className="hidden md:flex justify-center mt-4 about-illust-wrap">
-          <AboutIllustration />
+            <h2
+              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-700 delay-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+            >
+              {t("אסטרטגיה שפוגשת", "Strategy Meets")}
+              <br />
+              <em className="not-italic text-muted-foreground">
+                {t("טכנולוגיה", "Technology")}
+              </em>
+            </h2>
+
+            {paragraphs.map((para, i) => (
+              <p
+                key={i}
+                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                }`}
+                style={{ transitionDelay: `${200 + i * 150}ms` }}
+              >
+                {para}
+              </p>
+            ))}
+          </div>
+
+          {/* Illustration — beside text on desktop */}
+          <div
+            className={`hidden lg:flex about-illust-wrap transition-all duration-1000 delay-300 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            }`}
+          >
+            <AboutIllustration />
+          </div>
         </div>
       </div>
     </section>

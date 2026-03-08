@@ -46,7 +46,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex items-center pt-20 pb-16 md:pt-24 md:pb-20"
+      className="relative flex items-center pt-20 pb-10 md:pt-24 md:pb-14"
       style={{
         background: "#FAFAF8",
         minHeight: "100vh",
