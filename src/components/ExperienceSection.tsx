@@ -18,14 +18,24 @@ const mavenBullets = {
 
 const freelanceBullets = {
   he: [
-    "ניהול תוכן ופרסום בסושיאל לאמנים עצמאיים",
-    "יצירת וידאו ותוכן ויזואלי",
+    "בניית מועדון לקוחות ב-Shopify עבור Umina Superfood באמצעות תוסף Rise.ai — מנגנון קרדיטים שנצברים לאחר רכישת המועדון ומומשים בפועל",
+    "עיצוב ובניית 3 מסעות לקוח מקצועיים: הטבת הצטרפות, הטבת יום הולדת, והתראה לפני סיום חברות במועדון",
+    "בניית ועיצוב אתרים ללקוחות בעזרת Figma ו-Google Sites (Stitch)",
+    "ניהול סוציאל, יצירת תוכן ועריכת סרטונים עבור אמנים עצמאיים",
   ],
   en: [
-    "Social content management & advertising for independent artists",
-    "Video creation & visual content",
+    "Built a loyalty club on Shopify for Umina Superfood using Rise.ai — a credit system earned upon membership purchase, redeemable on orders",
+    "Designed 3 professional customer journeys: welcome benefit, birthday benefit, and pre-expiry membership renewal reminder",
+    "Built and designed client websites using Figma and Google Sites (Stitch)",
+    "Social media management, content creation and video editing for independent artists",
   ],
 };
+
+const freelanceAchievements = [
+  { he: "Umina Superfood", en: "Umina Superfood" },
+  { he: "Rise.ai + Shopify", en: "Rise.ai + Shopify" },
+  { he: "Figma + Google Sites", en: "Figma + Google Sites" },
+];
 
 const achievements = [
   { he: "20+ לקוחות", en: "20+ Clients" },
