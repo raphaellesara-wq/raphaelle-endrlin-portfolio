@@ -118,7 +118,7 @@ const SkillsSection = () => {
           <circle className="arsenal-particle" cx="480" cy="80" r="2" fill="#C4834A" opacity="0.3" />
         </svg>
       </div>
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-5 md:px-6 relative z-10">
         {/* Mini icons row */}
         <div
           className={`flex items-center justify-center gap-4 mb-6 transition-all duration-700 ${
