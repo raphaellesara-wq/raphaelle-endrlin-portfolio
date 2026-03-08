@@ -50,7 +50,7 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-10 md:py-16" style={{ background: "linear-gradient(180deg, #FFF8F5 0%, #FFF3EE 100%)" }}>
+    <section id="experience" ref={sectionRef} className="py-10 md:py-16 pb-20 relative" style={{ background: "linear-gradient(180deg, #FFF8F5 0%, #FFF3EE 100%)" }}>
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div
