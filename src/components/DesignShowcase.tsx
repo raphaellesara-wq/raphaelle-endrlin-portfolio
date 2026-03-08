@@ -475,7 +475,7 @@ const DesignShowcase = () => {
                     e.currentTarget.style.color = "white";
                   }}
                 >
-                  {isRTL ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+                  {isRTL ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
                 </button>
               </>
             )}
