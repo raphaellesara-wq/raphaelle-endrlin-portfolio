@@ -304,8 +304,8 @@
 @media (max-width: 768px) {
   .hero-illust-wrap,
   .about-illust-wrap {
-    max-width: 160px;
-    opacity: 0.2;
+    max-width: 100px;
+    opacity: 0.5;
   }
 }
 
