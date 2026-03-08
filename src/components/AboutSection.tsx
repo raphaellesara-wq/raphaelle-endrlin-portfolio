@@ -89,7 +89,7 @@ const AboutSection = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Languages card */}
             <div
-              className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-300 ${
+              className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-300 hover:-translate-y-1 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
