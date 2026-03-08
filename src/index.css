@@ -4,44 +4,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 16% 20%;
+    --background: 40 20% 99%;
+    --foreground: 252 20% 13%;
 
-    --card: 240 33% 99%;
-    --card-foreground: 240 16% 20%;
+    --card: 40 10% 100%;
+    --card-foreground: 252 20% 13%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 16% 20%;
+    --popover: 40 20% 99%;
+    --popover-foreground: 252 20% 13%;
 
-    --primary: 240 16% 20%;
+    --primary: 252 20% 13%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 260 40% 96%;
-    --secondary-foreground: 240 16% 20%;
+    --secondary: 40 10% 97%;
+    --secondary-foreground: 252 20% 13%;
 
-    --muted: 260 30% 96%;
-    --muted-foreground: 240 8% 55%;
+    --muted: 40 10% 97%;
+    --muted-foreground: 256 10% 50%;
 
-    --accent-pink: 350 68% 73%;
-    --accent-pink-pale: 348 90% 97%;
-    --accent-orange: 24 84% 66%;
-    --accent-orange-pale: 30 92% 87%;
-    --accent-green: 155 44% 60%;
-    --accent-green-pale: 155 70% 91%;
-    --accent-blue: 210 68% 68%;
-    --accent-blue-pale: 210 80% 92%;
-    --accent-purple: 268 46% 69%;
-    --accent-purple-pale: 264 60% 94%;
+    --accent-pink: 348 42% 65%;
+    --accent-pink-pale: 348 50% 97%;
+    --accent-orange: 27 47% 53%;
+    --accent-orange-pale: 27 60% 95%;
+    --accent-green: 155 38% 39%;
+    --accent-green-pale: 155 30% 94%;
+    --accent-blue: 207 36% 48%;
+    --accent-blue-pale: 207 40% 95%;
+    --accent-purple: 258 25% 53%;
+    --accent-purple-pale: 258 30% 96%;
 
-    --accent: 268 46% 69%;
+    --accent: 258 25% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 260 30% 93%;
-    --input: 260 30% 93%;
-    --ring: 268 46% 69%;
+    --border: 258 20% 93%;
+    --input: 258 20% 93%;
+    --ring: 258 25% 53%;
 
     --radius: 0.5rem;
 

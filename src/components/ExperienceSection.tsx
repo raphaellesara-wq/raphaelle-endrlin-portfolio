@@ -50,7 +50,7 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-10 md:py-16 pb-20 relative" style={{ background: "linear-gradient(180deg, #FFF8F5 0%, #FFF3EE 100%)" }}>
+    <section id="experience" ref={sectionRef} className="py-10 md:py-16 relative" style={{ background: "#FAFAF8" }}>
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div
@@ -79,8 +79,6 @@ const ExperienceSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="absolute top-0 end-0 w-[300px] h-[300px] rounded-full bg-accent-orange/[0.06] blur-[80px] pointer-events-none" />
-
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
                 <div>
@@ -129,8 +127,6 @@ const ExperienceSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="absolute top-0 end-0 w-[300px] h-[300px] rounded-full bg-accent-orange/[0.06] blur-[80px] pointer-events-none" />
-
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
                 <div>
@@ -170,12 +166,6 @@ const ExperienceSection = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Wave divider — peach to white */}
-      <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 5 }}>
-        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
-          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
-        </svg>
       </div>
     </section>
   );

@@ -47,30 +47,21 @@ const HeroSection = () => {
     <section
       className="relative flex items-center pt-20 pb-16 md:pt-24 md:pb-20"
       style={{
-        background: "linear-gradient(135deg, #FDFCFF 0%, #F5F0FF 60%, #EDF8F4 100%)",
+        background: "#FAFAF8",
         minHeight: "100vh",
         overflow: "visible",
       }}
     >
-      {/* Grain texture overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "repeat",
-        }}
-      />
-
       {/* Small decorative dots only */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="absolute top-[18%] end-[25%]" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
-          <circle cx="4" cy="4" r="4" fill="#E88FA0" opacity="0.6" />
+          <circle cx="4" cy="4" r="4" fill="hsl(var(--accent-pink))" opacity="0.5" />
         </svg>
         <svg className="absolute top-[12%] end-[18%]" width="7" height="7" viewBox="0 0 7 7" aria-hidden="true">
-          <circle cx="3.5" cy="3.5" r="3.5" fill="#F09A60" opacity="0.6" />
+          <circle cx="3.5" cy="3.5" r="3.5" fill="hsl(var(--accent-orange))" opacity="0.5" />
         </svg>
         <svg className="absolute top-[24%] end-[14%]" width="6" height="6" viewBox="0 0 6 6" aria-hidden="true">
-          <circle cx="3" cy="3" r="3" fill="#6DC4A0" opacity="0.6" />
+          <circle cx="3" cy="3" r="3" fill="hsl(var(--accent-green))" opacity="0.5" />
         </svg>
       </div>
 
@@ -92,7 +83,7 @@ const HeroSection = () => {
               </span>
             </div>
 
-            {/* H1 — responsive clamp */}
+            {/* H1 */}
             <h1
               className="font-display font-extrabold animate-fade-up"
               style={{
@@ -110,7 +101,7 @@ const HeroSection = () => {
               <span className="text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
             </h1>
 
-            {/* Italic sub — FIXED spelling */}
+            {/* Italic sub */}
             <p
               className="text-base md:text-lg italic text-muted-foreground font-body animate-fade-up"
               style={{ animationDelay: "300ms" }}
@@ -182,7 +173,7 @@ const HeroSection = () => {
               <div
                 className="h-1 w-full"
                 style={{
-                  background: "linear-gradient(to left, hsl(350 68% 73%), hsl(24 84% 66%), hsl(155 44% 60%), hsl(210 68% 68%), hsl(268 46% 69%))",
+                  background: "linear-gradient(to left, hsl(var(--accent-pink)), hsl(var(--accent-orange)), hsl(var(--accent-green)), hsl(var(--accent-blue)), hsl(var(--accent-purple)))",
                 }}
               />
 
@@ -194,11 +185,11 @@ const HeroSection = () => {
                       <div
                         key={i}
                         className="text-center rounded-xl p-3"
-                        style={isMint ? { backgroundColor: "#E8F7F2" } : undefined}
+                        style={isMint ? { backgroundColor: "hsl(var(--accent-green-pale))" } : undefined}
                       >
                         <div
                           className="text-3xl font-display font-normal"
-                          style={isMint ? { color: "#4AAF8C" } : undefined}
+                          style={isMint ? { color: "hsl(var(--accent-green))" } : undefined}
                         >
                           {statValues[i]}
                         </div>
@@ -226,13 +217,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 5 }}>
-        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
-          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
-        </svg>
       </div>
     </section>
   );

@@ -7,16 +7,16 @@ const categories = [
     he: "עיצוב ויצירה",
     en: "Design & Creation",
     skills: ["Figma", "Canva Pro", "Adobe Suite", "Premiere Pro"],
-    accent: "#E88FA0",
-    paleBg: "#FEF0F3",
-    tagColor: "#E88FA0",
-    blobColor: "#E88FA0",
+    accent: "var(--accent-pink)",
+    accentHsl: "hsl(var(--accent-pink))",
+    paleBg: "hsl(var(--accent-pink-pale))",
+    tagColor: "hsl(var(--accent-pink))",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#E88FA0" strokeWidth="1.5" strokeLinecap="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="hsl(var(--accent-pink))" strokeWidth="1.5" strokeLinecap="round">
         <circle cx="14" cy="14" r="10" />
-        <circle cx="9" cy="11" r="1.5" fill="#E88FA0" stroke="none" />
-        <circle cx="14" cy="8" r="1.5" fill="#E88FA0" stroke="none" />
-        <circle cx="19" cy="11" r="1.5" fill="#E88FA0" stroke="none" />
+        <circle cx="9" cy="11" r="1.5" fill="hsl(var(--accent-pink))" stroke="none" />
+        <circle cx="14" cy="8" r="1.5" fill="hsl(var(--accent-pink))" stroke="none" />
+        <circle cx="19" cy="11" r="1.5" fill="hsl(var(--accent-pink))" stroke="none" />
         <path d="M14 24 C14 24 20 20 20 16 C20 14 18 13 16 14" />
       </svg>
     ),
@@ -25,12 +25,12 @@ const categories = [
     he: "Email Marketing",
     en: "Email Marketing",
     skills: ["FlashyApp", "Klaviyo", "Mailchimp", "InforU Mobile"],
-    accent: "#6DC4A0",
-    paleBg: "#D6F5EA",
-    tagColor: "#4AAF8C",
-    blobColor: "#6DC4A0",
+    accent: "var(--accent-green)",
+    accentHsl: "hsl(var(--accent-green))",
+    paleBg: "hsl(var(--accent-green-pale))",
+    tagColor: "hsl(var(--accent-green))",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#6DC4A0" strokeWidth="1.5" strokeLinecap="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="hsl(var(--accent-green))" strokeWidth="1.5" strokeLinecap="round">
         <rect x="3" y="7" width="22" height="16" rx="3" />
         <path d="M3 9 L14 17 L25 9" />
       </svg>
@@ -40,12 +40,12 @@ const categories = [
     he: "אוטומציות ו-AI",
     en: "Automation & AI",
     skills: ["MAKE.com", "N8N", "ChatGPT / Claude", "Perplexity"],
-    accent: "#A98ED4",
-    paleBg: "#EDE6FA",
-    tagColor: "#8B6FC4",
-    blobColor: "#A98ED4",
+    accent: "var(--accent-purple)",
+    accentHsl: "hsl(var(--accent-purple))",
+    paleBg: "hsl(var(--accent-purple-pale))",
+    tagColor: "hsl(var(--accent-purple))",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#A98ED4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="hsl(var(--accent-purple))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 3 L8 16 H14 L12 25 L20 12 H14 Z" />
       </svg>
     ),
@@ -61,7 +61,7 @@ const SkillsSection = () => {
       id="skills"
       ref={sectionRef}
       className="py-10 md:py-16 pb-20 relative"
-      style={{ background: "linear-gradient(180deg, #F8F5FF 0%, #F0EAFF 100%)" }}
+      style={{ background: "#FAFAF8" }}
     >
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
@@ -71,15 +71,15 @@ const SkillsSection = () => {
           }`}
         >
           <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-            <path d="M11 2L12.5 8.5L19 7L13.5 11L17 17L11 13.5L5 17L8.5 11L3 7L9.5 8.5Z" fill="#A98ED4" />
+            <path d="M11 2L12.5 8.5L19 7L13.5 11L17 17L11 13.5L5 17L8.5 11L3 7L9.5 8.5Z" fill="hsl(var(--accent-purple))" />
           </svg>
-          <Droplet size={20} strokeWidth={1.5} color="#72AEE8" />
+          <Droplet size={20} strokeWidth={1.5} color="hsl(var(--accent-blue))" />
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M11 20 C11 20 3 14 3 8 C3 5 6 3 11 3 C16 3 19 5 19 8 C19 14 11 20 11 20Z" stroke="#6DC4A0" strokeWidth="1.5" />
-            <line x1="11" y1="20" x2="11" y2="10" stroke="#6DC4A0" strokeWidth="1.5" />
+            <path d="M11 20 C11 20 3 14 3 8 C3 5 6 3 11 3 C16 3 19 5 19 8 C19 14 11 20 11 20Z" stroke="hsl(var(--accent-green))" strokeWidth="1.5" />
+            <line x1="11" y1="20" x2="11" y2="10" stroke="hsl(var(--accent-green))" strokeWidth="1.5" />
           </svg>
-          <Zap size={20} strokeWidth={1.5} color="#F09A60" />
-          <Star size={20} strokeWidth={1.5} color="#E88FA0" />
+          <Zap size={20} strokeWidth={1.5} color="hsl(var(--accent-orange))" />
+          <Star size={20} strokeWidth={1.5} color="hsl(var(--accent-pink))" />
         </div>
 
         {/* Section header */}
@@ -89,14 +89,14 @@ const SkillsSection = () => {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px" style={{ backgroundColor: "#72AEE8" }} />
-            <span className="text-sm tracking-wide font-medium" style={{ color: "#72AEE8" }}>
+            <div className="w-8 h-px bg-accent-blue" />
+            <span className="text-sm tracking-wide font-medium text-accent-blue">
               {t("כלים ומיומנויות", "Tools & Skills")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#2C2C3A" }}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
             {t("ה-", "My ")}
-            <span className="italic" style={{ color: "#72AEE8" }}>Arsenal</span>
+            <span className="italic text-accent-blue">Arsenal</span>
             {t(" שלי", "")}
           </h2>
         </div>
@@ -106,13 +106,11 @@ const SkillsSection = () => {
           {categories.map((cat, i) => (
             <div
               key={i}
-              className={`group relative rounded-[20px] border transition-all duration-250 ease-out flex flex-col ${
+              className={`group relative rounded-[20px] border border-border transition-all duration-250 ease-out flex flex-col bg-card ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{
                 transitionDelay: `${200 + i * 150}ms`,
-                backgroundColor: "#fff",
-                borderColor: "#EEEAF5",
                 padding: "32px 28px",
                 minHeight: 280,
               }}
@@ -129,13 +127,8 @@ const SkillsSection = () => {
             >
               {/* Top accent border */}
               <div
-                className="absolute top-0 left-0 right-0 h-1 rounded-t-[20px]"
-                style={{ backgroundColor: cat.accent }}
-              />
-              {/* Corner blob */}
-              <div
-                className="absolute -bottom-8 -left-5 w-[100px] h-[100px] rounded-full"
-                style={{ backgroundColor: cat.blobColor, opacity: 0.06 }}
+                className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[20px]"
+                style={{ backgroundColor: cat.accentHsl }}
               />
 
               {/* Icon */}
@@ -152,7 +145,7 @@ const SkillsSection = () => {
               </div>
 
               {/* Title */}
-              <h3 className="mb-5" style={{ fontSize: 17, fontWeight: 700, color: "#2C2C3A" }}>
+              <h3 className="mb-5 text-foreground" style={{ fontSize: 17, fontWeight: 700 }}>
                 {t(cat.he, cat.en)}
               </h3>
 
@@ -161,9 +154,9 @@ const SkillsSection = () => {
                 {cat.skills.map((skill, j) => (
                   <span
                     key={j}
-                    className="inline-flex items-center rounded-full"
+                    className="inline-flex items-center rounded-full border border-transparent"
                     style={{
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: 500,
                       padding: "5px 12px",
                       backgroundColor: cat.paleBg,

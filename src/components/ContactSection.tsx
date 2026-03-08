@@ -49,7 +49,7 @@ const ContactSection = () => {
       id="contact"
       ref={sectionRef}
       className="py-10 md:py-16"
-      style={{ background: "linear-gradient(135deg, #1E1B2E 0%, #2D2840 100%)" }}
+      style={{ background: "#1C1A28" }}
     >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
@@ -61,15 +61,15 @@ const ContactSection = () => {
               }`}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
-                <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <div className="w-8 h-px" style={{ backgroundColor: "hsl(var(--accent-green))" }} />
+                <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
                   {t("צור קשר", "Contact")}
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
                 {t("נשמח", "Let's")}
                 <br />
-                <span className="italic" style={{ color: "#6DC4A0" }}>{t("לדבר", "Talk")}</span>
+                <span className="italic" style={{ color: "hsl(var(--accent-green))" }}>{t("לדבר", "Talk")}</span>
               </h2>
             </div>
 
@@ -77,7 +77,7 @@ const ContactSection = () => {
               className={`text-sm md:text-base leading-relaxed max-w-md transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ color: "rgba(255,255,255,0.7)" }}
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
               {t(
                 "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
@@ -100,15 +100,15 @@ const ContactSection = () => {
                     }`}
                     style={{
                       transitionDelay: `${200 + i * 100}ms`,
-                      background: "rgba(255,255,255,0.06)",
-                      borderColor: "rgba(255,255,255,0.12)",
+                      background: "rgba(255,255,255,0.05)",
+                      borderColor: "rgba(255,255,255,0.10)",
                     }}
                   >
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(109,196,160,0.15)" }}>
-                      <Icon size={18} style={{ color: "#6DC4A0" }} />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(61,139,110,0.15)" }}>
+                      <Icon size={18} style={{ color: "hsl(var(--accent-green))" }} />
                     </div>
                     <div>
-                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>{t(link.heLabel, link.enLabel)}</p>
+                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{t(link.heLabel, link.enLabel)}</p>
                       <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{link.value}</p>
                     </div>
                   </a>
@@ -133,11 +133,12 @@ const ContactSection = () => {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6DC4A0]/40"
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2"
                   style={{
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                     color: "#FFFFFF",
+                    focusRingColor: "hsl(var(--accent-green))",
                   }}
                   placeholder={t("הכנס שם מלא", "Enter your full name")}
                 />
@@ -152,10 +153,10 @@ const ContactSection = () => {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6DC4A0]/40"
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2"
                   style={{
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                     color: "#FFFFFF",
                   }}
                   placeholder={t("הכנס אימייל", "Enter your email")}
@@ -171,10 +172,10 @@ const ContactSection = () => {
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#6DC4A0]/40 resize-none"
+                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 resize-none"
                   style={{
-                    background: "rgba(255,255,255,0.08)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
                     color: "#FFFFFF",
                   }}
                   placeholder={t("כתוב הודעה...", "Write your message...")}
@@ -186,14 +187,14 @@ const ContactSection = () => {
                 size="lg"
                 className="w-full rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{
-                  backgroundColor: submitted ? "#6DC4A0" : "#6DC4A0",
+                  backgroundColor: "hsl(var(--accent-green))",
                   color: "#FFFFFF",
                 }}
                 onMouseEnter={(e) => {
-                  if (!submitted) (e.currentTarget as HTMLElement).style.backgroundColor = "#4AAF8C";
+                  if (!submitted) (e.currentTarget as HTMLElement).style.opacity = "0.9";
                 }}
                 onMouseLeave={(e) => {
-                  if (!submitted) (e.currentTarget as HTMLElement).style.backgroundColor = "#6DC4A0";
+                  if (!submitted) (e.currentTarget as HTMLElement).style.opacity = "1";
                 }}
                 disabled={submitted}
               >
