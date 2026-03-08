@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { ZoomIn, X } from "lucide-react";
 
 type TabKey = "newsletters" | "popups" | "webdesign";
 
-interface GalleryCard {
+interface GalleryCardData {
   src: string;
   heLabel: string;
   enLabel: string;
@@ -24,7 +25,7 @@ const tabs: { key: TabKey; he: string; en: string }[] = [
   { key: "webdesign", he: "עיצוב ואוטומציה", en: "Web Design & Automation" },
 ];
 
-const galleryData: Record<TabKey, GalleryCard[]> = {
+const galleryData: Record<TabKey, GalleryCardData[]> = {
   newsletters: [
     {
       src: "/popup-umina.png",
@@ -128,162 +129,264 @@ const galleryData: Record<TabKey, GalleryCard[]> = {
   ],
 };
 
-const DesignShowcase = () => {
-  const { t, isRTL } = useLanguage();
-  const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
-  const [activeTab, setActiveTab] = useState<TabKey>("newsletters");
-
-  const cards = galleryData[activeTab];
-  const isPopups = activeTab === "popups";
-  const isWebDesign = activeTab === "webdesign";
+/* ── Lightbox ── */
+const Lightbox = ({
+  card,
+  onClose,
+  t,
+}: {
+  card: GalleryCardData;
+  onClose: () => void;
+  t: (he: string, en: string) => string;
+}) => {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
 
   return (
-    <section id="showcase" ref={sectionRef} className="py-10 md:py-16 bg-background">
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div
-          className={`mb-8 md:mb-10 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-6 animate-in fade-in duration-200"
+      style={{ background: "rgba(28,24,48,0.85)", backdropFilter: "blur(4px)" }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div
+        className="relative bg-background rounded-[20px] overflow-hidden w-full flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250"
+        style={{ maxWidth: 700, maxHeight: "88vh" }}
+      >
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-background flex items-center justify-center border border-border shadow-md hover:scale-110 transition-transform"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
-            <span className="text-sm tracking-wide font-medium" style={{ color: "#6DC4A0" }}>
-              {t("עיצוב", "Design")}
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
-            {t("כך נראית ", "This Is What The ")}
-            <em className="not-italic" style={{ color: "#6DC4A0" }}>
-              {t("העבודה בפועל", "Work Looks Like")}
-            </em>
-          </h2>
-          <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-lg">
-            {t(
-              "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
-              "Newsletters, pop-ups, web design and automations from recent projects"
-            )}
+          <X size={18} className="text-foreground" />
+        </button>
+
+        {/* Scrollable image */}
+        <div
+          className="overflow-y-auto"
+          style={{ maxHeight: "calc(88vh - 80px)", background: card.imageBg ?? "#F8F6FF" }}
+        >
+          <img
+            src={card.src}
+            alt={card.enLabel}
+            className="w-full block"
+            style={{ height: "auto", objectFit: "contain" }}
+          />
+        </div>
+
+        {/* Info bar */}
+        <div className="px-5 py-4 border-t border-border flex-shrink-0">
+          <p className="font-bold text-foreground" style={{ fontSize: 14 }}>
+            {t(card.heLabel, card.enLabel)}
           </p>
-        </div>
-
-        {/* Tabs */}
-        <div
-          className={`flex flex-wrap gap-2 mb-8 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
-          style={{ transitionDelay: "150ms" }}
-        >
-          {tabs.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
-              style={
-                activeTab === tab.key
-                  ? { backgroundColor: "#6DC4A0", color: "#fff", borderColor: "#6DC4A0" }
-                  : { backgroundColor: "#fff", color: "#9A8FA8", borderColor: "#E8E4F5" }
-              }
-            >
-              {t(tab.he, tab.en)}
-            </button>
-          ))}
-        </div>
-
-        {/* Gallery grid */}
-        <div
-          key={activeTab}
-          className={`transition-all duration-300 ${
-            isPopups
-              ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-              : isWebDesign
-              ? "grid grid-cols-1 md:grid-cols-2 gap-6"
-              : "columns-1 sm:columns-2 gap-6 space-y-6"
-          }`}
-        >
-          {cards.map((card, i) => (
-            <GalleryCard
-              key={card.src + i}
-              card={card}
-              index={i}
-              isVisible={isVisible}
-              isPopups={isPopups}
-              t={t}
-            />
-          ))}
+          {card.heDesc && (
+            <p className="text-muted-foreground mt-1" style={{ fontSize: 12 }}>
+              {t(card.heDesc, card.enDesc ?? "")}
+            </p>
+          )}
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            {card.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full font-medium inline-flex"
+                style={{
+                  fontSize: 11,
+                  padding: "3px 10px",
+                  backgroundColor: card.paleBg,
+                  color: card.accent,
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
+/* ── Gallery Card (thumbnail) ── */
 const GalleryCard = ({
   card,
   index,
   isVisible,
-  isPopups,
+  onClick,
   t,
 }: {
-  card: GalleryCard;
+  card: GalleryCardData;
   index: number;
   isVisible: boolean;
-  isPopups: boolean;
+  onClick: () => void;
   t: (he: string, en: string) => string;
-}) => {
-  const maxH = card.imageMaxHeight ?? 420;
-  const fit = card.objectFit ?? "contain";
-  const bg = card.imageBg ?? "#FAFAFE";
-
-  return (
+}) => (
+  <div
+    onClick={onClick}
+    className="group rounded-2xl border overflow-hidden bg-background cursor-pointer transition-all duration-250"
+    style={{
+      borderColor: "#EEEAF5",
+      opacity: isVisible ? 1 : 0,
+      transform: isVisible ? "translateY(0)" : "translateY(8px)",
+      transitionDelay: `${80 * index}ms`,
+    }}
+    onMouseEnter={(e) => {
+      (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
+      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(44,44,58,0.12)";
+    }}
+    onMouseLeave={(e) => {
+      (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)";
+      (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+    }}
+  >
+    {/* Thumbnail */}
     <div
-      className={`rounded-2xl border overflow-hidden bg-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
-        isPopups ? "" : "break-inside-avoid"
-      }`}
-      style={{
-        borderColor: "#EEEAF5",
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(8px)",
-        transitionDelay: `${80 * index}ms`,
-      }}
+      className="relative w-full overflow-hidden flex items-center justify-center"
+      style={{ height: 200, background: card.imageBg ?? "#F8F6FF" }}
     >
-      {/* Image */}
-      <div style={{ backgroundColor: bg, maxHeight: maxH, overflow: "hidden" }}>
-        <img
-          src={card.src}
-          alt={card.enLabel}
-          loading="lazy"
-          className="w-full block"
-          style={{ objectFit: fit, maxHeight: maxH, backgroundColor: bg }}
-        />
-      </div>
-
-      {/* Caption */}
-      <div className="p-5">
-        <p className="font-semibold text-foreground" style={{ fontSize: 13 }}>
-          {t(card.heLabel, card.enLabel)}
-        </p>
-        {card.heDesc && (
-          <p className="text-muted-foreground mt-1" style={{ fontSize: 12 }}>
-            {t(card.heDesc, card.enDesc ?? "")}
-          </p>
-        )}
-        <div className="flex flex-wrap gap-1.5 mt-2.5">
-          {card.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full font-medium inline-flex"
-              style={{
-                fontSize: 11,
-                padding: "3px 10px",
-                backgroundColor: card.paleBg,
-                color: card.accent,
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <img
+        src={card.src}
+        alt={card.enLabel}
+        loading="lazy"
+        className="w-full h-full block"
+        style={{ objectFit: "cover", objectPosition: "top" }}
+      />
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-[#A98ED4]/0 group-hover:bg-[#A98ED4]/15 transition-colors duration-250" />
+      {/* Zoom icon */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform duration-250">
+        <ZoomIn size={18} style={{ color: "#A98ED4" }} />
       </div>
     </div>
+
+    {/* Info */}
+    <div className="px-4 py-3.5">
+      <p className="font-semibold text-foreground mb-2" style={{ fontSize: 13 }}>
+        {t(card.heLabel, card.enLabel)}
+      </p>
+      {card.heDesc && (
+        <p className="text-muted-foreground mb-2" style={{ fontSize: 12 }}>
+          {t(card.heDesc, card.enDesc ?? "")}
+        </p>
+      )}
+      <div className="flex flex-wrap gap-1.5">
+        {card.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full font-medium inline-flex"
+            style={{
+              fontSize: 11,
+              padding: "3px 10px",
+              backgroundColor: card.paleBg,
+              color: card.accent,
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+/* ── Main Section ── */
+const DesignShowcase = () => {
+  const { t } = useLanguage();
+  const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
+  const [activeTab, setActiveTab] = useState<TabKey>("newsletters");
+  const [lightboxCard, setLightboxCard] = useState<GalleryCardData | null>(null);
+
+  const closeLightbox = useCallback(() => setLightboxCard(null), []);
+  const cards = galleryData[activeTab];
+
+  const gridClass =
+    activeTab === "popups"
+      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+      : activeTab === "webdesign"
+      ? "grid grid-cols-1 md:grid-cols-2 gap-5"
+      : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5";
+
+  return (
+    <>
+      <section id="showcase" ref={sectionRef} className="py-10 md:py-16 bg-background">
+        <div className="container mx-auto px-6">
+          {/* Header */}
+          <div
+            className={`mb-8 md:mb-10 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
+              <span className="text-sm tracking-wide font-medium" style={{ color: "#6DC4A0" }}>
+                {t("עיצוב", "Design")}
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
+              {t("כך נראית ", "This Is What The ")}
+              <em className="not-italic" style={{ color: "#6DC4A0" }}>
+                {t("העבודה בפועל", "Work Looks Like")}
+              </em>
+            </h2>
+            <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-lg">
+              {t(
+                "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
+                "Newsletters, pop-ups, web design and automations from recent projects"
+              )}
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <div
+            className={`flex flex-wrap gap-2 mb-8 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+            style={{ transitionDelay: "150ms" }}
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
+                style={
+                  activeTab === tab.key
+                    ? { backgroundColor: "#6DC4A0", color: "#fff", borderColor: "#6DC4A0" }
+                    : { backgroundColor: "#fff", color: "#9A8FA8", borderColor: "#E8E4F5" }
+                }
+              >
+                {t(tab.he, tab.en)}
+              </button>
+            ))}
+          </div>
+
+          {/* Grid */}
+          <div key={activeTab} className={gridClass}>
+            {cards.map((card, i) => (
+              <GalleryCard
+                key={card.src + i}
+                card={card}
+                index={i}
+                isVisible={isVisible}
+                onClick={() => setLightboxCard(card)}
+                t={t}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightboxCard && <Lightbox card={lightboxCard} onClose={closeLightbox} t={t} />}
+    </>
   );
 };
 
