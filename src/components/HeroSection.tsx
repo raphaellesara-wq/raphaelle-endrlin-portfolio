@@ -50,7 +50,7 @@ const HeroSection = () => {
       style={{
         background: "#FAFAF8",
         minHeight: "100vh",
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
       {/* Decorative illustration — bottom left (RTL: bottom right) */}
