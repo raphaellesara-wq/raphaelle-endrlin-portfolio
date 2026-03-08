@@ -28,7 +28,7 @@ const AboutSection = () => {
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
-              className={`flex items-center gap-3 transition-all duration-700 ${
+              className={`flex items-center gap-3 transition-all duration-300 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
