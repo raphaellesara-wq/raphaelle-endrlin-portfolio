@@ -418,7 +418,7 @@ section#contact {
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   padding: 100px 80px;
-  background: #1E1E24;
+  background: #F5F4F2;
   overflow: visible;
   position: relative;
   align-items: start;
@@ -449,7 +449,7 @@ section#contact {
   overflow: visible;
   margin-bottom: 20px;
   white-space: normal;
-  color: rgba(255,255,255,0.9);
+  color: hsl(var(--foreground));
 }
 
 /* Form fields */
@@ -458,16 +458,16 @@ section#contact {
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: hsl(var(--muted-foreground));
 }
 
 .form-group input,
 .form-group textarea {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 10px;
   padding: 13px 16px;
-  color: white;
+  color: hsl(var(--foreground));
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
@@ -477,13 +477,13 @@ section#contact {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08);
+  border-color: hsl(var(--muted-foreground) / 0.3);
+  background: hsl(var(--background));
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255,255,255,0.2);
+  color: hsl(var(--muted-foreground) / 0.5);
 }
 
 .form-group textarea {
@@ -492,9 +492,9 @@ section#contact {
 }
 
   .contact-submit {
-  background: rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: hsl(var(--foreground));
+  color: hsl(var(--primary-foreground));
+  border: none;
   border-radius: 10px;
   padding: 14px 28px;
   font-size: 14px;
@@ -502,13 +502,12 @@ section#contact {
   cursor: pointer;
   width: 100%;
   margin-top: 4px;
-  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+  transition: background 0.2s, transform 0.15s;
   letter-spacing: 0.02em;
 }
 
   .contact-submit:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.25);
+  opacity: 0.85;
   transform: translateY(-1px);
 }
 
@@ -520,12 +519,12 @@ section#contact {
 
 /* === FOOTER === */
 .footer-bar {
-  background: #1A1A1F;
+  background: #EEEDEB;
   padding: 32px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid hsl(var(--border));
 }
 
 .footer-left {
@@ -537,13 +536,13 @@ section#contact {
 .footer-name {
   font-size: 15px;
   font-weight: 600;
-  color: rgba(255,255,255,0.7);
+  color: hsl(var(--foreground));
   letter-spacing: 0.02em;
 }
 
 .footer-copy {
   font-size: 12px;
-  color: rgba(255,255,255,0.3);
+  color: hsl(var(--muted-foreground));
 }
 
 .footer-links {
@@ -554,13 +553,13 @@ section#contact {
 
 .footer-link {
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: hsl(var(--muted-foreground));
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-link:hover {
-  color: #3D8B6E;
+  color: hsl(var(--foreground));
 }
 
 @media (max-width: 768px) {

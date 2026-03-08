@@ -53,24 +53,23 @@ const ContactSection = () => {
           }>
           
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.25)" }} />
-            <span className="section-tag" style={{ color: "rgba(255,255,255,0.4)" }}>
+            <div className="w-8 h-px bg-muted-foreground/30" />
+            <span className="section-tag text-muted-foreground">
               {t("צור קשר", "Contact")}
             </span>
           </div>
           <h2 className="contact-heading font-display">
             {t("נשמח", "Let's")}
-            <span className="accent block" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <span className="accent block text-muted-foreground">
               {t("לדבר", "Talk")}
             </span>
           </h2>
         </div>
 
         <p
-          className={`text-sm md:text-base leading-relaxed max-w-md transition-all duration-700 delay-100 ${
+          className={`text-sm md:text-base leading-relaxed max-w-md text-muted-foreground transition-all duration-700 delay-100 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`
-          }
-          style={{ color: "rgba(255,255,255,0.55)" }}>
+          }>
           
           {t(
             "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
