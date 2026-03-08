@@ -100,12 +100,12 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
 const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCardData; index: number; isVisible: boolean; onClick: () => void; t: (he: string, en: string) => string }) => (
   <div
     onClick={onClick}
-    className="showcase-card group rounded-2xl overflow-hidden cursor-pointer transition-all duration-250"
-    style={{ background: "white", borderRadius: 16, boxShadow: "0 8px 32px rgba(0,0,0,0.25)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
-    onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(44,44,58,0.12)"; }}
-    onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.25)"; }}
+    className="showcase-card group rounded-2xl overflow-hidden cursor-pointer transition-all duration-250 border border-border"
+    style={{ background: "white", borderRadius: 16, boxShadow: "0 2px 12px rgba(0,0,0,0.06)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
+    onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 24px rgba(44,44,58,0.10)"; }}
+    onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; }}
   >
-    <div className="relative w-full overflow-hidden flex items-center justify-center" style={{ height: 200, background: card.imageBg ?? "#F6F5F0" }}>
+    <div className="relative w-full overflow-hidden flex items-center justify-center border-b border-border" style={{ height: 200, background: card.imageBg ?? "#F6F5F0" }}>
       <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: "cover", objectPosition: "top" }} />
       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-250" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform duration-250">
