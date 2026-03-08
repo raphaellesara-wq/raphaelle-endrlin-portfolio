@@ -15,7 +15,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center px-4 ${
         phase === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
-      style={{ background: "#FAFAF8", transition: "opacity 0.8s ease-out" }}
+      style={{ background: "#FAFAF8", transition: "opacity 0.4s ease-out" }}
     >
       {/* Logo */}
       <div
