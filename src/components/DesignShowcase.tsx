@@ -176,8 +176,8 @@ const DesignShowcase = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={activeTab === tab.key
-                  ? { backgroundColor: "hsl(var(--accent-green))", color: "white", borderColor: "hsl(var(--accent-green))", fontWeight: 600 }
-                  : { backgroundColor: "hsl(var(--card))", color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))" }}
+                  ? { backgroundColor: "#7A8B6F", color: "white", borderColor: "#7A8B6F", fontWeight: 600 }
+                  : { backgroundColor: "rgba(255,255,255,0.7)", color: "#6B7A60", borderColor: "#D5DDD0" }}
               >
                 {t(tab.he, tab.en)}
               </button>
