@@ -1,8 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Mail, Settings, Palette } from "lucide-react";
+import { Mail, Settings, Palette, Zap, Search } from "lucide-react";
 
-const cardIcons = [Mail, Settings, Palette];
+const cardIcons = [Mail, Settings, Palette, Zap, Search];
 
 const projects = [
   {
