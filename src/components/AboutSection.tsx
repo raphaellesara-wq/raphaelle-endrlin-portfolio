@@ -28,15 +28,15 @@ const AboutSection = () => {
 
   const paragraphs = [
     t(
-      "שלוש שנות ניסיון מוכח בניהול מחלקת Email Marketing במשרד הפרסום MAVEN MEDIA — עם מעל 20 לקוחות ואחוזי פתיחה של 50%+, פי 2 מהממוצע בתעשייה.",
+      "שלוש שנות ניסיון בניהול מחלקת Email Marketing במשרד הפרסום MAVEN MEDIA. ניהלתי מעל 20 לקוחות, תוך השגת אחוזי פתיחה של 50%+ — פי 2 מממוצע הענף.",
       "Three years of proven experience leading Email Marketing at MAVEN MEDIA — 20+ clients, 50%+ open rates, 2x industry average."
     ),
     t(
-      "כיום מעמיקה הכשרה ב-AI ואוטומציות עסקיות עם MAKE.com ו-N8N — משלבת ניסיון שיווקי עם כלי הדור הבא.",
+      "כיום אני מתמחה ב-AI ואוטומציות עסקיות עם MAKE.com ו-N8N, ומשלבת את הניסיון השיווקי שלי עם כלי הדור הבא.",
       "Currently advancing in AI & business automation with MAKE.com and N8N."
     ),
     t(
-      "מחפשת תפקיד שמשלב שיווק, אוטומציה ועיצוב בארגון שמעריך למידה וחדשנות. דוברת 4 שפות.",
+      "מחפשת תפקיד שמשלב שיווק, אוטומציה ועיצוב — בארגון שמאמין בחדשנות ולמידה מתמדת. דוברת 4 שפות בשוטף.",
       "Seeking a role combining marketing, automation, and design. Fluent in 4 languages."
     ),
   ];

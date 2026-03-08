@@ -10,7 +10,7 @@ const Footer = () => {
           RA.
         </span>
         <span className="text-sm text-muted-foreground">
-          {t("רפאל אנדרלין © 2025", "Raphaelle Endrlin © 2025")}
+          Raphaelle Enderlin © 2025
         </span>
       </div>
     </footer>

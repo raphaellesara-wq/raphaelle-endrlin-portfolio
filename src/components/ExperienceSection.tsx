@@ -3,8 +3,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const mavenBullets = {
   he: [
-    "בניית אוטומציות ב-FlashyApp, Klaviyo, MailChimp, InforU Mobile",
-    "ניהול סגמנטציה והתאמה אישית למסעות לקוח",
+    "בניית אוטומציות שיווקיות ב-FlashyApp, Klaviyo, Mailchimp ו-InforU Mobile",
+    "ניהול סגמנטציה והתאמה אישית של מסעות לקוח וניוזלטרים",
     "ניהול SMS בהיקפים רחבים + Google Analytics",
     "עיצוב ניוזלטרים ב-Figma, Canva Pro, Photoroom",
   ],
@@ -19,7 +19,7 @@ const mavenBullets = {
 const freelanceBullets = {
   he: [
     "בניית מועדון לקוחות ב-Shopify עבור Umina Superfood באמצעות תוסף Rise.ai — מנגנון קרדיטים שנצברים לאחר רכישת המועדון ומומשים בפועל",
-    "עיצוב ובניית 3 מסעות לקוח מקצועיים: הטבת הצטרפות, הטבת יום הולדת, והתראה לפני סיום חברות במועדון",
+    "בניית מסעות לקוח בשלל נושאים: ברוכים הבאים, ימי הולדת, הטבות למועדון לקוחות, נטישת עגלה ונטישת אתר",
     "בניית ועיצוב אתרים ללקוחות בעזרת Figma ו-Google Sites (Stitch)",
     "ניהול סוציאל, יצירת תוכן ועריכת סרטונים עבור אמנים עצמאיים",
   ],
