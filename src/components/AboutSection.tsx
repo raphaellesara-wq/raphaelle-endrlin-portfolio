@@ -24,7 +24,7 @@ const AboutSection = () => {
   return (
     <section id="about" ref={sectionRef} className="py-6 md:py-12 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid lg:grid-cols-[1fr_280px] items-center gap-4 lg:gap-10">
+        <div className="grid lg:grid-cols-[1fr_340px] items-center gap-4 lg:gap-4">
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
