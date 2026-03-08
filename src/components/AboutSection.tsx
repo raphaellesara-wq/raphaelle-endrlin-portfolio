@@ -92,9 +92,9 @@ const AboutSection = () => {
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
               <br />
-              <span className="text-accent-purple italic">
+              <em className="not-italic text-accent-purple">
                 {t("טכנולוגיה", "Technology")}
-              </span>
+              </em>
             </h2>
 
             {paragraphs.map((para, i) => (

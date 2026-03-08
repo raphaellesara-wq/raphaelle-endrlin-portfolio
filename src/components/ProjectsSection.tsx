@@ -83,7 +83,7 @@ const ProjectsSection = () => {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
             {t("עבודות ", "Work I'm ")}
-            <span className="text-accent-pink italic">{t("שגאה בהן", "Proud Of")}</span>
+            <em className="not-italic text-accent-pink">{t("שגאה בהן", "Proud Of")}</em>
           </h2>
         </div>
 
