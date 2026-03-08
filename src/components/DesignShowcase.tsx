@@ -156,14 +156,14 @@ const DesignShowcase = () => {
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#7A8B6F" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#7A8B6F" }}>{t("עיצוב", "Design")}</span>
+              <div className="w-8 h-px bg-accent-green" />
+              <span className="text-sm tracking-wide font-medium text-accent-green">{t("עיצוב", "Design")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#3A4434" }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
               {t("עבודות ", "Selected ")}
-              <em className="not-italic" style={{ color: "#7A8B6F" }}>{t("נבחרות", "Work")}</em>
+              <em className="not-italic text-accent-green">{t("נבחרות", "Work")}</em>
             </h2>
-            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "#6B7A60" }}>
+            <p className="text-sm md:text-base mt-3 max-w-lg text-muted-foreground">
               {t("ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי", "Newsletters, pop-ups, web design and automations from recent projects")}
             </p>
           </div>
