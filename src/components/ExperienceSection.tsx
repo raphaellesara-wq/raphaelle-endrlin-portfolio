@@ -77,7 +77,7 @@ const ExperienceSection = () => {
         <div className="space-y-5">
           {/* MAVEN MEDIA card */}
           <div
-            className={`relative rounded-2xl border border-border bg-card p-6 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
+            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
