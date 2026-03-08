@@ -24,7 +24,7 @@ const AboutSection = () => {
   return (
     <section id="about" ref={sectionRef} className="py-6 md:py-12 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid lg:grid-cols-[1fr_300px] items-center gap-2 lg:gap-2">
+        <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
@@ -68,9 +68,9 @@ const AboutSection = () => {
             className="hidden lg:flex about-illust-wrap justify-center"
             style={{
               opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(15px) scale(0.95)',
-              transition: 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s',
-              maxWidth: '280px',
+              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(10px) scale(0.95)',
+              transition: 'opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s',
+              maxWidth: '360px',
               width: '100%',
             }}
           >
