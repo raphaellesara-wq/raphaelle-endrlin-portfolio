@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import HeroIllustration from "@/components/HeroIllustration";
 
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
@@ -52,35 +53,10 @@ const HeroSection = () => {
         overflow: "visible",
       }}
     >
-      {/* Minimal botanical accents — positioned in empty corners */}
-      {/* Top-left leaf cluster */}
-      <svg
-        className="hidden md:block"
-        aria-hidden="true"
-        style={{ position: 'absolute', top: 80, left: 30, pointerEvents: 'none', zIndex: 0, opacity: 0.22, userSelect: 'none' }}
-        width="120" height="140" viewBox="0 0 120 140" fill="none"
-      >
-        <path d="M60 135 Q58 100 60 65 Q61 40 63 15" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-        <path d="M60 95 Q30 78 28 50 Q50 45 60 78 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
-        <path d="M60 65 Q85 50 88 28 Q68 24 60 52 Z" stroke="#7B68A8" strokeWidth="1.5" fill="#7B68A8" fillOpacity="0.05" strokeLinejoin="round" />
-        <circle cx="63" cy="10" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none" />
-        <circle cx="63" cy="10" r="1.5" fill="#D4798A" fillOpacity="0.35" />
-        <circle cx="18" cy="42" r="2" fill="#C4834A" opacity="0.4" />
-        <circle cx="95" cy="22" r="1.5" fill="#3D8B6E" opacity="0.4" />
-      </svg>
-
-      {/* Bottom-center wave + dots */}
-      <svg
-        className="hidden md:block"
-        aria-hidden="true"
-        style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.18, userSelect: 'none' }}
-        width="260" height="40" viewBox="0 0 260 40" fill="none"
-      >
-        <path d="M0 25 Q30 10 65 25 Q100 40 130 25 Q160 10 195 25 Q230 40 260 25" stroke="#3D8B6E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        <circle cx="20" cy="8" r="2" fill="#D4798A" opacity="0.5" />
-        <circle cx="130" cy="5" r="1.5" fill="#7B68A8" opacity="0.4" />
-        <circle cx="240" cy="10" r="2" fill="#C4834A" opacity="0.45" />
-      </svg>
+      {/* Decorative illustration — bottom left (RTL: bottom right) */}
+      <div className="hero-illust-wrap">
+        <HeroIllustration />
+      </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div

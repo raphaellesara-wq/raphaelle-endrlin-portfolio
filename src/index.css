@@ -228,7 +228,121 @@
   }
 }
 
-/* === ARSENAL SVG ANIMATIONS === */
+/* === HERO ILLUSTRATION === */
+.hero-illust-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  opacity: 0.55;
+  width: 340px;
+}
+[dir='rtl'] .hero-illust-wrap {
+  left: auto;
+  right: 0;
+  transform: scaleX(-1);
+}
+.hero-illust {
+  width: 100%;
+  height: auto;
+}
+
+/* Hero leaf sway */
+.hero-leaf-1 {
+  transform-origin: bottom center;
+  animation: sway 7s ease-in-out infinite;
+}
+.hero-leaf-2 {
+  animation: leafFloat 5s ease-in-out infinite;
+}
+.hero-leaf-2:nth-of-type(2) { animation-delay: -0.8s; }
+.hero-leaf-2:nth-of-type(3) { animation-delay: -1.6s; }
+.hero-leaf-2:nth-of-type(4) { animation-delay: -2.4s; }
+.hero-leaf-2:nth-of-type(5) { animation-delay: -3.2s; }
+.hero-flower {
+  transform-origin: 360px 60px;
+  animation: petalPulse 4s ease-in-out infinite;
+}
+
+/* === ABOUT ILLUSTRATION === */
+.about-illust-wrap {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+  opacity: 0.45;
+  width: 260px;
+}
+[dir='rtl'] .about-illust-wrap {
+  left: auto;
+  right: -40px;
+  transform: translateY(-50%) scaleX(-1);
+}
+.about-illust {
+  width: 100%;
+  height: auto;
+}
+
+/* About animations */
+.about-leaf-1 {
+  transform-origin: bottom center;
+  animation: sway 8s ease-in-out infinite;
+}
+.about-bubble {
+  animation: floatUp 5s ease-in-out infinite;
+}
+.about-flower {
+  transform-origin: 330px 70px;
+  animation: petalPulse 5s ease-in-out infinite;
+}
+.about-flower-2 {
+  transform-origin: 360px 200px;
+  animation: petalPulse 6s ease-in-out infinite 1s;
+}
+
+/* Shared animation keyframes */
+@keyframes leafFloat {
+  0%, 100% { opacity: 0.8; transform: translateY(0); }
+  50%      { opacity: 1;   transform: translateY(-3px); }
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes petalPulse {
+  0%, 100% { transform: scale(1);   opacity: 0.8; }
+  50%      { transform: scale(1.06); opacity: 1; }
+}
+
+/* Mobile — smaller illustrations visible */
+@media (max-width: 768px) {
+  .hero-illust-wrap {
+    width: 140px;
+    opacity: 0.3;
+    bottom: -10px;
+    left: -10px;
+  }
+  [dir='rtl'] .hero-illust-wrap {
+    left: auto;
+    right: -10px;
+  }
+  .about-illust-wrap {
+    width: 100px;
+    opacity: 0.2;
+    left: -30px;
+  }
+  [dir='rtl'] .about-illust-wrap {
+    left: auto;
+    right: -30px;
+  }
+}
+
+
 #arsenal-svg line {
   animation: dashFlow 4s linear infinite;
 }
