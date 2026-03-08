@@ -5,12 +5,10 @@ import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <LanguageToggle />
       <Navbar />
       <HeroSection />
       <AboutSection />

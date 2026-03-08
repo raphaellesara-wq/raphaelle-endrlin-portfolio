@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const navItems = [
   { href: "#about", he: "אודות", en: "About" },
@@ -19,7 +20,6 @@ const Navbar = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Determine active section
       const sections = navItems.map((item) => item.href.slice(1));
       let current = "";
       for (const id of sections) {
@@ -57,8 +57,8 @@ const Navbar = () => {
           ר.א
         </div>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop nav + toggle */}
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((link) => (
             <button
               key={link.href}
@@ -72,6 +72,7 @@ const Navbar = () => {
               {t(link.he, link.en)}
             </button>
           ))}
+          <LanguageToggle />
         </div>
 
         {/* Mobile hamburger */}
@@ -101,6 +102,7 @@ const Navbar = () => {
                 {t(link.he, link.en)}
               </button>
             ))}
+            <LanguageToggle className="self-start mt-2" />
           </div>
         </div>
       )}
