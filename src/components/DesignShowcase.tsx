@@ -46,10 +46,10 @@ const galleryData: Record<TabKey, GalleryCardData[]> = {
     { src: "/amika-blonde.png", heLabel: "amika — הסוד לבלונד מושלם", enLabel: "amika — The Blonde Secret", tags: ["FlashyApp", "Email Design"], accent: "#C4834A", paleBg: "#FDF1E8" },
   ],
   popups: [
-    { src: "/popup-umina.png", heLabel: "Umina Superfood — טופס הרשמה", enLabel: "Umina Superfood — Signup Form", tags: ["Shopify", "FlashyApp", "Pop-up Design"], accent: "#3D8B6E", paleBg: "#EDF6F2", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-nintendo.png", heLabel: "Nintendo Israel — הרשמה לניוזלטר", enLabel: "Nintendo Israel — Newsletter Signup", tags: ["Shopify", "Pop-up Design"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-tzirim.png", heLabel: "צירים — קהילת הריון", enLabel: "Tzirim — Pregnancy Community", tags: ["Klaviyo", "Pop-up Design"], accent: "#7B68A8", paleBg: "#F2F0FA", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-childnmore.png", heLabel: "ChildNMore — פופאפ הרשמה", enLabel: "ChildNMore — Signup Pop-up", tags: ["Pop-up Design", "Figma"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0" },
+    { src: "/popup-umina.png", heLabel: "Umina Superfood — טופס הרשמה", enLabel: "Umina Superfood — Signup Form", tags: ["Shopify", "FlashyApp", "Pop-up Design"], accent: "#3D8B6E", paleBg: "#EDF6F2", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-nintendo.png", heLabel: "Nintendo Israel — הרשמה לניוזלטר", enLabel: "Nintendo Israel — Newsletter Signup", tags: ["Shopify", "Pop-up Design"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-tzirim.png", heLabel: "צירים — קהילת הריון", enLabel: "Tzirim — Pregnancy Community", tags: ["Klaviyo", "Pop-up Design"], accent: "#7B68A8", paleBg: "#F2F0FA", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-childnmore.png", heLabel: "ChildNMore — פופאפ הרשמה", enLabel: "ChildNMore — Signup Pop-up", tags: ["Pop-up Design", "Figma"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
   ],
   webdesign: [
     { src: "/shiri-tam.png", heLabel: "Shiri Tam — חנות תכשיטים ב-Shopify", enLabel: "Shiri Tam — Shopify Jewelry Store", heDesc: "עיצוב ובניית חנות תכשיטים ב-Shopify — Figma עד פרודקשן", enDesc: "Jewelry store design & build on Shopify — from Figma to production", tags: ["Shopify", "Figma", "Web Design"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "cover", imageMaxHeight: 320 },
