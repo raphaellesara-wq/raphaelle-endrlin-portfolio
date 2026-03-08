@@ -24,7 +24,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         }`}
       >
         <span
-          className="block text-5xl md:text-6xl tracking-tight"
+          className="block text-6xl md:text-7xl tracking-tight"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: "hsl(348,30%,70%)", letterSpacing: "-0.02em", lineHeight: 1 }}
         >
           R.E
