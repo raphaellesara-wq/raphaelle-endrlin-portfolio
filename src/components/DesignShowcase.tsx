@@ -100,10 +100,10 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
 const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCardData; index: number; isVisible: boolean; onClick: () => void; t: (he: string, en: string) => string }) => (
   <div
     onClick={onClick}
-    className="group rounded-2xl border border-border overflow-hidden bg-card cursor-pointer transition-all duration-250"
-    style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
+    className="showcase-card group rounded-2xl overflow-hidden cursor-pointer transition-all duration-250"
+    style={{ background: "white", borderRadius: 16, boxShadow: "0 8px 32px rgba(0,0,0,0.25)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
     onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(44,44,58,0.12)"; }}
-    onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
+    onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(0,0,0,0.25)"; }}
   >
     <div className="relative w-full overflow-hidden flex items-center justify-center" style={{ height: 200, background: card.imageBg ?? "#F6F5F0" }}>
       <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: "cover", objectPosition: "top" }} />
@@ -151,17 +151,17 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16" style={{ background: "#2A5F4A" }}>
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-10 md:py-16" style={{ background: "linear-gradient(160deg, #1D3B30 0%, #234D3D 50%, #1A3828 100%)" }}>
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.7)" }}>{t("עיצוב", "Design")}</span>
+              <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>{t("עיצוב", "Design")}</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#A8E8C8" }}>{t("העבודה בפועל", "Work Looks Like")}</em>
+              <em className="not-italic" style={{ color: "rgba(255,255,255,0.55)" }}>{t("העבודה בפועל", "Work Looks Like")}</em>
             </h2>
             <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
               {t("ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי", "Newsletters, pop-ups, web design and automations from recent projects")}
@@ -176,8 +176,8 @@ const DesignShowcase = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={activeTab === tab.key
-                  ? { backgroundColor: "rgba(255,255,255,0.95)", color: "#1E4D3A", borderColor: "transparent", fontWeight: 700 }
-                  : { backgroundColor: "transparent", color: "rgba(255,255,255,0.7)", borderColor: "rgba(255,255,255,0.2)" }}
+                  ? { backgroundColor: "rgba(255,255,255,0.15)", color: "white", borderColor: "rgba(255,255,255,0.3)", fontWeight: 600 }
+                  : { backgroundColor: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.6)", borderColor: "rgba(255,255,255,0.12)" }}
               >
                 {t(tab.he, tab.en)}
               </button>
