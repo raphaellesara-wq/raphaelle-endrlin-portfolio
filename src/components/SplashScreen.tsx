@@ -35,8 +35,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       </div>
 
       {/* Automation flow — wide & horizontal */}
-      <div className="w-[98vw] max-w-[1600px] h-auto" style={{ aspectRatio: "1200/280" }}>
-        <svg viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <div className="w-full max-w-[1600px] overflow-x-auto overflow-y-hidden" style={{ minHeight: '35vh' }}>
+        <svg viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={{ minWidth: '700px' }}>
 
           {/* ═══ LEVEL 1: Root ═══ */}
           <g className="splash-node" style={{ animationDelay: "0.2s" }}>
