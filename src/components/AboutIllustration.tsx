@@ -8,9 +8,10 @@ const AboutIllustration = () => (
     id="about-illustration"
     className="about-illust"
     aria-hidden="true"
-    viewBox="0 0 400 360"
+    viewBox="-20 -10 440 390"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    style={{ overflow: 'visible' }}
   >
     {/* Background blobs */}
     <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.12">

@@ -28,8 +28,8 @@ const AboutSection = () => {
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
-              className={`flex items-center gap-3 transition-all duration-150 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              className={`flex items-center gap-3 transition-all duration-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
               }`}
             >
               <div className="w-8 h-px bg-muted-foreground/30" />
@@ -39,8 +39,8 @@ const AboutSection = () => {
             </div>
 
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-150 delay-[50ms] ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
               }`}
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
@@ -53,10 +53,10 @@ const AboutSection = () => {
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-150 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
-                style={{ transitionDelay: `${50 + i * 40}ms` }}
+                style={{ transitionDelay: `${i * 30}ms` }}
               >
                 {para}
               </p>
@@ -68,8 +68,8 @@ const AboutSection = () => {
             className="hidden lg:flex about-illust-wrap justify-center"
             style={{
               opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(5px) scale(0.98)',
-              transition: 'opacity 0.15s ease-out, transform 0.15s ease-out',
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.1s ease-out, transform 0.1s ease-out',
               maxWidth: '360px',
               width: '100%',
             }}
