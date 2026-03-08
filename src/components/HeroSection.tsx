@@ -58,7 +58,7 @@ const HeroSection = () => {
         className="hidden md:block"
         width="340" height="300" viewBox="0 0 340 300" fill="none"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-        style={{ position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.18, userSelect: 'none' }}
+        style={{ position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.45, userSelect: 'none' }}
       >
         <ellipse cx="100" cy="200" rx="90" ry="75" fill="#D4798A" fillOpacity="0.08"/>
         <ellipse cx="240" cy="120" rx="80" ry="95" fill="#3D8B6E" fillOpacity="0.07"/>
