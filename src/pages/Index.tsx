@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 15%, #FFFFFF 30%, #FAFAFA 50%, #FFFFFF 65%, #FAFAFA 80%, #FFFFFF 100%)" }}>
       <Navbar />
       <HeroSection />
       <AboutSection />

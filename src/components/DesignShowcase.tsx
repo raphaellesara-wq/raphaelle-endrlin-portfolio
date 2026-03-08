@@ -359,7 +359,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16 bg-background">
+      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16">
         <div className="container mx-auto px-6">
           {/* Header */}
           <div

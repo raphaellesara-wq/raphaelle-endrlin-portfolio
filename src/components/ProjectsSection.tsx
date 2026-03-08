@@ -177,7 +177,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-10 md:py-16" style={{ backgroundColor: "#FAFAFA" }}>
+    <section id="projects" ref={sectionRef} className="py-10 md:py-16">
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div

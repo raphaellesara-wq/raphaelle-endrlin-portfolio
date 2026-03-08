@@ -35,7 +35,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Grain texture overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03]"
