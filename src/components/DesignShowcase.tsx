@@ -368,7 +368,7 @@ const DesignShowcase = () => {
             }`}
           >
              <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
+              <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.5)" }} />
               <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>
                 {t("עיצוב", "Design")}
               </span>
