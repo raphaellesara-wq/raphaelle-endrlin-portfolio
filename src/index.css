@@ -553,13 +553,13 @@ section#contact {
 
 .footer-link {
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: hsl(var(--muted-foreground));
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-link:hover {
-  color: #3D8B6E;
+  color: hsl(var(--foreground));
 }
 
 @media (max-width: 768px) {
