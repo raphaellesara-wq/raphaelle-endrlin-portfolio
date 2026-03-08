@@ -3,6 +3,8 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
@@ -14,9 +16,8 @@ const Index = () => {
       <AboutSection />
       <ExperienceSection />
       <SkillsSection />
-
-      {/* Placeholder for contact */}
-      <section id="contact" className="min-h-[50vh]" />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

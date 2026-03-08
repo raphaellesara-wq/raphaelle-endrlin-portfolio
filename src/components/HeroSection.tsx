@@ -101,7 +101,7 @@ const HeroSection = () => {
               <Button
                 variant="default"
                 size="lg"
-                className="rounded-full px-8 font-medium hover:bg-accent-purple hover:text-accent-foreground transition-colors"
+                className="rounded-full px-8 font-medium transition-all duration-300 hover:bg-accent-purple hover:text-accent-foreground hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-6px_hsl(var(--accent-purple)/0.4)]"
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("צור קשר", "Get in Touch")}
@@ -109,7 +109,7 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 font-medium border-border hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 transition-colors"
+                className="rounded-full px-8 font-medium border-border transition-all duration-300 hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 hover:-translate-y-0.5"
                 onClick={() => document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("הניסיון שלי", "My Experience")}
