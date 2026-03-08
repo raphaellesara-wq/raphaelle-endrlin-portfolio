@@ -138,7 +138,6 @@ const ContactSection = () => {
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(255,255,255,0.12)",
                     color: "#FFFFFF",
-                    focusRingColor: "hsl(var(--accent-green))",
                   }}
                   placeholder={t("הכנס שם מלא", "Enter your full name")}
                 />
