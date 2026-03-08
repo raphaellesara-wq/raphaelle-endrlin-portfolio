@@ -41,15 +41,15 @@ const tabs: { key: TabKey; he: string; en: string }[] = [
 
 const galleryData: Record<TabKey, GalleryCardData[]> = {
   newsletters: [
-    { src: "/noviia.png", heLabel: "NOVIIA — ניוזלטר מוצרי שיער", enLabel: "NOVIIA — Hair Products Newsletter", tags: ["Email Design", "Klaviyo"], accent: "#4E7FA8", paleBg: "#EEF4FA" },
-    { src: "/amika-detox.png", heLabel: "amika — ניוזלטר טיפוח קרקפת", enLabel: "amika — Scalp Care Newsletter", tags: ["FlashyApp", "Email Design"], accent: "#D4798A", paleBg: "#FDF4F5" },
-    { src: "/amika-blonde.png", heLabel: "amika — הסוד לבלונד מושלם", enLabel: "amika — The Blonde Secret", tags: ["FlashyApp", "Email Design"], accent: "#C4834A", paleBg: "#FDF1E8" },
+    { src: "/noviia.png", heLabel: "NOVIIA — ניוזלטר מוצרי שיער", enLabel: "NOVIIA — Hair Products Newsletter", tags: ["Email Design", "Klaviyo"], accent: "#4E7FA8", paleBg: "#EEF4FA", objectFit: "contain" },
+    { src: "/amika-detox.png", heLabel: "amika — ניוזלטר טיפוח קרקפת", enLabel: "amika — Scalp Care Newsletter", tags: ["FlashyApp", "Email Design"], accent: "#D4798A", paleBg: "#FDF4F5", objectFit: "contain" },
+    { src: "/amika-blonde.png", heLabel: "amika — הסוד לבלונד מושלם", enLabel: "amika — The Blonde Secret", tags: ["FlashyApp", "Email Design"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "contain" },
   ],
   popups: [
-    { src: "/popup-umina.png", heLabel: "Umina Superfood — טופס הרשמה", enLabel: "Umina Superfood — Signup Form", tags: ["Shopify", "FlashyApp", "Pop-up Design"], accent: "#3D8B6E", paleBg: "#EDF6F2", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-nintendo.png", heLabel: "Nintendo Israel — הרשמה לניוזלטר", enLabel: "Nintendo Israel — Newsletter Signup", tags: ["Shopify", "Pop-up Design"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-tzirim.png", heLabel: "צירים — קהילת הריון", enLabel: "Tzirim — Pregnancy Community", tags: ["Klaviyo", "Pop-up Design"], accent: "#7B68A8", paleBg: "#F2F0FA", imageMaxHeight: 480, imageBg: "#F6F5F0" },
-    { src: "/popup-childnmore.png", heLabel: "ChildNMore — פופאפ הרשמה", enLabel: "ChildNMore — Signup Pop-up", tags: ["Pop-up Design", "Figma"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0" },
+    { src: "/popup-umina.png", heLabel: "Umina Superfood — טופס הרשמה", enLabel: "Umina Superfood — Signup Form", tags: ["Shopify", "FlashyApp", "Pop-up Design"], accent: "#3D8B6E", paleBg: "#EDF6F2", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-nintendo.png", heLabel: "Nintendo Israel — הרשמה לניוזלטר", enLabel: "Nintendo Israel — Newsletter Signup", tags: ["Shopify", "Pop-up Design"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-tzirim.png", heLabel: "צירים — קהילת הריון", enLabel: "Tzirim — Pregnancy Community", tags: ["Klaviyo", "Pop-up Design"], accent: "#7B68A8", paleBg: "#F2F0FA", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
+    { src: "/popup-childnmore.png", heLabel: "ChildNMore — פופאפ הרשמה", enLabel: "ChildNMore — Signup Pop-up", tags: ["Pop-up Design", "Figma"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
   ],
   webdesign: [
     { src: "/shiri-tam.png", heLabel: "Shiri Tam — חנות תכשיטים ב-Shopify", enLabel: "Shiri Tam — Shopify Jewelry Store", heDesc: "עיצוב ובניית חנות תכשיטים ב-Shopify — Figma עד פרודקשן", enDesc: "Jewelry store design & build on Shopify — from Figma to production", tags: ["Shopify", "Figma", "Web Design"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "cover", imageMaxHeight: 320 },
@@ -105,7 +105,7 @@ const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCard
     onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; }}
   >
     <div className="relative w-full overflow-hidden flex items-center justify-center border-b border-border" style={{ height: 200, background: card.imageBg ?? "#F6F5F0" }}>
-      <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: "cover", objectPosition: "top" }} />
+      <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: card.objectFit || "cover", objectPosition: "top" }} />
       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-250" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform duration-250">
         <ZoomIn size={18} className="text-foreground" />
