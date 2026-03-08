@@ -535,7 +535,7 @@ const DesignShowcase = () => {
                       width: i === currentIndex ? 24 : 8,
                       height: 8,
                       borderRadius: i === currentIndex ? 4 : "50%",
-                      backgroundColor: i === currentIndex ? "#6DC4A0" : "#EEEAF5",
+                      backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.30)",
                       cursor: "pointer",
                       border: "none",
                       padding: 0,
