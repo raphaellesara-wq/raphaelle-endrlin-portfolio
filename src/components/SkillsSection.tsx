@@ -74,8 +74,13 @@ const SkillsSection = () => {
                 borderColor: "rgba(255,255,255,0.08)",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "hsl(37 40% 61% / 0.5)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 20px rgba(201,169,110,0.2)";
+                const isDesign = i === 2;
+                (e.currentTarget as HTMLElement).style.borderColor = isDesign
+                  ? "rgba(109,196,160,0.5)"
+                  : "hsl(37 40% 61% / 0.5)";
+                (e.currentTarget as HTMLElement).style.boxShadow = isDesign
+                  ? "0 0 20px rgba(109,196,160,0.2)"
+                  : "0 0 20px rgba(201,169,110,0.2)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
@@ -92,7 +97,7 @@ const SkillsSection = () => {
                     <span className="text-primary-foreground/80">{skill}</span>
                     <span
                       className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: "hsl(37 40% 61%)" }}
+                      style={{ backgroundColor: i === 2 ? "#6DC4A0" : "hsl(37 40% 61%)" }}
                     />
                   </div>
                 ))}

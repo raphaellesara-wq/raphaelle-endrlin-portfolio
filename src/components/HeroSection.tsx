@@ -154,16 +154,26 @@ const HeroSection = () => {
 
               <div className="p-8">
                 <div className="grid grid-cols-2 gap-6 mb-6">
-                  {stats.map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <div className="text-3xl font-display font-normal text-foreground">
-                        {stat.value}
+                  {stats.map((stat, i) => {
+                    const isMint = i >= 2;
+                    return (
+                      <div
+                        key={i}
+                        className="text-center rounded-xl p-3"
+                        style={isMint ? { backgroundColor: "#E8F7F2" } : undefined}
+                      >
+                        <div
+                          className="text-3xl font-display font-normal"
+                          style={isMint ? { color: "#4AAF8C" } : undefined}
+                        >
+                          {stat.value}
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-1">
+                          {t(stat.heLabel, stat.enLabel)}
+                        </div>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-1">
-                        {t(stat.heLabel, stat.enLabel)}
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 <div className="h-px w-full bg-border mb-5" />

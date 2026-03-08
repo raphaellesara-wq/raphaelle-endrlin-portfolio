@@ -92,6 +92,7 @@ const AboutSection = () => {
               className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-300 hover:-translate-y-1 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
+              style={{ borderInlineStart: "4px solid #6DC4A0" }}
             >
               <h3 className="text-sm font-semibold text-foreground mb-4 tracking-wide">
                 {t("שפות", "Languages")}
@@ -111,6 +112,7 @@ const AboutSection = () => {
               className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-500 hover:-translate-y-1 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
+              style={{ borderInlineStart: "4px solid #6DC4A0" }}
             >
               <h3 className="text-sm font-semibold text-foreground mb-4 tracking-wide">
                 {t("השכלה", "Education")}
