@@ -53,14 +53,14 @@ const ContactSection = () => {
           }>
           
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px bg-[hsl(var(--accent-green))]" />
-            <span className="section-tag" style={{ color: "rgba(255,255,255,0.45)" }}>
+            <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.25)" }} />
+            <span className="section-tag" style={{ color: "rgba(255,255,255,0.4)" }}>
               {t("צור קשר", "Contact")}
             </span>
           </div>
           <h2 className="contact-heading font-display">
             {t("נשמח", "Let's")}
-            <span className="accent block" style={{ color: "hsl(var(--accent-green))" }}>
+            <span className="accent block" style={{ color: "rgba(255,255,255,0.5)" }}>
               {t("לדבר", "Talk")}
             </span>
           </h2>
