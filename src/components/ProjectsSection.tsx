@@ -76,7 +76,7 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`rounded-[20px] border bg-background p-6 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+              className={`relative rounded-[20px] border bg-background p-6 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
                 i === 0 ? "md:col-span-2" : ""
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{
