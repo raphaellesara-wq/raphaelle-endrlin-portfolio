@@ -229,62 +229,131 @@
 }
 
 /* === HERO SVG ANIMATIONS === */
-#hero-svg circle:first-child {
-  transform-origin: 160px 160px;
-  animation: orbitSlow 40s linear infinite;
+.hero-orbit-outer {
+  transform-origin: 190px 190px;
+  animation: orbitSlow 50s linear infinite;
 }
-#hero-svg circle:nth-child(2) {
-  transform-origin: 160px 160px;
-  animation: orbitSlow 28s linear infinite reverse;
+.hero-orbit-mid {
+  transform-origin: 190px 190px;
+  animation: orbitSlow 35s linear infinite reverse;
+}
+.hero-orbit-inner {
+  transform-origin: 190px 190px;
+  animation: orbitSlow 22s linear infinite;
+}
+.hero-center-pulse {
+  transform-origin: 190px 190px;
+  animation: centerPulse 3s ease-in-out infinite;
+}
+.hero-center-ring {
+  transform-origin: 190px 190px;
+  animation: ringExpand 4s ease-in-out infinite;
 }
 .hero-env1 {
-  transform-origin: 160px 160px;
-  animation: orbitSlow 40s linear infinite;
+  transform-origin: 190px 190px;
+  animation: orbitSlow 50s linear infinite;
 }
 .hero-bolt1 {
-  transform-origin: 160px 160px;
-  animation: orbitSlow 28s linear infinite reverse;
+  transform-origin: 190px 190px;
+  animation: orbitSlow 35s linear infinite reverse;
+}
+.hero-gear1 {
+  transform-origin: 190px 190px;
+  animation: orbitSlow 50s linear infinite;
 }
 .hero-star1 {
-  animation: svgPulse 4s ease-in-out infinite;
+  transform-origin: 93px 107px;
+  animation: starTwinkle 5s ease-in-out infinite;
 }
+.hero-at1 {
+  transform-origin: 190px 190px;
+  animation: orbitSlow 35s linear infinite reverse;
+}
+
+/* Particle float animations */
+.hero-particle-1 { animation: particleFloat1 6s ease-in-out infinite; }
+.hero-particle-2 { animation: particleFloat2 7s ease-in-out infinite; }
+.hero-particle-3 { animation: particleFloat1 8s ease-in-out infinite 1s; }
+.hero-particle-4 { animation: particleFloat2 5s ease-in-out infinite 0.5s; }
+.hero-particle-5 { animation: particleFloat1 7s ease-in-out infinite 2s; }
+.hero-particle-6 { animation: particleFloat2 9s ease-in-out infinite 1.5s; }
+.hero-particle-7 { animation: particleFloat1 6s ease-in-out infinite 3s; }
+.hero-particle-8 { animation: particleFloat2 8s ease-in-out infinite 2.5s; }
 
 @keyframes orbitSlow {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-@keyframes svgPulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50%      { opacity: 1;   transform: scale(1.2); }
+@keyframes centerPulse {
+  0%, 100% { opacity: 0.5; r: 6; }
+  50%      { opacity: 1;   r: 8; }
+}
+@keyframes ringExpand {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.3); }
+}
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
+  50%      { opacity: 1;   transform: scale(1.15) rotate(15deg); }
+}
+@keyframes particleFloat1 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+  25%      { transform: translate(3px, -5px); opacity: 0.6; }
+  50%      { transform: translate(-2px, -8px); opacity: 0.5; }
+  75%      { transform: translate(4px, -3px); opacity: 0.4; }
+}
+@keyframes particleFloat2 {
+  0%, 100% { transform: translate(0, 0); opacity: 0.25; }
+  33%      { transform: translate(-4px, 4px); opacity: 0.55; }
+  66%      { transform: translate(3px, -6px); opacity: 0.4; }
 }
 
 /* === ARSENAL SVG ANIMATIONS === */
 #arsenal-svg line {
-  animation: dashFlow 3s linear infinite;
+  animation: dashFlow 4s linear infinite;
 }
-#arsenal-svg line:nth-child(2) { animation-delay: -0.5s; }
-#arsenal-svg line:nth-child(3) { animation-delay: -1s; }
-#arsenal-svg line:nth-child(4) { animation-delay: -1.5s; }
-#arsenal-svg line:nth-child(5) { animation-delay: -2s; }
-#arsenal-svg line:nth-child(6) { animation-delay: -2.5s; }
+#arsenal-svg line:nth-child(2) { animation-delay: -0.6s; }
+#arsenal-svg line:nth-child(3) { animation-delay: -1.2s; }
+#arsenal-svg line:nth-child(4) { animation-delay: -1.8s; }
+#arsenal-svg line:nth-child(5) { animation-delay: -2.4s; }
+#arsenal-svg line:nth-child(6) { animation-delay: -3s; }
+#arsenal-svg line:nth-child(7) { animation-delay: -0.3s; }
+#arsenal-svg line:nth-child(8) { animation-delay: -1.5s; }
 
 @keyframes dashFlow {
   from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: -36; }
+  to   { stroke-dashoffset: -44; }
 }
 
-#arsenal-svg circle,
-#arsenal-svg rect,
-#arsenal-svg path {
-  animation: nodePulse 5s ease-in-out infinite;
+.arsenal-node {
+  animation: nodeBreath 6s ease-in-out infinite;
 }
-#arsenal-svg circle:nth-of-type(2) { animation-delay: -1s; }
-#arsenal-svg circle:nth-of-type(3) { animation-delay: -2s; }
-#arsenal-svg rect:first-of-type { animation-delay: -3s; }
+.arsenal-node:nth-of-type(2) { animation-delay: -1s; }
+.arsenal-node:nth-of-type(3) { animation-delay: -2s; }
+.arsenal-node:nth-of-type(4) { animation-delay: -3s; }
+.arsenal-node:nth-of-type(5) { animation-delay: -4s; }
+.arsenal-node:nth-of-type(6) { animation-delay: -5s; }
 
-@keyframes nodePulse {
-  0%, 100% { opacity: 0.7; }
-  50%      { opacity: 1; }
+.arsenal-node-core {
+  animation: corePulse 3s ease-in-out infinite;
+}
+
+.arsenal-particle {
+  animation: particleFloat1 7s ease-in-out infinite;
+}
+.arsenal-particle:nth-of-type(2) { animation-delay: -1.2s; }
+.arsenal-particle:nth-of-type(3) { animation-delay: -2.4s; }
+.arsenal-particle:nth-of-type(4) { animation-delay: -3.6s; }
+.arsenal-particle:nth-of-type(5) { animation-delay: -4.8s; }
+.arsenal-particle:nth-of-type(6) { animation-delay: -6s; }
+
+@keyframes nodeBreath {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.04); }
+}
+@keyframes corePulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.9; }
 }
 
 /* === CONTACT SECTION === */
