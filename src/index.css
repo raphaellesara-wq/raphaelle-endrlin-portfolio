@@ -71,7 +71,14 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
   [dir="rtl"] body,
@@ -82,7 +89,9 @@
   }
 
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
-    font-family: "Abril Fatface", "Heebo", serif;
+    font-family: "Heebo", sans-serif;
+    font-weight: 800;
+    letter-spacing: 0;
   }
 
   [dir="ltr"] body {
@@ -90,7 +99,7 @@
   }
 
   [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3, [dir="ltr"] h4 {
-    font-family: "Abril Fatface", serif;
+    font-family: "Syne", sans-serif;
   }
 }
 

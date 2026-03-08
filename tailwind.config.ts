@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Abril Fatface"', 'serif'],
+        display: ['"Syne"', 'sans-serif'],
         body: ['"Poppins"', 'sans-serif'],
         hebrew: ['"Heebo"', 'sans-serif'],
       },
