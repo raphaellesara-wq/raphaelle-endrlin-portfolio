@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import HeroIllustration from "@/components/HeroIllustration";
 
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
