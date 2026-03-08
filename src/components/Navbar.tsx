@@ -52,7 +52,7 @@ const Navbar = () => {
         scrolled ? "glass-nav shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-16 px-6">
+      <div className="container mx-auto flex items-center justify-between h-14 md:h-16 px-5 md:px-6">
         <div className="font-display text-2xl tracking-tight text-foreground">
           ר.א
         </div>

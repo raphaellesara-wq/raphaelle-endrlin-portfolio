@@ -90,7 +90,7 @@ const ProjectsSection = () => {
         {/* Featured */}
         <div className={`mb-5 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "200ms" }}>
           <div
-            className="group relative rounded-[20px] border border-border bg-card p-8 transition-all duration-200 ease-out"
+            className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out"
             style={{ borderInlineStart: `3px solid ${featuredProject.accent}` }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}

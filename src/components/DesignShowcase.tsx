@@ -151,8 +151,8 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="showcase-section relative py-10 md:py-16" style={{ background: "linear-gradient(160deg, #1D3B30 0%, #234D3D 50%, #1A3828 100%)" }}>
-        <div className="container mx-auto px-6">
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "linear-gradient(160deg, #1D3B30 0%, #234D3D 50%, #1A3828 100%)" }}>
+        <div className="container mx-auto px-5 md:px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="flex items-center gap-3 mb-4">

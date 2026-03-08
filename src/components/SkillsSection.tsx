@@ -165,8 +165,8 @@ const SkillsSection = () => {
               }`}
               style={{
                 transitionDelay: `${200 + i * 150}ms`,
-                padding: "32px 28px",
-                minHeight: 280,
+                padding: window.innerWidth < 768 ? "24px 20px" : "32px 28px",
+                minHeight: window.innerWidth < 768 ? 200 : 280,
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
