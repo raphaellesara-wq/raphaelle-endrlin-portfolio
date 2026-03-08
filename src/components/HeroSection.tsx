@@ -165,7 +165,7 @@ const HeroSection = () => {
             </div>
             {/* Desktop card */}
             <div
-              className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
+              className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up hidden lg:block"
               style={{ animationDelay: "300ms" }}
             >
               {/* Rainbow gradient top line */}
