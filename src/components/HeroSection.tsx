@@ -76,7 +76,7 @@ const HeroSection = () => {
             >
               <div className="w-8 h-px bg-accent-pink" />
               <span className="text-xs sm:text-sm tracking-wide text-muted-foreground font-medium">
-                {t("מומחית שיווק ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
+                {t("מומחית שיווק דיגיטלי ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
               </span>
             </div>
 
