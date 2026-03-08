@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import AboutIllustration from "@/components/AboutIllustration";
 
 const languages = [
   { he: "עברית", detail_he: "שפת אם", en: "Hebrew", detail_en: "Native" },
