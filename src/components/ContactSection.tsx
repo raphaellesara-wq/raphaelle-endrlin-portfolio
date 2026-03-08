@@ -66,10 +66,10 @@ const ContactSection = () => {
                   {t("צור קשר", "Contact")}
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
+              <h2 className="contact-heading font-display leading-[1.1]" style={{ color: "#FFFFFF" }}>
                 {t("נשמח", "Let's")}
                 <br />
-                <span className="italic" style={{ color: "hsl(var(--accent-green))" }}>{t("לדבר", "Talk")}</span>
+                <span style={{ color: "hsl(var(--accent-green))" }}>{t("לדבר", "Talk")}</span>
               </h2>
             </div>
 

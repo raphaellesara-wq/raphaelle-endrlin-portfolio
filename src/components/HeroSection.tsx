@@ -202,7 +202,7 @@ const HeroSection = () => {
                         style={isMint ? { backgroundColor: "hsl(var(--accent-green-pale))" } : undefined}
                       >
                         <div
-                          className="text-3xl font-display font-normal"
+                          className="stat-number"
                           style={isMint ? { color: "hsl(var(--accent-green))" } : undefined}
                         >
                           {statValues[i]}
