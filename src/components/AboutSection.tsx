@@ -28,7 +28,7 @@ const AboutSection = () => {
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
-              className={`flex items-center gap-3 transition-all duration-700 ${
+              className={`flex items-center gap-3 transition-all duration-300 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -39,7 +39,7 @@ const AboutSection = () => {
             </div>
 
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-700 delay-100 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-300 delay-75 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -53,10 +53,10 @@ const AboutSection = () => {
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-700 ${
+                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-300 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
-                style={{ transitionDelay: `${200 + i * 150}ms` }}
+                style={{ transitionDelay: `${100 + i * 80}ms` }}
               >
                 {para}
               </p>
@@ -68,8 +68,8 @@ const AboutSection = () => {
             className="hidden lg:flex about-illust-wrap justify-center"
             style={{
               opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(10px) scale(0.95)',
-              transition: 'opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s',
+              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(8px) scale(0.97)',
+              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
               maxWidth: '360px',
               width: '100%',
             }}
@@ -77,16 +77,16 @@ const AboutSection = () => {
             <AboutIllustration />
           </div>
 
-          {/* Mobile illustration — medium size, centered */}
+          {/* Mobile illustration — centered, balanced */}
           <div
-            className="flex lg:hidden justify-center mt-4"
+            className="flex lg:hidden justify-center"
             style={{
               opacity: isVisible ? 0.85 : 0,
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(10px) scale(0.95)',
-              transition: 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s',
-              maxWidth: '240px',
+              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.97)',
+              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
+              maxWidth: '220px',
               width: '100%',
-              margin: '16px auto 0',
+              margin: '8px auto 0',
             }}
           >
             <AboutIllustration />
