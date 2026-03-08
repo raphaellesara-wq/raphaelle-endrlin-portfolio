@@ -162,7 +162,7 @@ const ContactSection = () => {
             
             {submitted ?
             t("✓ נשלח!", "✓ Sent!") :
-            t("שלח הודעה →", "Send Message →")}
+            t("← שלח הודעה", "Send Message →")}
           </button>
         </form>
       </div>
