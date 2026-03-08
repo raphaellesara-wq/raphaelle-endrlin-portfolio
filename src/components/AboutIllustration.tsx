@@ -39,9 +39,9 @@ const AboutIllustration = () => (
     {/* Screen area */}
     <rect x="115" y="120" width="180" height="115" rx="4" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
     {/* Browser dots in screen */}
-    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.7" />
-    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.7" />
-    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.7" />
+    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.85" />
+    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.85" />
+    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.85" />
 
     {/* Content grid inside laptop */}
     <rect x="125" y="142" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="#7B68A8" fillOpacity="0.06" />
