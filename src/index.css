@@ -371,6 +371,14 @@ section#contact {
   align-items: start;
 }
 
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  section#contact {
+    padding: 72px 40px;
+    gap: 48px;
+  }
+}
+
 [dir='rtl'] .contact-form-col { order: 2; }
 [dir='rtl'] .contact-info-col { order: 1; }
 
