@@ -68,8 +68,8 @@ const AboutSection = () => {
             className="hidden lg:flex about-illust-wrap justify-center"
             style={{
               opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(10px) scale(0.95)',
-              transition: 'opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s',
+              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(8px) scale(0.97)',
+              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
               maxWidth: '360px',
               width: '100%',
             }}
