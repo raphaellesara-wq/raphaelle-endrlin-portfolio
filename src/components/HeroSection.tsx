@@ -52,99 +52,54 @@ const HeroSection = () => {
         overflow: "visible",
       }}
     >
-      {/* Floating email orbit SVG */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 hidden md:block">
-        <svg
-          id="hero-svg"
-          className="absolute"
-          style={{ bottom: 20, left: 40, opacity: 0.30 }}
-          width="380" height="380" viewBox="0 0 380 380" fill="none"
-          xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-        >
-          {/* Outer orbit ring */}
-          <circle className="hero-orbit-outer" cx="190" cy="190" r="155" stroke="#3D8B6E" strokeWidth="0.8" strokeDasharray="8 10" fill="none" />
-          {/* Middle orbit ring */}
-          <circle className="hero-orbit-mid" cx="190" cy="190" r="105" stroke="#A98ED4" strokeWidth="0.8" strokeDasharray="4 7" fill="none" />
-          {/* Inner orbit ring */}
-          <circle className="hero-orbit-inner" cx="190" cy="190" r="55" stroke="#C4834A" strokeWidth="0.6" strokeDasharray="3 5" fill="none" opacity="0.6" />
-
-          {/* Center pulse */}
-          <circle className="hero-center-pulse" cx="190" cy="190" r="6" fill="#3D8B6E" opacity="0.8" />
-          <circle className="hero-center-ring" cx="190" cy="190" r="16" stroke="#3D8B6E" strokeWidth="0.8" fill="none" opacity="0.3" />
-
-          {/* Envelope on outer ring */}
-          <g className="hero-env1">
-            <rect x="172" y="28" width="30" height="22" rx="4" stroke="#3D8B6E" strokeWidth="1.2" fill="white" fillOpacity="0.08" />
-            <path d="M172 32 L187 42 L202 32" stroke="#3D8B6E" strokeWidth="1.2" fill="none" />
-          </g>
-
-          {/* Lightning on middle ring */}
-          <g className="hero-bolt1">
-            <path d="M293 176 L287 190 L294 190 L288 204 L299 186 L292 186 Z" stroke="#A98ED4" strokeWidth="1.2" fill="#A98ED4" fillOpacity="0.12" />
-          </g>
-
-          {/* Gear icon on outer ring — bottom */}
-          <g className="hero-gear1">
-            <circle cx="190" cy="345" r="10" stroke="#3D8B6E" strokeWidth="1" fill="none" />
-            <circle cx="190" cy="345" r="4" stroke="#3D8B6E" strokeWidth="0.8" fill="none" />
-            <line x1="190" y1="333" x2="190" y2="337" stroke="#3D8B6E" strokeWidth="1" />
-            <line x1="190" y1="353" x2="190" y2="357" stroke="#3D8B6E" strokeWidth="1" />
-            <line x1="178" y1="345" x2="182" y2="345" stroke="#3D8B6E" strokeWidth="1" />
-            <line x1="198" y1="345" x2="202" y2="345" stroke="#3D8B6E" strokeWidth="1" />
-          </g>
-
-          {/* Star on inner ring */}
-          <g className="hero-star1">
-            <path d="M90 105 L93 96 L96 105 L105 105 L98 110 L101 119 L93 113 L85 119 L88 110 L81 105 Z" stroke="#C4834A" strokeWidth="0.8" fill="#C4834A" fillOpacity="0.15" />
-          </g>
-
-          {/* @ symbol on middle ring — left */}
-          <g className="hero-at1">
-            <circle cx="85" cy="190" r="9" stroke="#A98ED4" strokeWidth="1" fill="none" />
-            <path d="M89 190 A4 4 0 1 0 89 189.9" stroke="#A98ED4" strokeWidth="0.8" fill="none" />
-            <path d="M89 190 C92 190 93 186 90 184" stroke="#A98ED4" strokeWidth="0.8" fill="none" />
-          </g>
-
-          {/* Floating particles with varied sizes */}
-          <circle className="hero-particle-1" cx="340" cy="190" r="3" fill="#3D8B6E" opacity="0.5" />
-          <circle className="hero-particle-2" cx="40" cy="190" r="2.5" fill="#3D8B6E" opacity="0.4" />
-          <circle className="hero-particle-3" cx="190" cy="340" r="2" fill="#A98ED4" opacity="0.45" />
-          <circle className="hero-particle-4" cx="190" cy="40" r="3" fill="#A98ED4" opacity="0.5" />
-          <circle className="hero-particle-5" cx="280" cy="95" r="2" fill="#C4834A" opacity="0.4" />
-          <circle className="hero-particle-6" cx="100" cy="285" r="1.5" fill="#C4834A" opacity="0.35" />
-          <circle className="hero-particle-7" cx="300" cy="280" r="2" fill="#A98ED4" opacity="0.3" />
-          <circle className="hero-particle-8" cx="80" cy="100" r="1.5" fill="#3D8B6E" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Small decorative dots */}
-      <div className="absolute inset-0 pointer-events-none">
-        <svg className="absolute top-[18%] end-[25%]" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
-          <circle cx="4" cy="4" r="4" fill="hsl(var(--accent-pink))" opacity="0.5" />
-        </svg>
-        <svg className="absolute top-[12%] end-[18%]" width="7" height="7" viewBox="0 0 7 7" aria-hidden="true">
-          <circle cx="3.5" cy="3.5" r="3.5" fill="hsl(var(--accent-orange))" opacity="0.5" />
-        </svg>
-        <svg className="absolute top-[24%] end-[14%]" width="6" height="6" viewBox="0 0 6 6" aria-hidden="true">
-          <circle cx="3" cy="3" r="3" fill="hsl(var(--accent-green))" opacity="0.5" />
-        </svg>
-      </div>
-
-      {/* Geometric cluster illustration — top-right corner */}
+      {/* Botanical browser doodle — bottom left */}
       <svg
-        className="absolute hidden md:block pointer-events-none"
-        style={{ top: -20, right: -20, opacity: 0.18, zIndex: 0, animation: "slowRotate 60s linear infinite", transformOrigin: "center" }}
-        width="220" height="220" viewBox="0 0 220 220" fill="none"
-        aria-hidden="true"
+        id="hero-botanical"
+        className="hidden md:block"
+        width="340" height="300" viewBox="0 0 340 300" fill="none"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        style={{ position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.18, userSelect: 'none' }}
       >
-        <circle cx="140" cy="80" r="70" stroke="#3D8B6E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        <circle cx="100" cy="120" r="45" stroke="#7B68A8" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-        <circle cx="160" cy="50" r="4" fill="#3D8B6E" />
-        <circle cx="80" cy="90" r="3" fill="#D4798A" />
-        <circle cx="180" cy="140" r="2.5" fill="#7B68A8" />
-        <line x1="40" y1="180" x2="180" y2="40" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="4 6" strokeLinecap="round" />
-        <rect x="50" y="50" width="20" height="20" rx="3" stroke="#C4834A" strokeWidth="1.5" fill="none" transform="rotate(45 60 60)" strokeLinecap="round" />
-        <path d="M 30 190 Q 80 140 140 160 Q 180 175 210 150" stroke="#4E7FA8" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <ellipse cx="100" cy="200" rx="90" ry="75" fill="#D4798A" fillOpacity="0.08"/>
+        <ellipse cx="240" cy="120" rx="80" ry="95" fill="#3D8B6E" fillOpacity="0.07"/>
+        <rect x="80" y="80" width="180" height="130" rx="8" stroke="#C4834A" strokeWidth="1.5" fill="white" fillOpacity="0.04"/>
+        <line x1="80" y1="100" x2="260" y2="100" stroke="#C4834A" strokeWidth="1.5"/>
+        <circle cx="95" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
+        <circle cx="107" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
+        <circle cx="119" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
+        <rect x="92" y="110" width="80" height="55" rx="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
+        <path d="M132 125 Q136 118 140 125 Q147 121 144 128 Q151 132 144 135 Q147 142 140 139 Q136 146 132 139 Q125 142 128 135 Q121 132 128 128 Q125 121 132 125 Z" stroke="#D4798A" strokeWidth="1.5" fill="#D4798A" fillOpacity="0.06"/>
+        <circle cx="136" cy="132" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <line x1="182" y1="114" x2="248" y2="114" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
+        <line x1="182" y1="123" x2="242" y2="123" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
+        <line x1="182" y1="132" x2="248" y2="132" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
+        <line x1="182" y1="141" x2="236" y2="141" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M92 155 Q110 148 128 155 Q146 162 164 155 Q182 148 200 155" stroke="#3D8B6E" strokeWidth="1.5" fill="none"/>
+        <path d="M40 60 Q20 20 60 10 Q80 50 40 60 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
+        <line x1="40" y1="60" x2="55" y2="20" stroke="#3D8B6E" strokeWidth="1"/>
+        <path d="M55 160 Q55 145 70 145 Q85 145 85 160 Q85 178 65 178 Q45 178 45 155 Q45 132 72 132" stroke="#7B68A8" strokeWidth="1.5" fill="none"/>
+        <path d="M290 180 Q310 160 305 140" stroke="#3D8B6E" strokeWidth="1.5" fill="none"/>
+        <path d="M298 168 Q318 160 315 148" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
+        <path d="M282 172 Q265 162 268 148" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
+        <circle cx="280" cy="250" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <line x1="280" y1="242" x2="280" y2="238" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="280" y1="258" x2="280" y2="262" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="272" y1="250" x2="268" y2="250" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="288" y1="250" x2="292" y2="250" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="274" y1="244" x2="271" y2="241" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="286" y1="256" x2="289" y2="259" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="274" y1="256" x2="271" y2="259" stroke="#D4798A" strokeWidth="1.5"/>
+        <line x1="286" y1="244" x2="289" y2="241" stroke="#D4798A" strokeWidth="1.5"/>
+        <path d="M30 240 Q50 210 45 180" stroke="#7B68A8" strokeWidth="1.5" fill="none"/>
+        <path d="M35 230 Q50 220 45 210" stroke="#7B68A8" strokeWidth="1" fill="none"/>
+        <path d="M32 218 Q47 208 43 198" stroke="#7B68A8" strokeWidth="1" fill="none"/>
+        <path d="M30 205 Q45 196 41 186" stroke="#7B68A8" strokeWidth="1" fill="none"/>
+        <circle cx="295" cy="50" r="2" fill="#3D8B6E" opacity="0.5"/>
+        <circle cx="305" cy="44" r="1.5" fill="#3D8B6E" opacity="0.4"/>
+        <circle cx="312" cy="55" r="2" fill="#3D8B6E" opacity="0.5"/>
+        <circle cx="300" cy="62" r="1.5" fill="#3D8B6E" opacity="0.3"/>
+        <circle cx="318" cy="48" r="1.5" fill="#3D8B6E" opacity="0.4"/>
+        <circle cx="308" cy="65" r="1" fill="#3D8B6E" opacity="0.3"/>
       </svg>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
