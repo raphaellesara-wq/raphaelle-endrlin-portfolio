@@ -259,15 +259,10 @@
 
 /* === ABOUT ILLUSTRATION === */
 .about-illust-wrap {
-  position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
   pointer-events: none;
-  z-index: 0;
   user-select: none;
   opacity: 0.35;
-  width: 220px;
+  max-width: 280px;
 }
 .about-illust {
   width: 100%;
