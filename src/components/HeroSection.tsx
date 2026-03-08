@@ -91,9 +91,10 @@ const HeroSection = () => {
 
             {/* H1 — responsive clamp */}
             <h1
-              className="font-display font-normal leading-[1.1] tracking-tight animate-fade-up"
+              className="font-display font-extrabold leading-[1.05] animate-fade-up"
               style={{
-                fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+                fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                letterSpacing: "-0.03em",
                 animationDelay: "150ms",
               }}
             >

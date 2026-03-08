@@ -94,7 +94,7 @@ const SkillsSection = () => {
               {t("כלים ומיומנויות", "Tools & Skills")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]" style={{ color: "#2C2C3A" }}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#2C2C3A" }}>
             {t("ה-", "My ")}
             <span className="italic" style={{ color: "#F09A60" }}>Arsenal</span>
             {t(" שלי", "")}
