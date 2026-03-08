@@ -6,8 +6,8 @@ import { Mail, Settings, Palette, Zap, Search, ChevronLeft, ChevronRight } from 
 const cardIcons = [Settings, Palette, Zap, Search];
 
 const featuredProject = {
-  heTitle: "Umina Superfood — מסעות לקוח ומועדון חברות",
-  enTitle: "Umina Superfood — Customer Journeys & Loyalty Club",
+  heTitle: "מסעות לקוח ומועדון חברות",
+  enTitle: "Customer Journeys & Loyalty Club",
   subtitle: "FlashyApp · Shopify · Rise.ai",
   heDesc: "בניית מועדון לקוחות ב-Shopify עם מנגנון קרדיטים (Rise.ai) ומסעות לקוח מותאמים אישית. עיצוב ניוזלטרים ומסעות שיווקיים לקהילת הסופרפוד.",
   enDesc: "Built a complete loyalty club with a credit system on Shopify via Rise.ai. Designed 3 customer journeys: welcome, birthday benefit, pre-expiry reminder. Branded newsletters and marketing campaigns for the superfood community.",
