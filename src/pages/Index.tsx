@@ -1,12 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <LanguageToggle />
+      <Navbar />
+      <HeroSection />
+
+      {/* Placeholder sections for scroll targets */}
+      <section id="about" className="min-h-[50vh]" />
+      <section id="experience" className="min-h-[50vh]" />
+      <section id="skills" className="min-h-[50vh]" />
+      <section id="contact" className="min-h-[50vh]" />
     </div>
   );
 };
