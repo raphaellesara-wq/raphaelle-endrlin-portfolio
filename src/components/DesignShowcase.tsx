@@ -379,7 +379,7 @@ const DesignShowcase = () => {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-white">
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#A8F0D8" }}>
+              <em className="not-italic" style={{ color: "#A98ED4" }}>
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
