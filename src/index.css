@@ -22,28 +22,28 @@
     --secondary-foreground: 252 20% 13%;
 
     --muted: 40 10% 97%;
-    --muted-foreground: 256 10% 50%;
+    --muted-foreground: 256 8% 55%;
 
-    --accent-pink: 348 42% 65%;
-    --accent-pink-pale: 348 50% 97%;
-    --accent-orange: 27 47% 53%;
-    --accent-orange-pale: 27 60% 95%;
-    --accent-green: 155 38% 39%;
-    --accent-green-pale: 155 30% 94%;
-    --accent-blue: 207 36% 48%;
-    --accent-blue-pale: 207 40% 95%;
-    --accent-purple: 258 25% 53%;
-    --accent-purple-pale: 258 30% 96%;
+    --accent-pink: 348 30% 70%;
+    --accent-pink-pale: 348 30% 97%;
+    --accent-orange: 27 35% 60%;
+    --accent-orange-pale: 27 40% 96%;
+    --accent-green: 155 25% 55%;
+    --accent-green-pale: 155 20% 95%;
+    --accent-blue: 207 25% 58%;
+    --accent-blue-pale: 207 25% 96%;
+    --accent-purple: 258 18% 60%;
+    --accent-purple-pale: 258 20% 97%;
 
-    --accent: 258 25% 53%;
+    --accent: 258 18% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 258 20% 93%;
-    --input: 258 20% 93%;
-    --ring: 258 25% 53%;
+    --border: 258 12% 94%;
+    --input: 258 12% 94%;
+    --ring: 258 18% 60%;
 
     --radius: 0.5rem;
 
@@ -364,7 +364,7 @@ section#contact {
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   padding: 100px 80px;
-  background: #1C1A28;
+  background: #2A2836;
   overflow: visible;
   position: relative;
   align-items: start;
@@ -387,7 +387,7 @@ section#contact {
   overflow: visible;
   margin-bottom: 20px;
   white-space: normal;
-  color: #FFFFFF;
+  color: rgba(255,255,255,0.9);
 }
 
 /* Form fields */
@@ -415,8 +415,8 @@ section#contact {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: rgba(61,139,110,0.6);
-  background: rgba(61,139,110,0.06);
+  border-color: hsla(155, 25%, 55%, 0.5);
+  background: hsla(155, 25%, 55%, 0.05);
 }
 
 .form-group input::placeholder,
@@ -430,7 +430,7 @@ section#contact {
 }
 
 .contact-submit {
-  background: #3D8B6E;
+  background: hsl(155, 25%, 55%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -445,7 +445,7 @@ section#contact {
 }
 
 .contact-submit:hover {
-  background: #2D6B53;
+  background: hsl(155, 25%, 45%);
   transform: translateY(-1px);
 }
 
@@ -457,7 +457,7 @@ section#contact {
 
 /* === FOOTER === */
 .footer-bar {
-  background: #141220;
+  background: #222030;
   padding: 32px 80px;
   display: flex;
   align-items: center;
