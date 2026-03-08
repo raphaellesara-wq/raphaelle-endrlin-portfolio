@@ -138,7 +138,7 @@ const AboutSection = () => {
         </div>
 
         {/* Illustration — below content */}
-        <div className="hidden md:flex justify-center mt-8 about-illust-wrap">
+        <div className="hidden md:flex justify-center mt-4 about-illust-wrap">
           <AboutIllustration />
         </div>
       </div>
