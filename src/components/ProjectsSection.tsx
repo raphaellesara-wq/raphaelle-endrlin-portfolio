@@ -98,7 +98,6 @@ const ProjectsSection = () => {
     if (currentIndex > maxIndex) setCurrentIndex(Math.max(0, maxIndex));
   }, [maxIndex, currentIndex]);
 
-  const isRTL = language === "he";
   // Each card is (100% / visibleCount) with gap accounted
   const gap = 20;
   const cardPercent = 100 / visibleCount;
