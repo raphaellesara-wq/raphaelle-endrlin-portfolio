@@ -48,6 +48,13 @@ const SkillsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <Star size={20} strokeWidth={1.5} color="#E88FA0" />
+            <Zap size={20} strokeWidth={1.5} color="#F09A60" />
+            <Leaf size={20} strokeWidth={1.5} color="#6DC4A0" />
+            <Droplet size={20} strokeWidth={1.5} color="#72AEE8" />
+            <Sparkles size={20} strokeWidth={1.5} color="#A98ED4" />
+          </div>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px" style={{ backgroundColor: "hsl(37 40% 61%)" }} />
             <span className="text-sm tracking-wide font-medium" style={{ color: "hsl(37 40% 61%)" }}>

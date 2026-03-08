@@ -85,7 +85,10 @@ const ProjectsSection = () => {
                 transitionDelay: `${200 + i * 150}ms`,
               }}
             >
-              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">
+              {(() => { const Icon = cardIcons[i]; return (
+                <Icon size={32} strokeWidth={1.5} color={project.accent} className="absolute top-6 end-6 opacity-80" />
+              ); })()}
+              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 pe-10">
                 {project.emoji} {t(project.heTitle, project.enTitle)}
               </h3>
               <p className="text-xs text-muted-foreground mb-3">{project.subtitle}</p>
