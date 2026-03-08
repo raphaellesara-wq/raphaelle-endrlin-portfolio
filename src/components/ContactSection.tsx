@@ -29,7 +29,7 @@ const contactLinks = [
 ];
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -40,13 +40,17 @@ const ContactSection = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
+  // RTL: slide right on hover. LTR: slide left on hover.
+  const hoverSlideClass = isRTL
+    ? "hover:translate-x-1"
+    : "hover:-translate-x-1";
+
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-card">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left — Info */}
           <div className="space-y-8">
-            {/* Eyebrow */}
             <div
               className={`transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -58,7 +62,7 @@ const ContactSection = () => {
                   {t("צור קשר", "Contact")}
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-display font-normal leading-[1.15]">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
                 {t("נשמח", "Let's")}
                 <br />
                 <span className="text-accent-pink italic">{t("לדבר", "Talk")}</span>
@@ -66,7 +70,7 @@ const ContactSection = () => {
             </div>
 
             <p
-              className={`text-base leading-relaxed text-muted-foreground max-w-md transition-all duration-700 delay-100 ${
+              className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-md transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -86,13 +90,13 @@ const ContactSection = () => {
                     href={link.href}
                     target={link.icon === Linkedin ? "_blank" : undefined}
                     rel={link.icon === Linkedin ? "noopener noreferrer" : undefined}
-                    className={`flex items-center gap-4 p-4 rounded-2xl border border-border bg-background transition-all duration-500 hover:translate-x-[-4px] rtl:hover:translate-x-[4px] hover:shadow-md ${
+                    className={`flex items-center gap-4 p-4 rounded-2xl border border-border bg-background transition-all duration-500 ${hoverSlideClass} hover:shadow-md ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                     }`}
                     style={{ transitionDelay: `${200 + i * 100}ms` }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-accent-pink-pale flex items-center justify-center shrink-0">
-                      <Icon size={18} className="text-accent-pink" />
+                    <div className="w-10 h-10 rounded-xl bg-accent-green-pale flex items-center justify-center shrink-0">
+                      <Icon size={18} className="text-accent-green" />
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">{t(link.heLabel, link.enLabel)}</p>

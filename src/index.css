@@ -61,6 +61,11 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
@@ -71,7 +76,8 @@
 
   [dir="rtl"] body,
   [dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div,
-  [dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] textarea {
+  [dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] textarea,
+  [dir="rtl"] label, [dir="rtl"] a, [dir="rtl"] li {
     font-family: "Heebo", "Poppins", sans-serif;
   }
 
@@ -81,6 +87,10 @@
 
   [dir="ltr"] body {
     font-family: "Poppins", sans-serif;
+  }
+
+  [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3, [dir="ltr"] h4 {
+    font-family: "Abril Fatface", serif;
   }
 }
 

@@ -1,27 +1,50 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Menu, X } from "lucide-react";
+
+const navItems = [
+  { href: "#about", he: "אודות", en: "About" },
+  { href: "#experience", he: "ניסיון", en: "Experience" },
+  { href: "#skills", he: "כלים", en: "Skills" },
+  { href: "#contact", he: "צור קשר", en: "Contact" },
+];
 
 const Navbar = () => {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Determine active section
+      const sections = navItems.map((item) => item.href.slice(1));
+      let current = "";
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100) current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
-    { href: "#about", label: t("אודות", "About") },
-    { href: "#experience", label: t("ניסיון", "Experience") },
-    { href: "#skills", label: t("כלים", "Skills") },
-    { href: "#contact", label: t("צור קשר", "Contact") },
-  ];
-
-  const scrollTo = (href: string) => {
+  const scrollTo = useCallback((href: string) => {
     const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+    if (el) {
+      const offset = 80;
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+    setMobileOpen(false);
+  }, []);
 
   return (
     <nav
@@ -30,21 +53,57 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-6">
-        <div className="font-display text-2xl font-bold tracking-tight text-foreground">
+        <div className="font-display text-2xl tracking-tight text-foreground">
           ר.א
         </div>
-        <div className="flex items-center gap-8">
-          {links.map((link) => (
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navItems.map((link) => (
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground pb-1"
+              className={`nav-link text-sm font-medium pb-1 transition-colors duration-200 ${
+                activeSection === link.href.slice(1)
+                  ? "text-accent-pink"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
-              {link.label}
+              {t(link.he, link.en)}
             </button>
           ))}
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-2 text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden glass-nav border-t border-border/50 animate-fade-up">
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
+            {navItems.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => scrollTo(link.href)}
+                className={`text-sm font-medium py-2 text-start transition-colors ${
+                  activeSection === link.href.slice(1)
+                    ? "text-accent-pink"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {t(link.he, link.en)}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

@@ -30,7 +30,7 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-24 relative overflow-hidden"
+      className="py-16 md:py-24 relative overflow-hidden"
       style={{ backgroundColor: "#1E1B2E" }}
     >
       {/* Pastel glows */}
@@ -43,7 +43,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
         <div
-          className={`mb-14 transition-all duration-700 ${
+          className={`mb-10 md:mb-14 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
@@ -53,15 +53,15 @@ const SkillsSection = () => {
               {t("כלים ומיומנויות", "Tools & Skills")}
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-normal leading-[1.15] text-primary-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15] text-primary-foreground">
             {t("ה-", "My ")}
             <span className="italic" style={{ color: "hsl(37 40% 61%)" }}>Arsenal</span>
             {t(" שלי", "")}
           </h2>
         </div>
 
-        {/* Skills grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Skills grid — 1 col mobile, 3 col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
             <div
               key={i}
@@ -75,7 +75,7 @@ const SkillsSection = () => {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = "hsl(37 40% 61% / 0.5)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px hsl(37 40% 61% / 0.1)";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 20px rgba(201,169,110,0.2)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";

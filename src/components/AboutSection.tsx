@@ -41,9 +41,9 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 bg-card border-y border-border">
+    <section id="about" ref={sectionRef} className="py-16 md:py-24 bg-card border-y border-border">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content — wider column */}
           <div className="lg:col-span-3 space-y-6">
             {/* Eyebrow */}
@@ -60,7 +60,7 @@ const AboutSection = () => {
 
             {/* H2 */}
             <h2
-              className={`text-4xl md:text-5xl font-display font-normal leading-[1.15] transition-all duration-700 delay-100 ${
+              className={`text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15] transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -75,7 +75,7 @@ const AboutSection = () => {
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-700 ${
+                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{ transitionDelay: `${200 + i * 150}ms` }}
