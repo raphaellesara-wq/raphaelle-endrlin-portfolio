@@ -41,7 +41,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-16 md:py-24 bg-card border-y border-border">
+    <section id="about" ref={sectionRef} className="py-10 md:py-16 bg-card border-y border-border">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content — wider column */}

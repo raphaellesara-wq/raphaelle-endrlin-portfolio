@@ -30,7 +30,7 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-16 md:py-24 relative overflow-hidden"
+      className="py-10 md:py-16 relative overflow-hidden"
       style={{ backgroundColor: "#1E1B2E" }}
     >
       {/* Pastel glows */}
@@ -43,7 +43,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
         <div
-          className={`mb-10 md:mb-14 transition-all duration-700 ${
+          className={`mb-8 md:mb-10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
@@ -61,7 +61,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills grid — 1 col mobile, 3 col desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {categories.map((cat, i) => (
             <div
               key={i}
