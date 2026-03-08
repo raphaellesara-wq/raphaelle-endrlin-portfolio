@@ -265,6 +265,7 @@ const GalleryCard = ({
     className="group rounded-2xl border overflow-hidden bg-background cursor-pointer transition-all duration-250"
     style={{
       borderColor: "#EEEAF5",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? "translateY(0)" : "translateY(8px)",
       transitionDelay: `${80 * index}ms`,
@@ -358,27 +359,31 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="py-10 md:py-16 bg-background">
-        <div className="container mx-auto px-6">
+      <section id="showcase" ref={sectionRef} className="relative" style={{ background: "linear-gradient(135deg, #1A7A5E 0%, #2A9D7F 50%, #1F8A6E 100%)", padding: "0" }}>
+        {/* Wave divider */}
+        <svg viewBox="0 0 1440 40" preserveAspectRatio="none" style={{ width: "100%", height: 40, display: "block", marginBottom: -1 }}>
+          <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+        <div className="container mx-auto px-6 md:px-[60px]" style={{ paddingTop: 40, paddingBottom: 80 }}>
           {/* Header */}
           <div
             className={`mb-8 md:mb-10 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#6DC4A0" }}>
+             <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px" style={{ backgroundColor: "#A8F0D8" }} />
+              <span className="text-sm tracking-wide font-medium" style={{ color: "#A8F0D8" }}>
                 {t("עיצוב", "Design")}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15] text-white">
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#6DC4A0" }}>
+              <em className="not-italic" style={{ color: "#A8F0D8" }}>
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-lg">
+            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.80)" }}>
               {t(
                 "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
                 "Newsletters, pop-ups, web design and automations from recent projects"
@@ -400,8 +405,8 @@ const DesignShowcase = () => {
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={
                   activeTab === tab.key
-                    ? { backgroundColor: "#6DC4A0", color: "#fff", borderColor: "#6DC4A0" }
-                    : { backgroundColor: "#fff", color: "#9A8FA8", borderColor: "#E8E4F5" }
+                    ? { backgroundColor: "#fff", color: "#1A7A5E", borderColor: "#fff", fontWeight: 700 }
+                    : { backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.85)", borderColor: "rgba(255,255,255,0.25)" }
                 }
               >
                 {t(tab.he, tab.en)}
@@ -417,25 +422,28 @@ const DesignShowcase = () => {
                 <button
                   onClick={isRTL ? goNext : goPrev}
                   disabled={isRTL ? currentIndex >= maxIndex : currentIndex <= 0}
-                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border transition-all duration-200"
+                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full border transition-all duration-200"
                   style={{
                     top: "40%",
                     transform: "translateY(-50%)",
                     [isRTL ? "left" : "right"]: -22,
-                    borderColor: "#EEEAF5",
-                    boxShadow: "0 4px 16px rgba(44,44,58,0.10)",
+                    background: "rgba(255,255,255,0.15)",
+                    borderColor: "rgba(255,255,255,0.30)",
+                    color: "white",
                     opacity: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? 0.25 : 1,
                     cursor: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? "default" : "pointer",
                   }}
                   onMouseEnter={(e) => {
                     if (!e.currentTarget.disabled) {
-                      e.currentTarget.style.backgroundColor = "#6DC4A0";
-                      e.currentTarget.style.borderColor = "#6DC4A0";
+                      e.currentTarget.style.backgroundColor = "white";
+                      e.currentTarget.style.borderColor = "white";
+                      e.currentTarget.style.color = "#1A7A5E";
                     }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "white";
-                    e.currentTarget.style.borderColor = "#EEEAF5";
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.30)";
+                    e.currentTarget.style.color = "white";
                   }}
                 >
                   {isRTL ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
@@ -443,25 +451,28 @@ const DesignShowcase = () => {
                 <button
                   onClick={isRTL ? goPrev : goNext}
                   disabled={isRTL ? currentIndex <= 0 : currentIndex >= maxIndex}
-                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border transition-all duration-200"
+                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full border transition-all duration-200"
                   style={{
                     top: "40%",
                     transform: "translateY(-50%)",
                     [isRTL ? "right" : "left"]: -22,
-                    borderColor: "#EEEAF5",
-                    boxShadow: "0 4px 16px rgba(44,44,58,0.10)",
+                    background: "rgba(255,255,255,0.15)",
+                    borderColor: "rgba(255,255,255,0.30)",
+                    color: "white",
                     opacity: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? 0.25 : 1,
                     cursor: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? "default" : "pointer",
                   }}
                   onMouseEnter={(e) => {
                     if (!e.currentTarget.disabled) {
-                      e.currentTarget.style.backgroundColor = "#6DC4A0";
-                      e.currentTarget.style.borderColor = "#6DC4A0";
+                      e.currentTarget.style.backgroundColor = "white";
+                      e.currentTarget.style.borderColor = "white";
+                      e.currentTarget.style.color = "#1A7A5E";
                     }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "white";
-                    e.currentTarget.style.borderColor = "#EEEAF5";
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.30)";
+                    e.currentTarget.style.color = "white";
                   }}
                 >
                   {isRTL ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
@@ -525,7 +536,7 @@ const DesignShowcase = () => {
                       width: i === currentIndex ? 24 : 8,
                       height: 8,
                       borderRadius: i === currentIndex ? 4 : "50%",
-                      backgroundColor: i === currentIndex ? "#6DC4A0" : "#EEEAF5",
+                      backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.30)",
                       cursor: "pointer",
                       border: "none",
                       padding: 0,
