@@ -74,7 +74,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-8 md:py-16" style={{ background: "#F4FAF7" }}>
+    <section id="projects" ref={sectionRef} className="py-8 md:py-16" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-5 md:px-6">
         <div className={`mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <div className="flex items-center gap-3 mb-4">
