@@ -95,9 +95,9 @@ const AboutIllustration = () => (
     </g>
 
     {/* Sprig — right of laptop */}
-    <path d="M340 260 Q335 230 340 200" stroke="#3D8B6E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <path d="M340 245 Q355 238 358 225" stroke="#3D8B6E" strokeWidth="1.2" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
-    <path d="M340 230 Q325 222 328 208" stroke="#3D8B6E" strokeWidth="1.2" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
+    <path d="M340 260 Q335 230 340 200" stroke="#6DC4A0" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+    <path d="M340 245 Q355 238 358 225" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
+    <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
 
     {/* Small accent dots */}
     <circle cx="380" cy="140" r="2" fill="#3D8B6E" opacity="0.35" />
