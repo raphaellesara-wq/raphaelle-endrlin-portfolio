@@ -52,6 +52,36 @@ const HeroSection = () => {
         overflow: "visible",
       }}
     >
+      {/* Floating email orbit SVG */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 hidden md:block">
+        <svg
+          id="hero-svg"
+          className="absolute"
+          style={{ bottom: -40, left: 40, opacity: 0.13 }}
+          width="320" height="320" viewBox="0 0 320 320" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        >
+          <circle cx="160" cy="160" r="130" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="6 8" fill="none" />
+          <circle cx="160" cy="160" r="88" stroke="#A98ED4" strokeWidth="1" strokeDasharray="3 6" fill="none" />
+          <circle cx="160" cy="160" r="5" fill="#3D8B6E" />
+          <circle cx="160" cy="160" r="12" stroke="#3D8B6E" strokeWidth="1" fill="none" opacity="0.5" />
+          <g className="hero-env1">
+            <rect x="141" y="24" width="28" height="20" rx="3" stroke="#3D8B6E" strokeWidth="1.5" fill="white" fillOpacity="0.06" />
+            <path d="M141 27 L155 36 L169 27" stroke="#3D8B6E" strokeWidth="1.5" fill="none" />
+          </g>
+          <g className="hero-bolt1">
+            <path d="M247 148 L242 160 L248 160 L243 172 L252 157 L246 157 Z" stroke="#A98ED4" strokeWidth="1.5" fill="#A98ED4" fillOpacity="0.15" />
+          </g>
+          <g className="hero-star1">
+            <path d="M78 88 L80 82 L82 88 L88 88 L83 92 L85 98 L80 94 L75 98 L77 92 L72 88 Z" stroke="#C4834A" strokeWidth="1" fill="#C4834A" fillOpacity="0.12" />
+          </g>
+          <circle cx="290" cy="160" r="3" fill="#3D8B6E" opacity="0.4" />
+          <circle cx="30" cy="160" r="3" fill="#3D8B6E" opacity="0.4" />
+          <circle cx="160" cy="290" r="3" fill="#A98ED4" opacity="0.4" />
+          <circle cx="160" cy="30" r="3" fill="#A98ED4" opacity="0.4" />
+        </svg>
+      </div>
+
       {/* Small decorative dots */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="absolute top-[18%] end-[25%]" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
