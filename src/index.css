@@ -261,8 +261,9 @@
 .about-illust-wrap {
   pointer-events: none;
   user-select: none;
-  opacity: 0.8;
-  max-width: 200px;
+  opacity: 0.85;
+  max-width: 260px;
+  width: 100%;
 }
 .about-illust {
   width: 100%;

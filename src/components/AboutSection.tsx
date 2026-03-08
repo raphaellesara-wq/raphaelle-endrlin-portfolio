@@ -24,7 +24,7 @@ const AboutSection = () => {
   return (
     <section id="about" ref={sectionRef} className="py-8 md:py-12 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-[1fr_auto] items-center gap-4 lg:gap-6">
+        <div className="grid lg:grid-cols-[1fr_280px] items-center gap-4 lg:gap-10">
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
@@ -65,9 +65,12 @@ const AboutSection = () => {
 
           {/* Illustration — beside text on desktop */}
           <div
-            className={`hidden lg:flex about-illust-wrap transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
+            className="hidden lg:flex about-illust-wrap"
+            style={{
+              opacity: isVisible ? 0.85 : 0,
+              transform: isVisible ? 'translateX(0)' : 'translateX(20px)',
+              transition: 'opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s',
+            }}
           >
             <AboutIllustration />
           </div>
