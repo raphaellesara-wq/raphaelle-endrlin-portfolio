@@ -139,6 +139,8 @@ const Lightbox = ({
   onClose: () => void;
   t: (he: string, en: string) => string;
 }) => {
+  const [isTall, setIsTall] = useState(false);
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -154,14 +156,14 @@ const Lightbox = ({
   return (
     <div
       className="fixed inset-0 z-[1000] flex items-center justify-center p-6 animate-in fade-in duration-200"
-      style={{ background: "rgba(28,24,48,0.85)", backdropFilter: "blur(4px)" }}
+      style={{ background: "rgba(28,24,48,0.88)", backdropFilter: "blur(6px)" }}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
-        className="relative bg-background rounded-[20px] overflow-hidden w-full flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250"
-        style={{ maxWidth: 700, maxHeight: "88vh" }}
+        className="relative bg-background rounded-[20px] overflow-hidden flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250"
+        style={{ maxWidth: "90vw", maxHeight: "90vh", width: "auto" }}
       >
         {/* Close */}
         <button
@@ -171,21 +173,35 @@ const Lightbox = ({
           <X size={18} className="text-foreground" />
         </button>
 
-        {/* Scrollable image */}
+        {/* Image */}
         <div
-          className="overflow-y-auto"
-          style={{ maxHeight: "calc(88vh - 80px)", background: card.imageBg ?? "#F8F6FF" }}
+          className="flex items-start justify-center"
+          style={{
+            background: card.imageBg ?? "#F8F6FF",
+            overflow: isTall ? "auto" : "hidden",
+            ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : {}),
+          }}
         >
           <img
             src={card.src}
             alt={card.enLabel}
-            className="w-full block"
-            style={{ height: "auto", objectFit: "contain" }}
+            className="block"
+            style={{
+              maxHeight: "calc(90vh - 80px)",
+              maxWidth: "100%",
+              width: "auto",
+              height: "auto",
+              objectFit: "contain",
+            }}
+            onLoad={(e) => {
+              const img = e.currentTarget;
+              if (img.naturalHeight > 1200) setIsTall(true);
+            }}
           />
         </div>
 
         {/* Info bar */}
-        <div className="px-5 py-4 border-t border-border flex-shrink-0">
+        <div className="px-5 py-3.5 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
           <p className="font-bold text-foreground" style={{ fontSize: 14 }}>
             {t(card.heLabel, card.enLabel)}
           </p>
