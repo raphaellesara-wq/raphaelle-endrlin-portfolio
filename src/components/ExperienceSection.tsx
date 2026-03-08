@@ -52,8 +52,8 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-10 md:py-16 relative" style={{ background: "#FAFAF8" }}>
-      <div className="container mx-auto px-6">
+    <section id="experience" ref={sectionRef} className="py-8 md:py-16 relative" style={{ background: "#FAFAF8" }}>
+      <div className="container mx-auto px-5 md:px-6">
         {/* Section header */}
         <div
           className={`mb-8 md:mb-10 transition-all duration-700 ${
@@ -77,7 +77,7 @@ const ExperienceSection = () => {
         <div className="space-y-5">
           {/* MAVEN MEDIA card */}
           <div
-            className={`relative rounded-2xl border border-border bg-card p-6 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
+            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
@@ -130,7 +130,7 @@ const ExperienceSection = () => {
 
           {/* Freelance card */}
           <div
-            className={`relative rounded-2xl border border-border bg-card p-6 md:p-10 overflow-hidden transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
+            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >

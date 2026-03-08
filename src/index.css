@@ -301,6 +301,14 @@
   50%      { transform: scale(1.06); opacity: 1; }
 }
 
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .about-illust-wrap {
+    max-width: 200px;
+    opacity: 0.75;
+  }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .hero-illust-wrap,
@@ -371,14 +379,22 @@ section#contact {
   align-items: start;
 }
 
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  section#contact {
+    padding: 72px 40px;
+    gap: 48px;
+  }
+}
+
 [dir='rtl'] .contact-form-col { order: 2; }
 [dir='rtl'] .contact-info-col { order: 1; }
 
 @media (max-width: 768px) {
   section#contact {
     grid-template-columns: 1fr;
-    padding: 60px 24px;
-    gap: 48px;
+    padding: 48px 20px;
+    gap: 32px;
   }
 }
 

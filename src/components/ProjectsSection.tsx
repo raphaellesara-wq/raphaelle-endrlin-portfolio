@@ -55,7 +55,7 @@ const ProjectsSection = () => {
     const Icon = cardIcons[iconIdx];
     return (
       <div
-        className="group relative rounded-[20px] border border-border bg-card p-8 transition-all duration-200 ease-out h-full"
+        className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out h-full"
         style={{ borderBottom: "3px solid transparent" }}
         onMouseEnter={(e) => { const el = e.currentTarget; el.style.transform = "translateY(-3px)"; el.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; el.style.borderBottom = `3px solid ${project.accent}`; }}
         onMouseLeave={(e) => { const el = e.currentTarget; el.style.transform = "translateY(0)"; el.style.boxShadow = "none"; el.style.borderBottom = "3px solid transparent"; }}
@@ -74,8 +74,8 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-10 md:py-16" style={{ background: "#FFFFFF" }}>
-      <div className="container mx-auto px-6">
+    <section id="projects" ref={sectionRef} className="py-8 md:py-16" style={{ background: "#FFFFFF" }}>
+      <div className="container mx-auto px-5 md:px-6">
         <div className={`mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-accent-pink" />
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
         {/* Featured */}
         <div className={`mb-5 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "200ms" }}>
           <div
-            className="group relative rounded-[20px] border border-border bg-card p-8 transition-all duration-200 ease-out"
+            className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out"
             style={{ borderInlineStart: `3px solid ${featuredProject.accent}` }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}

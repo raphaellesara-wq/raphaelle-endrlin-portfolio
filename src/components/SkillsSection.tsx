@@ -60,7 +60,7 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-8 md:py-12 pb-14 relative overflow-hidden"
+      className="py-8 md:py-12 pb-10 md:pb-14 relative overflow-hidden"
       style={{ background: "#FAFAF8" }}
     >
       {/* Tools constellation SVG */}
@@ -118,7 +118,7 @@ const SkillsSection = () => {
           <circle className="arsenal-particle" cx="480" cy="80" r="2" fill="#C4834A" opacity="0.3" />
         </svg>
       </div>
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-5 md:px-6 relative z-10">
         {/* Mini icons row */}
         <div
           className={`flex items-center justify-center gap-4 mb-6 transition-all duration-700 ${
@@ -156,17 +156,15 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">
           {categories.map((cat, i) => (
             <div
               key={i}
-              className={`group relative rounded-[20px] border border-border transition-all duration-250 ease-out flex flex-col bg-card ${
+              className={`group relative rounded-[20px] border border-border transition-all duration-250 ease-out flex flex-col bg-card p-5 md:p-7 min-h-[200px] md:min-h-[280px] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{
                 transitionDelay: `${200 + i * 150}ms`,
-                padding: "32px 28px",
-                minHeight: 280,
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;

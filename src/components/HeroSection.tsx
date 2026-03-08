@@ -46,21 +46,21 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex items-center pt-20 pb-10 md:pt-24 md:pb-14"
+      className="relative flex items-center pt-20 pb-8 md:pt-24 md:pb-14"
       style={{
         background: "#FAFAF8",
-        minHeight: "100vh",
+        minHeight: "auto",
         overflow: "hidden",
       }}
     >
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+      <div className="container mx-auto px-5 md:px-12 lg:px-16 relative z-10">
         <div
           className="grid lg:grid-cols-2 items-center"
           style={{ gap: 48 }}
         >
           {/* Main text */}
-          <div className="order-1 space-y-5 md:space-y-6" style={{ overflow: "visible", position: "relative", zIndex: 2 }}>
+          <div className="order-1 space-y-4 md:space-y-6" style={{ overflow: "visible", position: "relative", zIndex: 2 }}>
             {/* Eyebrow */}
             <div
               className="flex items-center gap-3 animate-fade-up"
@@ -145,14 +145,27 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats card — hidden on mobile */}
+          {/* Stats — compact on mobile, card on desktop */}
           <div
-            className="order-2 hidden lg:flex justify-center"
+            className="order-2 flex justify-center"
             ref={statsRef}
             style={{ position: "relative", zIndex: 1 }}
           >
+            {/* Mobile compact stats */}
             <div
-              className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
+              className="lg:hidden w-full grid grid-cols-4 gap-2 animate-fade-up"
+              style={{ animationDelay: "900ms" }}
+            >
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center rounded-xl py-3 px-1 bg-card border border-border">
+                  <div className="text-lg font-bold text-foreground">{statValues[i]}</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">{t(stat.heLabel, stat.enLabel)}</div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop card */}
+            <div
+              className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up hidden lg:block"
               style={{ animationDelay: "300ms" }}
             >
               {/* Rainbow gradient top line */}
