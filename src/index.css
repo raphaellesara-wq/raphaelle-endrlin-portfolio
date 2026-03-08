@@ -4,36 +4,44 @@
 
 @layer base {
   :root {
-    --background: 34 33% 96%;
-    --foreground: 30 12% 9%;
+    --background: 0 0% 100%;
+    --foreground: 240 16% 20%;
 
-    --card: 36 43% 97%;
-    --card-foreground: 30 12% 9%;
+    --card: 240 33% 99%;
+    --card-foreground: 240 16% 20%;
 
-    --popover: 34 33% 96%;
-    --popover-foreground: 30 12% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 16% 20%;
 
-    --primary: 30 12% 9%;
-    --primary-foreground: 34 33% 96%;
+    --primary: 240 16% 20%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 24% 86%;
-    --secondary-foreground: 30 12% 9%;
+    --secondary: 260 40% 96%;
+    --secondary-foreground: 240 16% 20%;
 
-    --muted: 30 24% 90%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 260 30% 96%;
+    --muted-foreground: 240 8% 55%;
 
-    --accent: 5 38% 59%;
-    --accent-foreground: 34 33% 96%;
+    --accent-pink: 350 68% 73%;
+    --accent-pink-pale: 348 90% 97%;
+    --accent-orange: 24 84% 66%;
+    --accent-orange-pale: 30 92% 87%;
+    --accent-green: 155 44% 60%;
+    --accent-green-pale: 155 70% 91%;
+    --accent-blue: 210 68% 68%;
+    --accent-blue-pale: 210 80% 92%;
+    --accent-purple: 268 46% 69%;
+    --accent-purple-pale: 264 60% 94%;
 
-    --gold: 37 40% 61%;
-    --gold-foreground: 34 33% 96%;
+    --accent: 268 46% 69%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 28 24% 85%;
-    --input: 28 24% 85%;
-    --ring: 5 38% 59%;
+    --border: 260 30% 93%;
+    --input: 260 30% 93%;
+    --ring: 268 46% 69%;
 
     --radius: 0.5rem;
 
@@ -62,17 +70,17 @@
   }
 
   [dir="rtl"] body,
-  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
-  [dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div {
-    font-family: "Frank Ruhl Libre", "Playfair Display", serif;
+  [dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div,
+  [dir="rtl"] button, [dir="rtl"] input, [dir="rtl"] textarea {
+    font-family: "Heebo", "Poppins", sans-serif;
   }
 
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
-    font-family: "Playfair Display", "Frank Ruhl Libre", serif;
+    font-family: "Abril Fatface", "Heebo", serif;
   }
 
   [dir="ltr"] body {
-    font-family: "DM Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 }
 
@@ -83,7 +91,8 @@
 
   .nav-link::after {
     content: '';
-    @apply absolute w-full scale-x-0 h-[2px] bottom-0 left-0 bg-accent origin-bottom-right transition-transform duration-300;
+    @apply absolute w-full scale-x-0 h-[2px] bottom-0 left-0 origin-bottom-right transition-transform duration-300;
+    background-color: hsl(var(--accent-pink));
   }
 
   .nav-link:hover::after {

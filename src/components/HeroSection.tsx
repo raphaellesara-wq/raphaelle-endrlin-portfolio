@@ -11,10 +11,16 @@ const stats = [
 const tools = ["MAKE.com", "N8N", "Klaviyo", "FlashyApp", "Claude AI", "Figma"];
 
 const pillTags = [
-  { he: "שיווק במייל", en: "Email Marketing" },
-  { he: "אוטומציות AI", en: "AI Automation" },
-  { he: "עיצוב", en: "Design" },
+  { he: "שיווק במייל", en: "Email Marketing", color: "pink" },
+  { he: "אוטומציות AI", en: "AI Automation", color: "blue" },
+  { he: "עיצוב", en: "Design", color: "purple" },
 ];
+
+const pillColorMap: Record<string, string> = {
+  pink: "bg-accent-pink-pale text-accent-pink",
+  blue: "bg-accent-blue-pale text-accent-blue",
+  purple: "bg-accent-purple-pale text-accent-purple",
+};
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -23,8 +29,9 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] rounded-full bg-accent/[0.06] blur-[100px]" />
-        <div className="absolute bottom-1/4 end-1/4 w-[400px] h-[400px] rounded-full bg-gold/[0.07] blur-[100px]" />
+        <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] rounded-full bg-accent-pink/[0.06] blur-[100px]" />
+        <div className="absolute bottom-1/4 end-1/4 w-[400px] h-[400px] rounded-full bg-accent-orange/[0.07] blur-[100px]" />
+        <div className="absolute top-1/2 end-1/3 w-[300px] h-[300px] rounded-full bg-accent-purple/[0.05] blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -36,7 +43,7 @@ const HeroSection = () => {
               className="flex items-center gap-3 animate-fade-up"
               style={{ animationDelay: "0ms" }}
             >
-              <div className="w-8 h-px bg-accent" />
+              <div className="w-8 h-px bg-accent-pink" />
               <span className="text-sm tracking-wide text-muted-foreground font-medium">
                 {t("מומחית שיווק ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
               </span>
@@ -44,20 +51,20 @@ const HeroSection = () => {
 
             {/* H1 */}
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight animate-fade-up"
+              className="text-5xl md:text-6xl lg:text-7xl font-display font-normal leading-[1.1] tracking-tight animate-fade-up"
               style={{ animationDelay: "150ms" }}
             >
-              {t("רפאל", "Raphaël")}
+              {t("רפאל", "Raphaëlle")}
               <br />
-              <span className="text-accent">{t("אנדרלין", "Endrlin")}</span>
+              <span className="text-accent-pink">{t("אנדרלין", "Endrlin")}</span>
             </h1>
 
             {/* Italic sub */}
             <p
-              className="text-lg italic text-muted-foreground font-display animate-fade-up"
+              className="text-lg italic text-muted-foreground font-body animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
-              {t("Raphaël Endrlin", "רפאל אנדרלין")}
+              {t("Raphaëlle Endrlin", "רפאל אנדרלין")}
             </p>
 
             {/* Description */}
@@ -94,7 +101,7 @@ const HeroSection = () => {
               <Button
                 variant="default"
                 size="lg"
-                className="rounded-full px-8 font-medium"
+                className="rounded-full px-8 font-medium hover:bg-accent-purple hover:text-accent-foreground transition-colors"
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("צור קשר", "Get in Touch")}
@@ -102,7 +109,7 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 font-medium border-border hover:bg-accent/10 hover:text-accent hover:border-accent/30"
+                className="rounded-full px-8 font-medium border-border hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 transition-colors"
                 onClick={() => document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })}
               >
                 {t("הניסיון שלי", "My Experience")}
@@ -116,15 +123,20 @@ const HeroSection = () => {
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
-              {/* Gradient top line */}
-              <div className="h-1 w-full bg-gradient-to-l from-accent to-gold" />
+              {/* Rainbow gradient top line */}
+              <div
+                className="h-1 w-full"
+                style={{
+                  background: "linear-gradient(to left, hsl(350 68% 73%), hsl(24 84% 66%), hsl(155 44% 60%), hsl(210 68% 68%), hsl(268 46% 69%))",
+                }}
+              />
 
               <div className="p-8">
                 {/* Stats grid */}
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   {stats.map((stat, i) => (
                     <div key={i} className="text-center">
-                      <div className="text-3xl font-display font-bold text-foreground">
+                      <div className="text-3xl font-display font-normal text-foreground">
                         {stat.value}
                       </div>
                       <div className="text-xs text-muted-foreground mt-1">
@@ -142,7 +154,7 @@ const HeroSection = () => {
                   {pillTags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent"
+                      className={`px-3 py-1 text-xs font-medium rounded-full ${pillColorMap[tag.color]}`}
                     >
                       {t(tag.he, tag.en)}
                     </span>

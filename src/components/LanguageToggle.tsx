@@ -6,14 +6,14 @@ const LanguageToggle = () => {
   return (
     <button
       onClick={toggle}
-      className="fixed top-4 left-4 z-50 flex items-center gap-1 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-body transition-all hover:shadow-md hover:border-accent/40"
+      className="fixed top-4 left-4 z-50 flex items-center gap-1 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-body transition-all hover:shadow-md hover:border-accent-purple/40"
       aria-label="Toggle language"
     >
-      <span className={lang === "he" ? "font-semibold text-accent" : "text-muted-foreground"}>
+      <span className={lang === "he" ? "font-semibold text-accent-purple" : "text-muted-foreground"}>
         עברית
       </span>
       <span className="text-border mx-1">|</span>
-      <span className={lang === "en" ? "font-semibold text-accent" : "text-muted-foreground"}>
+      <span className={lang === "en" ? "font-semibold text-accent-purple" : "text-muted-foreground"}>
         EN
       </span>
     </button>
