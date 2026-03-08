@@ -230,23 +230,22 @@ const DesignShowcase = () => {
                     }}
                     onClick={() => setLightboxIndex(i)}
                   >
-                    {/* Image placeholder */}
-                    {/* <!-- Upload: card image placeholder --> */}
-                    <div
-                      className="flex flex-col items-center justify-center rounded-t-[20px]"
-                      style={{
-                        height: 240,
-                        background: card.gradient,
-                      }}
-                    >
-                      <Icon size={48} strokeWidth={1.5} color={card.accent} />
-                      <span
-                        className="mt-3 text-xs font-medium text-center px-4"
-                        style={{ color: card.accent }}
+                    {/* Image area */}
+                    {'image' in card && card.image ? (
+                      <div className="rounded-t-[20px] overflow-hidden" style={{ height: 240 }}>
+                        <img src={card.image} alt={card.label} className="w-full h-full object-cover" />
+                      </div>
+                    ) : (
+                      <div
+                        className="flex flex-col items-center justify-center rounded-t-[20px]"
+                        style={{ height: 240, background: card.gradient }}
                       >
-                        {card.label}
-                      </span>
-                    </div>
+                        <Icon size={48} strokeWidth={1.5} color={card.accent} />
+                        <span className="mt-3 text-xs font-medium text-center px-4" style={{ color: card.accent }}>
+                          {card.label}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Caption */}
                     <div className="p-5">
