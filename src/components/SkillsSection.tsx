@@ -30,7 +30,7 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-16 md:py-24 relative overflow-hidden"
+      className="py-10 md:py-16 relative overflow-hidden"
       style={{ backgroundColor: "#1E1B2E" }}
     >
       {/* Pastel glows */}
