@@ -359,7 +359,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="relative" style={{ background: "linear-gradient(135deg, #1A7A5E 0%, #2A9D7F 50%, #1F8A6E 100%)", padding: "0" }}>
+      <section id="showcase" ref={sectionRef} className="relative" style={{ background: "linear-gradient(135deg, #2C3E50 0%, #34495E 50%, #2C3E50 100%)", padding: "0" }}>
         {/* Wave divider */}
         <svg viewBox="0 0 1440 40" preserveAspectRatio="none" style={{ width: "100%", height: 40, display: "block", marginBottom: -1 }}>
           <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" fill="#FDF6F8" />
@@ -372,14 +372,14 @@ const DesignShowcase = () => {
             }`}
           >
              <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#A8F0D8" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#A8F0D8" }}>
+              <div className="w-8 h-px" style={{ backgroundColor: "#A98ED4" }} />
+              <span className="text-sm tracking-wide font-medium" style={{ color: "#A98ED4" }}>
                 {t("עיצוב", "Design")}
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-white">
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#A8F0D8" }}>
+              <em className="not-italic" style={{ color: "#A98ED4" }}>
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
@@ -405,7 +405,7 @@ const DesignShowcase = () => {
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={
                   activeTab === tab.key
-                    ? { backgroundColor: "#fff", color: "#1A7A5E", borderColor: "#fff", fontWeight: 700 }
+                    ? { backgroundColor: "#fff", color: "#2C3E50", borderColor: "#fff", fontWeight: 700 }
                     : { backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.85)", borderColor: "rgba(255,255,255,0.25)" }
                 }
               >
@@ -437,7 +437,7 @@ const DesignShowcase = () => {
                     if (!e.currentTarget.disabled) {
                       e.currentTarget.style.backgroundColor = "white";
                       e.currentTarget.style.borderColor = "white";
-                      e.currentTarget.style.color = "#1A7A5E";
+                      e.currentTarget.style.color = "#2C3E50";
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -466,7 +466,7 @@ const DesignShowcase = () => {
                     if (!e.currentTarget.disabled) {
                       e.currentTarget.style.backgroundColor = "white";
                       e.currentTarget.style.borderColor = "white";
-                      e.currentTarget.style.color = "#1A7A5E";
+                      e.currentTarget.style.color = "#2C3E50";
                     }
                   }}
                   onMouseLeave={(e) => {
