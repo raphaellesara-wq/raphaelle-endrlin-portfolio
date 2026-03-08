@@ -24,7 +24,7 @@ const AboutSection = () => {
   return (
     <section id="about" ref={sectionRef} className="py-6 md:py-12 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid lg:grid-cols-[1fr_340px] items-center gap-4 lg:gap-4">
+        <div className="grid lg:grid-cols-[1fr_300px] items-center gap-2 lg:gap-2">
           {/* Text column */}
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
             <div
@@ -63,15 +63,30 @@ const AboutSection = () => {
             ))}
           </div>
 
-          {/* Illustration — beside text on desktop */}
+          {/* Illustration — beside text on desktop, below on mobile */}
           <div
             className="hidden lg:flex about-illust-wrap justify-center"
             style={{
               opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(20px) scale(0.95)',
-              transition: 'opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s',
-              maxWidth: '320px',
+              transform: isVisible ? 'translateX(0) scale(1)' : 'translateX(15px) scale(0.95)',
+              transition: 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s',
+              maxWidth: '280px',
               width: '100%',
+            }}
+          >
+            <AboutIllustration />
+          </div>
+
+          {/* Mobile illustration — medium size, centered */}
+          <div
+            className="flex lg:hidden justify-center mt-4"
+            style={{
+              opacity: isVisible ? 0.85 : 0,
+              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(10px) scale(0.95)',
+              transition: 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s',
+              maxWidth: '240px',
+              width: '100%',
+              margin: '16px auto 0',
             }}
           >
             <AboutIllustration />
