@@ -97,7 +97,7 @@ const SkillsSection = () => {
                     <span className="text-primary-foreground/80">{skill}</span>
                     <span
                       className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: "hsl(37 40% 61%)" }}
+                      style={{ backgroundColor: i === 2 ? "#6DC4A0" : "hsl(37 40% 61%)" }}
                     />
                   </div>
                 ))}

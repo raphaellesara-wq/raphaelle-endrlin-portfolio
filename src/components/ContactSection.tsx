@@ -163,8 +163,19 @@ const ContactSection = () => {
                 className={`w-full rounded-xl font-medium transition-all duration-300 ${
                   submitted
                     ? "bg-accent-green text-primary-foreground hover:bg-accent-green"
-                    : "hover:bg-accent-purple hover:-translate-y-0.5 hover:shadow-lg"
+                    : "text-primary-foreground hover:-translate-y-0.5 hover:shadow-lg"
                 }`}
+                style={
+                  submitted
+                    ? undefined
+                    : { backgroundColor: "#6DC4A0" }
+                }
+                onMouseEnter={(e) => {
+                  if (!submitted) (e.currentTarget as HTMLElement).style.backgroundColor = "#4AAF8C";
+                }}
+                onMouseLeave={(e) => {
+                  if (!submitted) (e.currentTarget as HTMLElement).style.backgroundColor = "#6DC4A0";
+                }}
                 disabled={submitted}
               >
                 {submitted
