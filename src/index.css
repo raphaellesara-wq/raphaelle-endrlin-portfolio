@@ -519,12 +519,12 @@ section#contact {
 
 /* === FOOTER === */
 .footer-bar {
-  background: #1A1A1F;
+  background: #EEEDEB;
   padding: 32px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid hsl(var(--border));
 }
 
 .footer-left {
