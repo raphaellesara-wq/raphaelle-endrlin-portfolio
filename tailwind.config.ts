@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        body: ['"DM Sans"', 'sans-serif'],
-        hebrew: ['"Frank Ruhl Libre"', 'serif'],
+        display: ['"Abril Fatface"', 'serif'],
+        body: ['"Poppins"', 'sans-serif'],
+        hebrew: ['"Heebo"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -43,10 +43,16 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-        },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          foreground: "hsl(var(--gold-foreground))",
+          pink: "hsl(var(--accent-pink))",
+          "pink-pale": "hsl(var(--accent-pink-pale))",
+          orange: "hsl(var(--accent-orange))",
+          "orange-pale": "hsl(var(--accent-orange-pale))",
+          green: "hsl(var(--accent-green))",
+          "green-pale": "hsl(var(--accent-green-pale))",
+          blue: "hsl(var(--accent-blue))",
+          "blue-pale": "hsl(var(--accent-blue-pale))",
+          purple: "hsl(var(--accent-purple))",
+          "purple-pale": "hsl(var(--accent-purple-pale))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
