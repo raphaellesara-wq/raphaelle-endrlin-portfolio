@@ -5,8 +5,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase("logo"), 4800);
-    const t2 = setTimeout(() => setPhase("exit"), 6400);
-    const t3 = setTimeout(onComplete, 7400);
+    const t2 = setTimeout(() => setPhase("exit"), 5800);
+    const t3 = setTimeout(onComplete, 6200);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, [onComplete]);
 
@@ -15,7 +15,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center px-4 ${
         phase === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
-      style={{ background: "#FAFAF8", transition: "opacity 0.8s ease-out" }}
+      style={{ background: "#FAFAF8", transition: "opacity 0.4s ease-out" }}
     >
       {/* Logo */}
       <div
