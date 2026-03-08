@@ -57,7 +57,7 @@ const HeroSection = () => {
         <svg
           id="hero-svg"
           className="absolute"
-          style={{ bottom: -40, left: 40, opacity: 0.13 }}
+          style={{ bottom: 20, left: 40, opacity: 0.35 }}
           width="320" height="320" viewBox="0 0 320 320" fill="none"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         >
