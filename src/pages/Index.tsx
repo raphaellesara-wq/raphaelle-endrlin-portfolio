@@ -1,5 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import SkillsSection from "@/components/SkillsSection";
 import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
@@ -8,11 +11,11 @@ const Index = () => {
       <LanguageToggle />
       <Navbar />
       <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <SkillsSection />
 
-      {/* Placeholder sections for scroll targets */}
-      <section id="about" className="min-h-[50vh]" />
-      <section id="experience" className="min-h-[50vh]" />
-      <section id="skills" className="min-h-[50vh]" />
+      {/* Placeholder for contact */}
       <section id="contact" className="min-h-[50vh]" />
     </div>
   );
