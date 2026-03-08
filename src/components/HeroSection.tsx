@@ -145,12 +145,25 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats card — hidden on mobile */}
+          {/* Stats — compact on mobile, card on desktop */}
           <div
-            className="order-2 hidden lg:flex justify-center"
+            className="order-2 flex justify-center"
             ref={statsRef}
             style={{ position: "relative", zIndex: 1 }}
           >
+            {/* Mobile compact stats */}
+            <div
+              className="lg:hidden w-full grid grid-cols-4 gap-2 animate-fade-up"
+              style={{ animationDelay: "900ms" }}
+            >
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center rounded-xl py-3 px-1 bg-card border border-border">
+                  <div className="text-lg font-bold text-foreground">{statValues[i]}</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">{t(stat.heLabel, stat.enLabel)}</div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop card */}
             <div
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
