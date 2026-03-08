@@ -100,9 +100,9 @@ const AboutIllustration = () => (
     <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
 
     {/* Small accent dots */}
-    <circle cx="380" cy="140" r="2" fill="#3D8B6E" opacity="0.35" />
-    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.35" />
-    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.3" />
+    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.5" />
+    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.5" />
+    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.45" />
   </svg>
 );
 
