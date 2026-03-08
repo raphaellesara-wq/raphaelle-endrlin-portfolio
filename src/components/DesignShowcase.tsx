@@ -265,6 +265,9 @@ const GalleryCard = ({
     className="group rounded-2xl border overflow-hidden bg-background cursor-pointer transition-all duration-250"
     style={{
       borderColor: "#EEEAF5",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+    style={{
+      borderColor: "#EEEAF5",
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? "translateY(0)" : "translateY(8px)",
       transitionDelay: `${80 * index}ms`,
