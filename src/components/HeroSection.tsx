@@ -172,7 +172,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats card — hidden on mobile */}
-          <div className="order-2 hidden lg:flex justify-center lg:justify-start">
+          <div className="order-2 hidden lg:flex justify-center lg:justify-start" ref={statsRef}>
             <div
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
