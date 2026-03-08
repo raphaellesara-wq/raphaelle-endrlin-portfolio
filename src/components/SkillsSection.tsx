@@ -49,11 +49,16 @@ const SkillsSection = () => {
           }`}
         >
           <div className="flex items-center justify-center gap-4 mb-6">
-            <Star size={20} strokeWidth={1.5} color="#E88FA0" />
-            <Zap size={20} strokeWidth={1.5} color="#F09A60" />
-            <Leaf size={20} strokeWidth={1.5} color="#6DC4A0" />
+            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+              <path d="M11 2L12.5 8.5L19 7L13.5 11L17 17L11 13.5L5 17L8.5 11L3 7L9.5 8.5Z" fill="#A98ED4" />
+            </svg>
             <Droplet size={20} strokeWidth={1.5} color="#72AEE8" />
-            <Sparkles size={20} strokeWidth={1.5} color="#A98ED4" />
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M11 20 C11 20 3 14 3 8 C3 5 6 3 11 3 C16 3 19 5 19 8 C19 14 11 20 11 20Z" stroke="#6DC4A0" strokeWidth="1.5" />
+              <line x1="11" y1="20" x2="11" y2="10" stroke="#6DC4A0" strokeWidth="1.5" />
+            </svg>
+            <Zap size={20} strokeWidth={1.5} color="#F09A60" />
+            <Star size={20} strokeWidth={1.5} color="#E88FA0" />
           </div>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px" style={{ backgroundColor: "hsl(37 40% 61%)" }} />
