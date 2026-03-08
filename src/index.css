@@ -329,6 +329,40 @@
   }
 }
 
+/* === SPLASH SCREEN === */
+.splash-node {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: splashNodeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-line {
+  stroke-dashoffset: 200;
+  animation: splashLineIn 0.8s ease-out forwards;
+}
+
+.splash-particle {
+  animation: splashParticleFloat 4s ease-in-out infinite;
+}
+
+@keyframes splashNodeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splashLineIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes splashParticleFloat {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-8px); opacity: 0.7; }
+}
+
 
 
 #arsenal-svg line {
