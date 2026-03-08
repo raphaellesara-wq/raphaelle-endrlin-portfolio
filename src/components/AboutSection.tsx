@@ -48,7 +48,7 @@ const AboutSection = () => {
         className="hidden md:block"
         width="160" height="380" viewBox="0 0 160 380" fill="none"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-        style={{ position: 'absolute', left: -30, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.14, userSelect: 'none' }}
+        style={{ position: 'absolute', left: -30, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.4, userSelect: 'none' }}
       >
         <path d="M80 375 Q76 310 80 240 Q83 180 78 110 Q75 70 82 30" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
         <path d="M80 300 Q130 270 135 230 Q100 220 80 270 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.07"/>
