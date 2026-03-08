@@ -41,9 +41,9 @@ const tabs: { key: TabKey; he: string; en: string }[] = [
 
 const galleryData: Record<TabKey, GalleryCardData[]> = {
   newsletters: [
-    { src: "/noviia.png", heLabel: "NOVIIA — ניוזלטר מוצרי שיער", enLabel: "NOVIIA — Hair Products Newsletter", tags: ["Email Design", "Klaviyo"], accent: "#4E7FA8", paleBg: "#EEF4FA" },
-    { src: "/amika-detox.png", heLabel: "amika — ניוזלטר טיפוח קרקפת", enLabel: "amika — Scalp Care Newsletter", tags: ["FlashyApp", "Email Design"], accent: "#D4798A", paleBg: "#FDF4F5" },
-    { src: "/amika-blonde.png", heLabel: "amika — הסוד לבלונד מושלם", enLabel: "amika — The Blonde Secret", tags: ["FlashyApp", "Email Design"], accent: "#C4834A", paleBg: "#FDF1E8" },
+    { src: "/noviia.png", heLabel: "NOVIIA — ניוזלטר מוצרי שיער", enLabel: "NOVIIA — Hair Products Newsletter", tags: ["Email Design", "Klaviyo"], accent: "#4E7FA8", paleBg: "#EEF4FA", objectFit: "contain" },
+    { src: "/amika-detox.png", heLabel: "amika — ניוזלטר טיפוח קרקפת", enLabel: "amika — Scalp Care Newsletter", tags: ["FlashyApp", "Email Design"], accent: "#D4798A", paleBg: "#FDF4F5", objectFit: "contain" },
+    { src: "/amika-blonde.png", heLabel: "amika — הסוד לבלונד מושלם", enLabel: "amika — The Blonde Secret", tags: ["FlashyApp", "Email Design"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "contain" },
   ],
   popups: [
     { src: "/popup-umina.png", heLabel: "Umina Superfood — טופס הרשמה", enLabel: "Umina Superfood — Signup Form", tags: ["Shopify", "FlashyApp", "Pop-up Design"], accent: "#3D8B6E", paleBg: "#EDF6F2", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
