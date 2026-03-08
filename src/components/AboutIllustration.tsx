@@ -69,9 +69,9 @@ const AboutIllustration = () => (
 
     {/* Branch with berries — left */}
     <path d="M55 280 Q50 240 60 200" stroke="hsl(252,20%,13%)" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <circle cx="48" cy="230" r="5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.12" />
-    <circle cx="42" cy="215" r="4.5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.1" />
-    <circle cx="52" cy="205" r="4" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.1" />
+    <circle cx="48" cy="230" r="5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.2" />
+    <circle cx="42" cy="215" r="4.5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
+    <circle cx="52" cy="205" r="4" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
 
     {/* Flower — top right */}
     <g className="about-flower">
