@@ -401,8 +401,8 @@ const DesignShowcase = () => {
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={
                   activeTab === tab.key
-                    ? { backgroundColor: "#fff", color: "#2C3E50", borderColor: "#fff", fontWeight: 700 }
-                    : { backgroundColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.85)", borderColor: "rgba(255,255,255,0.25)" }
+                    ? { backgroundColor: "#6DC4A0", color: "#fff", borderColor: "#6DC4A0", fontWeight: 700 }
+                    : { backgroundColor: "#fff", color: "#9A8FA8", borderColor: "#EEEAF5" }
                 }
               >
                 {t(tab.he, tab.en)}
