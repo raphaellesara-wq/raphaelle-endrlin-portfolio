@@ -60,9 +60,39 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-10 md:py-16 pb-20 relative"
+      className="py-10 md:py-16 pb-20 relative overflow-hidden"
       style={{ background: "#FAFAF8" }}
     >
+      {/* Tools constellation SVG */}
+      <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none z-0">
+        <svg
+          id="arsenal-svg"
+          width="500" height="200" viewBox="0 0 500 200" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          style={{ opacity: 0.10 }}
+        >
+          <line x1="80" y1="100" x2="180" y2="60" stroke="#A98ED4" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
+          <line x1="180" y1="60" x2="250" y2="100" stroke="#A98ED4" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
+          <line x1="250" y1="100" x2="320" y2="60" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
+          <line x1="320" y1="60" x2="420" y2="100" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
+          <line x1="80" y1="100" x2="250" y2="140" stroke="#C4834A" strokeWidth="1" strokeDasharray="4 5" opacity="0.4" />
+          <line x1="250" y1="140" x2="420" y2="100" stroke="#C4834A" strokeWidth="1" strokeDasharray="4 5" opacity="0.4" />
+          <circle cx="80" cy="100" r="16" stroke="#A98ED4" strokeWidth="1.5" fill="none" />
+          <circle cx="80" cy="100" r="6" fill="#A98ED4" fillOpacity="0.3" />
+          <rect x="168" y="48" width="24" height="24" rx="4" stroke="#A98ED4" strokeWidth="1.5" fill="none" transform="rotate(15 180 60)" />
+          <circle cx="180" cy="60" r="3" fill="#A98ED4" fillOpacity="0.4" />
+          <rect x="237" y="89" width="26" height="18" rx="3" stroke="#3D8B6E" strokeWidth="1.5" fill="none" />
+          <path d="M237 92 L250 101 L263 92" stroke="#3D8B6E" strokeWidth="1.5" fill="none" />
+          <path d="M316 48 L311 62 L319 62 L314 76 L325 59 L317 59 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.1" />
+          <path d="M420 84 L436 100 L420 116 L404 100 Z" stroke="#C4834A" strokeWidth="1.5" fill="none" />
+          <circle cx="420" cy="100" r="3" fill="#C4834A" fillOpacity="0.4" />
+          <circle cx="250" cy="140" r="14" stroke="#C4834A" strokeWidth="1.5" fill="none" />
+          <circle cx="250" cy="140" r="5" stroke="#C4834A" strokeWidth="1" fill="none" />
+          <circle cx="140" cy="45" r="2.5" fill="#A98ED4" opacity="0.5" />
+          <circle cx="370" cy="130" r="2" fill="#3D8B6E" opacity="0.5" />
+          <circle cx="200" cy="155" r="2" fill="#C4834A" opacity="0.4" />
+        </svg>
+      </div>
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
         <div
