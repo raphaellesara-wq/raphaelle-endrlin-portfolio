@@ -22,8 +22,18 @@ const pillColorMap: Record<string, string> = {
   purple: "bg-accent-purple-pale text-accent-purple",
 };
 
+import { useCountUp } from "@/hooks/use-count-up";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const HeroSection = () => {
   const { t } = useLanguage();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
+
+  const clientCount = useCountUp(20, 1500, statsVisible);
+  const openRate = useCountUp(50, 1500, statsVisible);
+  const yearsCount = useCountUp(3, 1000, statsVisible);
+  const langCount = useCountUp(4, 1000, statsVisible);
+  const statValues = [`${clientCount}+`, `${openRate}%+`, `${yearsCount}`, `${langCount}`];
 
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
