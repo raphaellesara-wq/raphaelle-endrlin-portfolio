@@ -370,19 +370,19 @@ const DesignShowcase = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#6DC4A0" }}>
+             <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-px" style={{ backgroundColor: "#A8F0D8" }} />
+              <span className="text-sm tracking-wide font-medium" style={{ color: "#A8F0D8" }}>
                 {t("עיצוב", "Design")}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15] text-white">
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#6DC4A0" }}>
+              <em className="not-italic" style={{ color: "#A8F0D8" }}>
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground mt-3 max-w-lg">
+            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.80)" }}>
               {t(
                 "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
                 "Newsletters, pop-ups, web design and automations from recent projects"
