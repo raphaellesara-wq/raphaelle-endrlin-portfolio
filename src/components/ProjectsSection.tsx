@@ -66,8 +66,8 @@ const ProjectsSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
-            {t("עבודות שאני ", "Work I'm ")}
-            <span className="text-accent-pink italic">{t("גאה בהן", "Proud Of")}</span>
+            {t("עבודות ", "Work I'm ")}
+            <span className="text-accent-pink italic">{t("שגאה בהן", "Proud Of")}</span>
           </h2>
         </div>
 

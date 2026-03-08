@@ -107,7 +107,7 @@ const HeroSection = () => {
               style={{ animationDelay: "450ms" }}
             >
               {t(
-                "אני עוזרת לעסקים לבנות מערכות שיווק במייל חכמות ואוטומציות מבוססות AI — מאסטרטגיה ועד ביצוע, עם דגש על תוצאות מדידות.",
+                "אני עוזרת לעסקים לבנות מערכות שיווק במייל ואוטומציות מבוססות AI. מהאסטרטגיה ועד הביצוע — עם דגש על תוצאות מדידות.",
                 "I help businesses build smart email marketing systems and AI-powered automations — from strategy to execution, with a focus on measurable results."
               )}
             </p>

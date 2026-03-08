@@ -75,7 +75,7 @@ const ContactSection = () => {
               }`}
             >
               {t(
-                "מחפשת הזדמנות לשלב ניסיון שיווקי עם אוטומציות AI. פתוחה לשיחה.",
+                "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
                 "Looking for an opportunity to combine marketing experience with AI automation. Open for a conversation."
               )}
             </p>
