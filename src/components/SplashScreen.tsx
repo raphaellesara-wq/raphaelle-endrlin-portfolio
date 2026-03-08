@@ -98,7 +98,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         </svg>
 
         {/* Mobile version — compact, nodes only */}
-        <svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden" style={{ maxWidth: '320px', margin: '0 auto' }}>
+        <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden" style={{ maxWidth: '300px', margin: '0 auto' }}>
           {/* L1 — root circle */}
           <g className="splash-node" style={{ animationDelay: "0.2s" }}>
             <circle cx="150" cy="30" r="18" stroke="hsl(258,18%,60%)" strokeWidth="1.8" fill="hsl(258,20%,97%)" />
@@ -143,39 +143,20 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             <circle cx="270" cy="225" r="4.5" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
           </g>
 
-          {/* Paths L3→L4 */}
-          <path d="M30 239 Q50 270 75 295" stroke="hsl(27,35%,60%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "3.6s" }} />
-          <path d="M150 239 Q150 270 150 295" stroke="hsl(348,30%,70%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "3.8s" }} />
-          <path d="M270 239 Q250 270 225 295" stroke="hsl(258,18%,60%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "4.0s" }} />
-
-          {/* L4 — three circles */}
-          <g className="splash-node" style={{ animationDelay: "4.0s" }}>
-            <circle cx="75" cy="310" r="12" stroke="hsl(155,30%,65%)" strokeWidth="1.4" fill="hsl(155,25%,96%)" />
-            <circle cx="75" cy="310" r="4" fill="hsl(155,30%,65%)" fillOpacity="0.2" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "4.2s" }}>
-            <circle cx="150" cy="310" r="12" stroke="hsl(27,35%,60%)" strokeWidth="1.4" fill="hsl(27,40%,96%)" />
-            <circle cx="150" cy="310" r="4" fill="hsl(27,35%,60%)" fillOpacity="0.2" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "4.4s" }}>
-            <circle cx="225" cy="310" r="12" stroke="hsl(348,30%,70%)" strokeWidth="1.4" fill="hsl(348,30%,97%)" />
-            <circle cx="225" cy="310" r="4" fill="hsl(348,30%,70%)" fillOpacity="0.2" />
-          </g>
-
           {/* Pulses */}
           <circle r="3.5" fill="hsl(155,30%,65%)" opacity="0.55">
-            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M150,30 L70,125 L30,225 L75,310" />
+            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M150,30 L70,125 L30,225" />
           </circle>
           <circle r="3" fill="hsl(258,18%,60%)" opacity="0.45">
-            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M150,30 L230,125 L270,225 L225,310" />
+            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M150,30 L230,125 L270,225" />
           </circle>
           <circle r="2.5" fill="hsl(348,30%,70%)" opacity="0.5">
-            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M150,30 L70,125 L150,225 L150,310" />
+            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M150,30 L70,125 L150,225" />
           </circle>
 
           {/* Particles */}
           <circle className="splash-particle" cx="10" cy="170" r="2" fill="hsl(258,18%,60%)" opacity="0.2" />
-          <circle className="splash-particle" cx="290" cy="270" r="2" fill="hsl(155,30%,65%)" opacity="0.2" style={{ animationDelay: "0.7s" }} />
+          <circle className="splash-particle" cx="290" cy="170" r="2" fill="hsl(155,30%,65%)" opacity="0.2" style={{ animationDelay: "0.7s" }} />
         </svg>
       </div>
     </div>
