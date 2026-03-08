@@ -34,7 +34,7 @@ const freelanceBullets = {
 };
 
 const freelanceAchievements = [
-  { he: "Umina Superfood", en: "Umina Superfood" },
+  { he: "Make.com + N8N", en: "Make.com + N8N" },
   { he: "Rise.ai + Shopify", en: "Rise.ai + Shopify" },
   { he: "Figma + Google Sites", en: "Figma + Google Sites" },
 ];
