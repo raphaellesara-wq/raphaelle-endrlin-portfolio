@@ -53,10 +53,10 @@ const AboutSection = () => {
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-300 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-150 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
-                style={{ transitionDelay: `${100 + i * 80}ms` }}
+                style={{ transitionDelay: `${50 + i * 40}ms` }}
               >
                 {para}
               </p>
