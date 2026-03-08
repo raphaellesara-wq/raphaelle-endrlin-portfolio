@@ -105,7 +105,7 @@ const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCard
     onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; }}
   >
     <div className="relative w-full overflow-hidden flex items-center justify-center border-b border-border" style={{ height: 200, background: card.imageBg ?? "#F6F5F0" }}>
-      <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: "cover", objectPosition: "top" }} />
+      <img src={card.src} alt={card.enLabel} loading="lazy" className="w-full h-full block" style={{ objectFit: card.objectFit || "cover", objectPosition: "top", imageRendering: "high-quality" }} />
       <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-250" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform duration-250">
         <ZoomIn size={18} className="text-foreground" />
