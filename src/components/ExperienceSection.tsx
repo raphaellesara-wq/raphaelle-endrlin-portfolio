@@ -176,3 +176,4 @@ const ExperienceSection = () => {
 };
 
 export default ExperienceSection;
+// Wave after experience is handled via the section's last child
