@@ -466,7 +466,7 @@ const DesignShowcase = () => {
                     if (!e.currentTarget.disabled) {
                       e.currentTarget.style.backgroundColor = "white";
                       e.currentTarget.style.borderColor = "white";
-                      e.currentTarget.style.color = "#1A7A5E";
+                      e.currentTarget.style.color = "#2C3E50";
                     }
                   }}
                   onMouseLeave={(e) => {
