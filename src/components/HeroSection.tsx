@@ -52,54 +52,34 @@ const HeroSection = () => {
         overflow: "visible",
       }}
     >
-      {/* Botanical browser doodle — bottom left */}
+      {/* Minimal botanical accents — positioned in empty corners */}
+      {/* Top-left leaf cluster */}
       <svg
-        id="hero-botanical"
         className="hidden md:block"
-        width="340" height="300" viewBox="0 0 340 300" fill="none"
-        xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-        style={{ position: 'absolute', bottom: 0, left: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.45, userSelect: 'none' }}
+        aria-hidden="true"
+        style={{ position: 'absolute', top: 80, left: 30, pointerEvents: 'none', zIndex: 0, opacity: 0.22, userSelect: 'none' }}
+        width="120" height="140" viewBox="0 0 120 140" fill="none"
       >
-        <ellipse cx="100" cy="200" rx="90" ry="75" fill="#D4798A" fillOpacity="0.08"/>
-        <ellipse cx="240" cy="120" rx="80" ry="95" fill="#3D8B6E" fillOpacity="0.07"/>
-        <rect x="80" y="80" width="180" height="130" rx="8" stroke="#C4834A" strokeWidth="1.5" fill="white" fillOpacity="0.04"/>
-        <line x1="80" y1="100" x2="260" y2="100" stroke="#C4834A" strokeWidth="1.5"/>
-        <circle cx="95" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
-        <circle cx="107" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
-        <circle cx="119" cy="90" r="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
-        <rect x="92" y="110" width="80" height="55" rx="3" stroke="#C4834A" strokeWidth="1.5" fill="none"/>
-        <path d="M132 125 Q136 118 140 125 Q147 121 144 128 Q151 132 144 135 Q147 142 140 139 Q136 146 132 139 Q125 142 128 135 Q121 132 128 128 Q125 121 132 125 Z" stroke="#D4798A" strokeWidth="1.5" fill="#D4798A" fillOpacity="0.06"/>
-        <circle cx="136" cy="132" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
-        <line x1="182" y1="114" x2="248" y2="114" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="182" y1="123" x2="242" y2="123" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="182" y1="132" x2="248" y2="132" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
-        <line x1="182" y1="141" x2="236" y2="141" stroke="#C4834A" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M92 155 Q110 148 128 155 Q146 162 164 155 Q182 148 200 155" stroke="#3D8B6E" strokeWidth="1.5" fill="none"/>
-        <path d="M40 60 Q20 20 60 10 Q80 50 40 60 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
-        <line x1="40" y1="60" x2="55" y2="20" stroke="#3D8B6E" strokeWidth="1"/>
-        <path d="M55 160 Q55 145 70 145 Q85 145 85 160 Q85 178 65 178 Q45 178 45 155 Q45 132 72 132" stroke="#7B68A8" strokeWidth="1.5" fill="none"/>
-        <path d="M290 180 Q310 160 305 140" stroke="#3D8B6E" strokeWidth="1.5" fill="none"/>
-        <path d="M298 168 Q318 160 315 148" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
-        <path d="M282 172 Q265 162 268 148" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
-        <circle cx="280" cy="250" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
-        <line x1="280" y1="242" x2="280" y2="238" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="280" y1="258" x2="280" y2="262" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="272" y1="250" x2="268" y2="250" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="288" y1="250" x2="292" y2="250" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="274" y1="244" x2="271" y2="241" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="286" y1="256" x2="289" y2="259" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="274" y1="256" x2="271" y2="259" stroke="#D4798A" strokeWidth="1.5"/>
-        <line x1="286" y1="244" x2="289" y2="241" stroke="#D4798A" strokeWidth="1.5"/>
-        <path d="M30 240 Q50 210 45 180" stroke="#7B68A8" strokeWidth="1.5" fill="none"/>
-        <path d="M35 230 Q50 220 45 210" stroke="#7B68A8" strokeWidth="1" fill="none"/>
-        <path d="M32 218 Q47 208 43 198" stroke="#7B68A8" strokeWidth="1" fill="none"/>
-        <path d="M30 205 Q45 196 41 186" stroke="#7B68A8" strokeWidth="1" fill="none"/>
-        <circle cx="295" cy="50" r="2" fill="#3D8B6E" opacity="0.5"/>
-        <circle cx="305" cy="44" r="1.5" fill="#3D8B6E" opacity="0.4"/>
-        <circle cx="312" cy="55" r="2" fill="#3D8B6E" opacity="0.5"/>
-        <circle cx="300" cy="62" r="1.5" fill="#3D8B6E" opacity="0.3"/>
-        <circle cx="318" cy="48" r="1.5" fill="#3D8B6E" opacity="0.4"/>
-        <circle cx="308" cy="65" r="1" fill="#3D8B6E" opacity="0.3"/>
+        <path d="M60 135 Q58 100 60 65 Q61 40 63 15" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <path d="M60 95 Q30 78 28 50 Q50 45 60 78 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
+        <path d="M60 65 Q85 50 88 28 Q68 24 60 52 Z" stroke="#7B68A8" strokeWidth="1.5" fill="#7B68A8" fillOpacity="0.05" strokeLinejoin="round" />
+        <circle cx="63" cy="10" r="4" stroke="#D4798A" strokeWidth="1.5" fill="none" />
+        <circle cx="63" cy="10" r="1.5" fill="#D4798A" fillOpacity="0.35" />
+        <circle cx="18" cy="42" r="2" fill="#C4834A" opacity="0.4" />
+        <circle cx="95" cy="22" r="1.5" fill="#3D8B6E" opacity="0.4" />
+      </svg>
+
+      {/* Bottom-center wave + dots */}
+      <svg
+        className="hidden md:block"
+        aria-hidden="true"
+        style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.18, userSelect: 'none' }}
+        width="260" height="40" viewBox="0 0 260 40" fill="none"
+      >
+        <path d="M0 25 Q30 10 65 25 Q100 40 130 25 Q160 10 195 25 Q230 40 260 25" stroke="#3D8B6E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="20" cy="8" r="2" fill="#D4798A" opacity="0.5" />
+        <circle cx="130" cy="5" r="1.5" fill="#7B68A8" opacity="0.4" />
+        <circle cx="240" cy="10" r="2" fill="#C4834A" opacity="0.45" />
       </svg>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
