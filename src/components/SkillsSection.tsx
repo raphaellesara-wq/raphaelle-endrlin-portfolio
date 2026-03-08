@@ -60,7 +60,8 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-10 md:py-16 relative overflow-hidden bg-background"
+      className="py-10 md:py-16 relative overflow-hidden"
+      style={{ backgroundColor: "#FAF7F2" }}
     >
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
