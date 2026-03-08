@@ -302,21 +302,13 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hero-illust-wrap {
-    width: 120px;
-    opacity: 0.2;
-    bottom: -10px;
-    left: -10px;
-  }
+  .hero-illust-wrap,
   .about-illust-wrap {
-    width: 90px;
-    opacity: 0.15;
-    left: -25px;
+    max-width: 160px;
+    opacity: 0.2;
   }
 }
-    right: -30px;
-  }
-}
+
 
 
 #arsenal-svg line {
