@@ -43,8 +43,7 @@ const ContactSection = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="contact-section"
-      style={{ padding: undefined }}>
+      className="contact-section">
       
       {/* Info column */}
       <div className={`contact-info-col space-y-6 ${isRTL ? "order-1" : ""}`}>
