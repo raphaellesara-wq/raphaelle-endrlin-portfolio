@@ -18,7 +18,7 @@ const ScrollProgressBar = () => {
       className="fixed top-0 left-0 z-50 h-[3px]"
       style={{
         width: `${progress}%`,
-        background: "linear-gradient(90deg, #6DC4A0, #A98ED4, #E88FA0)",
+        background: "linear-gradient(90deg, #3D8B6E, #7B68A8)",
         transition: "width 0.1s linear",
       }}
     />

@@ -44,22 +44,20 @@ const AboutSection = () => {
     <section id="about" ref={sectionRef} className="py-10 md:py-16" style={{ background: "#FFFFFF" }}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
-          {/* Text content — wider column */}
+          {/* Text content */}
           <div className="lg:col-span-3 space-y-6">
-            {/* Decorative icon cluster */}
             <div className="flex items-center gap-3 mb-1">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="4" y="10" width="28" height="20" rx="3" stroke="#E88FA0" strokeWidth="1.5" />
-                <path d="M4 12 L18 21 L32 12" stroke="#E88FA0" strokeWidth="1.5" />
+                <rect x="4" y="10" width="28" height="20" rx="3" stroke="hsl(var(--accent-pink))" strokeWidth="1.5" />
+                <path d="M4 12 L18 21 L32 12" stroke="hsl(var(--accent-pink))" strokeWidth="1.5" />
               </svg>
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M20 4 L10 20 H18 L16 32 L26 16 H18 L20 4Z" stroke="#F09A60" strokeWidth="1.5" />
+                <path d="M20 4 L10 20 H18 L16 32 L26 16 H18 L20 4Z" stroke="hsl(var(--accent-orange))" strokeWidth="1.5" />
               </svg>
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M18 4 L20 14 L30 12 L22 18 L28 27 L18 22 L8 27 L14 18 L6 12 L16 14Z" stroke="#A98ED4" strokeWidth="1.5" />
+                <path d="M18 4 L20 14 L30 12 L22 18 L28 27 L18 22 L8 27 L14 18 L6 12 L16 14Z" stroke="hsl(var(--accent-purple))" strokeWidth="1.5" />
               </svg>
             </div>
-            {/* Eyebrow */}
             <div
               className={`flex items-center gap-3 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -71,7 +69,6 @@ const AboutSection = () => {
               </span>
             </div>
 
-            {/* H2 */}
             <h2
               className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
@@ -84,7 +81,6 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            {/* Paragraphs */}
             {paragraphs.map((para, i) => (
               <p
                 key={i}
@@ -100,12 +96,11 @@ const AboutSection = () => {
 
           {/* Sidebar cards */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Languages card */}
             <div
               className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-300 hover:-translate-y-1 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ borderInlineStart: "4px solid #6DC4A0" }}
+              style={{ borderInlineStart: "3px solid hsl(var(--accent-green))" }}
             >
               <h3 className="text-sm font-semibold text-foreground mb-4 tracking-wide">
                 {t("שפות", "Languages")}
@@ -120,12 +115,11 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* Education card */}
             <div
               className={`rounded-[20px] border border-border bg-background p-6 transition-all duration-700 delay-500 hover:-translate-y-1 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ borderInlineStart: "4px solid #6DC4A0" }}
+              style={{ borderInlineStart: "3px solid hsl(var(--accent-green))" }}
             >
               <h3 className="text-sm font-semibold text-foreground mb-4 tracking-wide">
                 {t("השכלה", "Education")}
