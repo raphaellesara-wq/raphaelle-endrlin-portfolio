@@ -52,7 +52,7 @@ const HeroSection = () => {
         overflow: "visible",
       }}
     >
-      {/* Small decorative dots only */}
+      {/* Small decorative dots */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="absolute top-[18%] end-[25%]" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
           <circle cx="4" cy="4" r="4" fill="hsl(var(--accent-pink))" opacity="0.5" />
@@ -64,6 +64,23 @@ const HeroSection = () => {
           <circle cx="3" cy="3" r="3" fill="hsl(var(--accent-green))" opacity="0.5" />
         </svg>
       </div>
+
+      {/* Geometric cluster illustration — top-right corner */}
+      <svg
+        className="absolute hidden md:block pointer-events-none"
+        style={{ top: -20, right: -20, opacity: 0.18, zIndex: 0, animation: "slowRotate 60s linear infinite", transformOrigin: "center" }}
+        width="220" height="220" viewBox="0 0 220 220" fill="none"
+        aria-hidden="true"
+      >
+        <circle cx="140" cy="80" r="70" stroke="#3D8B6E" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="100" cy="120" r="45" stroke="#7B68A8" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <circle cx="160" cy="50" r="4" fill="#3D8B6E" />
+        <circle cx="80" cy="90" r="3" fill="#D4798A" />
+        <circle cx="180" cy="140" r="2.5" fill="#7B68A8" />
+        <line x1="40" y1="180" x2="180" y2="40" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="4 6" strokeLinecap="round" />
+        <rect x="50" y="50" width="20" height="20" rx="3" stroke="#C4834A" strokeWidth="1.5" fill="none" transform="rotate(45 60 60)" strokeLinecap="round" />
+        <path d="M 30 190 Q 80 140 140 160 Q 180 175 210 150" stroke="#4E7FA8" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div

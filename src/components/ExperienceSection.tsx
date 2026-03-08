@@ -79,6 +79,11 @@ const ExperienceSection = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
+            {/* Decorative cross mark */}
+            <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ top: 20, right: 20, opacity: 0.3 }} aria-hidden="true">
+              <line x1="2" y1="6" x2="10" y2="6" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="6" y1="2" x2="6" y2="10" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
                 <div>
