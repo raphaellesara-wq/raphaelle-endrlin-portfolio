@@ -172,7 +172,7 @@ const ExperienceSection = () => {
         </div>
       </div>
       {/* Wave divider — peach to white */}
-      <div style={{ marginTop: 40 }}>
+      <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 5 }}>
         <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
           <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
         </svg>
@@ -182,4 +182,3 @@ const ExperienceSection = () => {
 };
 
 export default ExperienceSection;
-// Wave after experience is handled via the section's last child
