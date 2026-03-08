@@ -81,7 +81,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div
-          className={`mb-8 md:mb-10 transition-all duration-700 ${
+          className={`mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
@@ -97,48 +97,93 @@ const ProjectsSection = () => {
           </h2>
         </div>
 
-        {/* Cards grid: first full-width, then 2 cols */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {projects.map((project, i) => (
-            <div
-              key={i}
-              className={`relative rounded-[20px] border bg-background p-6 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
-                i === 0 ? "md:col-span-2" : ""
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-              style={{
-                borderColor: "#EEEAF5",
-                borderInlineStart: `4px solid ${project.accent}`,
-                transitionDelay: `${200 + i * 150}ms`,
-              }}
-            >
-              {(() => { const Icon = cardIcons[i]; return (
-                <Icon size={32} strokeWidth={1.5} color={project.accent} className="absolute top-6 end-6 opacity-80" />
-              ); })()}
-              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 pe-10">
-                {project.emoji} {t(project.heTitle, project.enTitle)}
-              </h3>
-              <p className="text-xs text-muted-foreground mb-3">{project.subtitle}</p>
-              <p className="text-sm leading-relaxed text-muted-foreground mb-4">
-                {t(project.heDesc, project.enDesc)}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full font-medium"
-                    style={{
-                      fontSize: "11px",
-                      padding: "4px 12px",
-                      backgroundColor: project.paleBg,
-                      color: project.accent,
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
+        {/* Cards grid: row1=full, row2=3cols, row3=2cols */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
+          {projects.map((project, i) => {
+            const Icon = cardIcons[i];
+            const isFirst = i === 0;
+            // row1: span 6, row2 (i=1,2,3): span 2, row3 (i=4): span 3
+            const colSpan = isFirst
+              ? "md:col-span-6"
+              : i <= 3
+              ? "md:col-span-2"
+              : "md:col-span-3";
+
+            return (
+              <div
+                key={i}
+                className={`group relative rounded-[20px] border bg-background p-8 transition-all duration-200 ease-out ${colSpan} ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                }`}
+                style={{
+                  borderColor: "#EEEAF5",
+                  ...(isFirst
+                    ? { borderInlineStart: `4px solid ${project.accent}` }
+                    : { borderBottom: "3px solid transparent" }),
+                  transitionDelay: `${200 + i * 150}ms`,
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.transform = "translateY(-3px)";
+                  el.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)";
+                  if (!isFirst) el.style.borderBottom = `3px solid ${project.accent}`;
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLDivElement;
+                  el.style.transform = isVisible ? "translateY(0)" : "translateY(5px)";
+                  el.style.boxShadow = "none";
+                  if (!isFirst) el.style.borderBottom = "3px solid transparent";
+                }}
+              >
+                <Icon
+                  size={20}
+                  strokeWidth={1.5}
+                  color={project.accent}
+                  className="absolute top-6 end-6 opacity-60"
+                />
+                <h3
+                  className="font-bold text-foreground mb-1 pe-8"
+                  style={{ fontSize: 17 }}
+                >
+                  {t(project.heTitle, project.enTitle)}
+                </h3>
+                <p className="text-muted-foreground mb-3" style={{ fontSize: 12, marginTop: 4 }}>
+                  {project.subtitle}
+                </p>
+                <p
+                  className="mb-4"
+                  style={{
+                    fontSize: 14,
+                    color: "#6B6880",
+                    lineHeight: 1.7,
+                    overflow: "hidden",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                  }}
+                >
+                  {t(project.heDesc, project.enDesc)}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full font-medium"
+                      style={{
+                        fontSize: 11,
+                        padding: "3px 10px",
+                        backgroundColor: "transparent",
+                        color: project.accent,
+                        border: `1px solid ${project.accent}66`,
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
