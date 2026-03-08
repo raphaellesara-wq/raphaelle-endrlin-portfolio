@@ -82,8 +82,8 @@ const ProjectsSection = () => {
             <span className="text-sm tracking-wide font-medium text-accent-pink">{t("פרויקטים", "Projects")}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
-            {t("עבודות ", "Selected ")}
-            <em className="not-italic text-accent-pink">{t("נבחרות", "Work")}</em>
+            {t("ניסיון ", "Field ")}
+            <em className="not-italic text-accent-pink">{t("בשטח", "Experience")}</em>
           </h2>
         </div>
 

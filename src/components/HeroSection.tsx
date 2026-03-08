@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import HeroIllustration from "@/components/HeroIllustration";
+
 
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
@@ -204,10 +204,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Illustration — centered below content in empty space */}
-        <div className="hidden lg:flex justify-center mt-4 hero-illust-wrap">
-          <HeroIllustration />
-        </div>
       </div>
     </section>
   );
