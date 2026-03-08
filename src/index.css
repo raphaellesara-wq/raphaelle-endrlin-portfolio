@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --font-apple: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 
+                  'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
     --background: 40 20% 99%;
     --foreground: 252 20% 13%;
 
