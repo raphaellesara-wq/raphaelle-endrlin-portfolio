@@ -99,47 +99,47 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
 
         {/* Mobile version — compact, nodes only */}
         <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden" style={{ maxWidth: '300px', margin: '0 auto' }}>
-          {/* L1 — root circle */}
+          {/* L1 — root rect */}
           <g className="splash-node" style={{ animationDelay: "0.2s" }}>
-            <circle cx="150" cy="30" r="18" stroke="hsl(258,18%,60%)" strokeWidth="1.8" fill="hsl(258,20%,97%)" />
+            <rect x="120" y="12" width="60" height="36" rx="10" stroke="hsl(258,18%,60%)" strokeWidth="1.8" fill="hsl(258,20%,97%)" />
             <circle cx="150" cy="30" r="6" fill="hsl(258,18%,60%)" fillOpacity="0.3" />
           </g>
 
           {/* Dashed paths L1→L2 */}
-          <path d="M138 46 Q90 75 75 110" stroke="hsl(258,18%,60%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "0.8s" }} />
-          <path d="M162 46 Q210 75 225 110" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "1.0s" }} />
+          <path d="M138 48 Q90 75 75 110" stroke="hsl(258,18%,60%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "0.8s" }} />
+          <path d="M162 48 Q210 75 225 110" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "1.0s" }} />
 
-          {/* L2 — two circles */}
+          {/* L2 — two rects */}
           <g className="splash-node" style={{ animationDelay: "1.2s" }}>
-            <circle cx="70" cy="125" r="16" stroke="hsl(348,30%,70%)" strokeWidth="1.8" fill="hsl(348,30%,97%)" />
-            <circle cx="70" cy="125" r="5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
+            <rect x="40" y="109" width="60" height="36" rx="10" stroke="hsl(348,30%,70%)" strokeWidth="1.8" fill="hsl(348,30%,97%)" />
+            <circle cx="70" cy="127" r="5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
           </g>
           <g className="splash-node" style={{ animationDelay: "1.4s" }}>
-            <circle cx="230" cy="125" r="16" stroke="hsl(155,30%,65%)" strokeWidth="1.8" fill="hsl(155,25%,96%)" />
-            <circle cx="230" cy="125" r="5" fill="hsl(155,30%,65%)" fillOpacity="0.25" />
+            <rect x="200" y="109" width="60" height="36" rx="10" stroke="hsl(155,30%,65%)" strokeWidth="1.8" fill="hsl(155,25%,96%)" />
+            <circle cx="230" cy="127" r="5" fill="hsl(155,30%,65%)" fillOpacity="0.25" />
           </g>
 
           {/* Dashed paths L2→L3 */}
-          <path d="M58 139 Q30 170 30 210" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "1.8s" }} />
-          <path d="M82 139 Q120 170 150 210" stroke="hsl(27,35%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.0s" }} />
-          <path d="M218 139 Q180 170 150 210" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.2s" }} />
-          <path d="M242 139 Q270 170 270 210" stroke="hsl(258,18%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.4s" }} />
+          <path d="M58 145 Q30 175 30 210" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "1.8s" }} />
+          <path d="M82 145 Q120 175 150 210" stroke="hsl(27,35%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.0s" }} />
+          <path d="M218 145 Q180 175 150 210" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.2s" }} />
+          <path d="M242 145 Q270 175 270 210" stroke="hsl(258,18%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.4s" }} />
 
-          {/* L3 — four circles */}
+          {/* L3 — four rects */}
           <g className="splash-node" style={{ animationDelay: "2.6s" }}>
-            <circle cx="30" cy="225" r="14" stroke="hsl(27,35%,60%)" strokeWidth="1.6" fill="hsl(27,40%,96%)" />
+            <rect x="5" y="210" width="50" height="30" rx="8" stroke="hsl(27,35%,60%)" strokeWidth="1.6" fill="hsl(27,40%,96%)" />
             <circle cx="30" cy="225" r="4.5" fill="hsl(27,35%,60%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "2.9s" }}>
-            <circle cx="115" cy="225" r="14" stroke="hsl(348,30%,70%)" strokeWidth="1.6" fill="hsl(348,30%,97%)" />
+            <rect x="90" y="210" width="50" height="30" rx="8" stroke="hsl(348,30%,70%)" strokeWidth="1.6" fill="hsl(348,30%,97%)" />
             <circle cx="115" cy="225" r="4.5" fill="hsl(348,30%,70%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "3.2s" }}>
-            <circle cx="185" cy="225" r="14" stroke="hsl(155,30%,65%)" strokeWidth="1.6" fill="hsl(155,25%,96%)" />
+            <rect x="160" y="210" width="50" height="30" rx="8" stroke="hsl(155,30%,65%)" strokeWidth="1.6" fill="hsl(155,25%,96%)" />
             <circle cx="185" cy="225" r="4.5" fill="hsl(155,30%,65%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "3.5s" }}>
-            <circle cx="270" cy="225" r="14" stroke="hsl(258,18%,60%)" strokeWidth="1.6" fill="hsl(258,20%,97%)" />
+            <rect x="245" y="210" width="50" height="30" rx="8" stroke="hsl(258,18%,60%)" strokeWidth="1.6" fill="hsl(258,20%,97%)" />
             <circle cx="270" cy="225" r="4.5" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
           </g>
 
