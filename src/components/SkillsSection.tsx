@@ -69,7 +69,7 @@ const SkillsSection = () => {
           id="arsenal-svg"
           width="500" height="200" viewBox="0 0 500 200" fill="none"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-          style={{ opacity: 0.10 }}
+          style={{ opacity: 0.25 }}
         >
           <line x1="80" y1="100" x2="180" y2="60" stroke="#A98ED4" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
           <line x1="180" y1="60" x2="250" y2="100" stroke="#A98ED4" strokeWidth="1" strokeDasharray="4 5" opacity="0.6" />
