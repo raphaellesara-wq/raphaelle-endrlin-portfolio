@@ -450,25 +450,28 @@ const DesignShowcase = () => {
                 <button
                   onClick={isRTL ? goPrev : goNext}
                   disabled={isRTL ? currentIndex <= 0 : currentIndex >= maxIndex}
-                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border transition-all duration-200"
+                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full border transition-all duration-200"
                   style={{
                     top: "40%",
                     transform: "translateY(-50%)",
                     [isRTL ? "right" : "left"]: -22,
-                    borderColor: "#EEEAF5",
-                    boxShadow: "0 4px 16px rgba(44,44,58,0.10)",
+                    background: "rgba(255,255,255,0.15)",
+                    borderColor: "rgba(255,255,255,0.30)",
+                    color: "white",
                     opacity: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? 0.25 : 1,
                     cursor: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? "default" : "pointer",
                   }}
                   onMouseEnter={(e) => {
                     if (!e.currentTarget.disabled) {
-                      e.currentTarget.style.backgroundColor = "#6DC4A0";
-                      e.currentTarget.style.borderColor = "#6DC4A0";
+                      e.currentTarget.style.backgroundColor = "white";
+                      e.currentTarget.style.borderColor = "white";
+                      e.currentTarget.style.color = "#1A7A5E";
                     }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "white";
-                    e.currentTarget.style.borderColor = "#EEEAF5";
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.30)";
+                    e.currentTarget.style.color = "white";
                   }}
                 >
                   {isRTL ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
