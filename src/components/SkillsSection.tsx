@@ -61,7 +61,7 @@ const SkillsSection = () => {
       id="skills"
       ref={sectionRef}
       className="py-8 md:py-12 pb-10 md:pb-14 relative overflow-hidden"
-      style={{ background: "#FAFAF8" }}
+      style={{ background: "#FFFFFF" }}
     >
       {/* Tools constellation SVG */}
       <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none z-0">
