@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Laptop, Mail, Zap } from "lucide-react";
 
 const languages = [
   { he: "עברית", detail_he: "שפת אם", en: "Hebrew", detail_en: "Native" },
