@@ -35,7 +35,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       </div>
 
       {/* Automation flow — extra large */}
-      <div className="w-[98vw] max-w-[1100px] h-auto aspect-[900/340]">
+      <div className="w-[98vw] max-w-[1400px] h-auto aspect-[900/340]">
         <svg viewBox="0 0 900 340" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
 
           {/* ═══ LEVEL 1: Root ═══ */}
