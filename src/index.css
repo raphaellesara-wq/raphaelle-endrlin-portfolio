@@ -230,15 +230,10 @@
 
 /* === HERO ILLUSTRATION === */
 .hero-illust-wrap {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   pointer-events: none;
-  z-index: 0;
   user-select: none;
-  opacity: 0.35;
-  width: 200px;
-  overflow: hidden;
+  opacity: 0.4;
+  max-width: 320px;
 }
 .hero-illust {
   width: 100%;
