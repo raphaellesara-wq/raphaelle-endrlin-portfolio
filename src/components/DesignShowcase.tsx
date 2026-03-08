@@ -359,7 +359,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16">
+      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16" style={{ background: "linear-gradient(135deg, #1A7A5E 0%, #2A9D7F 100%)" }}>
         <div className="container mx-auto px-6">
           {/* Header */}
           <div
