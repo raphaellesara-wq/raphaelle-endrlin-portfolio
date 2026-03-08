@@ -477,8 +477,8 @@ section#contact {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: hsla(155, 25%, 55%, 0.5);
-  background: hsla(155, 25%, 55%, 0.05);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
 }
 
 .form-group input::placeholder,
