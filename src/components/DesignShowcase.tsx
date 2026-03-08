@@ -377,7 +377,7 @@ const DesignShowcase = () => {
                 {t("עיצוב", "Design")}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15] text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-white">
               {t("כך נראית ", "This Is What The ")}
               <em className="not-italic" style={{ color: "#A8F0D8" }}>
                 {t("העבודה בפועל", "Work Looks Like")}

@@ -191,7 +191,7 @@ const ProjectsSection = () => {
               {t("פרויקטים", "Projects")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
             {t("עבודות ", "Work I'm ")}
             <span className="text-accent-pink italic">{t("שגאה בהן", "Proud Of")}</span>
           </h2>
