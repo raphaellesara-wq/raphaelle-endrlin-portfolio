@@ -330,20 +330,31 @@ const GalleryCard = ({
 
 /* ── Main Section ── */
 const DesignShowcase = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
   const [activeTab, setActiveTab] = useState<TabKey>("newsletters");
   const [lightboxCard, setLightboxCard] = useState<GalleryCardData | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const visibleCount = useVisibleCount();
 
   const closeLightbox = useCallback(() => setLightboxCard(null), []);
   const cards = galleryData[activeTab];
+  const maxIndex = Math.max(0, cards.length - visibleCount);
 
-  const gridClass =
-    activeTab === "popups"
-      ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-      : activeTab === "webdesign"
-      ? "grid grid-cols-1 md:grid-cols-2 gap-5"
-      : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5";
+  // Reset on tab change
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [activeTab]);
+
+  const goPrev = useCallback(() => setCurrentIndex((i) => Math.max(0, i - 1)), []);
+  const goNext = useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
+
+  const cardPercent = 100 / visibleCount;
+  const gapPx = visibleCount === 1 ? 0 : 20;
+  const adjustedGap = gapPx * (visibleCount - 1) / visibleCount;
+  const offset = currentIndex * cardPercent;
+  const translateDir = isRTL ? offset : -offset;
 
   return (
     <>
@@ -398,18 +409,131 @@ const DesignShowcase = () => {
             ))}
           </div>
 
-          {/* Grid */}
-          <div key={activeTab} className={gridClass}>
-            {cards.map((card, i) => (
-              <GalleryCard
-                key={card.src + i}
-                card={card}
-                index={i}
-                isVisible={isVisible}
-                onClick={() => setLightboxCard(card)}
-                t={t}
-              />
-            ))}
+          {/* Carousel */}
+          <div className="relative" style={{ overflow: "visible" }}>
+            {/* Arrows — hidden on mobile */}
+            {visibleCount > 1 && (
+              <>
+                <button
+                  onClick={isRTL ? goNext : goPrev}
+                  disabled={isRTL ? currentIndex >= maxIndex : currentIndex <= 0}
+                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border transition-all duration-200"
+                  style={{
+                    top: "40%",
+                    transform: "translateY(-50%)",
+                    [isRTL ? "left" : "right"]: -22,
+                    borderColor: "#EEEAF5",
+                    boxShadow: "0 4px 16px rgba(44,44,58,0.10)",
+                    opacity: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? 0.25 : 1,
+                    cursor: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? "default" : "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!e.currentTarget.disabled) {
+                      e.currentTarget.style.backgroundColor = "#6DC4A0";
+                      e.currentTarget.style.borderColor = "#6DC4A0";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "white";
+                    e.currentTarget.style.borderColor = "#EEEAF5";
+                  }}
+                >
+                  {isRTL ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+                </button>
+                <button
+                  onClick={isRTL ? goPrev : goNext}
+                  disabled={isRTL ? currentIndex <= 0 : currentIndex >= maxIndex}
+                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border transition-all duration-200"
+                  style={{
+                    top: "40%",
+                    transform: "translateY(-50%)",
+                    [isRTL ? "right" : "left"]: -22,
+                    borderColor: "#EEEAF5",
+                    boxShadow: "0 4px 16px rgba(44,44,58,0.10)",
+                    opacity: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? 0.25 : 1,
+                    cursor: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? "default" : "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!e.currentTarget.disabled) {
+                      e.currentTarget.style.backgroundColor = "#6DC4A0";
+                      e.currentTarget.style.borderColor = "#6DC4A0";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "white";
+                    e.currentTarget.style.borderColor = "#EEEAF5";
+                  }}
+                >
+                  {isRTL ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+                </button>
+              </>
+            )}
+
+            {/* Track */}
+            <div style={{ overflow: "hidden" }}>
+              <div
+                className="flex"
+                style={{
+                  gap: gapPx,
+                  transform: `translateX(${translateDir}%)`,
+                  transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  willChange: "transform",
+                }}
+                onTouchStart={(e) => setTouchStart(e.targetTouches[0].clientX)}
+                onTouchEnd={(e) => {
+                  if (touchStart === null) return;
+                  const delta = touchStart - e.changedTouches[0].clientX;
+                  if (isRTL) {
+                    if (delta < -50) goNext();
+                    if (delta > 50) goPrev();
+                  } else {
+                    if (delta > 50) goNext();
+                    if (delta < -50) goPrev();
+                  }
+                  setTouchStart(null);
+                }}
+              >
+                {cards.map((card, i) => (
+                  <div
+                    key={card.src + i}
+                    style={{
+                      flex: `0 0 calc(${cardPercent}% - ${adjustedGap}px)`,
+                      minWidth: 0,
+                    }}
+                  >
+                    <GalleryCard
+                      card={card}
+                      index={i}
+                      isVisible={isVisible}
+                      onClick={() => setLightboxCard(card)}
+                      t={t}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dots */}
+            {cards.length > visibleCount && (
+              <div className="flex justify-center gap-2 mt-6">
+                {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className="rounded-full transition-all duration-250"
+                    style={{
+                      width: i === currentIndex ? 24 : 8,
+                      height: 8,
+                      borderRadius: i === currentIndex ? 4 : "50%",
+                      backgroundColor: i === currentIndex ? "#6DC4A0" : "#EEEAF5",
+                      cursor: "pointer",
+                      border: "none",
+                      padding: 0,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
