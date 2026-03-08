@@ -151,19 +151,19 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "linear-gradient(160deg, #1D3B30 0%, #234D3D 50%, #1A3828 100%)" }}>
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "#F0F7F4" }}>
         <div className="container mx-auto px-5 md:px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>{t("עיצוב", "Design")}</span>
+              <div className="w-8 h-px bg-accent-green" />
+              <span className="text-sm tracking-wide font-medium text-accent-green">{t("עיצוב", "Design")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
               {t("עבודות ", "Selected ")}
-              <em className="not-italic" style={{ color: "rgba(255,255,255,0.55)" }}>{t("נבחרות", "Work")}</em>
+              <em className="not-italic text-accent-green">{t("נבחרות", "Work")}</em>
             </h2>
-            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
+            <p className="text-sm md:text-base mt-3 max-w-lg text-muted-foreground">
               {t("ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי", "Newsletters, pop-ups, web design and automations from recent projects")}
             </p>
           </div>
@@ -176,8 +176,8 @@ const DesignShowcase = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={activeTab === tab.key
-                  ? { backgroundColor: "rgba(255,255,255,0.15)", color: "white", borderColor: "rgba(255,255,255,0.3)", fontWeight: 600 }
-                  : { backgroundColor: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.6)", borderColor: "rgba(255,255,255,0.12)" }}
+                  ? { backgroundColor: "hsl(var(--accent-green))", color: "white", borderColor: "hsl(var(--accent-green))", fontWeight: 600 }
+                  : { backgroundColor: "hsl(var(--card))", color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))" }}
               >
                 {t(tab.he, tab.en)}
               </button>
@@ -228,7 +228,7 @@ const DesignShowcase = () => {
               <div className="flex justify-center gap-2 mt-6">
                 {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                   <button key={i} onClick={() => setCurrentIndex(i)} className="rounded-full transition-all duration-250"
-                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)", cursor: "pointer", border: "none", padding: 0 }}
+                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "hsl(var(--accent-green))" : "hsl(var(--border))", cursor: "pointer", border: "none", padding: 0 }}
                   />
                 ))}
               </div>
