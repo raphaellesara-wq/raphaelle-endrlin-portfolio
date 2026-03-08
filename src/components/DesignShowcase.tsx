@@ -228,7 +228,7 @@ const DesignShowcase = () => {
               <div className="flex justify-center gap-2 mt-6">
                 {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                   <button key={i} onClick={() => setCurrentIndex(i)} className="rounded-full transition-all duration-250"
-                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)", cursor: "pointer", border: "none", padding: 0 }}
+                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "hsl(var(--accent-green))" : "hsl(var(--border))", cursor: "pointer", border: "none", padding: 0 }}
                   />
                 ))}
               </div>
