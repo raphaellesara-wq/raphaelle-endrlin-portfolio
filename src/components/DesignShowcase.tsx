@@ -1,9 +1,23 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { ZoomIn, X } from "lucide-react";
+import { ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type TabKey = "newsletters" | "popups" | "webdesign";
+
+function useVisibleCount() {
+  const [count, setCount] = useState(3);
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setCount(w < 641 ? 1 : w < 1024 ? 2 : 3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return count;
+}
 
 interface GalleryCardData {
   src: string;
