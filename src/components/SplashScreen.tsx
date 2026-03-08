@@ -29,7 +29,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         >
           R.E
         </span>
-        <p className="text-xs md:text-sm text-muted-foreground mt-3 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
+        <p className="text-sm md:text-base text-muted-foreground mt-3 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
           Raphaëlle Enderlin
         </p>
       </div>
