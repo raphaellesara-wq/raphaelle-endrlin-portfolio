@@ -89,9 +89,9 @@ const AboutIllustration = () => (
     <g className="about-flower-2">
       <circle cx="360" cy="180" r="8" stroke="#D4798A" strokeWidth="1.2" fill="none" />
       <circle cx="360" cy="180" r="3" fill="#D4798A" fillOpacity="0.25" />
-      <line x1="360" y1="188" x2="360" y2="220" stroke="#3D8B6E" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M360 200 Q370 192 375 198" stroke="#3D8B6E" strokeWidth="1" fill="#3D8B6E" fillOpacity="0.06" />
-      <path d="M360 210 Q350 202 345 208" stroke="#3D8B6E" strokeWidth="1" fill="#3D8B6E" fillOpacity="0.06" />
+      <line x1="360" y1="188" x2="360" y2="220" stroke="#6DC4A0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M360 200 Q370 192 375 198" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
+      <path d="M360 210 Q350 202 345 208" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
     </g>
 
     {/* Sprig — right of laptop */}
