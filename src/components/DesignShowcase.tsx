@@ -156,14 +156,14 @@ const DesignShowcase = () => {
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#7A8B6F" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#7A8B6F" }}>{t("עיצוב", "Design")}</span>
+              <div className="w-8 h-px bg-accent-green" />
+              <span className="text-sm tracking-wide font-medium text-accent-green">{t("עיצוב", "Design")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#3A4434" }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
               {t("עבודות ", "Selected ")}
-              <em className="not-italic" style={{ color: "#7A8B6F" }}>{t("נבחרות", "Work")}</em>
+              <em className="not-italic text-accent-green">{t("נבחרות", "Work")}</em>
             </h2>
-            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "#6B7A60" }}>
+            <p className="text-sm md:text-base mt-3 max-w-lg text-muted-foreground">
               {t("ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי", "Newsletters, pop-ups, web design and automations from recent projects")}
             </p>
           </div>
@@ -176,8 +176,8 @@ const DesignShowcase = () => {
                 onClick={() => setActiveTab(tab.key)}
                 className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
                 style={activeTab === tab.key
-                  ? { backgroundColor: "#7A8B6F", color: "white", borderColor: "#7A8B6F", fontWeight: 600 }
-                  : { backgroundColor: "rgba(255,255,255,0.7)", color: "#6B7A60", borderColor: "#D5DDD0" }}
+                  ? { backgroundColor: "hsl(var(--accent-green))", color: "white", borderColor: "hsl(var(--accent-green))", fontWeight: 600 }
+                  : { backgroundColor: "rgba(255,255,255,0.7)", color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))" }}
               >
                 {t(tab.he, tab.en)}
               </button>
@@ -228,7 +228,7 @@ const DesignShowcase = () => {
               <div className="flex justify-center gap-2 mt-6">
                 {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                   <button key={i} onClick={() => setCurrentIndex(i)} className="rounded-full transition-all duration-250"
-                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "#7A8B6F" : "#D5DDD0", cursor: "pointer", border: "none", padding: 0 }}
+                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "hsl(var(--accent-green))" : "hsl(var(--border))", cursor: "pointer", border: "none", padding: 0 }}
                   />
                 ))}
               </div>

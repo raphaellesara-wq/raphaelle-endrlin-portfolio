@@ -24,16 +24,16 @@
     --muted: 40 10% 97%;
     --muted-foreground: 256 8% 55%;
 
-    --accent-pink: 348 30% 70%;
-    --accent-pink-pale: 348 30% 97%;
-    --accent-orange: 27 35% 60%;
-    --accent-orange-pale: 27 40% 96%;
-    --accent-green: 155 30% 65%;
-    --accent-green-pale: 155 25% 96%;
-    --accent-blue: 207 25% 58%;
-    --accent-blue-pale: 207 25% 96%;
-    --accent-purple: 258 18% 60%;
-    --accent-purple-pale: 258 20% 97%;
+    --accent-pink: 350 20% 68%;
+    --accent-pink-pale: 350 18% 96%;
+    --accent-orange: 32 24% 58%;
+    --accent-orange-pale: 32 22% 95%;
+    --accent-green: 95 18% 52%;
+    --accent-green-pale: 95 16% 95%;
+    --accent-blue: 175 14% 54%;
+    --accent-blue-pale: 175 12% 95%;
+    --accent-purple: 260 12% 58%;
+    --accent-purple-pale: 260 10% 96%;
 
     --accent: 258 18% 60%;
     --accent-foreground: 0 0% 100%;
