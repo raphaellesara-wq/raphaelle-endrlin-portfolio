@@ -51,9 +51,10 @@ const cards = [
     paleBg: "#EDE6FA",
     gradient: "linear-gradient(135deg, #EDE6FA 0%, #F8F5FF 100%)",
     label: "Make.com — AI Agent + Telegram",
-    heTitle: "סוכן AI לניהול פניות עסקיות",
-    enTitle: "AI Agent for Business Inquiries",
+    heTitle: "אוטומציה חכמה לניהול פניות עסקיות",
+    enTitle: "Smart Automation for Business Inquiries",
     tags: ["Make.com", "Claude AI", "Automation"],
+    image: "/make-scenario.png",
   },
   {
     icon: AppWindow,
@@ -64,6 +65,7 @@ const cards = [
     heTitle: "טופס הרשמה — Nintendo Israel",
     enTitle: "Signup Form — Nintendo Israel",
     tags: ["Pop-up Design", "Figma", "Shopify"],
+    image: "/nintendo-popup.png",
   },
   {
     icon: Heart,
@@ -228,23 +230,22 @@ const DesignShowcase = () => {
                     }}
                     onClick={() => setLightboxIndex(i)}
                   >
-                    {/* Image placeholder */}
-                    {/* <!-- Upload: card image placeholder --> */}
-                    <div
-                      className="flex flex-col items-center justify-center rounded-t-[20px]"
-                      style={{
-                        height: 240,
-                        background: card.gradient,
-                      }}
-                    >
-                      <Icon size={48} strokeWidth={1.5} color={card.accent} />
-                      <span
-                        className="mt-3 text-xs font-medium text-center px-4"
-                        style={{ color: card.accent }}
+                    {/* Image area */}
+                    {'image' in card && card.image ? (
+                      <div className="rounded-t-[20px] overflow-hidden" style={{ height: 240 }}>
+                        <img src={card.image} alt={card.label} className="w-full h-full object-cover" />
+                      </div>
+                    ) : (
+                      <div
+                        className="flex flex-col items-center justify-center rounded-t-[20px]"
+                        style={{ height: 240, background: card.gradient }}
                       >
-                        {card.label}
-                      </span>
-                    </div>
+                        <Icon size={48} strokeWidth={1.5} color={card.accent} />
+                        <span className="mt-3 text-xs font-medium text-center px-4" style={{ color: card.accent }}>
+                          {card.label}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Caption */}
                     <div className="p-5">
@@ -324,18 +325,21 @@ const DesignShowcase = () => {
               const Icon = card.icon;
               return (
                 <>
-                  <div
-                    className="flex flex-col items-center justify-center"
-                    style={{ height: 320, background: card.gradient }}
-                  >
-                    <Icon size={64} strokeWidth={1.5} color={card.accent} />
-                    <span
-                      className="mt-4 text-sm font-medium text-center px-6"
-                      style={{ color: card.accent }}
+                  {'image' in card && card.image ? (
+                    <div className="overflow-hidden" style={{ height: 320 }}>
+                      <img src={card.image} alt={card.label} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div
+                      className="flex flex-col items-center justify-center"
+                      style={{ height: 320, background: card.gradient }}
                     >
-                      {card.label}
-                    </span>
-                  </div>
+                      <Icon size={64} strokeWidth={1.5} color={card.accent} />
+                      <span className="mt-4 text-sm font-medium text-center px-6" style={{ color: card.accent }}>
+                        {card.label}
+                      </span>
+                    </div>
+                  )}
                   <div className="p-6">
                     <p className="font-semibold text-foreground text-lg">
                       {t(card.heTitle, card.enTitle)}
