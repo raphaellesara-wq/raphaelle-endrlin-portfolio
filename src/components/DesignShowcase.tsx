@@ -379,7 +379,7 @@ const DesignShowcase = () => {
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
-            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.80)" }}>
+            <p className="text-sm md:text-base mt-3 max-w-lg text-muted-foreground">
               {t(
                 "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
                 "Newsletters, pop-ups, web design and automations from recent projects"
