@@ -151,7 +151,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "#EDE8E2" }}>
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "#F5F2EE" }}>
         <div className="container mx-auto px-5 md:px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
