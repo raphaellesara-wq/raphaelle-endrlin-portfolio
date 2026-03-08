@@ -102,11 +102,8 @@ const HeroSection = () => {
 
             {/* H1 */}
             <h1
-              className="font-display font-extrabold animate-fade-up"
+              className="hero-name animate-fade-up"
               style={{
-                fontSize: "clamp(44px, 6.5vw, 88px)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1.05,
                 animationDelay: "150ms",
                 overflow: "visible",
                 whiteSpace: "normal",
@@ -115,7 +112,7 @@ const HeroSection = () => {
             >
               {t("רפאל", "Raphaëlle")}
               <br />
-              <span className="text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
+              <span className="hero-name-line2 text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
             </h1>
 
             {/* Italic sub */}
@@ -205,7 +202,7 @@ const HeroSection = () => {
                         style={isMint ? { backgroundColor: "hsl(var(--accent-green-pale))" } : undefined}
                       >
                         <div
-                          className="text-3xl font-display font-normal"
+                          className="stat-number"
                           style={isMint ? { color: "hsl(var(--accent-green))" } : undefined}
                         >
                           {statValues[i]}

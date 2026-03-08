@@ -96,7 +96,7 @@ const SkillsSection = () => {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
             {t("ה-", "My ")}
-            <span className="italic text-accent-blue">Arsenal</span>
+            <em className="not-italic text-accent-blue">Arsenal</em>
             {t(" שלי", "")}
           </h2>
         </div>

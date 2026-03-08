@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Syne"', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        'display-he': ['"Frank Ruhl Libre"', 'serif'],
         body: ['"Poppins"', 'sans-serif'],
         hebrew: ['"Heebo"', 'sans-serif'],
       },
