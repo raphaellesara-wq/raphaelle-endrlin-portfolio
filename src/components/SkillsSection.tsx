@@ -60,15 +60,9 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-10 md:py-16 relative overflow-hidden"
+      className="py-10 md:py-16 pb-20 relative"
       style={{ background: "linear-gradient(180deg, #F8F5FF 0%, #F0EAFF 100%)" }}
     >
-      {/* Wave divider — lavender to dark (before contact) */}
-      <div className="absolute bottom-0 left-0 right-0" style={{ marginBottom: -1 }}>
-        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
-          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#1E1B2E" />
-        </svg>
-      </div>
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
         <div
@@ -112,7 +106,7 @@ const SkillsSection = () => {
           {categories.map((cat, i) => (
             <div
               key={i}
-              className={`group relative rounded-[20px] border overflow-hidden transition-all duration-250 ease-out ${
+              className={`group relative rounded-[20px] border transition-all duration-250 ease-out flex flex-col ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{
@@ -120,6 +114,7 @@ const SkillsSection = () => {
                 backgroundColor: "#fff",
                 borderColor: "#EEEAF5",
                 padding: "32px 28px",
+                minHeight: 280,
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
@@ -145,7 +140,7 @@ const SkillsSection = () => {
 
               {/* Icon */}
               <div
-                className="flex items-center justify-center mb-4"
+                className="flex items-center justify-center mb-4 shrink-0"
                 style={{
                   width: 52,
                   height: 52,
@@ -157,12 +152,12 @@ const SkillsSection = () => {
               </div>
 
               {/* Title */}
-              <h3 className="mb-5" style={{ fontSize: 16, fontWeight: 700, color: "#2C2C3A" }}>
+              <h3 className="mb-5" style={{ fontSize: 17, fontWeight: 700, color: "#2C2C3A" }}>
                 {t(cat.he, cat.en)}
               </h3>
 
               {/* Tool tags */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {cat.skills.map((skill, j) => (
                   <span
                     key={j}
