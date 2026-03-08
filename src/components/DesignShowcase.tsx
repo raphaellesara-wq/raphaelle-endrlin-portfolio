@@ -161,7 +161,7 @@ const DesignShowcase = () => {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#A8E8C8" }}>{t("העבודה בפועל", "Work Looks Like")}</em>
+              <em className="not-italic" style={{ color: "rgba(255,255,255,0.55)" }}>{t("העבודה בפועל", "Work Looks Like")}</em>
             </h2>
             <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
               {t("ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי", "Newsletters, pop-ups, web design and automations from recent projects")}
