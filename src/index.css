@@ -165,3 +165,9 @@
     50% { transform: translateY(-12px) rotate(2deg); }
   }
 }
+
+/* Dark contact section placeholder colors */
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45) !important;
+}

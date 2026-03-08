@@ -50,7 +50,7 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-10 md:py-16">
+    <section id="experience" ref={sectionRef} className="py-10 md:py-16" style={{ background: "linear-gradient(180deg, #FFF8F5 0%, #FFF3EE 100%)" }}>
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div
@@ -171,8 +171,15 @@ const ExperienceSection = () => {
           </div>
         </div>
       </div>
+      {/* Wave divider — peach to white */}
+      <div style={{ marginTop: 40 }}>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
+          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
+        </svg>
+      </div>
     </section>
   );
 };
 
 export default ExperienceSection;
+// Wave after experience is handled via the section's last child

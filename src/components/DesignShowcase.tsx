@@ -359,7 +359,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16">
+      <section id="showcase" ref={sectionRef} className="relative py-10 md:py-16" style={{ background: "linear-gradient(135deg, #1A7A5E 0%, #2A9D7F 100%)" }}>
         <div className="container mx-auto px-6">
           {/* Header */}
           <div
@@ -368,18 +368,18 @@ const DesignShowcase = () => {
             }`}
           >
              <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px" style={{ backgroundColor: "#6DC4A0" }} />
-              <span className="text-sm tracking-wide font-medium" style={{ color: "#6DC4A0" }}>
+              <div className="w-8 h-px" style={{ backgroundColor: "rgba(255,255,255,0.5)" }} />
+              <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.8)" }}>
                 {t("עיצוב", "Design")}
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#FFFFFF" }}>
               {t("כך נראית ", "This Is What The ")}
-              <em className="not-italic" style={{ color: "#6DC4A0" }}>
+              <em className="not-italic" style={{ color: "#A8F0D8" }}>
                 {t("העבודה בפועל", "Work Looks Like")}
               </em>
             </h2>
-            <p className="text-sm md:text-base mt-3 max-w-lg text-muted-foreground">
+            <p className="text-sm md:text-base mt-3 max-w-lg" style={{ color: "rgba(255,255,255,0.7)" }}>
               {t(
                 "ניוזלטרים, pop-ups, עיצוב אתרים ואוטומציות — מהפרויקטים האחרונים שלי",
                 "Newsletters, pop-ups, web design and automations from recent projects"

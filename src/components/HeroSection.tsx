@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
+
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
   { value: "50%+", heLabel: "שיעור פתיחה", enLabel: "Open Rate" },
@@ -22,8 +23,18 @@ const pillColorMap: Record<string, string> = {
   purple: "bg-accent-purple-pale text-accent-purple",
 };
 
+import { useCountUp } from "@/hooks/use-count-up";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const HeroSection = () => {
   const { t } = useLanguage();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
+
+  const clientCount = useCountUp(20, 1500, statsVisible);
+  const openRate = useCountUp(50, 1500, statsVisible);
+  const yearsCount = useCountUp(3, 1000, statsVisible);
+  const langCount = useCountUp(4, 1000, statsVisible);
+  const statValues = [`${clientCount}+`, `${openRate}%+`, `${yearsCount}`, `${langCount}`];
 
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
@@ -35,7 +46,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden" style={{ background: "linear-gradient(135deg, #FDFCFF 0%, #F5F0FF 60%, #EDF8F4 100%)" }}>
       {/* Grain texture overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03]"
@@ -162,7 +173,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats card — hidden on mobile */}
-          <div className="order-2 hidden lg:flex justify-center lg:justify-start">
+          <div className="order-2 hidden lg:flex justify-center lg:justify-start" ref={statsRef}>
             <div
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
@@ -189,7 +200,7 @@ const HeroSection = () => {
                           className="text-3xl font-display font-normal"
                           style={isMint ? { color: "#4AAF8C" } : undefined}
                         >
-                          {stat.value}
+                          {statValues[i]}
                         </div>
                         <div className="text-xs text-muted-foreground mt-1">
                           {t(stat.heLabel, stat.enLabel)}
@@ -215,6 +226,12 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* Wave divider */}
+      <div style={{ marginTop: -1 }}>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
+          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
+        </svg>
       </div>
     </section>
   );
