@@ -19,23 +19,32 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
     >
       {/* Logo above animation */}
       <div
-        className={`mb-8 text-center transition-all duration-700 ${
-          phase === "logo" || phase === "exit" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        className={`mb-10 text-center transition-all duration-900 ${
+          phase === "logo" || phase === "exit" ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95"
         }`}
       >
         <span
-          className="text-3xl md:text-4xl font-bold tracking-tight"
-          style={{ fontFamily: "var(--font-apple)", color: "hsl(348,30%,70%)" }}
+          className="block text-5xl md:text-6xl tracking-tight"
+          style={{
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontWeight: 700,
+            color: "hsl(348,30%,70%)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1,
+          }}
         >
           ר.א
         </span>
-        <p className="text-xs md:text-sm text-muted-foreground mt-1 tracking-wide">
+        <p
+          className="text-sm md:text-base text-muted-foreground mt-3 tracking-widest uppercase"
+          style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.15em" }}
+        >
           Raphaëlle Enderlin
         </p>
       </div>
 
       {/* Automation flow diagram */}
-      <div className="w-[320px] h-[200px] md:w-[480px] md:h-[260px]">
+      <div className="w-[90vw] max-w-[620px] h-auto aspect-[480/260]">
         <svg
           viewBox="0 0 480 260"
           fill="none"
