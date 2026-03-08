@@ -199,7 +199,7 @@ const HeroSection = () => {
                           className="text-3xl font-display font-normal"
                           style={isMint ? { color: "#4AAF8C" } : undefined}
                         >
-                          {stat.value}
+                          {statValues[i]}
                         </div>
                         <div className="text-xs text-muted-foreground mt-1">
                           {t(stat.heLabel, stat.enLabel)}
