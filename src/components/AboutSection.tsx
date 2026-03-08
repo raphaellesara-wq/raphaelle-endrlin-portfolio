@@ -65,7 +65,7 @@ const AboutSection = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
-              <div className="w-8 h-px bg-accent-pink" />
+              <div className="w-8 h-px bg-accent-purple" />
               <span className="text-sm tracking-wide text-muted-foreground font-medium">
                 {t("אודות", "About")}
               </span>
