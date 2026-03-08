@@ -54,14 +54,23 @@ const HeroSection = () => {
 
       {/* Floating pastel shapes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <svg className="absolute top-[15%] end-[10%] opacity-60 animate-float" width="180" height="180" viewBox="0 0 180 180" fill="none">
-          <circle cx="90" cy="90" r="90" fill="#FEF0F3" />
+        {/* Shape 1 — soft blob */}
+        <svg className="absolute top-[10%] start-[15%] animate-float-slow" width="280" height="280" viewBox="0 0 280 280" aria-hidden="true">
+          <path d="M140,30 C190,20 250,60 260,120 C270,180 230,250 170,260 C110,270 40,240 25,180 C10,120 40,50 90,35 C110,28 125,32 140,30Z" fill="#FEF0F3" opacity="0.7" />
         </svg>
-        <svg className="absolute top-[40%] end-[25%] opacity-60 animate-float" style={{ animationDelay: "1s" }} width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <circle cx="60" cy="60" r="60" fill="#D6F5EA" />
+        {/* Shape 2 — rounded shape */}
+        <svg className="absolute top-[8%] end-[12%] animate-float-slower" width="140" height="140" viewBox="0 0 140 140" aria-hidden="true">
+          <path d="M70,10 C100,10 130,40 130,70 C130,100 100,130 70,130 C40,130 10,100 10,70 C10,40 40,10 70,10Z" fill="#D6F5EA" opacity="0.5" />
         </svg>
-        <svg className="absolute top-[55%] end-[8%] opacity-60 animate-float" style={{ animationDelay: "2s" }} width="90" height="90" viewBox="0 0 90 90" fill="none">
-          <circle cx="45" cy="45" r="45" fill="#EDE6FA" />
+        {/* Shape 3 — small circle */}
+        <svg className="absolute bottom-[15%] end-[20%] animate-float-mid" width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
+          <circle cx="45" cy="45" r="45" fill="#EDE6FA" opacity="0.6" />
+        </svg>
+        {/* Shape 4 — dot cluster */}
+        <svg className="absolute top-[25%] end-[35%]" width="40" height="36" viewBox="0 0 40 36" aria-hidden="true">
+          <circle cx="20" cy="4" r="4" fill="#E88FA0" opacity="0.4" />
+          <circle cx="8" cy="28" r="4" fill="#F09A60" opacity="0.4" />
+          <circle cx="32" cy="28" r="4" fill="#6DC4A0" opacity="0.4" />
         </svg>
       </div>
 

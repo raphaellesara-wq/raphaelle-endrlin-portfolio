@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Laptop, Mail, Zap } from "lucide-react";
 
 const languages = [
   { he: "עברית", detail_he: "שפת אם", en: "Hebrew", detail_en: "Native" },
@@ -49,9 +48,16 @@ const AboutSection = () => {
           <div className="lg:col-span-3 space-y-6">
             {/* Decorative icon cluster */}
             <div className="flex items-center gap-3 mb-1">
-              <Laptop size={28} strokeWidth={1.5} color="#E88FA0" />
-              <Mail size={24} strokeWidth={1.5} color="#F09A60" />
-              <Zap size={22} strokeWidth={1.5} color="#6DC4A0" />
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="28" height="20" rx="3" stroke="#E88FA0" strokeWidth="1.5" />
+                <path d="M4 12 L18 21 L32 12" stroke="#E88FA0" strokeWidth="1.5" />
+              </svg>
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M20 4 L10 20 H18 L16 32 L26 16 H18 L20 4Z" stroke="#F09A60" strokeWidth="1.5" />
+              </svg>
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M18 4 L20 14 L30 12 L22 18 L28 27 L18 22 L8 27 L14 18 L6 12 L16 14Z" stroke="#A98ED4" strokeWidth="1.5" />
+              </svg>
             </div>
             {/* Eyebrow */}
             <div
