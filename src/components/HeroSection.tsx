@@ -53,10 +53,6 @@ const HeroSection = () => {
         overflow: "hidden",
       }}
     >
-      {/* Decorative illustration — bottom left (RTL: bottom right) */}
-      <div className="hero-illust-wrap">
-        <HeroIllustration />
-      </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div
