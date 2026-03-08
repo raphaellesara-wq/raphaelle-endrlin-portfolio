@@ -325,18 +325,21 @@ const DesignShowcase = () => {
               const Icon = card.icon;
               return (
                 <>
-                  <div
-                    className="flex flex-col items-center justify-center"
-                    style={{ height: 320, background: card.gradient }}
-                  >
-                    <Icon size={64} strokeWidth={1.5} color={card.accent} />
-                    <span
-                      className="mt-4 text-sm font-medium text-center px-6"
-                      style={{ color: card.accent }}
+                  {'image' in card && card.image ? (
+                    <div className="overflow-hidden" style={{ height: 320 }}>
+                      <img src={card.image} alt={card.label} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div
+                      className="flex flex-col items-center justify-center"
+                      style={{ height: 320, background: card.gradient }}
                     >
-                      {card.label}
-                    </span>
-                  </div>
+                      <Icon size={64} strokeWidth={1.5} color={card.accent} />
+                      <span className="mt-4 text-sm font-medium text-center px-6" style={{ color: card.accent }}>
+                        {card.label}
+                      </span>
+                    </div>
+                  )}
                   <div className="p-6">
                     <p className="font-semibold text-foreground text-lg">
                       {t(card.heTitle, card.enTitle)}
