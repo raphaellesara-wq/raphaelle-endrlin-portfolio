@@ -100,8 +100,8 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
 const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCardData; index: number; isVisible: boolean; onClick: () => void; t: (he: string, en: string) => string }) => (
   <div
     onClick={onClick}
-    className="group rounded-2xl border border-border overflow-hidden bg-card cursor-pointer transition-all duration-250"
-    style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
+    className="showcase-card group rounded-2xl overflow-hidden cursor-pointer transition-all duration-250"
+    style={{ background: "white", borderRadius: 16, boxShadow: "0 8px 32px rgba(0,0,0,0.25)", opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(8px)", transitionDelay: `${80 * index}ms` }}
     onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 32px rgba(44,44,58,0.12)"; }}
     onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(8px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; }}
   >
