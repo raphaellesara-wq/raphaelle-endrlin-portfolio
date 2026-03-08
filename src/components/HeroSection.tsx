@@ -57,28 +57,63 @@ const HeroSection = () => {
         <svg
           id="hero-svg"
           className="absolute"
-          style={{ bottom: 20, left: 40, opacity: 0.35 }}
-          width="320" height="320" viewBox="0 0 320 320" fill="none"
+          style={{ bottom: 20, left: 40, opacity: 0.30 }}
+          width="380" height="380" viewBox="0 0 380 380" fill="none"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         >
-          <circle cx="160" cy="160" r="130" stroke="#3D8B6E" strokeWidth="1" strokeDasharray="6 8" fill="none" />
-          <circle cx="160" cy="160" r="88" stroke="#A98ED4" strokeWidth="1" strokeDasharray="3 6" fill="none" />
-          <circle cx="160" cy="160" r="5" fill="#3D8B6E" />
-          <circle cx="160" cy="160" r="12" stroke="#3D8B6E" strokeWidth="1" fill="none" opacity="0.5" />
+          {/* Outer orbit ring */}
+          <circle className="hero-orbit-outer" cx="190" cy="190" r="155" stroke="#3D8B6E" strokeWidth="0.8" strokeDasharray="8 10" fill="none" />
+          {/* Middle orbit ring */}
+          <circle className="hero-orbit-mid" cx="190" cy="190" r="105" stroke="#A98ED4" strokeWidth="0.8" strokeDasharray="4 7" fill="none" />
+          {/* Inner orbit ring */}
+          <circle className="hero-orbit-inner" cx="190" cy="190" r="55" stroke="#C4834A" strokeWidth="0.6" strokeDasharray="3 5" fill="none" opacity="0.6" />
+
+          {/* Center pulse */}
+          <circle className="hero-center-pulse" cx="190" cy="190" r="6" fill="#3D8B6E" opacity="0.8" />
+          <circle className="hero-center-ring" cx="190" cy="190" r="16" stroke="#3D8B6E" strokeWidth="0.8" fill="none" opacity="0.3" />
+
+          {/* Envelope on outer ring */}
           <g className="hero-env1">
-            <rect x="141" y="24" width="28" height="20" rx="3" stroke="#3D8B6E" strokeWidth="1.5" fill="white" fillOpacity="0.06" />
-            <path d="M141 27 L155 36 L169 27" stroke="#3D8B6E" strokeWidth="1.5" fill="none" />
+            <rect x="172" y="28" width="30" height="22" rx="4" stroke="#3D8B6E" strokeWidth="1.2" fill="white" fillOpacity="0.08" />
+            <path d="M172 32 L187 42 L202 32" stroke="#3D8B6E" strokeWidth="1.2" fill="none" />
           </g>
+
+          {/* Lightning on middle ring */}
           <g className="hero-bolt1">
-            <path d="M247 148 L242 160 L248 160 L243 172 L252 157 L246 157 Z" stroke="#A98ED4" strokeWidth="1.5" fill="#A98ED4" fillOpacity="0.15" />
+            <path d="M293 176 L287 190 L294 190 L288 204 L299 186 L292 186 Z" stroke="#A98ED4" strokeWidth="1.2" fill="#A98ED4" fillOpacity="0.12" />
           </g>
+
+          {/* Gear icon on outer ring — bottom */}
+          <g className="hero-gear1">
+            <circle cx="190" cy="345" r="10" stroke="#3D8B6E" strokeWidth="1" fill="none" />
+            <circle cx="190" cy="345" r="4" stroke="#3D8B6E" strokeWidth="0.8" fill="none" />
+            <line x1="190" y1="333" x2="190" y2="337" stroke="#3D8B6E" strokeWidth="1" />
+            <line x1="190" y1="353" x2="190" y2="357" stroke="#3D8B6E" strokeWidth="1" />
+            <line x1="178" y1="345" x2="182" y2="345" stroke="#3D8B6E" strokeWidth="1" />
+            <line x1="198" y1="345" x2="202" y2="345" stroke="#3D8B6E" strokeWidth="1" />
+          </g>
+
+          {/* Star on inner ring */}
           <g className="hero-star1">
-            <path d="M78 88 L80 82 L82 88 L88 88 L83 92 L85 98 L80 94 L75 98 L77 92 L72 88 Z" stroke="#C4834A" strokeWidth="1" fill="#C4834A" fillOpacity="0.12" />
+            <path d="M90 105 L93 96 L96 105 L105 105 L98 110 L101 119 L93 113 L85 119 L88 110 L81 105 Z" stroke="#C4834A" strokeWidth="0.8" fill="#C4834A" fillOpacity="0.15" />
           </g>
-          <circle cx="290" cy="160" r="3" fill="#3D8B6E" opacity="0.4" />
-          <circle cx="30" cy="160" r="3" fill="#3D8B6E" opacity="0.4" />
-          <circle cx="160" cy="290" r="3" fill="#A98ED4" opacity="0.4" />
-          <circle cx="160" cy="30" r="3" fill="#A98ED4" opacity="0.4" />
+
+          {/* @ symbol on middle ring — left */}
+          <g className="hero-at1">
+            <circle cx="85" cy="190" r="9" stroke="#A98ED4" strokeWidth="1" fill="none" />
+            <path d="M89 190 A4 4 0 1 0 89 189.9" stroke="#A98ED4" strokeWidth="0.8" fill="none" />
+            <path d="M89 190 C92 190 93 186 90 184" stroke="#A98ED4" strokeWidth="0.8" fill="none" />
+          </g>
+
+          {/* Floating particles with varied sizes */}
+          <circle className="hero-particle-1" cx="340" cy="190" r="3" fill="#3D8B6E" opacity="0.5" />
+          <circle className="hero-particle-2" cx="40" cy="190" r="2.5" fill="#3D8B6E" opacity="0.4" />
+          <circle className="hero-particle-3" cx="190" cy="340" r="2" fill="#A98ED4" opacity="0.45" />
+          <circle className="hero-particle-4" cx="190" cy="40" r="3" fill="#A98ED4" opacity="0.5" />
+          <circle className="hero-particle-5" cx="280" cy="95" r="2" fill="#C4834A" opacity="0.4" />
+          <circle className="hero-particle-6" cx="100" cy="285" r="1.5" fill="#C4834A" opacity="0.35" />
+          <circle className="hero-particle-7" cx="300" cy="280" r="2" fill="#A98ED4" opacity="0.3" />
+          <circle className="hero-particle-8" cx="80" cy="100" r="1.5" fill="#3D8B6E" opacity="0.3" />
         </svg>
       </div>
 
