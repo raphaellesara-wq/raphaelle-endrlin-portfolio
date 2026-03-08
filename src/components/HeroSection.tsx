@@ -226,6 +226,12 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      {/* Wave divider */}
+      <div style={{ marginTop: -1 }}>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
+          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
+        </svg>
+      </div>
     </section>
   );
 };
