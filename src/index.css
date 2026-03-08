@@ -261,8 +261,8 @@
 .about-illust-wrap {
   pointer-events: none;
   user-select: none;
-  opacity: 0.85;
-  max-width: 260px;
+  opacity: 0.9;
+  max-width: 320px;
   width: 100%;
 }
 .about-illust {
@@ -276,15 +276,26 @@
   animation: sway 8s ease-in-out infinite;
 }
 .about-bubble {
-  animation: floatUp 5s ease-in-out infinite;
+  animation: floatUp 4s ease-in-out infinite;
 }
 .about-flower {
   transform-origin: 330px 70px;
-  animation: petalPulse 5s ease-in-out infinite;
+  animation: petalPulse 4s ease-in-out infinite;
 }
 .about-flower-2 {
   transform-origin: 360px 200px;
-  animation: petalPulse 6s ease-in-out infinite 1s;
+  animation: petalPulse 5s ease-in-out infinite 1s;
+}
+
+/* Additional about animations */
+.about-illust .about-bubble rect,
+.about-illust .about-bubble line {
+  animation: bubbleFade 5s ease-in-out infinite;
+}
+
+@keyframes bubbleFade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 /* Shared animation keyframes */

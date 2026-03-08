@@ -13,10 +13,16 @@ const AboutIllustration = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     {/* Background blobs */}
-    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.1" />
-    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.1" />
-    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.1" />
-    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.08" />
+    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.12">
+      <animate attributeName="rx" values="90;95;90" dur="6s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.12">
+      <animate attributeName="ry" values="80;85;80" dur="7s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.12">
+      <animate attributeName="rx" values="70;75;70" dur="5s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.1" />
 
     {/* Speech bubble — top left */}
     <g className="about-bubble">
@@ -33,9 +39,9 @@ const AboutIllustration = () => (
     {/* Screen area */}
     <rect x="115" y="120" width="180" height="115" rx="4" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
     {/* Browser dots in screen */}
-    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.7" />
-    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.7" />
-    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.7" />
+    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.85" />
+    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.85" />
+    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.85" />
 
     {/* Content grid inside laptop */}
     <rect x="125" y="142" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="#7B68A8" fillOpacity="0.06" />
@@ -99,10 +105,16 @@ const AboutIllustration = () => (
     <path d="M340 245 Q355 238 358 225" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
     <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
 
-    {/* Small accent dots */}
-    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.5" />
-    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.5" />
-    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.45" />
+    {/* Small accent dots — animated */}
+    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.55">
+      <animate attributeName="opacity" values="0.55;0.2;0.55" dur="3.5s" repeatCount="indefinite" />
+    </circle>
   </svg>
 );
 
