@@ -4,7 +4,7 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-6" style={{ background: "#141220" }}>
+    <footer className="py-6" style={{ background: "#1C1A28" }}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         <span className="font-display text-xl font-normal tracking-tight" style={{ color: "hsl(var(--accent-green))" }}>
           RA.
