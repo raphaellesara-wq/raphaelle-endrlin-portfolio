@@ -11,7 +11,7 @@ const projects = [
     enTitle: "Umina Superfood — Customer Journeys & Loyalty Club",
     subtitle: "FlashyApp · Shopify · Rise.ai",
     heDesc:
-      "בניית מועדון לקוחות מלא עם מנגנון קרדיטים ב-Shopify באמצעות Rise.ai. עיצוב 3 מסעות לקוח: ברוכים הבאים + הטבת יום הולדת + התראת סיום חברות. ניוזלטרים מעוצבים ומסעות שיווקיים לקהילת הסופרפוד.",
+      "בניית מועדון לקוחות ב-Shopify עם מנגנון קרדיטים (Rise.ai) ומסעות לקוח מותאמים אישית. עיצוב ניוזלטרים ומסעות שיווקיים לקהילת הסופרפוד.",
     enDesc:
       "Built a complete loyalty club with a credit system on Shopify via Rise.ai. Designed 3 customer journeys: welcome, birthday benefit, pre-expiry reminder. Branded newsletters and marketing campaigns for the superfood community.",
     tags: ["Shopify", "Rise.ai", "FlashyApp", "Customer Journey", "Email Design"],
