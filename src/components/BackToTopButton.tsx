@@ -18,7 +18,7 @@ const BackToTopButton = () => {
       style={{
         bottom: 28,
         left: 28,
-        background: "#3D8B6E",
+        background: "hsl(95, 18%, 52%)",
         color: "white",
         borderRadius: 100,
         padding: "10px 18px",
