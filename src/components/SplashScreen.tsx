@@ -97,80 +97,85 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <circle className="splash-particle" cx="980" cy="160" r="3" fill="hsl(155,30%,65%)" opacity="0.25" style={{ animationDelay: "0.7s" }} />
         </svg>
 
-        {/* Mobile version — taller/vertical layout */}
-        <svg viewBox="0 0 360 480" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden">
-          {/* LEVEL 1 */}
+        {/* Mobile version — compact, nodes only */}
+        <svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden" style={{ maxWidth: '320px', margin: '0 auto' }}>
+          {/* L1 — root circle */}
           <g className="splash-node" style={{ animationDelay: "0.2s" }}>
-            <rect x="130" y="15" width="100" height="52" rx="14" stroke="hsl(258,18%,60%)" strokeWidth="2" fill="hsl(258,20%,97%)" />
-            <circle cx="180" cy="41" r="9" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
-            <circle cx="180" cy="41" r="4" fill="hsl(258,18%,60%)" fillOpacity="0.45" />
+            <circle cx="150" cy="30" r="18" stroke="hsl(258,18%,60%)" strokeWidth="1.8" fill="hsl(258,20%,97%)" />
+            <circle cx="150" cy="30" r="6" fill="hsl(258,18%,60%)" fillOpacity="0.3" />
           </g>
-          {/* Lines L1→L2 */}
-          <line x1="155" y1="67" x2="90" y2="135" stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.45" className="splash-line" style={{ animationDelay: "0.8s" }} />
-          <line x1="205" y1="67" x2="270" y2="135" stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.45" className="splash-line" style={{ animationDelay: "1.0s" }} />
-          {/* LEVEL 2 */}
+
+          {/* Dashed paths L1→L2 */}
+          <path d="M138 46 Q90 75 75 110" stroke="hsl(258,18%,60%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "0.8s" }} />
+          <path d="M162 46 Q210 75 225 110" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "1.0s" }} />
+
+          {/* L2 — two circles */}
           <g className="splash-node" style={{ animationDelay: "1.2s" }}>
-            <rect x="40" y="135" width="100" height="52" rx="14" stroke="hsl(348,30%,70%)" strokeWidth="2" fill="hsl(348,30%,97%)" />
-            <line x1="60" y1="155" x2="120" y2="155" stroke="hsl(348,30%,70%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.5" />
-            <line x1="60" y1="168" x2="108" y2="168" stroke="hsl(348,30%,70%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.3" />
+            <circle cx="70" cy="125" r="16" stroke="hsl(348,30%,70%)" strokeWidth="1.8" fill="hsl(348,30%,97%)" />
+            <circle cx="70" cy="125" r="5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
           </g>
           <g className="splash-node" style={{ animationDelay: "1.4s" }}>
-            <rect x="220" y="135" width="100" height="52" rx="14" stroke="hsl(155,30%,65%)" strokeWidth="2" fill="hsl(155,25%,96%)" />
-            <path d="M262 148 L252 165 H266 L258 178 L278 158 H264 Z" stroke="hsl(155,30%,65%)" strokeWidth="1.2" fill="hsl(155,30%,65%)" fillOpacity="0.15" />
+            <circle cx="230" cy="125" r="16" stroke="hsl(155,30%,65%)" strokeWidth="1.8" fill="hsl(155,25%,96%)" />
+            <circle cx="230" cy="125" r="5" fill="hsl(155,30%,65%)" fillOpacity="0.25" />
           </g>
-          {/* Lines L2→L3 */}
-          <line x1="60" y1="187" x2="40" y2="280" stroke="hsl(348,30%,70%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "1.8s" }} />
-          <line x1="120" y1="187" x2="180" y2="280" stroke="hsl(27,35%,60%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.0s" }} />
-          <line x1="240" y1="187" x2="180" y2="280" stroke="hsl(155,30%,65%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.2s" }} />
-          <line x1="300" y1="187" x2="320" y2="280" stroke="hsl(258,18%,60%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.4s" }} />
-          {/* LEVEL 3 */}
+
+          {/* Dashed paths L2→L3 */}
+          <path d="M58 139 Q30 170 30 210" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "1.8s" }} />
+          <path d="M82 139 Q120 170 150 210" stroke="hsl(27,35%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.0s" }} />
+          <path d="M218 139 Q180 170 150 210" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.2s" }} />
+          <path d="M242 139 Q270 170 270 210" stroke="hsl(258,18%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.4s" }} />
+
+          {/* L3 — four circles */}
           <g className="splash-node" style={{ animationDelay: "2.6s" }}>
-            <rect x="0" y="280" width="90" height="48" rx="12" stroke="hsl(27,35%,60%)" strokeWidth="2" fill="hsl(27,40%,96%)" />
-            <rect x="24" y="292" width="20" height="15" rx="3" stroke="hsl(27,35%,60%)" strokeWidth="1.1" fill="none" />
-            <path d="M24 295 L34 303 L44 295" stroke="hsl(27,35%,60%)" strokeWidth="0.9" fill="none" />
+            <circle cx="30" cy="225" r="14" stroke="hsl(27,35%,60%)" strokeWidth="1.6" fill="hsl(27,40%,96%)" />
+            <circle cx="30" cy="225" r="4.5" fill="hsl(27,35%,60%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "2.9s" }}>
-            <rect x="135" y="280" width="90" height="48" rx="12" stroke="hsl(348,30%,70%)" strokeWidth="2" fill="hsl(348,30%,97%)" />
-            <circle cx="180" cy="304" r="8" stroke="hsl(348,30%,70%)" strokeWidth="1" fill="none" opacity="0.45" />
-            <circle cx="180" cy="304" r="3.5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
+            <circle cx="115" cy="225" r="14" stroke="hsl(348,30%,70%)" strokeWidth="1.6" fill="hsl(348,30%,97%)" />
+            <circle cx="115" cy="225" r="4.5" fill="hsl(348,30%,70%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "3.2s" }}>
-            <rect x="270" y="280" width="90" height="48" rx="12" stroke="hsl(258,18%,60%)" strokeWidth="2" fill="hsl(258,20%,97%)" />
-            <path d="M307 292 L301 304 H311 L306 314 L320 302 H310 Z" stroke="hsl(258,18%,60%)" strokeWidth="0.9" fill="hsl(258,18%,60%)" fillOpacity="0.12" />
+            <circle cx="185" cy="225" r="14" stroke="hsl(155,30%,65%)" strokeWidth="1.6" fill="hsl(155,25%,96%)" />
+            <circle cx="185" cy="225" r="4.5" fill="hsl(155,30%,65%)" fillOpacity="0.2" />
           </g>
-          {/* Lines L3→L4 */}
-          <line x1="45" y1="328" x2="80" y2="390" stroke="hsl(27,35%,60%)" strokeWidth="1.3" strokeDasharray="5 6" opacity="0.35" className="splash-line" style={{ animationDelay: "3.4s" }} />
-          <line x1="180" y1="328" x2="180" y2="390" stroke="hsl(348,30%,70%)" strokeWidth="1.3" strokeDasharray="5 6" opacity="0.35" className="splash-line" style={{ animationDelay: "3.6s" }} />
-          <line x1="315" y1="328" x2="280" y2="390" stroke="hsl(258,18%,60%)" strokeWidth="1.3" strokeDasharray="5 6" opacity="0.35" className="splash-line" style={{ animationDelay: "3.8s" }} />
-          {/* LEVEL 4 */}
+          <g className="splash-node" style={{ animationDelay: "3.5s" }}>
+            <circle cx="270" cy="225" r="14" stroke="hsl(258,18%,60%)" strokeWidth="1.6" fill="hsl(258,20%,97%)" />
+            <circle cx="270" cy="225" r="4.5" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
+          </g>
+
+          {/* Paths L3→L4 */}
+          <path d="M30 239 Q50 270 75 295" stroke="hsl(27,35%,60%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "3.6s" }} />
+          <path d="M150 239 Q150 270 150 295" stroke="hsl(348,30%,70%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "3.8s" }} />
+          <path d="M270 239 Q250 270 225 295" stroke="hsl(258,18%,60%)" strokeWidth="1.1" strokeDasharray="4 5" fill="none" opacity="0.3" className="splash-line" style={{ animationDelay: "4.0s" }} />
+
+          {/* L4 — three circles */}
           <g className="splash-node" style={{ animationDelay: "4.0s" }}>
-            <rect x="40" y="390" width="80" height="44" rx="11" stroke="hsl(155,30%,65%)" strokeWidth="1.8" fill="hsl(155,25%,96%)" />
-            <line x1="55" y1="407" x2="105" y2="407" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
-            <line x1="55" y1="420" x2="95" y2="420" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
+            <circle cx="75" cy="310" r="12" stroke="hsl(155,30%,65%)" strokeWidth="1.4" fill="hsl(155,25%,96%)" />
+            <circle cx="75" cy="310" r="4" fill="hsl(155,30%,65%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "4.2s" }}>
-            <rect x="140" y="390" width="80" height="44" rx="11" stroke="hsl(27,35%,60%)" strokeWidth="1.8" fill="hsl(27,40%,96%)" />
-            <circle cx="180" cy="412" r="7" stroke="hsl(27,35%,60%)" strokeWidth="1" fill="none" opacity="0.4" />
-            <circle cx="180" cy="412" r="3" fill="hsl(27,35%,60%)" fillOpacity="0.25" />
+            <circle cx="150" cy="310" r="12" stroke="hsl(27,35%,60%)" strokeWidth="1.4" fill="hsl(27,40%,96%)" />
+            <circle cx="150" cy="310" r="4" fill="hsl(27,35%,60%)" fillOpacity="0.2" />
           </g>
           <g className="splash-node" style={{ animationDelay: "4.4s" }}>
-            <rect x="240" y="390" width="80" height="44" rx="11" stroke="hsl(348,30%,70%)" strokeWidth="1.8" fill="hsl(348,30%,97%)" />
-            <line x1="255" y1="407" x2="305" y2="407" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
-            <line x1="255" y1="420" x2="295" y2="420" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
+            <circle cx="225" cy="310" r="12" stroke="hsl(348,30%,70%)" strokeWidth="1.4" fill="hsl(348,30%,97%)" />
+            <circle cx="225" cy="310" r="4" fill="hsl(348,30%,70%)" fillOpacity="0.2" />
           </g>
+
           {/* Pulses */}
-          <circle r="4" fill="hsl(155,30%,65%)" opacity="0.55">
-            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M180,41 L90,161 L45,304 L80,412" />
+          <circle r="3.5" fill="hsl(155,30%,65%)" opacity="0.55">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M150,30 L70,125 L30,225 L75,310" />
           </circle>
-          <circle r="3.5" fill="hsl(258,18%,60%)" opacity="0.45">
-            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M180,41 L270,161 L315,304 L280,412" />
+          <circle r="3" fill="hsl(258,18%,60%)" opacity="0.45">
+            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M150,30 L230,125 L270,225 L225,310" />
           </circle>
-          <circle r="3" fill="hsl(348,30%,70%)" opacity="0.5">
-            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M180,41 L90,161 L180,304 L180,412" />
+          <circle r="2.5" fill="hsl(348,30%,70%)" opacity="0.5">
+            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M150,30 L70,125 L150,225 L150,310" />
           </circle>
+
           {/* Particles */}
-          <circle className="splash-particle" cx="10" cy="220" r="2.5" fill="hsl(258,18%,60%)" opacity="0.2" />
-          <circle className="splash-particle" cx="350" cy="350" r="2.5" fill="hsl(155,30%,65%)" opacity="0.2" style={{ animationDelay: "0.7s" }} />
+          <circle className="splash-particle" cx="10" cy="170" r="2" fill="hsl(258,18%,60%)" opacity="0.2" />
+          <circle className="splash-particle" cx="290" cy="270" r="2" fill="hsl(155,30%,65%)" opacity="0.2" style={{ animationDelay: "0.7s" }} />
         </svg>
       </div>
     </div>
