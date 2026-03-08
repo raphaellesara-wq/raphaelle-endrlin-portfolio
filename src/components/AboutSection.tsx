@@ -39,8 +39,8 @@ const AboutSection = () => {
             </div>
 
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-300 delay-75 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-150 delay-[50ms] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
               }`}
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
