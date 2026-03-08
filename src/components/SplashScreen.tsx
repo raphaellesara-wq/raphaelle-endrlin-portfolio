@@ -19,17 +19,17 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
     >
       {/* Logo */}
       <div
-        className={`mb-10 text-center transition-all duration-1000 ${
+        className={`mb-6 text-center transition-all duration-1000 ${
           phase === "logo" || phase === "exit" ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95"
         }`}
       >
         <span
-          className="block text-8xl md:text-9xl tracking-tight"
+          className="block text-5xl md:text-6xl tracking-tight"
           style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: "hsl(348,30%,70%)", letterSpacing: "-0.02em", lineHeight: 1 }}
         >
           R.E
         </span>
-        <p className="text-base md:text-lg text-muted-foreground mt-4 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
+        <p className="text-xs md:text-sm text-muted-foreground mt-3 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
           Raphaëlle Enderlin
         </p>
       </div>
