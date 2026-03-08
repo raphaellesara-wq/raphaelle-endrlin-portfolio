@@ -1,5 +1,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Mail, Settings, Palette } from "lucide-react";
+
+const cardIcons = [Mail, Settings, Palette];
 
 const projects = [
   {
@@ -73,7 +76,7 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`rounded-[20px] border bg-background p-6 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
+              className={`relative rounded-[20px] border bg-background p-6 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${
                 i === 0 ? "md:col-span-2" : ""
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
               style={{
@@ -82,7 +85,10 @@ const ProjectsSection = () => {
                 transitionDelay: `${200 + i * 150}ms`,
               }}
             >
-              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1">
+              {(() => { const Icon = cardIcons[i]; return (
+                <Icon size={32} strokeWidth={1.5} color={project.accent} className="absolute top-6 end-6 opacity-80" />
+              ); })()}
+              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-1 pe-10">
                 {project.emoji} {t(project.heTitle, project.enTitle)}
               </h3>
               <p className="text-xs text-muted-foreground mb-3">{project.subtitle}</p>

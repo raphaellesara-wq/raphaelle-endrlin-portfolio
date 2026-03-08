@@ -52,6 +52,19 @@ const HeroSection = () => {
         <div className="absolute top-1/2 end-1/3 w-[300px] h-[300px] rounded-full bg-accent-purple/[0.05] blur-[100px]" />
       </div>
 
+      {/* Floating pastel shapes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg className="absolute top-[15%] end-[10%] opacity-60 animate-float" width="180" height="180" viewBox="0 0 180 180" fill="none">
+          <circle cx="90" cy="90" r="90" fill="#FEF0F3" />
+        </svg>
+        <svg className="absolute top-[40%] end-[25%] opacity-60 animate-float" style={{ animationDelay: "1s" }} width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <circle cx="60" cy="60" r="60" fill="#D6F5EA" />
+        </svg>
+        <svg className="absolute top-[55%] end-[8%] opacity-60 animate-float" style={{ animationDelay: "2s" }} width="90" height="90" viewBox="0 0 90 90" fill="none">
+          <circle cx="45" cy="45" r="45" fill="#EDE6FA" />
+        </svg>
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Main text */}
