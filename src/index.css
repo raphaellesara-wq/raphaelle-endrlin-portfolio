@@ -28,8 +28,8 @@
     --accent-pink-pale: 348 30% 97%;
     --accent-orange: 27 35% 60%;
     --accent-orange-pale: 27 40% 96%;
-    --accent-green: 155 25% 55%;
-    --accent-green-pale: 155 20% 95%;
+    --accent-green: 155 30% 65%;
+    --accent-green-pale: 155 25% 96%;
     --accent-blue: 207 25% 58%;
     --accent-blue-pale: 207 25% 96%;
     --accent-purple: 258 18% 60%;
@@ -261,8 +261,8 @@
 .about-illust-wrap {
   pointer-events: none;
   user-select: none;
-  opacity: 0.65;
-  max-width: 160px;
+  opacity: 0.8;
+  max-width: 200px;
 }
 .about-illust {
   width: 100%;
@@ -429,8 +429,8 @@ section#contact {
   resize: vertical;
 }
 
-.contact-submit {
-  background: hsl(155, 25%, 55%);
+  .contact-submit {
+  background: hsl(155, 30%, 65%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -444,8 +444,8 @@ section#contact {
   letter-spacing: 0.02em;
 }
 
-.contact-submit:hover {
-  background: hsl(155, 25%, 45%);
+  .contact-submit:hover {
+  background: hsl(155, 30%, 55%);
   transform: translateY(-1px);
 }
 

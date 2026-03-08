@@ -13,10 +13,10 @@ const AboutIllustration = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     {/* Background blobs */}
-    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.06" />
-    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.07" />
-    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.06" />
-    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.05" />
+    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.1" />
+    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.1" />
+    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.1" />
+    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.08" />
 
     {/* Speech bubble — top left */}
     <g className="about-bubble">
@@ -33,9 +33,9 @@ const AboutIllustration = () => (
     {/* Screen area */}
     <rect x="115" y="120" width="180" height="115" rx="4" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
     {/* Browser dots in screen */}
-    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.5" />
-    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.5" />
-    <circle cx="150" cy="130" r="3" fill="#3D8B6E" fillOpacity="0.5" />
+    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.7" />
+    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.7" />
+    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.7" />
 
     {/* Content grid inside laptop */}
     <rect x="125" y="142" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="#7B68A8" fillOpacity="0.06" />
@@ -69,9 +69,9 @@ const AboutIllustration = () => (
 
     {/* Branch with berries — left */}
     <path d="M55 280 Q50 240 60 200" stroke="hsl(252,20%,13%)" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <circle cx="48" cy="230" r="5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.12" />
-    <circle cx="42" cy="215" r="4.5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.1" />
-    <circle cx="52" cy="205" r="4" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.1" />
+    <circle cx="48" cy="230" r="5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.2" />
+    <circle cx="42" cy="215" r="4.5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
+    <circle cx="52" cy="205" r="4" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
 
     {/* Flower — top right */}
     <g className="about-flower">
@@ -89,20 +89,20 @@ const AboutIllustration = () => (
     <g className="about-flower-2">
       <circle cx="360" cy="180" r="8" stroke="#D4798A" strokeWidth="1.2" fill="none" />
       <circle cx="360" cy="180" r="3" fill="#D4798A" fillOpacity="0.25" />
-      <line x1="360" y1="188" x2="360" y2="220" stroke="#3D8B6E" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M360 200 Q370 192 375 198" stroke="#3D8B6E" strokeWidth="1" fill="#3D8B6E" fillOpacity="0.06" />
-      <path d="M360 210 Q350 202 345 208" stroke="#3D8B6E" strokeWidth="1" fill="#3D8B6E" fillOpacity="0.06" />
+      <line x1="360" y1="188" x2="360" y2="220" stroke="#6DC4A0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M360 200 Q370 192 375 198" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
+      <path d="M360 210 Q350 202 345 208" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
     </g>
 
     {/* Sprig — right of laptop */}
-    <path d="M340 260 Q335 230 340 200" stroke="#3D8B6E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <path d="M340 245 Q355 238 358 225" stroke="#3D8B6E" strokeWidth="1.2" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
-    <path d="M340 230 Q325 222 328 208" stroke="#3D8B6E" strokeWidth="1.2" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
+    <path d="M340 260 Q335 230 340 200" stroke="#6DC4A0" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+    <path d="M340 245 Q355 238 358 225" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
+    <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
 
     {/* Small accent dots */}
-    <circle cx="380" cy="140" r="2" fill="#3D8B6E" opacity="0.35" />
-    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.35" />
-    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.3" />
+    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.5" />
+    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.5" />
+    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.45" />
   </svg>
 );
 
