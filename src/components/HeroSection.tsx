@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
+
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
   { value: "50%+", heLabel: "שיעור פתיחה", enLabel: "Open Rate" },

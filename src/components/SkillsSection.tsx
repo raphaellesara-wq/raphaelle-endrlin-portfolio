@@ -61,7 +61,14 @@ const SkillsSection = () => {
       id="skills"
       ref={sectionRef}
       className="py-10 md:py-16 relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #F8F5FF 0%, #F0EAFF 100%)" }}
     >
+      {/* Wave divider — lavender to dark (before contact) */}
+      <div className="absolute bottom-0 left-0 right-0" style={{ marginBottom: -1 }}>
+        <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
+          <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#1E1B2E" />
+        </svg>
+      </div>
       <div className="container mx-auto px-6 relative z-10">
         {/* Mini icons row */}
         <div

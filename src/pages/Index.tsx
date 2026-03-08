@@ -7,10 +7,13 @@ import DesignShowcase from "@/components/DesignShowcase";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 15%, #FFFFFF 30%, #FAFAFA 50%, #FFFFFF 65%, #FAFAFA 80%, #FFFFFF 100%)" }}>
+    <div className="min-h-screen">
+      <ScrollProgressBar />
       <Navbar />
       <HeroSection />
       <AboutSection />
@@ -20,6 +23,7 @@ const Index = () => {
       <SkillsSection />
       <ContactSection />
       <Footer />
+      <BackToTopButton />
     </div>
   );
 };
