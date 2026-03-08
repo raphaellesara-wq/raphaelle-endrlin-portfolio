@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-
+import { useCountUp } from "@/hooks/use-count-up";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
@@ -23,9 +24,6 @@ const pillColorMap: Record<string, string> = {
   purple: "bg-accent-purple-pale text-accent-purple",
 };
 
-import { useCountUp } from "@/hooks/use-count-up";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-
 const HeroSection = () => {
   const { t } = useLanguage();
   const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
@@ -46,7 +44,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden" style={{ background: "linear-gradient(135deg, #FDFCFF 0%, #F5F0FF 60%, #EDF8F4 100%)" }}>
+    <section
+      className="relative flex items-center pt-20 pb-16 md:pt-24 md:pb-20"
+      style={{
+        background: "linear-gradient(135deg, #FDFCFF 0%, #F5F0FF 60%, #EDF8F4 100%)",
+        minHeight: "100vh",
+        overflow: "visible",
+      }}
+    >
       {/* Grain texture overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03]"
@@ -56,39 +61,26 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Background blobs */}
+      {/* Small decorative dots only */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] rounded-full bg-accent-pink/[0.06] blur-[100px]" />
-        <div className="absolute bottom-1/4 end-1/4 w-[400px] h-[400px] rounded-full bg-accent-orange/[0.07] blur-[100px]" />
-        <div className="absolute top-1/2 end-1/3 w-[300px] h-[300px] rounded-full bg-accent-purple/[0.05] blur-[100px]" />
-      </div>
-
-      {/* Floating pastel shapes */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Shape 1 — soft blob */}
-        <svg className="absolute top-[10%] start-[15%] animate-float-slow" width="280" height="280" viewBox="0 0 280 280" aria-hidden="true">
-          <path d="M140,30 C190,20 250,60 260,120 C270,180 230,250 170,260 C110,270 40,240 25,180 C10,120 40,50 90,35 C110,28 125,32 140,30Z" fill="#FEF0F3" opacity="0.7" />
+        <svg className="absolute top-[18%] end-[25%]" width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
+          <circle cx="4" cy="4" r="4" fill="#E88FA0" opacity="0.6" />
         </svg>
-        {/* Shape 2 — rounded shape */}
-        <svg className="absolute top-[8%] end-[12%] animate-float-slower" width="140" height="140" viewBox="0 0 140 140" aria-hidden="true">
-          <path d="M70,10 C100,10 130,40 130,70 C130,100 100,130 70,130 C40,130 10,100 10,70 C10,40 40,10 70,10Z" fill="#D6F5EA" opacity="0.5" />
+        <svg className="absolute top-[12%] end-[18%]" width="7" height="7" viewBox="0 0 7 7" aria-hidden="true">
+          <circle cx="3.5" cy="3.5" r="3.5" fill="#F09A60" opacity="0.6" />
         </svg>
-        {/* Shape 3 — small circle */}
-        <svg className="absolute bottom-[15%] end-[20%] animate-float-mid" width="90" height="90" viewBox="0 0 90 90" aria-hidden="true">
-          <circle cx="45" cy="45" r="45" fill="#EDE6FA" opacity="0.6" />
-        </svg>
-        {/* Shape 4 — dot cluster */}
-        <svg className="absolute top-[25%] end-[35%]" width="40" height="36" viewBox="0 0 40 36" aria-hidden="true">
-          <circle cx="20" cy="4" r="4" fill="#E88FA0" opacity="0.4" />
-          <circle cx="8" cy="28" r="4" fill="#F09A60" opacity="0.4" />
-          <circle cx="32" cy="28" r="4" fill="#6DC4A0" opacity="0.4" />
+        <svg className="absolute top-[24%] end-[14%]" width="6" height="6" viewBox="0 0 6 6" aria-hidden="true">
+          <circle cx="3" cy="3" r="3" fill="#6DC4A0" opacity="0.6" />
         </svg>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        <div
+          className="grid lg:grid-cols-2 items-center"
+          style={{ gap: 48 }}
+        >
           {/* Main text */}
-          <div className="order-1 space-y-5 md:space-y-6">
+          <div className="order-1 space-y-5 md:space-y-6" style={{ overflow: "visible", position: "relative", zIndex: 2 }}>
             {/* Eyebrow */}
             <div
               className="flex items-center gap-3 animate-fade-up"
@@ -102,24 +94,28 @@ const HeroSection = () => {
 
             {/* H1 — responsive clamp */}
             <h1
-              className="font-display font-extrabold leading-[1.05] animate-fade-up"
+              className="font-display font-extrabold animate-fade-up"
               style={{
-                fontSize: "clamp(3rem, 7vw, 5.5rem)",
-                letterSpacing: "-0.03em",
+                fontSize: "clamp(44px, 6.5vw, 88px)",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
                 animationDelay: "150ms",
+                overflow: "visible",
+                whiteSpace: "normal",
+                wordBreak: "keep-all",
               }}
             >
               {t("רפאל", "Raphaëlle")}
               <br />
-              <span className="text-accent-pink">{t("אנדרלין", "Endrlin")}</span>
+              <span className="text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
             </h1>
 
-            {/* Italic sub */}
+            {/* Italic sub — FIXED spelling */}
             <p
               className="text-base md:text-lg italic text-muted-foreground font-body animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
-              {t("Raphaëlle Endrlin", "רפאל אנדרלין")}
+              {t("Raphaëlle Enderlin", "רפאל אנדרלין")}
             </p>
 
             {/* Description */}
@@ -173,7 +169,11 @@ const HeroSection = () => {
           </div>
 
           {/* Stats card — hidden on mobile */}
-          <div className="order-2 hidden lg:flex justify-center lg:justify-start" ref={statsRef}>
+          <div
+            className="order-2 hidden lg:flex justify-center"
+            ref={statsRef}
+            style={{ position: "relative", zIndex: 1 }}
+          >
             <div
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
@@ -227,8 +227,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
       {/* Wave divider */}
-      <div style={{ marginTop: -1 }}>
+      <div className="absolute bottom-0 left-0 right-0" style={{ zIndex: 5 }}>
         <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style={{ width: "100%", height: 48, display: "block" }}>
           <path d="M0,0 C240,48 480,48 720,24 C960,0 1200,0 1440,48 L1440,48 L0,48Z" fill="#FFFFFF" />
         </svg>
