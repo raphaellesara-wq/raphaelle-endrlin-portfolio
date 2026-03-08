@@ -13,10 +13,10 @@ const AboutIllustration = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     {/* Background blobs */}
-    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.06" />
-    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.07" />
-    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.06" />
-    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.05" />
+    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.1" />
+    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.1" />
+    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.1" />
+    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.08" />
 
     {/* Speech bubble — top left */}
     <g className="about-bubble">
