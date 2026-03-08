@@ -463,11 +463,11 @@ section#contact {
 
 .form-group input,
 .form-group textarea {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 10px;
   padding: 13px 16px;
-  color: white;
+  color: hsl(var(--foreground));
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
@@ -477,13 +477,13 @@ section#contact {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08);
+  border-color: hsl(var(--muted-foreground) / 0.3);
+  background: hsl(var(--background));
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255,255,255,0.2);
+  color: hsl(var(--muted-foreground) / 0.5);
 }
 
 .form-group textarea {
