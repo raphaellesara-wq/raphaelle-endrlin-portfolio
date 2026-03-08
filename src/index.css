@@ -232,8 +232,8 @@
 .hero-illust-wrap {
   pointer-events: none;
   user-select: none;
-  opacity: 0.4;
-  max-width: 320px;
+  opacity: 0.7;
+  max-width: 180px;
 }
 .hero-illust {
   width: 100%;
@@ -261,8 +261,8 @@
 .about-illust-wrap {
   pointer-events: none;
   user-select: none;
-  opacity: 0.35;
-  max-width: 280px;
+  opacity: 0.65;
+  max-width: 160px;
 }
 .about-illust {
   width: 100%;
@@ -304,8 +304,8 @@
 @media (max-width: 768px) {
   .hero-illust-wrap,
   .about-illust-wrap {
-    max-width: 160px;
-    opacity: 0.2;
+    max-width: 100px;
+    opacity: 0.5;
   }
 }
 

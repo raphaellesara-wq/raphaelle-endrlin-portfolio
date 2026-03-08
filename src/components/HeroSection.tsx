@@ -205,7 +205,7 @@ const HeroSection = () => {
         </div>
 
         {/* Illustration — centered below content in empty space */}
-        <div className="hidden lg:flex justify-center mt-8 hero-illust-wrap">
+        <div className="hidden lg:flex justify-center mt-4 hero-illust-wrap">
           <HeroIllustration />
         </div>
       </div>
