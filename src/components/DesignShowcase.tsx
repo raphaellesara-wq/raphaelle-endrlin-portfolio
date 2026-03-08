@@ -51,9 +51,10 @@ const cards = [
     paleBg: "#EDE6FA",
     gradient: "linear-gradient(135deg, #EDE6FA 0%, #F8F5FF 100%)",
     label: "Make.com — AI Agent + Telegram",
-    heTitle: "סוכן AI לניהול פניות עסקיות",
-    enTitle: "AI Agent for Business Inquiries",
+    heTitle: "אוטומציה חכמה לניהול פניות עסקיות",
+    enTitle: "Smart Automation for Business Inquiries",
     tags: ["Make.com", "Claude AI", "Automation"],
+    image: "/make-scenario.png",
   },
   {
     icon: AppWindow,
@@ -64,6 +65,7 @@ const cards = [
     heTitle: "טופס הרשמה — Nintendo Israel",
     enTitle: "Signup Form — Nintendo Israel",
     tags: ["Pop-up Design", "Figma", "Shopify"],
+    image: "/nintendo-popup.png",
   },
   {
     icon: Heart,
