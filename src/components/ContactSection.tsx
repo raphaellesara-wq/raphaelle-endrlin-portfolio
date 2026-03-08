@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Mail, Phone, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const contactLinks = [
   {
@@ -40,170 +39,133 @@ const ContactSection = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
-  const hoverSlideClass = isRTL
-    ? "hover:translate-x-1"
-    : "hover:-translate-x-1";
-
   return (
     <section
       id="contact"
       ref={sectionRef}
-      className="py-10 md:py-16"
-      style={{ background: "#1C1A28" }}
+      className="contact-section"
     >
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* Left — Info */}
-          <div className="space-y-8">
-            <div
-              className={`transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px" style={{ backgroundColor: "hsl(var(--accent-green))" }} />
-                <span className="text-sm tracking-wide font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  {t("צור קשר", "Contact")}
-                </span>
-              </div>
-              <h2 className="contact-heading font-display leading-[1.1]" style={{ color: "#FFFFFF" }}>
-                {t("נשמח", "Let's")}
-                <br />
-                <span style={{ color: "hsl(var(--accent-green))" }}>{t("לדבר", "Talk")}</span>
-              </h2>
-            </div>
-
-            <p
-              className={`text-sm md:text-base leading-relaxed max-w-md transition-all duration-700 delay-100 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-              }`}
-              style={{ color: "rgba(255,255,255,0.6)" }}
-            >
-              {t(
-                "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
-                "Looking for an opportunity to combine marketing experience with AI automation. Open for a conversation."
-              )}
-            </p>
-
-            {/* Contact link cards */}
-            <div className="space-y-3">
-              {contactLinks.map((link, i) => {
-                const Icon = link.icon;
-                return (
-                  <a
-                    key={i}
-                    href={link.href}
-                    target={link.icon === Linkedin ? "_blank" : undefined}
-                    rel={link.icon === Linkedin ? "noopener noreferrer" : undefined}
-                    className={`flex items-center gap-4 p-4 rounded-2xl border transition-all duration-500 ${hoverSlideClass} hover:shadow-md ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                    }`}
-                    style={{
-                      transitionDelay: `${200 + i * 100}ms`,
-                      background: "rgba(255,255,255,0.05)",
-                      borderColor: "rgba(255,255,255,0.10)",
-                    }}
-                  >
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(61,139,110,0.15)" }}>
-                      <Icon size={18} style={{ color: "hsl(var(--accent-green))" }} />
-                    </div>
-                    <div>
-                      <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{t(link.heLabel, link.enLabel)}</p>
-                      <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{link.value}</p>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
+      {/* Info column */}
+      <div className={`contact-info-col space-y-6 ${isRTL ? "order-1" : ""}`}>
+        <div
+          className={`transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-px bg-[hsl(var(--accent-green))]" />
+            <span className="section-tag" style={{ color: "rgba(255,255,255,0.45)" }}>
+              {t("צור קשר", "Contact")}
+            </span>
           </div>
-
-          {/* Right — Contact Form */}
-          <div
-            className={`transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="text-sm font-medium mb-1.5 block" style={{ color: "rgba(255,255,255,0.8)" }}>
-                  {t("שם מלא", "Full Name")}
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    color: "#FFFFFF",
-                  }}
-                  placeholder={t("הכנס שם מלא", "Enter your full name")}
-                />
-              </div>
-
-              <div>
-                <label className="text-sm font-medium mb-1.5 block" style={{ color: "rgba(255,255,255,0.8)" }}>
-                  {t("אימייל", "Email")}
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    color: "#FFFFFF",
-                  }}
-                  placeholder={t("הכנס אימייל", "Enter your email")}
-                />
-              </div>
-
-              <div>
-                <label className="text-sm font-medium mb-1.5 block" style={{ color: "rgba(255,255,255,0.8)" }}>
-                  {t("הודעה", "Message")}
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 focus:outline-none focus:ring-2 resize-none"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    color: "#FFFFFF",
-                  }}
-                  placeholder={t("כתוב הודעה...", "Write your message...")}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                style={{
-                  backgroundColor: "hsl(var(--accent-green))",
-                  color: "#FFFFFF",
-                }}
-                onMouseEnter={(e) => {
-                  if (!submitted) (e.currentTarget as HTMLElement).style.opacity = "0.9";
-                }}
-                onMouseLeave={(e) => {
-                  if (!submitted) (e.currentTarget as HTMLElement).style.opacity = "1";
-                }}
-                disabled={submitted}
-              >
-                {submitted
-                  ? t("✓ נשלח!", "✓ Sent!")
-                  : t("שלח הודעה →", "Send Message →")}
-              </Button>
-            </form>
-          </div>
+          <h2 className="contact-heading font-display">
+            {t("נשמח", "Let's")}
+            <span className="accent block" style={{ color: "hsl(var(--accent-green))" }}>
+              {t("לדבר", "Talk")}
+            </span>
+          </h2>
         </div>
+
+        <p
+          className={`text-sm md:text-base leading-relaxed max-w-md transition-all duration-700 delay-100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+          style={{ color: "rgba(255,255,255,0.55)" }}
+        >
+          {t(
+            "מחפשת הזדמנות לשלב ניסיון שיווקי עם עולם האוטומציות. תמיד שמחה לשמוע — פתוחה לשיחה.",
+            "Looking for an opportunity to combine marketing experience with AI automation. Open for a conversation."
+          )}
+        </p>
+
+        {/* Contact cards */}
+        <div className="contact-cards flex flex-col gap-2.5 mt-7">
+          {contactLinks.map((link, i) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={i}
+                href={link.href}
+                target={link.icon === Linkedin ? "_blank" : undefined}
+                rel={link.icon === Linkedin ? "noopener noreferrer" : undefined}
+                className={`contact-card flex items-center gap-3 rounded-xl border p-3.5 transition-all duration-500 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                }`}
+                style={{
+                  transitionDelay: `${200 + i * 100}ms`,
+                  background: "rgba(255,255,255,0.04)",
+                  borderColor: "rgba(255,255,255,0.07)",
+                }}
+              >
+                <div
+                  className="w-9 h-9 rounded-[9px] flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: "rgba(61,139,110,0.12)" }}
+                >
+                  <Icon size={16} style={{ color: "hsl(var(--accent-green))" }} />
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    {t(link.heLabel, link.enLabel)}
+                  </p>
+                  <p className="text-[13px] font-medium" style={{ color: "#FFFFFF" }}>
+                    {link.value}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Form column */}
+      <div
+        className={`contact-form-col ${isRTL ? "order-2" : ""} transition-all duration-700 delay-300 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        }`}
+      >
+        <form onSubmit={handleSubmit} className="contact-form flex flex-col gap-4 w-full">
+          <div className="form-group flex flex-col gap-1.5">
+            <label>{t("שם מלא", "Full Name")}</label>
+            <input
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+              placeholder={t("הכנס שם מלא", "Enter your full name")}
+            />
+          </div>
+
+          <div className="form-group flex flex-col gap-1.5">
+            <label>{t("אימייל", "Email")}</label>
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+              placeholder={t("הכנס אימייל", "Enter your email")}
+            />
+          </div>
+
+          <div className="form-group flex flex-col gap-1.5">
+            <label>{t("הודעה", "Message")}</label>
+            <textarea
+              required
+              value={formData.message}
+              onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
+              placeholder={t("כתוב הודעה...", "Write your message...")}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={submitted}
+            className="contact-submit"
+          >
+            {submitted
+              ? t("✓ נשלח!", "✓ Sent!")
+              : t("שלח הודעה →", "Send Message →")}
+          </button>
+        </form>
       </div>
     </section>
   );

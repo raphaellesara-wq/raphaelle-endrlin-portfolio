@@ -4,14 +4,23 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-6" style={{ background: "#1C1A28" }}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <span className="font-display text-xl font-normal tracking-tight" style={{ color: "hsl(var(--accent-green))" }}>
-          RA.
-        </span>
-        <span className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-          Raphaelle Enderlin © 2025
-        </span>
+    <footer className="footer-bar">
+      <div className="footer-left">
+        <span className="footer-name">Raphaelle Enderlin</span>
+        <span className="footer-copy">© 2025</span>
+      </div>
+      <div className="footer-links">
+        <a href="mailto:raphaellesara@gmail.com" className="footer-link">
+          {t("אימייל", "Email")}
+        </a>
+        <a
+          href="https://www.linkedin.com/in/raphaelle-endrlin/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link"
+        >
+          LinkedIn
+        </a>
       </div>
     </footer>
   );

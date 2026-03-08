@@ -257,8 +257,153 @@
   }
 }
 
-/* Dark contact section placeholder colors */
-#contact input::placeholder,
-#contact textarea::placeholder {
-  color: rgba(255, 255, 255, 0.45) !important;
+/* === CONTACT SECTION === */
+section#contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  padding: 100px 80px;
+  background: #1C1A28;
+  overflow: visible;
+  position: relative;
+  align-items: start;
+}
+
+[dir='rtl'] .contact-form-col { order: 2; }
+[dir='rtl'] .contact-info-col { order: 1; }
+
+@media (max-width: 768px) {
+  section#contact {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+    gap: 48px;
+  }
+}
+
+.contact-heading {
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.05;
+  overflow: visible;
+  margin-bottom: 20px;
+  white-space: normal;
+  color: #FFFFFF;
+}
+
+/* Form fields */
+.form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(61,139,110,0.6);
+  background: rgba(61,139,110,0.06);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-submit {
+  background: #3D8B6E;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.contact-submit:hover {
+  background: #2D6B53;
+  transform: translateY(-1px);
+}
+
+.contact-submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+
+/* === FOOTER === */
+.footer-bar {
+  background: #141220;
+  padding: 32px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-left {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.footer-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #3D8B6E;
+}
+
+@media (max-width: 768px) {
+  .footer-bar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
 }
