@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Star, Zap, Leaf, Droplet, Sparkles } from "lucide-react";
 
 const categories = [
   {
