@@ -429,8 +429,8 @@ section#contact {
   resize: vertical;
 }
 
-.contact-submit {
-  background: hsl(155, 25%, 55%);
+  .contact-submit {
+  background: hsl(155, 30%, 65%);
   color: white;
   border: none;
   border-radius: 10px;
