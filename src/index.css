@@ -385,8 +385,8 @@ section#contact {
 @media (max-width: 768px) {
   section#contact {
     grid-template-columns: 1fr;
-    padding: 60px 24px;
-    gap: 48px;
+    padding: 48px 20px;
+    gap: 32px;
   }
 }
 
