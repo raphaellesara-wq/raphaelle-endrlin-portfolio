@@ -22,6 +22,7 @@ const freelanceBullets = {
     "בניית מסעות לקוח בשלל נושאים: ברוכים הבאים, ימי הולדת, הטבות למועדון לקוחות, נטישת עגלה ונטישת אתר",
     "בניית ועיצוב אתרים ללקוחות בעזרת Figma ו-Google Sites (Stitch)",
     "ניהול סוציאל, יצירת תוכן ועריכת סרטונים עבור אמנים עצמאיים",
+    "בניית אוטומציות בשילוב בינה מלאכותית, סוכנים חכמים ובוטים לעסקים",
   ],
   en: [
     "Built a loyalty club on Shopify for Umina Superfood using Rise.ai — a credit system earned upon membership purchase, redeemable on orders",
