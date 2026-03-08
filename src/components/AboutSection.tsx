@@ -77,16 +77,16 @@ const AboutSection = () => {
             <AboutIllustration />
           </div>
 
-          {/* Mobile illustration — medium size, centered */}
+          {/* Mobile illustration — centered, balanced */}
           <div
-            className="flex lg:hidden justify-center mt-4"
+            className="flex lg:hidden justify-center"
             style={{
               opacity: isVisible ? 0.85 : 0,
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(10px) scale(0.95)',
-              transition: 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s',
-              maxWidth: '240px',
+              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.97)',
+              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
+              maxWidth: '220px',
               width: '100%',
-              margin: '16px auto 0',
+              margin: '8px auto 0',
             }}
           >
             <AboutIllustration />
