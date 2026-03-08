@@ -445,7 +445,7 @@ section#contact {
 }
 
 .contact-submit:hover {
-  background: #2D6B53;
+  background: hsl(155, 25%, 45%);
   transform: translateY(-1px);
 }
 
