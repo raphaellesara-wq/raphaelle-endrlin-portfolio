@@ -44,6 +44,32 @@ const projects = [
     accent: "#E88FA0",
     paleBg: "#FCE4E9",
   },
+  {
+    emoji: "⚡",
+    heTitle: "אוטומציית התראות לעסקים — Make.com",
+    enTitle: "Business Inquiry Automation — Make.com",
+    subtitle: "Make.com · Google Sheets · Claude AI · Telegram",
+    heDesc:
+      "בניית אוטומציה לניהול פניות נכנסות לעסקים: קליטת נתונים מטפסי פניות, ניתוח חכם בעזרת Claude AI, ושליחת התראות מיידיות למנהל בטלגרם. הפתרון מצמצם זמן תגובה ומונע פניות שנופלות בין הכסאות.",
+    enDesc:
+      "Built a business inquiry automation: capturing form submissions, AI-powered analysis with Claude, and instant Telegram alerts to managers. Reduces response time and ensures no lead is missed.",
+    tags: ["Make.com", "Claude AI", "Google Sheets", "Telegram", "Business Automation"],
+    accent: "#A98ED4",
+    paleBg: "#EDE6FA",
+  },
+  {
+    emoji: "🔍",
+    heTitle: "סוכן AI לניתוח ושיפור אתרי Shopify",
+    enTitle: "AI Agent for Shopify Site Analysis",
+    subtitle: "Make.com · Web Scraping · Claude AI · Shopify",
+    heDesc:
+      "סוכן AI שסורק אתרי ecommerce בשופיפיי, מנתח את המבנה, העיצוב וחוויית המשתמש, ומייצר דוח מפורט עם המלצות מעשיות לשיפור. הפתרון משלב web scraping ובינה מלאכותית לאבחון מהיר ואפקטיבי.",
+    enDesc:
+      "An AI agent that scrapes Shopify ecommerce sites, analyzes structure, design and UX, then generates a detailed improvement report. Combines web scraping and AI for fast, actionable insights.",
+    tags: ["Make.com", "Web Scraping", "Claude AI", "Shopify", "UX Analysis"],
+    accent: "#F09A60",
+    paleBg: "#FDDEC0",
+  },
 ];
 
 const ProjectsSection = () => {
