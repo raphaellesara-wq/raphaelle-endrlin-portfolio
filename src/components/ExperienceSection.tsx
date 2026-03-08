@@ -3,8 +3,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const mavenBullets = {
   he: [
-    "בניית אוטומציות ב-FlashyApp, Klaviyo, MailChimp, InforU Mobile",
-    "ניהול סגמנטציה והתאמה אישית למסעות לקוח",
+    "בניית אוטומציות שיווקיות ב-FlashyApp, Klaviyo, Mailchimp ו-InforU Mobile",
+    "ניהול סגמנטציה והתאמה אישית של מסעות לקוח וניוזלטרים",
     "ניהול SMS בהיקפים רחבים + Google Analytics",
     "עיצוב ניוזלטרים ב-Figma, Canva Pro, Photoroom",
   ],
