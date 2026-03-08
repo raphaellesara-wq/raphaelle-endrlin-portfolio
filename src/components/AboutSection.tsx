@@ -41,22 +41,36 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-10 md:py-16 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
-      {/* Botanical illustration — left side */}
+    <section id="about" ref={sectionRef} className="py-10 md:py-16 relative" style={{ background: "#FFFFFF", overflow: "visible" }}>
+      {/* Botanical frame — left side */}
       <svg
-        className="absolute hidden md:block pointer-events-none"
-        style={{ left: -60, top: "50%", transform: "translateY(-50%) rotate(-1deg)", opacity: 0.12, zIndex: 0, animation: "sway 8s ease-in-out infinite", transformOrigin: "bottom center" }}
-        width="160" height="280" viewBox="0 0 160 280" fill="none"
-        aria-hidden="true"
+        id="about-botanical"
+        className="hidden md:block"
+        width="160" height="380" viewBox="0 0 160 380" fill="none"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        style={{ position: 'absolute', left: -30, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.14, userSelect: 'none' }}
       >
-        <path d="M 80 280 Q 75 200 80 120 Q 82 80 85 40" stroke="#3D8B6E" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M 80 180 Q 30 160 20 110 Q 50 90 80 140 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06" strokeLinecap="round" strokeLinejoin="round" />
-        <line x1="80" y1="140" x2="35" y2="125" stroke="#3D8B6E" strokeWidth="1" strokeLinecap="round" />
-        <path d="M 80 220 Q 130 200 140 155 Q 110 140 80 185 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M 85 100 Q 120 70 125 40 Q 95 35 85 80 Z" stroke="#7B68A8" strokeWidth="1.5" fill="#7B68A8" fillOpacity="0.06" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="25" cy="90" r="2.5" fill="#D4798A" fillOpacity="0.5" />
-        <circle cx="145" cy="145" r="2" fill="#C4834A" fillOpacity="0.5" />
-        <circle cx="110" cy="55" r="2" fill="#3D8B6E" fillOpacity="0.5" />
+        <path d="M80 375 Q76 310 80 240 Q83 180 78 110 Q75 70 82 30" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+        <path d="M80 300 Q130 270 135 230 Q100 220 80 270 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.07"/>
+        <path d="M80 270 Q115 255 130 235" stroke="#3D8B6E" strokeWidth="1" fill="none"/>
+        <path d="M80 230 Q25 200 20 160 Q60 148 80 200 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.07"/>
+        <path d="M80 200 Q42 185 22 162" stroke="#3D8B6E" strokeWidth="1" fill="none"/>
+        <path d="M80 160 Q118 138 120 108 Q92 100 80 140 Z" stroke="#7B68A8" strokeWidth="1.5" fill="#7B68A8" fillOpacity="0.06"/>
+        <path d="M80 95 Q50 75 52 50 Q72 46 80 82 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06"/>
+        <circle cx="82" cy="26" r="6" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <circle cx="82" cy="26" r="2.5" fill="#D4798A" fillOpacity="0.3"/>
+        <ellipse cx="82" cy="17" rx="3" ry="5" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <ellipse cx="82" cy="35" rx="3" ry="5" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <ellipse cx="73" cy="26" rx="5" ry="3" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <ellipse cx="91" cy="26" rx="5" ry="3" stroke="#D4798A" strokeWidth="1.5" fill="none"/>
+        <circle cx="140" cy="290" r="2.5" fill="#C4834A" opacity="0.4"/>
+        <circle cx="18" cy="140" r="2" fill="#D4798A" opacity="0.4"/>
+        <circle cx="130" cy="100" r="2" fill="#3D8B6E" opacity="0.4"/>
+        <circle cx="30" cy="330" r="1.5" fill="#7B68A8" opacity="0.35"/>
+        <line x1="148" y1="192" x2="152" y2="196" stroke="#C4834A" strokeWidth="1.5"/>
+        <line x1="152" y1="192" x2="148" y2="196" stroke="#C4834A" strokeWidth="1.5"/>
+        <line x1="15" y1="68" x2="19" y2="72" stroke="#7B68A8" strokeWidth="1.5"/>
+        <line x1="19" y1="68" x2="15" y2="72" stroke="#7B68A8" strokeWidth="1.5"/>
       </svg>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
