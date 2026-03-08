@@ -96,7 +96,7 @@ const SkillsSection = () => {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]" style={{ color: "#2C2C3A" }}>
             {t("ה-", "My ")}
-            <span className="italic" style={{ color: "#F09A60" }}>Arsenal</span>
+            <span className="italic" style={{ color: "#72AEE8" }}>Arsenal</span>
             {t(" שלי", "")}
           </h2>
         </div>

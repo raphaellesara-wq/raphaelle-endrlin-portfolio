@@ -186,8 +186,8 @@ const ProjectsSection = () => {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-px" style={{ backgroundColor: "#F09A60" }} />
-            <span className="text-sm tracking-wide font-medium" style={{ color: "#F09A60" }}>
+            <div className="w-8 h-px" style={{ backgroundColor: "#E88FA0" }} />
+            <span className="text-sm tracking-wide font-medium" style={{ color: "#E88FA0" }}>
               {t("פרויקטים", "Projects")}
             </span>
           </div>

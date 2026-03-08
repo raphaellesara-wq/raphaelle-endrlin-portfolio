@@ -79,7 +79,7 @@ const AboutSection = () => {
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
               <br />
-              <span className="text-accent-pink italic">
+              <span className="text-accent-purple italic">
                 {t("טכנולוגיה", "Technology")}
               </span>
             </h2>

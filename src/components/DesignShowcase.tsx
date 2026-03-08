@@ -362,7 +362,7 @@ const DesignShowcase = () => {
       <section id="showcase" ref={sectionRef} className="relative" style={{ background: "linear-gradient(135deg, #1A7A5E 0%, #2A9D7F 50%, #1F8A6E 100%)", padding: "0" }}>
         {/* Wave divider */}
         <svg viewBox="0 0 1440 40" preserveAspectRatio="none" style={{ width: "100%", height: 40, display: "block", marginBottom: -1 }}>
-          <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" fill="#F8F5F0" />
+          <path d="M0,40 C360,0 1080,0 1440,40 L1440,0 L0,0 Z" fill="#FDF6F8" />
         </svg>
         <div className="container mx-auto px-6 md:px-[60px]" style={{ paddingTop: 40, paddingBottom: 80 }}>
           {/* Header */}

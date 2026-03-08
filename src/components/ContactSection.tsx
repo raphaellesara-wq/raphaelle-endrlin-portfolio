@@ -65,7 +65,7 @@ const ContactSection = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
                 {t("נשמח", "Let's")}
                 <br />
-                <span className="text-accent-pink italic">{t("לדבר", "Talk")}</span>
+                <span className="text-accent-green italic">{t("לדבר", "Talk")}</span>
               </h2>
             </div>
 
