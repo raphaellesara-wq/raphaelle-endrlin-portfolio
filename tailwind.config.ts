@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Fraunces"', 'Georgia', 'serif'],
         'display-he': ['"Frank Ruhl Libre"', 'serif'],
         body: ['"Poppins"', 'sans-serif'],
         hebrew: ['"Heebo"', 'sans-serif'],

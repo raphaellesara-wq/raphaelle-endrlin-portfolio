@@ -82,7 +82,7 @@
   }
 
   [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3, [dir="ltr"] h4, [dir="ltr"] h5, [dir="ltr"] h6 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.05;
@@ -94,11 +94,12 @@
   }
 
   [dir="ltr"] .hero-name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 700;
     font-size: clamp(56px, 9vw, 108px);
     line-height: 0.92;
     letter-spacing: -0.02em;
+    font-variation-settings: 'opsz' 144;
   }
 
   [dir="ltr"] .hero-name-line2 {
@@ -107,7 +108,7 @@
   }
 
   [dir="ltr"] h2 em {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 300;
     font-style: italic;
   }
@@ -121,16 +122,18 @@
   }
 
   [dir="ltr"] .stat-number {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Fraunces', Georgia, serif;
     font-weight: 300;
     font-size: 42px;
     letter-spacing: -0.03em;
+    font-variation-settings: 'opsz' 48;
   }
 
   [dir="ltr"] .contact-heading {
     font-size: clamp(44px, 6vw, 80px);
     font-weight: 300;
     font-style: italic;
+    font-variation-settings: 'opsz' 144;
   }
 
   /* === HEBREW MODE === */
