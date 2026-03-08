@@ -36,13 +36,15 @@ const achievements = [
 const ExperienceSection = () => {
   const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
+  const bullets = t("he", "en") === "he" ? mavenBullets.he : mavenBullets.en;
+  const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-24 bg-background">
+    <section id="experience" ref={sectionRef} className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div
-          className={`mb-14 transition-all duration-700 ${
+          className={`mb-10 md:mb-14 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
@@ -52,7 +54,7 @@ const ExperienceSection = () => {
               {t("ניסיון תעסוקתי", "Work Experience")}
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-normal leading-[1.15]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-normal leading-[1.15]">
             {t("מה שעשיתי", "What I've Built")}
             <br />
             <span className="text-accent-orange italic">{t("בפועל", "In Practice")}</span>
@@ -60,30 +62,29 @@ const ExperienceSection = () => {
         </div>
 
         {/* Timeline cards */}
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {/* MAVEN MEDIA card */}
           <div
-            className={`relative rounded-2xl border border-border bg-card p-8 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
+            className={`relative rounded-2xl border border-border bg-card p-6 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            {/* Subtle radial glow */}
             <div className="absolute top-0 end-0 w-[300px] h-[300px] rounded-full bg-accent-orange/[0.06] blur-[80px] pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
                 <div>
                   <span className="text-xs text-muted-foreground font-medium">2022–2025</span>
-                  <h3 className="text-2xl md:text-3xl font-display font-normal text-foreground mt-1">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-normal text-foreground mt-1">
                     MAVEN MEDIA
                   </h3>
                 </div>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-pink-pale text-accent-pink">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-pink-pale text-accent-pink self-start">
                   {t("משרד פרסום", "Ad Agency")}
                 </span>
               </div>
 
-              <p className="text-base font-medium text-foreground mb-5">
+              <p className="text-sm md:text-base font-medium text-foreground mb-5">
                 {t(
                   "מנהלת מחלקת Email Marketing ואוטומציות",
                   "Email Marketing & Automation Department Lead"
@@ -91,7 +92,7 @@ const ExperienceSection = () => {
               </p>
 
               <ul className="space-y-2 mb-6">
-                {(t("he", "en") === "he" ? mavenBullets.he : mavenBullets.en).map((bullet, i) => (
+                {bullets.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
                     {bullet}
@@ -114,28 +115,28 @@ const ExperienceSection = () => {
 
           {/* Freelance card */}
           <div
-            className={`rounded-2xl border border-border bg-card p-8 md:p-10 transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
+            className={`rounded-2xl border border-border bg-card p-6 md:p-10 transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
               <div>
                 <span className="text-xs text-muted-foreground font-medium">2021–2022</span>
-                <h3 className="text-2xl md:text-3xl font-display font-normal text-foreground mt-1">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-normal text-foreground mt-1">
                   Freelance
                 </h3>
               </div>
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-orange-pale text-accent-orange">
+              <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-orange-pale text-accent-orange self-start">
                 {t("עצמאי", "Freelance")}
               </span>
             </div>
 
-            <p className="text-base font-medium text-foreground mb-5">
+            <p className="text-sm md:text-base font-medium text-foreground mb-5">
               {t("ניהול סושיאל ותוכן", "Social Media & Content Management")}
             </p>
 
             <ul className="space-y-2">
-              {(t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en).map((bullet, i) => (
+              {freeBullets.map((bullet, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
                   {bullet}

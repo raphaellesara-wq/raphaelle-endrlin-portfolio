@@ -25,8 +25,26 @@ const pillColorMap: Record<string, string> = {
 const HeroSection = () => {
   const { t } = useLanguage();
 
+  const scrollTo = (id: string) => {
+    const el = document.querySelector(id);
+    if (el) {
+      const offset = 80;
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      {/* Grain texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+        }}
+      />
+
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] rounded-full bg-accent-pink/[0.06] blur-[100px]" />
@@ -35,24 +53,27 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Main text — appears first in RTL (right side) */}
-          <div className="order-1 space-y-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Main text */}
+          <div className="order-1 space-y-5 md:space-y-6">
             {/* Eyebrow */}
             <div
               className="flex items-center gap-3 animate-fade-up"
               style={{ animationDelay: "0ms" }}
             >
               <div className="w-8 h-px bg-accent-pink" />
-              <span className="text-sm tracking-wide text-muted-foreground font-medium">
+              <span className="text-xs sm:text-sm tracking-wide text-muted-foreground font-medium">
                 {t("מומחית שיווק ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
               </span>
             </div>
 
-            {/* H1 */}
+            {/* H1 — responsive clamp */}
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-display font-normal leading-[1.1] tracking-tight animate-fade-up"
-              style={{ animationDelay: "150ms" }}
+              className="font-display font-normal leading-[1.1] tracking-tight animate-fade-up"
+              style={{
+                fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+                animationDelay: "150ms",
+              }}
             >
               {t("רפאל", "Raphaëlle")}
               <br />
@@ -61,7 +82,7 @@ const HeroSection = () => {
 
             {/* Italic sub */}
             <p
-              className="text-lg italic text-muted-foreground font-body animate-fade-up"
+              className="text-base md:text-lg italic text-muted-foreground font-body animate-fade-up"
               style={{ animationDelay: "300ms" }}
             >
               {t("Raphaëlle Endrlin", "רפאל אנדרלין")}
@@ -69,7 +90,7 @@ const HeroSection = () => {
 
             {/* Description */}
             <p
-              className="text-base leading-relaxed text-muted-foreground max-w-lg animate-fade-up"
+              className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg animate-fade-up"
               style={{ animationDelay: "450ms" }}
             >
               {t(
@@ -95,30 +116,30 @@ const HeroSection = () => {
 
             {/* CTAs */}
             <div
-              className="flex items-center gap-4 pt-2 animate-fade-up"
+              className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 animate-fade-up"
               style={{ animationDelay: "750ms" }}
             >
               <Button
                 variant="default"
                 size="lg"
-                className="rounded-full px-8 font-medium transition-all duration-300 hover:bg-accent-purple hover:text-accent-foreground hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-6px_hsl(var(--accent-purple)/0.4)]"
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="rounded-full px-6 sm:px-8 font-medium transition-all duration-300 hover:bg-accent-purple hover:text-accent-foreground hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-6px_hsl(var(--accent-purple)/0.4)]"
+                onClick={() => scrollTo("#contact")}
               >
                 {t("צור קשר", "Get in Touch")}
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="rounded-full px-8 font-medium border-border transition-all duration-300 hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 hover:-translate-y-0.5"
-                onClick={() => document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" })}
+                className="rounded-full px-6 sm:px-8 font-medium border-border transition-all duration-300 hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 hover:-translate-y-0.5"
+                onClick={() => scrollTo("#experience")}
               >
                 {t("הניסיון שלי", "My Experience")}
               </Button>
             </div>
           </div>
 
-          {/* Stats card — left in RTL */}
-          <div className="order-2 flex justify-center lg:justify-start">
+          {/* Stats card — hidden on mobile */}
+          <div className="order-2 hidden lg:flex justify-center lg:justify-start">
             <div
               className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up"
               style={{ animationDelay: "300ms" }}
@@ -132,7 +153,6 @@ const HeroSection = () => {
               />
 
               <div className="p-8">
-                {/* Stats grid */}
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   {stats.map((stat, i) => (
                     <div key={i} className="text-center">
@@ -146,10 +166,8 @@ const HeroSection = () => {
                   ))}
                 </div>
 
-                {/* Separator */}
                 <div className="h-px w-full bg-border mb-5" />
 
-                {/* Pill tags */}
                 <div className="flex flex-wrap justify-center gap-2">
                   {pillTags.map((tag, i) => (
                     <span
