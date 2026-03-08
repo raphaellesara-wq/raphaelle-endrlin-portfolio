@@ -60,7 +60,7 @@ const SkillsSection = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="py-8 md:py-12 pb-14 relative overflow-hidden"
+      className="py-8 md:py-12 pb-10 md:pb-14 relative overflow-hidden"
       style={{ background: "#FAFAF8" }}
     >
       {/* Tools constellation SVG */}
