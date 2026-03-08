@@ -55,7 +55,7 @@ const ProjectsSection = () => {
     const Icon = cardIcons[iconIdx];
     return (
       <div
-        className="group relative rounded-[20px] border border-border bg-card p-8 transition-all duration-200 ease-out h-full"
+        className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out h-full"
         style={{ borderBottom: "3px solid transparent" }}
         onMouseEnter={(e) => { const el = e.currentTarget; el.style.transform = "translateY(-3px)"; el.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; el.style.borderBottom = `3px solid ${project.accent}`; }}
         onMouseLeave={(e) => { const el = e.currentTarget; el.style.transform = "translateY(0)"; el.style.boxShadow = "none"; el.style.borderBottom = "3px solid transparent"; }}
