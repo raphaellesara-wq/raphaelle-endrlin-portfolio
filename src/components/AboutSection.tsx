@@ -43,10 +43,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" ref={sectionRef} className="py-10 md:py-16 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
-      {/* Decorative illustration — left side */}
-      <div className="about-illust-wrap">
-        <AboutIllustration />
-      </div>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content */}
@@ -139,6 +135,11 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Illustration — below content */}
+        <div className="hidden md:flex justify-center mt-8 about-illust-wrap">
+          <AboutIllustration />
         </div>
       </div>
     </section>

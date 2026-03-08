@@ -50,13 +50,9 @@ const HeroSection = () => {
       style={{
         background: "#FAFAF8",
         minHeight: "100vh",
-        overflow: "visible",
+        overflow: "hidden",
       }}
     >
-      {/* Decorative illustration — bottom left (RTL: bottom right) */}
-      <div className="hero-illust-wrap">
-        <HeroIllustration />
-      </div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div
@@ -206,6 +202,11 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Illustration — centered below content in empty space */}
+        <div className="hidden lg:flex justify-center mt-8 hero-illust-wrap">
+          <HeroIllustration />
         </div>
       </div>
     </section>
