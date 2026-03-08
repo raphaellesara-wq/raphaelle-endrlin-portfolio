@@ -156,7 +156,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">
           {categories.map((cat, i) => (
             <div
               key={i}
