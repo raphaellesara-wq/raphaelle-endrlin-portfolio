@@ -65,9 +65,12 @@ const AboutSection = () => {
 
           {/* Illustration — beside text on desktop */}
           <div
-            className={`hidden lg:flex about-illust-wrap transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
+            className="hidden lg:flex about-illust-wrap"
+            style={{
+              opacity: isVisible ? 0.85 : 0,
+              transform: isVisible ? 'translateX(0)' : 'translateX(20px)',
+              transition: 'opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s',
+            }}
           >
             <AboutIllustration />
           </div>
