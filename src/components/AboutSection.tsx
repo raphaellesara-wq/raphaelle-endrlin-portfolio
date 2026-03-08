@@ -43,21 +43,10 @@ const AboutSection = () => {
 
   return (
     <section id="about" ref={sectionRef} className="py-10 md:py-16 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
-      {/* Subtle botanical accent — far left edge */}
-      <svg
-        className="hidden md:block"
-        aria-hidden="true"
-        style={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0, opacity: 0.16, userSelect: 'none' }}
-        width="80" height="200" viewBox="0 0 80 200" fill="none"
-      >
-        <path d="M40 195 Q38 150 40 100 Q41 60 43 15" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-        <path d="M40 140 Q15 125 12 95 Q30 90 40 120 Z" stroke="#3D8B6E" strokeWidth="1.5" fill="#3D8B6E" fillOpacity="0.06" strokeLinejoin="round" />
-        <path d="M40 90 Q62 75 64 52 Q48 48 40 75 Z" stroke="#7B68A8" strokeWidth="1.5" fill="#7B68A8" fillOpacity="0.05" strokeLinejoin="round" />
-        <circle cx="43" cy="10" r="3.5" stroke="#D4798A" strokeWidth="1.5" fill="none" />
-        <circle cx="43" cy="10" r="1.5" fill="#D4798A" fillOpacity="0.3" />
-        <circle cx="8" cy="88" r="1.5" fill="#C4834A" opacity="0.4" />
-        <circle cx="68" cy="48" r="1.5" fill="#3D8B6E" opacity="0.35" />
-      </svg>
+      {/* Decorative illustration — left side */}
+      <div className="about-illust-wrap">
+        <AboutIllustration />
+      </div>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Text content */}
