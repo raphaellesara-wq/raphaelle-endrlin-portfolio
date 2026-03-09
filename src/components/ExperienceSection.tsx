@@ -83,7 +83,7 @@ const ExperienceSection = () => {
           >
             {/* Decorative diamond */}
             <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ bottom: 20, left: 20, opacity: 0.25 }} aria-hidden="true">
-              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#7B68A8" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#A98ED4" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
