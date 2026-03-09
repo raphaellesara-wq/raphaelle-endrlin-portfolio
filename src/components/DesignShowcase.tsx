@@ -115,9 +115,9 @@ const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCard
         <ZoomIn size={18} className="text-foreground" />
       </div>
     </div>
-    <div className="px-4 py-3.5">
-      <p className="font-semibold text-foreground mb-2" style={{ fontSize: 13 }}>{t(card.heLabel, card.enLabel)}</p>
-      {card.heDesc && <p className="text-muted-foreground mb-2" style={{ fontSize: 12 }}>{t(card.heDesc, card.enDesc ?? "")}</p>}
+    <div className="px-5 py-4">
+      <p className="font-display font-bold text-foreground mb-1.5 text-base md:text-lg">{t(card.heLabel, card.enLabel)}</p>
+      {card.heDesc && <p className="text-muted-foreground mb-3 text-xs md:text-sm leading-relaxed">{t(card.heDesc, card.enDesc ?? "")}</p>}
       <div className="flex flex-wrap gap-1.5">
         {card.tags.map((tag) => (
           <span key={tag} className="rounded-full font-medium inline-flex border border-transparent" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: card.paleBg, color: card.accent }}>{tag}</span>
