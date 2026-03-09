@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 
-type Phase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "circles" | "logo" | "exit";
+type Phase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "logo" | "circles" | "exit";
 
 const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<Phase>("rect1");
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase("line1"), 500),
-      setTimeout(() => setPhase("rect2"), 1000),
-      setTimeout(() => setPhase("line2"), 1500),
-      setTimeout(() => setPhase("rect3"), 2000),
-      setTimeout(() => setPhase("circles"), 5000), // 3 seconds after tree completes
-      setTimeout(() => setPhase("logo"), 5800),
-      setTimeout(() => setPhase("exit"), 8800), // 3 seconds after logo
-      setTimeout(onComplete, 9200),
+      setTimeout(() => setPhase("line1"), 800),
+      setTimeout(() => setPhase("rect2"), 1200),
+      setTimeout(() => setPhase("line2"), 1800),
+      setTimeout(() => setPhase("rect3"), 2400),
+      setTimeout(() => setPhase("logo"), 3200),
+      setTimeout(() => setPhase("circles"), 3800),
+      setTimeout(() => setPhase("exit"), 5800), // 2 seconds for circles
+      setTimeout(onComplete, 6200),
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
-  const phases: Phase[] = ["rect1", "line1", "rect2", "line2", "rect3", "circles", "logo", "exit"];
+  const phases: Phase[] = ["rect1", "line1", "rect2", "line2", "rect3", "logo", "circles", "exit"];
   const pIdx = phases.indexOf(phase);
 
   const showRect1 = pIdx >= 0;
@@ -27,8 +27,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const showRect2 = pIdx >= 2;
   const showLine2 = pIdx >= 3;
   const showRect3 = pIdx >= 4;
-  const showCircles = pIdx >= 5;
-  const showLogo = pIdx >= 6;
+  const showLogo = pIdx >= 5;
+  const showCircles = pIdx >= 6;
 
   const dashStyle = "6 4";
 
