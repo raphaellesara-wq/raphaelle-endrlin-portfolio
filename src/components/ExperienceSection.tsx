@@ -67,7 +67,7 @@ const ExperienceSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
-            {t("מה שעשיתי", "What I've Built")}
+            {t("מה שעשיתי ועושה", "What I've Built & Do")}
             <br />
             <em className="not-italic text-accent-orange">{t("בפועל", "In Practice")}</em>
           </h2>
