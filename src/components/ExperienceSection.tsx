@@ -83,7 +83,7 @@ const ExperienceSection = () => {
           >
             {/* Decorative diamond */}
             <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ bottom: 20, left: 20, opacity: 0.25 }} aria-hidden="true">
-              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#7B68A8" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
+              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#A98ED4" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
@@ -132,8 +132,8 @@ const ExperienceSection = () => {
           >
             {/* Decorative cross mark */}
             <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ top: 20, right: 20, opacity: 0.3 }} aria-hidden="true">
-              <line x1="2" y1="6" x2="10" y2="6" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" />
-              <line x1="6" y1="2" x2="6" y2="10" stroke="#3D8B6E" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="2" y1="6" x2="10" y2="6" stroke="#6DC4A0" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="6" y1="2" x2="6" y2="10" stroke="#6DC4A0" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
             <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
@@ -158,7 +158,7 @@ const ExperienceSection = () => {
               <ul className="space-y-2 mb-6">
                 {bullets.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-pink shrink-0" />
                     {bullet}
                   </li>
                 ))}
