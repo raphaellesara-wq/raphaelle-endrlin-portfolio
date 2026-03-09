@@ -48,7 +48,7 @@ const HeroSection = () => {
     <section
       className="relative flex items-center pt-20 pb-8 md:pt-24 md:pb-14"
       style={{
-        background: "#FAFAF8",
+        background: "linear-gradient(to bottom, #FAFAF8 0%, #FAFAF8 70%, #FFFFFF 100%)",
         minHeight: "auto",
         overflow: "hidden",
       }}

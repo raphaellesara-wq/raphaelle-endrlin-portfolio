@@ -18,7 +18,7 @@ const BackToTopButton = () => {
       style={{
         bottom: 28,
         left: 28,
-        background: "hsl(95, 18%, 52%)",
+        background: "#A98ED4",
         color: "white",
         borderRadius: 100,
         padding: "10px 18px",
@@ -27,7 +27,7 @@ const BackToTopButton = () => {
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? "auto" : "none",
         transform: visible ? "translateY(0)" : "translateY(10px)",
-        boxShadow: "0 4px 16px hsla(95, 18%, 52%, 0.3)",
+        boxShadow: "0 4px 16px rgba(169, 142, 212, 0.3)",
         border: "none",
         cursor: "pointer",
       }}
