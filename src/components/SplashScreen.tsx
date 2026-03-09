@@ -95,7 +95,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="130" y="20" width="60" height="30" rx="4"
             stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect1 ? "pop-in" : "opacity-0"}
+            className={showRect1 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "160px 35px" }}
           />
           <circle 
@@ -123,7 +123,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="60" y="85" width="60" height="30" rx="4"
             stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect2 ? "pop-in" : "opacity-0"}
+            className={showRect2 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "90px 100px" }}
           />
           <circle 
@@ -136,7 +136,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="200" y="85" width="60" height="30" rx="4"
             stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect2 ? "pop-in" : "opacity-0"}
+            className={showRect2 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "230px 100px" }}
           />
           <circle 
@@ -176,7 +176,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="15" y="150" width="60" height="30" rx="4"
             stroke="hsl(27,35%,60%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect3 ? "pop-in" : "opacity-0"}
+            className={showRect3 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "45px 165px" }}
           />
           <circle 
@@ -189,7 +189,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="105" y="150" width="60" height="30" rx="4"
             stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect3 ? "pop-in" : "opacity-0"}
+            className={showRect3 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "135px 165px" }}
           />
           <circle 
