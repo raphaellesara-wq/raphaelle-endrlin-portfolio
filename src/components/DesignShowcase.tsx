@@ -85,9 +85,9 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
         <div className="flex items-start justify-center" style={{ background: card.imageBg ?? "#F6F5F0", overflow: isTall ? "auto" : "hidden", ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : {}) }}>
           <img src={card.src} alt={card.enLabel} className="block" style={{ maxHeight: "calc(90vh - 80px)", maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain" }} onLoad={(e) => { if (e.currentTarget.naturalHeight > 1200) setIsTall(true); }} />
         </div>
-        <div className="px-5 py-3.5 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
-          <p className="font-bold text-foreground" style={{ fontSize: 14 }}>{t(card.heLabel, card.enLabel)}</p>
-          {card.heDesc && <p className="text-muted-foreground mt-1" style={{ fontSize: 12 }}>{t(card.heDesc, card.enDesc ?? "")}</p>}
+        <div className="px-5 py-4 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
+          <p className="font-display font-bold text-foreground text-lg md:text-xl">{t(card.heLabel, card.enLabel)}</p>
+          {card.heDesc && <p className="text-muted-foreground mt-1.5 text-sm md:text-base leading-relaxed">{t(card.heDesc, card.enDesc ?? "")}</p>}
           <div className="flex flex-wrap gap-1.5 mt-2">
             {card.tags.map((tag) => (
               <span key={tag} className="rounded-full font-medium inline-flex border border-transparent" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: card.paleBg, color: card.accent }}>{tag}</span>
