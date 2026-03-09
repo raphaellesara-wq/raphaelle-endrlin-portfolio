@@ -6,6 +6,8 @@
   :root {
     --font-apple: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 
                   'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    --font-heading-he: 'Secular One', sans-serif;
+    --font-body-he: 'Rubik', sans-serif;
     --background: 40 20% 99%;
     --foreground: 252 20% 13%;
 
@@ -152,6 +154,97 @@
     font-size: clamp(40px, 5.5vw, 72px);
     font-weight: 700;
     line-height: 1.05;
+  }
+
+  /* === HEBREW HEADINGS → Secular One === */
+  [dir='rtl'] .hero-name,
+  [lang='he'] .hero-name,
+  [data-lang='he'] .hero-name {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+
+  [dir='rtl'] .hero-name-line2,
+  [lang='he'] .hero-name-line2 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(36px, 6vw, 72px);
+  }
+
+  [dir='rtl'] h2,
+  [lang='he'] h2,
+  [data-lang='he'] h2,
+  [dir='rtl'] .section-heading,
+  [lang='he'] .section-heading {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+  }
+
+  [dir='rtl'] h2 em,
+  [lang='he'] h2 em {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  [dir='rtl'] .card-title,
+  [lang='he'] .card-title,
+  [lang='he'] .project-card h3,
+  [lang='he'] .arsenal-card h3 {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+
+  [dir='rtl'] .stat-number,
+  [lang='he'] .stat-number {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+  }
+
+  [dir='rtl'] .contact-heading,
+  [lang='he'] .contact-heading {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    font-size: clamp(38px, 5vw, 68px);
+  }
+
+  /* === HEBREW BODY → Rubik === */
+  [dir='rtl'] body,
+  [dir='rtl'] p,
+  [dir='rtl'] li,
+  [dir='rtl'] span,
+  [dir='rtl'] a,
+  [dir='rtl'] button,
+  [dir='rtl'] input,
+  [dir='rtl'] textarea,
+  [dir='rtl'] label,
+  [dir='rtl'] .nav-link,
+  [lang='he'] p,
+  [lang='he'] li,
+  [lang='he'] span,
+  [lang='he'] .nav-link {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+  }
+
+  [dir='rtl'] .section-tag,
+  [lang='he'] .section-tag {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 }
 
