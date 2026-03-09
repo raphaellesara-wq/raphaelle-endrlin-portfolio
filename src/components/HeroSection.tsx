@@ -87,13 +87,6 @@ const HeroSection = () => {
               <span className="hero-name-line2 text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
             </h1>
 
-            {/* Italic sub */}
-            <p
-              className="text-base md:text-lg italic text-muted-foreground font-body animate-fade-up"
-              style={{ animationDelay: "300ms" }}
-            >
-              {t("Raphaëlle Enderlin", "רפאל אנדרלין")}
-            </p>
 
             {/* Description */}
             <p
