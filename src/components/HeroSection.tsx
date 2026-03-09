@@ -32,7 +32,7 @@ const HeroSection = () => {
   const clientCount = useCountUp(20, 1500, statsVisible);
   const openRate = useCountUp(50, 1500, statsVisible);
   const yearsCount = useCountUp(3, 1000, statsVisible);
-  const langCount = useCountUp(4, 1000, statsVisible);
+  const langCount = useCountUp(21, 1500, statsVisible);
   const statValues = [`${clientCount}+`, `${openRate}%+`, `${yearsCount}`, `${langCount}`];
 
   const scrollTo = (id: string) => {
