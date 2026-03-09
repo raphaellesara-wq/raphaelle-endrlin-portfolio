@@ -273,24 +273,24 @@
 /* About animations */
 .about-leaf-1 {
   transform-origin: bottom center;
-  animation: sway 8s ease-in-out infinite;
+  animation: sway 4s ease-in-out infinite;
 }
 .about-bubble {
-  animation: floatUp 4s ease-in-out infinite;
+  animation: floatUp 2s ease-in-out infinite;
 }
 .about-flower {
   transform-origin: 330px 70px;
-  animation: petalPulse 4s ease-in-out infinite;
+  animation: petalPulse 2s ease-in-out infinite;
 }
 .about-flower-2 {
   transform-origin: 360px 200px;
-  animation: petalPulse 5s ease-in-out infinite 1s;
+  animation: petalPulse 2.5s ease-in-out infinite 0.5s;
 }
 
 /* Additional about animations */
 .about-illust .about-bubble rect,
 .about-illust .about-bubble line {
-  animation: bubbleFade 5s ease-in-out infinite;
+  animation: bubbleFade 2.5s ease-in-out infinite;
 }
 
 @keyframes bubbleFade {
