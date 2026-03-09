@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 
 const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
-  const [phase, setPhase] = useState<"building" | "logo" | "exit">("building");
+  const [phase, setPhase] = useState<"rect1" | "line" | "rect2" | "logo" | "exit">("rect1");
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("logo"), 4800);
-    const t2 = setTimeout(() => setPhase("exit"), 5800);
-    const t3 = setTimeout(onComplete, 6200);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    const t1 = setTimeout(() => setPhase("line"), 600);
+    const t2 = setTimeout(() => setPhase("rect2"), 1200);
+    const t3 = setTimeout(() => setPhase("logo"), 2000);
+    const t4 = setTimeout(() => setPhase("exit"), 3200);
+    const t5 = setTimeout(onComplete, 3600);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
   }, [onComplete]);
+
+  const showRect1 = phase !== "rect1" || true;
+  const showLine = phase === "line" || phase === "rect2" || phase === "logo" || phase === "exit";
+  const showRect2 = phase === "rect2" || phase === "logo" || phase === "exit";
+  const showLogo = phase === "logo" || phase === "exit";
 
   return (
     <div
@@ -17,147 +24,96 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       }`}
       style={{ background: "#FAFAF8", transition: "opacity 0.4s ease-out" }}
     >
-      {/* Logo */}
-      <div
-        className={`mb-6 text-center transition-all duration-1000 ${
-          phase === "logo" || phase === "exit" ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95"
-        }`}
-      >
-        <span
-          className="block text-6xl md:text-7xl tracking-tight"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: "hsl(348,30%,70%)", letterSpacing: "-0.02em", lineHeight: 1 }}
+      {/* Animation container */}
+      <div className="flex flex-col items-center gap-8">
+        {/* Geometric animation */}
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-48 md:w-64 h-auto">
+          {/* Step 1: First rectangle */}
+          <rect
+            x="70" y="10" width="60" height="36" rx="10"
+            stroke="hsl(258,18%,60%)" strokeWidth="2" fill="hsl(258,20%,97%)"
+            className="transition-all duration-500"
+            style={{
+              opacity: showRect1 ? 1 : 0,
+              transform: showRect1 ? "scale(1)" : "scale(0.8)",
+              transformOrigin: "100px 28px"
+            }}
+          />
+
+          {/* Step 2: Line going down */}
+          <line
+            x1="100" y1="46" x2="100" y2="75"
+            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeLinecap="round"
+            className="transition-all duration-400"
+            style={{
+              opacity: showLine ? 0.6 : 0,
+              strokeDasharray: showLine ? "0" : "30",
+              strokeDashoffset: showLine ? "0" : "30"
+            }}
+          />
+
+          {/* Step 3: Two rectangles */}
+          <rect
+            x="25" y="85" width="60" height="36" rx="10"
+            stroke="hsl(348,30%,70%)" strokeWidth="2" fill="hsl(348,30%,97%)"
+            className="transition-all duration-500"
+            style={{
+              opacity: showRect2 ? 1 : 0,
+              transform: showRect2 ? "translateY(0)" : "translateY(-10px)",
+              transitionDelay: "0ms"
+            }}
+          />
+          <rect
+            x="115" y="85" width="60" height="36" rx="10"
+            stroke="hsl(155,30%,65%)" strokeWidth="2" fill="hsl(155,25%,96%)"
+            className="transition-all duration-500"
+            style={{
+              opacity: showRect2 ? 1 : 0,
+              transform: showRect2 ? "translateY(0)" : "translateY(-10px)",
+              transitionDelay: "150ms"
+            }}
+          />
+
+          {/* Connection lines to bottom rectangles */}
+          <line
+            x1="100" y1="75" x2="55" y2="85"
+            stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeLinecap="round"
+            style={{ opacity: showRect2 ? 0.4 : 0, transition: "opacity 0.3s" }}
+          />
+          <line
+            x1="100" y1="75" x2="145" y2="85"
+            stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeLinecap="round"
+            style={{ opacity: showRect2 ? 0.4 : 0, transition: "opacity 0.3s" }}
+          />
+        </svg>
+
+        {/* Step 4: Logo */}
+        <div
+          className="text-center transition-all duration-700"
+          style={{
+            opacity: showLogo ? 1 : 0,
+            transform: showLogo ? "translateY(0) scale(1)" : "translateY(10px) scale(0.95)"
+          }}
         >
-          R.E
-        </span>
-        <p className="text-sm md:text-base text-muted-foreground mt-3 tracking-widest uppercase" style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}>
-          Raphaëlle Enderlin
-        </p>
-      </div>
-
-      {/* Automation flow — vertical on mobile, wide on desktop */}
-      <div className="w-full max-w-[500px] md:max-w-[1200px]">
-        {/* Desktop version */}
-        <svg viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto hidden md:block">
-          {/* LEVEL 1 */}
-          <g className="splash-node" style={{ animationDelay: "0.2s" }}>
-            <rect x="450" y="10" width="100" height="52" rx="14" stroke="hsl(258,18%,60%)" strokeWidth="2" fill="hsl(258,20%,97%)" />
-            <circle cx="500" cy="36" r="9" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
-            <circle cx="500" cy="36" r="4" fill="hsl(258,18%,60%)" fillOpacity="0.45" />
-          </g>
-          {/* Lines L1→L2 */}
-          <line x1="475" y1="62" x2="300" y2="120" stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.45" className="splash-line" style={{ animationDelay: "0.8s" }} />
-          <line x1="525" y1="62" x2="700" y2="120" stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.45" className="splash-line" style={{ animationDelay: "1.0s" }} />
-          {/* LEVEL 2 */}
-          <g className="splash-node" style={{ animationDelay: "1.2s" }}>
-            <rect x="250" y="120" width="100" height="52" rx="14" stroke="hsl(348,30%,70%)" strokeWidth="2" fill="hsl(348,30%,97%)" />
-            <line x1="270" y1="140" x2="330" y2="140" stroke="hsl(348,30%,70%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.5" />
-            <line x1="270" y1="153" x2="318" y2="153" stroke="hsl(348,30%,70%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.3" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "1.4s" }}>
-            <rect x="650" y="120" width="100" height="52" rx="14" stroke="hsl(155,30%,65%)" strokeWidth="2" fill="hsl(155,25%,96%)" />
-            <path d="M692 133 L682 150 H696 L688 163 L708 143 H694 Z" stroke="hsl(155,30%,65%)" strokeWidth="1.2" fill="hsl(155,30%,65%)" fillOpacity="0.15" />
-          </g>
-          {/* Lines L2→L3 */}
-          <line x1="270" y1="172" x2="110" y2="225" stroke="hsl(348,30%,70%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "1.8s" }} />
-          <line x1="330" y1="172" x2="410" y2="225" stroke="hsl(27,35%,60%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.0s" }} />
-          <line x1="670" y1="172" x2="590" y2="225" stroke="hsl(155,30%,65%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.2s" }} />
-          <line x1="730" y1="172" x2="890" y2="225" stroke="hsl(258,18%,60%)" strokeWidth="1.4" strokeDasharray="5 6" opacity="0.4" className="splash-line" style={{ animationDelay: "2.4s" }} />
-          {/* LEVEL 3 */}
-          <g className="splash-node" style={{ animationDelay: "2.6s" }}>
-            <rect x="60" y="225" width="100" height="52" rx="14" stroke="hsl(27,35%,60%)" strokeWidth="2" fill="hsl(27,40%,96%)" />
-            <rect x="88" y="238" width="24" height="18" rx="4" stroke="hsl(27,35%,60%)" strokeWidth="1.1" fill="none" />
-            <path d="M88 241 L100 251 L112 241" stroke="hsl(27,35%,60%)" strokeWidth="0.9" fill="none" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "2.9s" }}>
-            <rect x="360" y="225" width="100" height="52" rx="14" stroke="hsl(348,30%,70%)" strokeWidth="2" fill="hsl(348,30%,97%)" />
-            <circle cx="410" cy="251" r="10" stroke="hsl(348,30%,70%)" strokeWidth="1" fill="none" opacity="0.45" />
-            <circle cx="410" cy="251" r="4.5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "3.2s" }}>
-            <rect x="540" y="225" width="100" height="52" rx="14" stroke="hsl(155,30%,65%)" strokeWidth="2" fill="hsl(155,25%,96%)" />
-            <line x1="560" y1="245" x2="620" y2="245" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.45" />
-            <line x1="560" y1="258" x2="608" y2="258" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeLinecap="round" opacity="0.3" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "3.5s" }}>
-            <rect x="840" y="225" width="100" height="52" rx="14" stroke="hsl(258,18%,60%)" strokeWidth="2" fill="hsl(258,20%,97%)" />
-            <path d="M882 238 L874 253 H886 L880 265 L898 249 H886 Z" stroke="hsl(258,18%,60%)" strokeWidth="0.9" fill="hsl(258,18%,60%)" fillOpacity="0.12" />
-          </g>
-          {/* Pulses */}
-          <circle r="4.5" fill="hsl(155,30%,65%)" opacity="0.55">
-            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M500,36 L300,146 L110,251" />
-          </circle>
-          <circle r="4" fill="hsl(258,18%,60%)" opacity="0.45">
-            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M500,36 L700,146 L890,251" />
-          </circle>
-          <circle r="3.5" fill="hsl(348,30%,70%)" opacity="0.5">
-            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M500,36 L300,146 L410,251" />
-          </circle>
-          {/* Particles */}
-          <circle className="splash-particle" cx="20" cy="150" r="3" fill="hsl(258,18%,60%)" opacity="0.25" />
-          <circle className="splash-particle" cx="980" cy="160" r="3" fill="hsl(155,30%,65%)" opacity="0.25" style={{ animationDelay: "0.7s" }} />
-        </svg>
-
-        {/* Mobile version — compact, nodes only */}
-        <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block md:hidden" style={{ maxWidth: '300px', margin: '0 auto' }}>
-          {/* L1 — root rect */}
-          <g className="splash-node" style={{ animationDelay: "0.2s" }}>
-            <rect x="120" y="12" width="60" height="36" rx="10" stroke="hsl(258,18%,60%)" strokeWidth="1.8" fill="hsl(258,20%,97%)" />
-            <circle cx="150" cy="30" r="6" fill="hsl(258,18%,60%)" fillOpacity="0.3" />
-          </g>
-
-          {/* Dashed paths L1→L2 */}
-          <path d="M138 48 Q90 75 75 110" stroke="hsl(258,18%,60%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "0.8s" }} />
-          <path d="M162 48 Q210 75 225 110" stroke="hsl(155,30%,65%)" strokeWidth="1.3" strokeDasharray="4 5" fill="none" opacity="0.4" className="splash-line" style={{ animationDelay: "1.0s" }} />
-
-          {/* L2 — two rects */}
-          <g className="splash-node" style={{ animationDelay: "1.2s" }}>
-            <rect x="40" y="109" width="60" height="36" rx="10" stroke="hsl(348,30%,70%)" strokeWidth="1.8" fill="hsl(348,30%,97%)" />
-            <circle cx="70" cy="127" r="5" fill="hsl(348,30%,70%)" fillOpacity="0.25" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "1.4s" }}>
-            <rect x="200" y="109" width="60" height="36" rx="10" stroke="hsl(155,30%,65%)" strokeWidth="1.8" fill="hsl(155,25%,96%)" />
-            <circle cx="230" cy="127" r="5" fill="hsl(155,30%,65%)" fillOpacity="0.25" />
-          </g>
-
-          {/* Dashed paths L2→L3 */}
-          <path d="M58 145 Q30 175 30 210" stroke="hsl(348,30%,70%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "1.8s" }} />
-          <path d="M82 145 Q120 175 150 210" stroke="hsl(27,35%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.0s" }} />
-          <path d="M218 145 Q180 175 150 210" stroke="hsl(155,30%,65%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.2s" }} />
-          <path d="M242 145 Q270 175 270 210" stroke="hsl(258,18%,60%)" strokeWidth="1.2" strokeDasharray="4 5" fill="none" opacity="0.35" className="splash-line" style={{ animationDelay: "2.4s" }} />
-
-          {/* L3 — four rects */}
-          <g className="splash-node" style={{ animationDelay: "2.6s" }}>
-            <rect x="5" y="210" width="50" height="30" rx="8" stroke="hsl(27,35%,60%)" strokeWidth="1.6" fill="hsl(27,40%,96%)" />
-            <circle cx="30" cy="225" r="4.5" fill="hsl(27,35%,60%)" fillOpacity="0.2" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "2.9s" }}>
-            <rect x="90" y="210" width="50" height="30" rx="8" stroke="hsl(348,30%,70%)" strokeWidth="1.6" fill="hsl(348,30%,97%)" />
-            <circle cx="115" cy="225" r="4.5" fill="hsl(348,30%,70%)" fillOpacity="0.2" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "3.2s" }}>
-            <rect x="160" y="210" width="50" height="30" rx="8" stroke="hsl(155,30%,65%)" strokeWidth="1.6" fill="hsl(155,25%,96%)" />
-            <circle cx="185" cy="225" r="4.5" fill="hsl(155,30%,65%)" fillOpacity="0.2" />
-          </g>
-          <g className="splash-node" style={{ animationDelay: "3.5s" }}>
-            <rect x="245" y="210" width="50" height="30" rx="8" stroke="hsl(258,18%,60%)" strokeWidth="1.6" fill="hsl(258,20%,97%)" />
-            <circle cx="270" cy="225" r="4.5" fill="hsl(258,18%,60%)" fillOpacity="0.2" />
-          </g>
-
-          {/* Pulses */}
-          <circle r="3.5" fill="hsl(155,30%,65%)" opacity="0.55">
-            <animateMotion dur="4s" repeatCount="indefinite" begin="3s" path="M150,30 L70,125 L30,225" />
-          </circle>
-          <circle r="3" fill="hsl(258,18%,60%)" opacity="0.45">
-            <animateMotion dur="4.5s" repeatCount="indefinite" begin="3.5s" path="M150,30 L230,125 L270,225" />
-          </circle>
-          <circle r="2.5" fill="hsl(348,30%,70%)" opacity="0.5">
-            <animateMotion dur="4.2s" repeatCount="indefinite" begin="3.8s" path="M150,30 L70,125 L150,225" />
-          </circle>
-
-          {/* Particles */}
-          <circle className="splash-particle" cx="10" cy="170" r="2" fill="hsl(258,18%,60%)" opacity="0.2" />
-          <circle className="splash-particle" cx="290" cy="170" r="2" fill="hsl(155,30%,65%)" opacity="0.2" style={{ animationDelay: "0.7s" }} />
-        </svg>
+          <span
+            className="block text-5xl md:text-6xl tracking-tight"
+            style={{
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontWeight: 700,
+              color: "hsl(348,30%,70%)",
+              letterSpacing: "-0.02em",
+              lineHeight: 1
+            }}
+          >
+            R.E
+          </span>
+          <p
+            className="text-xs md:text-sm text-muted-foreground mt-2 tracking-widest uppercase"
+            style={{ fontFamily: "var(--font-apple)", fontWeight: 300, letterSpacing: "0.18em" }}
+          >
+            Raphaëlle Enderlin
+          </p>
+        </div>
       </div>
     </div>
   );
