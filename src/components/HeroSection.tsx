@@ -8,7 +8,7 @@ const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
   { value: "50%+", heLabel: "שיעור פתיחה", enLabel: "Open Rate" },
   { value: "3", heLabel: "שנות ניסיון", enLabel: "Years" },
-  { value: "4", heLabel: "שפות", enLabel: "Languages" },
+  { value: "21", heLabel: "מסעות לקוח ואוטומציות עסקיות", enLabel: "Journeys & Automations" },
 ];
 
 const tools = ["MAKE.com", "N8N", "Klaviyo", "FlashyApp", "Claude AI", "Figma"];
