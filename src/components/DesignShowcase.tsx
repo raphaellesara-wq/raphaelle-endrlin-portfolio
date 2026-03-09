@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-type TabKey = "newsletters" | "popups" | "webdesign";
+type TabKey = "newsletters" | "popups" | "webdesign" | "automation";
 
 function useVisibleCount() {
   const [count, setCount] = useState(3);
@@ -36,7 +36,8 @@ interface GalleryCardData {
 const tabs: { key: TabKey; he: string; en: string }[] = [
   { key: "newsletters", he: "ניוזלטרים", en: "Newsletters" },
   { key: "popups", he: "Pop-up Forms", en: "Pop-up Forms" },
-  { key: "webdesign", he: "עיצוב ואוטומציה", en: "Web Design & Automation" },
+  { key: "webdesign", he: "עיצוב ופיתוח אתרים", en: "Web Design & Dev" },
+  { key: "automation", he: "אוטומציות", en: "Automations" },
 ];
 
 const galleryData: Record<TabKey, GalleryCardData[]> = {
@@ -52,8 +53,11 @@ const galleryData: Record<TabKey, GalleryCardData[]> = {
     { src: "/popup-childnmore.png", heLabel: "ChildNMore — פופאפ הרשמה", enLabel: "ChildNMore — Signup Pop-up", tags: ["Pop-up Design", "Figma"], accent: "#D4798A", paleBg: "#FDF4F5", imageMaxHeight: 480, imageBg: "#F6F5F0", objectFit: "contain" },
   ],
   webdesign: [
-    { src: "/shiri-tam.png", heLabel: "Shiri Tam — חנות תכשיטים ב-Shopify", enLabel: "Shiri Tam — Shopify Jewelry Store", heDesc: "עיצוב ובניית חנות תכשיטים ב-Shopify — Figma עד פרודקשן", enDesc: "Jewelry store design & build on Shopify — from Figma to production", tags: ["Shopify", "Figma", "Web Design"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "cover", imageMaxHeight: 320 },
-    { src: "/make-gym.png", heLabel: "Make.com — אוטומציה חכמה לניהול פניות", enLabel: "Make.com — Smart Inquiry Automation", heDesc: "אוטומציה משולבת AI לקליטת פניות, ניתוח חכם ושליחת התראות בטלגרם", enDesc: "AI-powered automation for intake, smart analysis & Telegram alerts", tags: ["Make.com", "Claude AI", "Google Sheets", "Telegram"], accent: "#4E7FA8", paleBg: "#EEF4FA", objectFit: "contain", imageBg: "#F6F5F0", imageMaxHeight: 320 },
+    { src: "/jewelry-site.png", heLabel: "Aurora — עיצוב חנות תכשיטים", enLabel: "Aurora — Jewelry Store Design", heDesc: "עיצוב דף הבית לחנות תכשיטים יוקרתית — מ-Figma לפרודקשן", enDesc: "Homepage design for a luxury jewelry store — from Figma to production", tags: ["Web Design", "Figma", "E-commerce"], accent: "#C4834A", paleBg: "#FDF1E8", objectFit: "cover", imageMaxHeight: 320 },
+    { src: "/product-page.png", heLabel: "Lumina — עמוד מוצר", enLabel: "Lumina — Product Page", heDesc: "עיצוב עמוד מוצר מפורט וממיר לחנות תכשיטים", enDesc: "Detailed and high-converting product page design for a jewelry store", tags: ["Web Design", "Figma", "UI/UX"], accent: "#4E7FA8", paleBg: "#EEF4FA", objectFit: "cover", imageMaxHeight: 320 },
+  ],
+  automation: [
+    { src: "/make-gym.png", heLabel: "Make.com — אוטומציה חכמה לניהול פניות", enLabel: "Make.com — Smart Inquiry Automation", heDesc: "אוטומציה משולבת AI לקליטת פניות, ניתוח חכם ושליחת התראות בטלגרם", enDesc: "AI-powered automation for intake, smart analysis & Telegram alerts", tags: ["Make.com", "Claude AI", "Google Sheets", "Telegram"], accent: "#3D8B6E", paleBg: "#EDF6F2", objectFit: "contain", imageBg: "#F6F5F0", imageMaxHeight: 320 },
   ],
 };
 
