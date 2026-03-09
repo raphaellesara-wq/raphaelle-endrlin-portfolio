@@ -78,18 +78,12 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
       style={{ background: "rgba(28,26,40,0.88)", backdropFilter: "blur(6px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="relative bg-background rounded-[20px] overflow-hidden flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250" style={{ maxWidth: "95vw", maxHeight: "95vh", width: isTall ? "800px" : "auto" }}>
+      <div className="relative bg-background rounded-[20px] overflow-hidden flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250" style={{ maxWidth: "90vw", maxHeight: "90vh", width: "auto" }}>
         <button onClick={onClose} className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-background flex items-center justify-center border border-border shadow-md hover:scale-110 transition-transform">
           <X size={18} className="text-foreground" />
         </button>
-        <div className="flex items-start justify-center" style={{ background: card.imageBg ?? "#F6F5F0", overflow: isTall ? "auto" : "hidden", ...(isTall ? { maxHeight: "calc(95vh - 80px)" } : {}) }}>
-          <img 
-            src={card.src} 
-            alt={card.enLabel} 
-            className="block" 
-            style={{ maxHeight: isTall ? "none" : "calc(95vh - 80px)", maxWidth: "100%", width: isTall ? "100%" : "auto", height: "auto", objectFit: "contain" }} 
-            onLoad={(e) => { if (e.currentTarget.naturalHeight > e.currentTarget.naturalWidth * 1.2) setIsTall(true); }} 
-          />
+        <div className="flex items-start justify-center" style={{ background: card.imageBg ?? "#F6F5F0", overflow: isTall ? "auto" : "hidden", ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : {}) }}>
+          <img src={card.src} alt={card.enLabel} className="block" style={{ maxHeight: "calc(90vh - 80px)", maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain" }} onLoad={(e) => { if (e.currentTarget.naturalHeight > 1200) setIsTall(true); }} />
         </div>
         <div className="px-5 py-3.5 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
           <p className="font-bold text-foreground" style={{ fontSize: 14 }}>{t(card.heLabel, card.enLabel)}</p>
