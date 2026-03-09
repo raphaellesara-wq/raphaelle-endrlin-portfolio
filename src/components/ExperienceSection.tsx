@@ -26,7 +26,7 @@ const freelanceBullets = {
   ],
   en: [
     "Built a loyalty club on Shopify for Umina Superfood using Rise.ai — a credit system earned upon membership purchase, redeemable on orders",
-    "Designed 3 professional customer journeys: welcome benefit, birthday benefit, and pre-expiry membership renewal reminder",
+    "Designed professional customer journeys: welcome benefit, birthday benefit, and pre-expiry membership renewal reminder, abandoned cart, shopping reviews",
     "Built and designed client websites using Figma and Google Sites (Stitch)",
     "Social media management, content creation and video editing for independent artists",
     "Building automations with AI integration, smart agents and bots for businesses",
