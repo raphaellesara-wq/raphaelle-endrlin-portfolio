@@ -59,9 +59,9 @@ const ContactSection = () => {
             </span>
           </div>
           <h2 className="contact-heading font-display">
-            {t("אשמח", "Let's")}
+            {t("בואו", "Let's")}
             <span className="accent block text-muted-foreground">
-              {t("לדבר", "Talk")}
+              {t("נדבר", "Talk")}
             </span>
           </h2>
         </div>
