@@ -158,7 +158,7 @@ const ExperienceSection = () => {
               <ul className="space-y-2 mb-6">
                 {bullets.map((bullet, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-pink shrink-0" />
                     {bullet}
                   </li>
                 ))}
