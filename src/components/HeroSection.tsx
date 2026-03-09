@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const stats = [
   { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
-  { value: "50%+", heLabel: "שיעור פתיחה", enLabel: "Open Rate" },
+  { value: "50%+", heLabel: "מעורבות והצלחה", enLabel: "Open Rate" },
   { value: "3", heLabel: "שנות ניסיון", enLabel: "Years" },
   { value: "21", heLabel: "מסעות לקוח ואוטומציות עסקיות", enLabel: "Journeys & Automations" },
 ];
