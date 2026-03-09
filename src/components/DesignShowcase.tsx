@@ -85,9 +85,9 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
         <div className="flex items-start justify-center" style={{ background: card.imageBg ?? "#F6F5F0", overflow: isTall ? "auto" : "hidden", ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : {}) }}>
           <img src={card.src} alt={card.enLabel} className="block" style={{ maxHeight: "calc(90vh - 80px)", maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain" }} onLoad={(e) => { if (e.currentTarget.naturalHeight > 1200) setIsTall(true); }} />
         </div>
-        <div className="px-5 py-3.5 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
-          <p className="font-bold text-foreground" style={{ fontSize: 14 }}>{t(card.heLabel, card.enLabel)}</p>
-          {card.heDesc && <p className="text-muted-foreground mt-1" style={{ fontSize: 12 }}>{t(card.heDesc, card.enDesc ?? "")}</p>}
+        <div className="px-5 py-4 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
+          <p className="font-display font-bold text-foreground text-lg md:text-xl">{t(card.heLabel, card.enLabel)}</p>
+          {card.heDesc && <p className="text-muted-foreground mt-1.5 text-sm md:text-base leading-relaxed">{t(card.heDesc, card.enDesc ?? "")}</p>}
           <div className="flex flex-wrap gap-1.5 mt-2">
             {card.tags.map((tag) => (
               <span key={tag} className="rounded-full font-medium inline-flex border border-transparent" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: card.paleBg, color: card.accent }}>{tag}</span>
@@ -115,9 +115,9 @@ const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCard
         <ZoomIn size={18} className="text-foreground" />
       </div>
     </div>
-    <div className="px-4 py-3.5">
-      <p className="font-semibold text-foreground mb-2" style={{ fontSize: 13 }}>{t(card.heLabel, card.enLabel)}</p>
-      {card.heDesc && <p className="text-muted-foreground mb-2" style={{ fontSize: 12 }}>{t(card.heDesc, card.enDesc ?? "")}</p>}
+    <div className="px-5 py-4">
+      <p className="font-display font-bold text-foreground mb-1.5 text-base md:text-lg">{t(card.heLabel, card.enLabel)}</p>
+      {card.heDesc && <p className="text-muted-foreground mb-3 text-xs md:text-sm leading-relaxed">{t(card.heDesc, card.enDesc ?? "")}</p>}
       <div className="flex flex-wrap gap-1.5">
         {card.tags.map((tag) => (
           <span key={tag} className="rounded-full font-medium inline-flex border border-transparent" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: card.paleBg, color: card.accent }}>{tag}</span>
@@ -154,7 +154,7 @@ const DesignShowcase = () => {
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="showcase-section relative py-8 md:py-16" style={{ background: "#F5F2EE" }}>
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-12 md:py-24" style={{ background: "linear-gradient(180deg, var(--background) 0%, #F8F6F3 15%, #F5F2EE 50%, #F8F6F3 85%, var(--background) 100%)" }}>
         <div className="container mx-auto px-5 md:px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
@@ -162,7 +162,7 @@ const DesignShowcase = () => {
               <div className="w-8 h-px bg-accent-green" />
               <span className="text-sm tracking-wide font-medium text-accent-green">{t("עיצוב", "Design")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground mb-2">
               {t("עבודות ", "Selected ")}
               <em className="not-italic text-accent-green">{t("נבחרות", "Work")}</em>
             </h2>
