@@ -9,7 +9,7 @@ const mavenBullets = {
     "עיצוב ניוזלטרים ב-Figma, Canva Pro, Photoroom",
   ],
   en: [
-    "Built automations with FlashyApp, Klaviyo, MailChimp, InforU Mobile",
+    "Built customer journeys with FlashyApp, Klaviyo, MailChimp, InforU Mobile",
     "Managed segmentation & personalized customer journeys",
     "Large-scale SMS campaigns + Google Analytics",
     "Designed newsletters in Figma, Canva Pro, Photoroom",
