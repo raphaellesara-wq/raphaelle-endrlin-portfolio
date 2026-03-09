@@ -202,7 +202,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="155" y="150" width="60" height="30" rx="4"
             stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect3 ? "pop-in" : "opacity-0"}
+            className={showRect3 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "185px 165px" }}
           />
           <circle 
@@ -215,7 +215,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           <rect
             x="245" y="150" width="60" height="30" rx="4"
             stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="4 3" fill="none"
-            className={showRect3 ? "pop-in" : "opacity-0"}
+            className={showRect3 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "275px 165px" }}
           />
           <circle 
