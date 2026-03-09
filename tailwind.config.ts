@@ -15,9 +15,9 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Fraunces"', 'Georgia', 'serif'],
-        'display-he': ['"Frank Ruhl Libre"', 'serif'],
+        'display-he': ['"Secular One"', 'sans-serif'],
         body: ['"Poppins"', 'sans-serif'],
-        hebrew: ['"Heebo"', 'sans-serif'],
+        hebrew: ['"Rubik"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
