@@ -61,7 +61,7 @@ const SkillsSection = () => {
       id="skills"
       ref={sectionRef}
       className="py-8 md:py-12 pb-10 md:pb-14 relative overflow-hidden"
-      style={{ background: "#FFFFFF" }}
+      style={{ background: "linear-gradient(to bottom, #FFFFFF 0%, #FDFCFA 50%, #FAFAF8 100%)" }}
     >
       {/* Tools constellation SVG */}
       <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none z-0">
