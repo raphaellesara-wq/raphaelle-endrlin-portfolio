@@ -162,7 +162,7 @@ const DesignShowcase = () => {
               <div className="w-8 h-px bg-accent-green" />
               <span className="text-sm tracking-wide font-medium text-accent-green">{t("עיצוב", "Design")}</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-foreground mb-2">
               {t("עבודות ", "Selected ")}
               <em className="not-italic text-accent-green">{t("נבחרות", "Work")}</em>
             </h2>
