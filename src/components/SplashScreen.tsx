@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 
-type Phase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "circles" | "logo" | "exit";
+type Phase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "logo" | "circles" | "exit";
 
 const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<Phase>("rect1");
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase("line1"), 500),
-      setTimeout(() => setPhase("rect2"), 1000),
-      setTimeout(() => setPhase("line2"), 1500),
-      setTimeout(() => setPhase("rect3"), 2000),
-      setTimeout(() => setPhase("circles"), 5000), // 3 seconds after tree completes
-      setTimeout(() => setPhase("logo"), 5800),
-      setTimeout(() => setPhase("exit"), 8800), // 3 seconds after logo
-      setTimeout(onComplete, 9200),
+      setTimeout(() => setPhase("line1"), 800),
+      setTimeout(() => setPhase("rect2"), 1200),
+      setTimeout(() => setPhase("line2"), 1800),
+      setTimeout(() => setPhase("rect3"), 2400),
+      setTimeout(() => setPhase("logo"), 3200),
+      setTimeout(() => setPhase("circles"), 3800),
+      setTimeout(() => setPhase("exit"), 5800), // 2 seconds for circles
+      setTimeout(onComplete, 6200),
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
-  const phases: Phase[] = ["rect1", "line1", "rect2", "line2", "rect3", "circles", "logo", "exit"];
+  const phases: Phase[] = ["rect1", "line1", "rect2", "line2", "rect3", "logo", "circles", "exit"];
   const pIdx = phases.indexOf(phase);
 
   const showRect1 = pIdx >= 0;
@@ -27,10 +27,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const showRect2 = pIdx >= 2;
   const showLine2 = pIdx >= 3;
   const showRect3 = pIdx >= 4;
-  const showCircles = pIdx >= 5;
-  const showLogo = pIdx >= 6;
-
-  const dashStyle = "6 4";
+  const showLogo = pIdx >= 5;
+  const showCircles = pIdx >= 6;
 
   return (
     <div
@@ -39,77 +37,203 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       }`}
       style={{ background: "#FAFAF8", transition: "opacity 0.4s ease-out" }}
     >
-      <div className="flex flex-col items-center gap-6 md:gap-8">
-        <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-72 md:w-96 h-auto">
+      <style>{`
+        @keyframes wheelSpin {
+          0% { transform: rotate(0deg) scale(0.8); opacity: 0; }
+          20% { opacity: 1; }
+          100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        @keyframes circleAppear {
+          0% { transform: scale(0); opacity: 0; }
+          50% { transform: scale(1.2); opacity: 0.8; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        .wheel-animation {
+          animation: wheelSpin 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .circle-animation {
+          animation: circleAppear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+      `}</style>
+
+      <div className="flex flex-col items-center gap-8 md:gap-12">
+        <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-80 md:w-[400px] h-auto">
           
           {/* Level 1 - Top rect */}
           <rect
-            x="130" y="10" width="60" height="32" rx="10"
-            stroke="hsl(258,18%,60%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect1 ? 1 : 0, transform: showRect1 ? "scale(1)" : "scale(0.8)", transformOrigin: "160px 26px" }}
+            x="130" y="20" width="60" height="30" rx="8"
+            stroke="hsl(258,18%,60%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect1 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect1 ? 1 : 0,
+              transformOrigin: "160px 35px",
+              animationDelay: "0ms"
+            }}
           />
-          <circle cx="160" cy="26" r="6" fill="hsl(258,18%,60%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)" , transformOrigin: "160px 26px" }} />
+          <circle 
+            cx="160" cy="35" r="5" 
+            fill="hsl(258,18%,60%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "160px 35px" 
+            }} 
+          />
 
           {/* Lines L1 -> L2 */}
-          <line x1="145" y1="42" x2="90" y2="80" stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine1 ? 0.5 : 0 }} />
-          <line x1="175" y1="42" x2="230" y2="80" stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine1 ? 0.5 : 0 }} />
+          <line 
+            x1="145" y1="50" x2="90" y2="85" 
+            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" 
+            className="transition-opacity duration-300" 
+            style={{ opacity: showLine1 ? 0.7 : 0 }} 
+          />
+          <line 
+            x1="175" y1="50" x2="230" y2="85" 
+            stroke="hsl(155,30%,65%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" 
+            className="transition-opacity duration-300" 
+            style={{ opacity: showLine1 ? 0.7 : 0, transitionDelay: "100ms" }} 
+          />
 
           {/* Level 2 - Two rects */}
           <rect
-            x="60" y="80" width="60" height="32" rx="10"
-            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect2 ? 1 : 0, transform: showRect2 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "0ms" }}
+            x="60" y="85" width="60" height="30" rx="8"
+            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect2 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect2 ? 1 : 0,
+              transformOrigin: "90px 100px",
+              animationDelay: "200ms"
+            }}
           />
-          <circle cx="90" cy="96" r="6" fill="hsl(348,30%,70%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "90px 96px", transitionDelay: "100ms" }} />
+          <circle 
+            cx="90" cy="100" r="5" 
+            fill="hsl(348,30%,70%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "90px 100px",
+              animationDelay: "100ms"
+            }} 
+          />
 
           <rect
-            x="200" y="80" width="60" height="32" rx="10"
-            stroke="hsl(155,30%,65%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect2 ? 1 : 0, transform: showRect2 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "150ms" }}
+            x="200" y="85" width="60" height="30" rx="8"
+            stroke="hsl(155,30%,65%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect2 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect2 ? 1 : 0,
+              transformOrigin: "230px 100px",
+              animationDelay: "400ms"
+            }}
           />
-          <circle cx="230" cy="96" r="6" fill="hsl(155,30%,65%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "230px 96px", transitionDelay: "200ms" }} />
+          <circle 
+            cx="230" cy="100" r="5" 
+            fill="hsl(155,30%,65%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "230px 100px",
+              animationDelay: "200ms"
+            }} 
+          />
 
-          {/* Lines L2 -> L3 (each rect branches into 2) */}
-          <line x1="72" y1="112" x2="40" y2="155" stroke="hsl(27,35%,60%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine2 ? 0.5 : 0 }} />
-          <line x1="108" y1="112" x2="130" y2="155" stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine2 ? 0.5 : 0, transitionDelay: "50ms" }} />
-          <line x1="212" y1="112" x2="190" y2="155" stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine2 ? 0.5 : 0, transitionDelay: "100ms" }} />
-          <line x1="248" y1="112" x2="280" y2="155" stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="transition-all duration-400" style={{ opacity: showLine2 ? 0.5 : 0, transitionDelay: "150ms" }} />
+          {/* Lines L2 -> L3 */}
+          <line x1="75" y1="115" x2="45" y2="150" stroke="hsl(27,35%,60%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" className="transition-opacity duration-300" style={{ opacity: showLine2 ? 0.7 : 0 }} />
+          <line x1="105" y1="115" x2="135" y2="150" stroke="hsl(258,18%,60%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" className="transition-opacity duration-300" style={{ opacity: showLine2 ? 0.7 : 0, transitionDelay: "100ms" }} />
+          <line x1="215" y1="115" x2="185" y2="150" stroke="hsl(348,30%,70%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" className="transition-opacity duration-300" style={{ opacity: showLine2 ? 0.7 : 0, transitionDelay: "200ms" }} />
+          <line x1="245" y1="115" x2="275" y2="150" stroke="hsl(155,30%,65%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4" className="transition-opacity duration-300" style={{ opacity: showLine2 ? 0.7 : 0, transitionDelay: "300ms" }} />
 
           {/* Level 3 - Four rects */}
           <rect
-            x="10" y="155" width="56" height="32" rx="10"
-            stroke="hsl(27,35%,60%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect3 ? 1 : 0, transform: showRect3 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "0ms" }}
+            x="15" y="150" width="60" height="30" rx="8"
+            stroke="hsl(27,35%,60%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect3 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect3 ? 1 : 0,
+              transformOrigin: "45px 165px",
+              animationDelay: "0ms"
+            }}
           />
-          <circle cx="38" cy="171" r="6" fill="hsl(27,35%,60%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "38px 171px", transitionDelay: "300ms" }} />
+          <circle 
+            cx="45" cy="165" r="5" 
+            fill="hsl(27,35%,60%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "45px 165px",
+              animationDelay: "300ms"
+            }} 
+          />
 
           <rect
-            x="102" y="155" width="56" height="32" rx="10"
-            stroke="hsl(258,18%,60%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect3 ? 1 : 0, transform: showRect3 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "100ms" }}
+            x="105" y="150" width="60" height="30" rx="8"
+            stroke="hsl(258,18%,60%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect3 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect3 ? 1 : 0,
+              transformOrigin: "135px 165px",
+              animationDelay: "200ms"
+            }}
           />
-          <circle cx="130" cy="171" r="6" fill="hsl(258,18%,60%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "130px 171px", transitionDelay: "400ms" }} />
+          <circle 
+            cx="135" cy="165" r="5" 
+            fill="hsl(258,18%,60%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "135px 165px",
+              animationDelay: "400ms"
+            }} 
+          />
 
           <rect
-            x="162" y="155" width="56" height="32" rx="10"
-            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect3 ? 1 : 0, transform: showRect3 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "200ms" }}
+            x="155" y="150" width="60" height="30" rx="8"
+            stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect3 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect3 ? 1 : 0,
+              transformOrigin: "185px 165px",
+              animationDelay: "400ms"
+            }}
           />
-          <circle cx="190" cy="171" r="6" fill="hsl(348,30%,70%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "190px 171px", transitionDelay: "500ms" }} />
+          <circle 
+            cx="185" cy="165" r="5" 
+            fill="hsl(348,30%,70%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "185px 165px",
+              animationDelay: "500ms"
+            }} 
+          />
 
           <rect
-            x="254" y="155" width="56" height="32" rx="10"
-            stroke="hsl(155,30%,65%)" strokeWidth="2" strokeDasharray={dashStyle} fill="none"
-            className="transition-all duration-500"
-            style={{ opacity: showRect3 ? 1 : 0, transform: showRect3 ? "translateY(0)" : "translateY(-10px)", transitionDelay: "300ms" }}
+            x="245" y="150" width="60" height="30" rx="8"
+            stroke="hsl(155,30%,65%)" strokeWidth="2" strokeDasharray="6 4" fill="none"
+            className={showRect3 ? "wheel-animation" : ""}
+            style={{ 
+              opacity: showRect3 ? 1 : 0,
+              transformOrigin: "275px 165px",
+              animationDelay: "600ms"
+            }}
           />
-          <circle cx="282" cy="171" r="6" fill="hsl(155,30%,65%)" className="transition-all duration-500" style={{ opacity: showCircles ? 1 : 0, transform: showCircles ? "scale(1)" : "scale(0)", transformOrigin: "282px 171px", transitionDelay: "600ms" }} />
+          <circle 
+            cx="275" cy="165" r="5" 
+            fill="hsl(155,30%,65%)" 
+            className={showCircles ? "circle-animation" : ""}
+            style={{ 
+              opacity: showCircles ? 1 : 0, 
+              transform: "scale(0)",
+              transformOrigin: "275px 165px",
+              animationDelay: "600ms"
+            }} 
+          />
         </svg>
 
         {/* Logo */}
@@ -117,7 +241,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           className="text-center transition-all duration-700"
           style={{
             opacity: showLogo ? 1 : 0,
-            transform: showLogo ? "translateY(0) scale(1)" : "translateY(10px) scale(0.95)"
+            transform: showLogo ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)"
           }}
         >
           <span
