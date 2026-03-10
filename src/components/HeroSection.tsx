@@ -1,29 +1,81 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
-
-const stats = [
-  { value: "20+", heLabel: "לקוחות", enLabel: "Clients" },
-  { value: "50%+", heLabel: "מעורבות והצלחה", enLabel: "Open Rate" },
-  { value: "3", heLabel: "שנות ניסיון", enLabel: "Years" },
-  { value: "21", heLabel: "מסעות לקוח ואוטומציות עסקיות", enLabel: "Journeys & Automations" },
+const tools = [
+  {
+    name: "Claude",
+    color: "#C97B4B",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#C97B4B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "FlashyApp",
+    color: "#7B2FBE",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#7B2FBE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Klaviyo",
+    color: "#1F3A5F",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M4 4h16v16H4z" stroke="#1F3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M4 4l8 8 8-8" stroke="#1F3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Mailchimp",
+    color: "#FFE01B",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M3 8l9-5 9 5v8l-9 5-9-5V8z" stroke="#D4B800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3v18" stroke="#D4B800" strokeWidth="1.5"/>
+      </svg>
+    ),
+  },
+  {
+    name: "N8N",
+    color: "#FF6D5A",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <circle cx="6" cy="12" r="3" stroke="#FF6D5A" strokeWidth="1.5"/>
+        <circle cx="18" cy="12" r="3" stroke="#FF6D5A" strokeWidth="1.5"/>
+        <path d="M9 12h6" stroke="#FF6D5A" strokeWidth="1.5"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Make.com",
+    color: "#6D00CC",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#6D00CC" strokeWidth="1.5"/>
+        <path d="M8 12l3 3 5-6" stroke="#6D00CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Figma",
+    color: "#A259FF",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <rect x="8" y="2" width="4" height="6" rx="2" stroke="#F24E1E" strokeWidth="1.3"/>
+        <rect x="12" y="2" width="4" height="6" rx="2" stroke="#FF7262" strokeWidth="1.3"/>
+        <rect x="8" y="8" width="4" height="6" rx="2" stroke="#A259FF" strokeWidth="1.3"/>
+        <rect x="12" y="8" width="4" height="6" rx="2" stroke="#1ABCFE" strokeWidth="1.3"/>
+        <rect x="8" y="14" width="4" height="6" rx="2" stroke="#0ACF83" strokeWidth="1.3"/>
+      </svg>
+    ),
+  },
 ];
-
-const tools = ["MAKE.com", "N8N", "Klaviyo", "FlashyApp", "Claude AI", "Figma"];
-
-const pillTags = [
-  { he: "שיווק במייל", en: "Email Marketing", color: "pink" },
-  { he: "אוטומציות AI", en: "AI Automation", color: "blue" },
-  { he: "עיצוב", en: "Design", color: "purple" },
-];
-
-const pillColorMap: Record<string, string> = {
-  pink: "bg-accent-pink-pale text-accent-pink",
-  blue: "bg-accent-blue-pale text-accent-blue",
-  purple: "bg-accent-purple-pale text-accent-purple",
-};
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -33,7 +85,6 @@ const HeroSection = () => {
   const openRate = useCountUp(50, 1500, statsVisible);
   const yearsCount = useCountUp(3, 1000, statsVisible);
   const langCount = useCountUp(21, 1500, statsVisible);
-  const statValues = [`${clientCount}+`, `${openRate}%+`, `${yearsCount}`, `${langCount}`];
 
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
@@ -46,170 +97,199 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex items-center pt-20 pb-8 md:pt-24 md:pb-14"
+      className="relative flex items-center justify-center"
       style={{
-        background: "linear-gradient(to bottom, #FAFAF8 0%, #FAFAF8 70%, #FFFFFF 100%)",
         minHeight: "auto",
         overflow: "hidden",
+        paddingTop: 72,
+        paddingBottom: 40,
       }}
     >
+      <style>{`
+        @keyframes heroFadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bubblePop {
+          0% { opacity: 0; transform: scale(0.3); }
+          60% { opacity: 1; transform: scale(1.12); }
+          80% { transform: scale(0.95); }
+          100% { transform: scale(1); }
+        }
+        .hero-fade-up {
+          opacity: 0;
+          animation: heroFadeUp 0.6s ease-out forwards;
+        }
+        .bubble-pop {
+          opacity: 0;
+          animation: bubblePop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .bubble-circle {
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .bubble-circle:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+        }
+      `}</style>
 
-      <div className="container mx-auto px-5 md:px-12 lg:px-16 relative z-10">
+      <div
+        className="w-full flex flex-col items-center text-center"
+        style={{ maxWidth: 900, padding: "0 24px" }}
+      >
+        {/* 1. TAG */}
         <div
-          className="grid lg:grid-cols-2 items-center"
-          style={{ gap: 48 }}
+          className="hero-fade-up flex items-center justify-center gap-3"
+          style={{ animationDelay: "0.1s" }}
         >
-          {/* Main text */}
-          <div className="order-1 space-y-4 md:space-y-6" style={{ overflow: "visible", position: "relative", zIndex: 2 }}>
-            {/* Eyebrow */}
-            <div
-              className="flex items-center gap-3 animate-fade-up"
-              style={{ animationDelay: "0ms" }}
-            >
-              <div className="w-8 h-px bg-accent-pink" />
-              <span className="text-xs sm:text-sm tracking-wide text-muted-foreground font-medium">
-                {t("מומחית שיווק דיגיטלי ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
-              </span>
-            </div>
-
-            {/* H1 */}
-            <h1
-              className="hero-name animate-fade-up"
-              style={{
-                animationDelay: "150ms",
-                overflow: "visible",
-                whiteSpace: "normal",
-                wordBreak: "keep-all",
-              }}
-            >
-              {t("רפאל", "Raphaëlle")}
-              <br />
-              <span className="hero-name-line2 text-accent-pink">{t("אנדרלין", "Enderlin")}</span>
-            </h1>
-
-
-            {/* Description */}
-            <p
-              className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg animate-fade-up"
-              style={{ animationDelay: "450ms" }}
-            >
-              {t(
-                "אני עוזרת לעסקים לבנות מערכות שיווק במייל ואוטומציות מבוססות AI. מהאסטרטגיה ועד הביצוע — עם דגש על תוצאות מדידות.",
-                "I help businesses build smart email marketing systems and AI-powered automations — from strategy to execution, with a focus on measurable results."
-              )}
-            </p>
-
-            {/* Tool badges */}
-            <div
-              className="flex flex-wrap gap-2 animate-fade-up"
-              style={{ animationDelay: "600ms" }}
-            >
-              {tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1.5 text-xs font-medium rounded-full border border-border bg-card text-muted-foreground"
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div
-              className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 animate-fade-up"
-              style={{ animationDelay: "750ms" }}
-            >
-              <Button
-                variant="default"
-                size="lg"
-                className="rounded-full px-6 sm:px-8 font-medium transition-all duration-300 hover:bg-accent-purple hover:text-accent-foreground hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-6px_hsl(var(--accent-purple)/0.4)]"
-                onClick={() => scrollTo("#contact")}
-              >
-                {t("צור קשר", "Get in Touch")}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full px-6 sm:px-8 font-medium border-border transition-all duration-300 hover:bg-accent-purple-pale hover:text-accent-purple hover:border-accent-purple/30 hover:-translate-y-0.5"
-                onClick={() => scrollTo("#experience")}
-              >
-                {t("הניסיון שלי", "My Experience")}
-              </Button>
-            </div>
-          </div>
-
-          {/* Stats — compact on mobile, card on desktop */}
-          <div
-            className="order-2 flex justify-center"
-            ref={statsRef}
-            style={{ position: "relative", zIndex: 1 }}
+          <div style={{ width: 28, height: 1, background: "#B8B4BC" }} />
+          <span
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 500,
+              fontSize: 11,
+              textTransform: "uppercase",
+              color: "#B8B4BC",
+              letterSpacing: "0.06em",
+            }}
           >
-            {/* Mobile compact stats */}
-            <div
-              className="lg:hidden w-full grid grid-cols-4 gap-2 animate-fade-up"
-              style={{ animationDelay: "900ms" }}
-            >
-              {stats.map((stat, i) => (
-                <div key={i} className="text-center rounded-xl py-3 px-1 bg-card border border-border">
-                  <div className="text-lg font-bold text-foreground">{statValues[i]}</div>
-                  <div className="text-[10px] text-muted-foreground mt-0.5">{t(stat.heLabel, stat.enLabel)}</div>
-                </div>
-              ))}
-            </div>
-            {/* Desktop card */}
-            <div
-              className="relative w-full max-w-sm rounded-2xl border border-border bg-card shadow-lg overflow-hidden animate-fade-up hidden lg:block"
-              style={{ animationDelay: "300ms" }}
-            >
-              {/* Rainbow gradient top line */}
-              <div
-                className="h-1 w-full"
-                style={{
-                  background: "linear-gradient(to left, hsl(var(--accent-pink)), hsl(var(--accent-orange)), hsl(var(--accent-green)), hsl(var(--accent-blue)), hsl(var(--accent-purple)))",
-                }}
-              />
+            {t("מומחית שיווק דיגיטלי ואוטומציות AI", "Email Marketing & AI Automation Specialist")}
+          </span>
+          <div style={{ width: 28, height: 1, background: "#B8B4BC" }} />
+        </div>
 
-              <div className="p-8">
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  {stats.map((stat, i) => {
-                    const isMint = i >= 2;
-                    return (
-                      <div
-                        key={i}
-                        className="text-center rounded-xl p-3"
-                        style={isMint ? { backgroundColor: "hsl(var(--accent-green-pale))" } : undefined}
-                      >
-                        <div
-                          className="stat-number"
-                          style={isMint ? { color: "hsl(var(--accent-green))" } : undefined}
-                        >
-                          {statValues[i]}
-                        </div>
-                        <div className="text-xs text-muted-foreground mt-1">
-                          {t(stat.heLabel, stat.enLabel)}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div className="h-px w-full bg-border mb-5" />
-
-                <div className="flex flex-wrap justify-center gap-2">
-                  {pillTags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className={`px-3 py-1 text-xs font-medium rounded-full ${pillColorMap[tag.color]}`}
-                    >
-                      {t(tag.he, tag.en)}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+        {/* 2. NAME */}
+        <div
+          className="hero-fade-up"
+          style={{ animationDelay: "0.25s", marginTop: 20 }}
+        >
+          <div
+            style={{
+              fontFamily: "'Secular One', sans-serif",
+              fontWeight: 400,
+              fontSize: "clamp(56px, 10vw, 96px)",
+              lineHeight: 0.95,
+              color: "#1C1A28",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {t("רפאל", "Raphaëlle")}
+          </div>
+          <div
+            style={{
+              fontFamily: "'Rubik', sans-serif",
+              fontWeight: 200,
+              fontSize: "clamp(44px, 8vw, 80px)",
+              lineHeight: 1,
+              color: "#C9A0A8",
+              marginTop: 2,
+            }}
+          >
+            {t("אנדרלין", "Enderlin")}
           </div>
         </div>
 
+        {/* 3. DESC */}
+        <p
+          className="hero-fade-up"
+          style={{
+            animationDelay: "0.4s",
+            fontFamily: "'Rubik', sans-serif",
+            fontWeight: 300,
+            fontSize: 15,
+            lineHeight: 1.7,
+            color: "#5A5564",
+            maxWidth: 520,
+            marginTop: 24,
+          }}
+        >
+          {t(
+            "אני עוזרת לעסקים לבנות מערכות שיווק במייל ואוטומציות מבוססות AI. מהאסטרטגיה ועד הביצוע — עם דגש על תוצאות מדידות.",
+            "I help businesses build smart email marketing systems and AI-powered automations — from strategy to execution, with a focus on measurable results."
+          )}
+        </p>
+
+        {/* 4. BUBBLES */}
+        <div
+          className="flex flex-wrap justify-center"
+          style={{ gap: 12, marginTop: 32 }}
+          ref={statsRef}
+        >
+          {tools.map((tool, i) => (
+            <div
+              key={tool.name}
+              className="bubble-pop bubble-circle flex flex-col items-center"
+              style={{
+                animationDelay: `${0.5 + i * 0.09}s`,
+                cursor: "default",
+              }}
+            >
+              <div
+                className="flex items-center justify-center rounded-full"
+                style={{
+                  width: 40,
+                  height: 40,
+                  background: "#fff",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                }}
+              >
+                {tool.icon}
+              </div>
+              <span
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: 7.5,
+                  color: "#B8B4BC",
+                  marginTop: 4,
+                  fontWeight: 400,
+                }}
+              >
+                {tool.name}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* 5. BUTTONS */}
+        <div
+          className="hero-fade-up flex items-center justify-center gap-3"
+          style={{ animationDelay: "0.65s", marginTop: 36 }}
+        >
+          <button
+            onClick={() => scrollTo("#experience")}
+            className="transition-all duration-200"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: 13,
+              fontWeight: 500,
+              color: "#9A9499",
+              padding: "13px 32px",
+              borderRadius: 50,
+              border: "1px solid rgba(180,170,155,0.4)",
+              background: "transparent",
+              cursor: "pointer",
+            }}
+          >
+            {t("הניסיון שלי", "My Experience")}
+          </button>
+          <button
+            onClick={() => scrollTo("#contact")}
+            className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontSize: 13,
+              fontWeight: 500,
+              color: "#fff",
+              padding: "13px 32px",
+              borderRadius: 50,
+              border: "none",
+              background: "#1C1A28",
+              cursor: "pointer",
+            }}
+          >
+            {t("צור קשר", "Get in Touch")}
+          </button>
+        </div>
       </div>
     </section>
   );
