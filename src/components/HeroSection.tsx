@@ -102,11 +102,13 @@ const HeroSection = () => {
   return (
     <section
       className="relative flex items-center justify-center"
+      dir="rtl"
       style={{
         minHeight: "auto",
-        overflow: "hidden",
+        overflow: "visible",
         paddingTop: 72,
-        paddingBottom: 40,
+        paddingBottom: 80,
+        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F5F2EE,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#F2EEE9,transparent), linear-gradient(180deg,#FDFCFB,#FAF8F5,#F8F5F1)",
       }}
     >
       <style>{`
