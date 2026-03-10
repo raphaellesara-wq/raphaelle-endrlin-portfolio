@@ -8,17 +8,18 @@ const tools = [
     name: "Claude",
     color: "#C97B4B",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#C97B4B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3L4 8v4l8 5 8-5V8l-8-5z" stroke="#C97B4B" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M12 13v8M4 8l8 5 8-5" stroke="#C97B4B" strokeWidth="1.4" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
-    name: "FlashyApp",
+    name: "Flashy",
     color: "#7B2FBE",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#7B2FBE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#7B2FBE" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
@@ -26,9 +27,8 @@ const tools = [
     name: "Klaviyo",
     color: "#1F3A5F",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path d="M4 4h16v16H4z" stroke="#1F3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M4 4l8 8 8-8" stroke="#1F3A5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <text x="12" y="17" textAnchor="middle" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="16" fill="#1F3A5F">K</text>
       </svg>
     ),
   },
@@ -36,9 +36,10 @@ const tools = [
     name: "Mailchimp",
     color: "#FFE01B",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <path d="M3 8l9-5 9 5v8l-9 5-9-5V8z" stroke="#D4B800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 3v18" stroke="#D4B800" strokeWidth="1.5"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4C8 4 5 7 5 11c0 3 2 5 4 6l1 2h4l1-2c2-1 4-3 4-6 0-4-3-7-7-7z" stroke="#D4B800" strokeWidth="1.5" fill="#FFE01B" fillOpacity="0.15" strokeLinejoin="round"/>
+        <circle cx="9.5" cy="10" r="1" fill="#D4B800"/>
+        <circle cx="14.5" cy="10" r="1" fill="#D4B800"/>
       </svg>
     ),
   },
@@ -46,10 +47,10 @@ const tools = [
     name: "N8N",
     color: "#FF6D5A",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="6" cy="12" r="3" stroke="#FF6D5A" strokeWidth="1.5"/>
-        <circle cx="18" cy="12" r="3" stroke="#FF6D5A" strokeWidth="1.5"/>
-        <path d="M9 12h6" stroke="#FF6D5A" strokeWidth="1.5"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="7" cy="12" r="3.5" stroke="#FF6D5A" strokeWidth="1.5"/>
+        <circle cx="17" cy="12" r="3.5" stroke="#FF6D5A" strokeWidth="1.5"/>
+        <path d="M10.5 12h3" stroke="#FF6D5A" strokeWidth="1.5"/>
       </svg>
     ),
   },
@@ -57,9 +58,11 @@ const tools = [
     name: "Make.com",
     color: "#6D00CC",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#6D00CC" strokeWidth="1.5"/>
-        <path d="M8 12l3 3 5-6" stroke="#6D00CC" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="7" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
+        <circle cx="7" cy="16" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
+        <circle cx="17" cy="16" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
+        <path d="M12 10v3M9.5 14.5L12 13M14.5 14.5L12 13" stroke="#6D00CC" strokeWidth="1.2"/>
       </svg>
     ),
   },
@@ -67,12 +70,12 @@ const tools = [
     name: "Figma",
     color: "#A259FF",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <rect x="8" y="2" width="4" height="6" rx="2" stroke="#F24E1E" strokeWidth="1.3"/>
-        <rect x="12" y="2" width="4" height="6" rx="2" stroke="#FF7262" strokeWidth="1.3"/>
-        <rect x="8" y="8" width="4" height="6" rx="2" stroke="#A259FF" strokeWidth="1.3"/>
-        <rect x="12" y="8" width="4" height="6" rx="2" stroke="#1ABCFE" strokeWidth="1.3"/>
-        <rect x="8" y="14" width="4" height="6" rx="2" stroke="#0ACF83" strokeWidth="1.3"/>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <rect x="4" y="3" width="7" height="6" rx="3" fill="#F24E1E"/>
+        <rect x="13" y="3" width="7" height="6" rx="3" fill="#FF7262"/>
+        <rect x="4" y="9" width="7" height="6" rx="3" fill="#A259FF"/>
+        <circle cx="16.5" cy="12" r="3" fill="#1ABCFE"/>
+        <rect x="4" y="15" width="7" height="6" rx="3" fill="#0ACF83"/>
       </svg>
     ),
   },
