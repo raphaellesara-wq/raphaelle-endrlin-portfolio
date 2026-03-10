@@ -8,9 +8,9 @@ const tools = [
     name: "Claude",
     color: "#C97B4B",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3L4 8v4l8 5 8-5V8l-8-5z" stroke="#C97B4B" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M12 13v8M4 8l8 5 8-5" stroke="#C97B4B" strokeWidth="1.4" strokeLinecap="round"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M8 18L12 7L16 18" stroke="#C97B4B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <line x1="9.5" y1="15" x2="14.5" y2="15" stroke="#C97B4B" strokeWidth="1.4" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -18,8 +18,8 @@ const tools = [
     name: "Flashy",
     color: "#7B2FBE",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#7B2FBE" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M13.5 3L7 13H12L10.5 21L18 11H13Z" fill="#7B2FBE" opacity="0.82"/>
       </svg>
     ),
   },
@@ -27,8 +27,9 @@ const tools = [
     name: "Klaviyo",
     color: "#1F3A5F",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <text x="12" y="17" textAnchor="middle" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="16" fill="#1F3A5F">K</text>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <rect x="5" y="4" width="3.5" height="16" rx="0.8" fill="#1F3A5F" opacity="0.80"/>
+        <path d="M8.5 12L16 4V8.5L11.5 12L16 15.5V20Z" fill="#1F3A5F" opacity="0.80"/>
       </svg>
     ),
   },
@@ -36,10 +37,13 @@ const tools = [
     name: "Mailchimp",
     color: "#FFE01B",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M12 4C8 4 5 7 5 11c0 3 2 5 4 6l1 2h4l1-2c2-1 4-3 4-6 0-4-3-7-7-7z" stroke="#D4B800" strokeWidth="1.5" fill="#FFE01B" fillOpacity="0.15" strokeLinejoin="round"/>
-        <circle cx="9.5" cy="10" r="1" fill="#D4B800"/>
-        <circle cx="14.5" cy="10" r="1" fill="#D4B800"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="13.5" rx="5.5" ry="5" fill="#FFE01B" opacity="0.92"/>
+        <circle cx="6.5" cy="14" r="1.8" fill="#FFE01B" opacity="0.72"/>
+        <circle cx="17.5" cy="14" r="1.8" fill="#FFE01B" opacity="0.72"/>
+        <circle cx="10" cy="12" r="1" fill="#241C15"/>
+        <circle cx="14" cy="12" r="1" fill="#241C15"/>
+        <path d="M9.5 15Q12 17 14.5 15" stroke="#241C15" strokeWidth="0.9" fill="none" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -47,10 +51,10 @@ const tools = [
     name: "N8N",
     color: "#FF6D5A",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <circle cx="7" cy="12" r="3.5" stroke="#FF6D5A" strokeWidth="1.5"/>
-        <circle cx="17" cy="12" r="3.5" stroke="#FF6D5A" strokeWidth="1.5"/>
-        <path d="M10.5 12h3" stroke="#FF6D5A" strokeWidth="1.5"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="7" cy="12" r="3" fill="#FF6D5A" opacity="0.78"/>
+        <circle cx="17" cy="12" r="3" fill="#FF6D5A" opacity="0.78"/>
+        <line x1="10" y1="12" x2="14" y2="12" stroke="#FF6D5A" strokeWidth="1.6" opacity="0.62"/>
       </svg>
     ),
   },
@@ -58,11 +62,10 @@ const tools = [
     name: "Make.com",
     color: "#6D00CC",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="7" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
-        <circle cx="7" cy="16" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
-        <circle cx="17" cy="16" r="3" stroke="#6D00CC" strokeWidth="1.4"/>
-        <path d="M12 10v3M9.5 14.5L12 13M14.5 14.5L12 13" stroke="#6D00CC" strokeWidth="1.2"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="9" cy="12" r="3.2" stroke="#6D00CC" strokeWidth="1.3" fill="none" opacity="0.78"/>
+        <circle cx="15" cy="9" r="2.6" stroke="#6D00CC" strokeWidth="1.2" fill="none" opacity="0.62"/>
+        <circle cx="15" cy="15" r="2.6" stroke="#6D00CC" strokeWidth="1.2" fill="none" opacity="0.62"/>
       </svg>
     ),
   },
@@ -70,12 +73,12 @@ const tools = [
     name: "Figma",
     color: "#A259FF",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <rect x="4" y="3" width="7" height="6" rx="3" fill="#F24E1E"/>
-        <rect x="13" y="3" width="7" height="6" rx="3" fill="#FF7262"/>
-        <rect x="4" y="9" width="7" height="6" rx="3" fill="#A259FF"/>
-        <circle cx="16.5" cy="12" r="3" fill="#1ABCFE"/>
-        <rect x="4" y="15" width="7" height="6" rx="3" fill="#0ACF83"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <rect x="7.5" y="4" width="4.5" height="4.5" rx="0.8" fill="#F24E1E" opacity="0.87"/>
+        <rect x="12" y="4" width="4.5" height="4.5" rx="0.8" fill="#FF7262" opacity="0.87"/>
+        <rect x="7.5" y="8.5" width="4.5" height="4.5" rx="0.8" fill="#A259FF" opacity="0.87"/>
+        <rect x="7.5" y="13" width="4.5" height="7" rx="0.8" fill="#0ACF83" opacity="0.87"/>
+        <circle cx="14.25" cy="10.75" r="2.25" fill="#1ABCFE" opacity="0.87"/>
       </svg>
     ),
   },
@@ -108,7 +111,10 @@ const HeroSection = () => {
         overflow: "visible",
         paddingTop: 72,
         paddingBottom: 80,
-        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F5F2EE,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#F2EEE9,transparent), linear-gradient(180deg,#FDFCFB,#FAF8F5,#F8F5F1)",
+        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F5F2EE,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#F2EEE9,transparent), linear-gradient(180deg,#FDFCFB 0%,#FAF8F5 50%,#F8F5F1 100%)",
+        // ✅ FIX: no border-bottom, no box-shadow, no clip
+        borderBottom: "none",
+        boxShadow: "none",
       }}
     >
       <style>{`
@@ -120,7 +126,7 @@ const HeroSection = () => {
           0% { opacity: 0; transform: scale(0.3); }
           60% { opacity: 1; transform: scale(1.12); }
           80% { transform: scale(0.95); }
-          100% { transform: scale(1); }
+          100% { opacity: 1; transform: scale(1); }
         }
         .hero-fade-up {
           opacity: 0;
@@ -134,7 +140,7 @@ const HeroSection = () => {
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .bubble-circle:hover {
-          transform: translateY(-3px);
+          transform: translateY(-3px) scale(1.08);
           box-shadow: 0 6px 16px rgba(0,0,0,0.10);
         }
       `}</style>
@@ -215,7 +221,7 @@ const HeroSection = () => {
           )}
         </p>
 
-        {/* 4. BUBBLES */}
+        {/* 4. BUBBLES ✅ FIXED */}
         <div
           className="flex flex-wrap justify-center"
           style={{ gap: 12, marginTop: 32 }}
@@ -228,6 +234,7 @@ const HeroSection = () => {
               style={{
                 animationDelay: `${0.6 + i * 0.09}s`,
                 cursor: "default",
+                gap: 4,
               }}
             >
               <div
@@ -235,8 +242,9 @@ const HeroSection = () => {
                 style={{
                   width: 40,
                   height: 40,
-                  background: "#fff",
-                  border: "1px solid rgba(0,0,0,0.07)",
+                  background: "rgba(255,255,255,0.85)",
+                  border: "1px solid rgba(180,170,155,0.22)",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                 }}
               >
                 {tool.icon}
@@ -246,8 +254,8 @@ const HeroSection = () => {
                   fontFamily: "'Poppins', sans-serif",
                   fontSize: 7.5,
                   color: "#B8B4BC",
-                  marginTop: 4,
-                  fontWeight: 400,
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
                 }}
               >
                 {tool.name}
