@@ -291,6 +291,14 @@ const HeroSection = () => {
             {t("צור קשר", "Get in Touch")}
           </button>
         </div>
+
+        {/* 6. ILLUSTRATION */}
+        <div
+          className="hero-fade-up flex justify-center"
+          style={{ animationDelay: "0.85s", marginTop: 40 }}
+        >
+          <HeroIllustration />
+        </div>
       </div>
     </section>
   );
