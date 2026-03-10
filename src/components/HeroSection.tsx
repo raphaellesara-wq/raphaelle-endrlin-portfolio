@@ -226,7 +226,7 @@ const HeroSection = () => {
               key={tool.name}
               className="bubble-pop bubble-circle flex flex-col items-center"
               style={{
-                animationDelay: `${0.5 + i * 0.09}s`,
+                animationDelay: `${0.6 + i * 0.09}s`,
                 cursor: "default",
               }}
             >
