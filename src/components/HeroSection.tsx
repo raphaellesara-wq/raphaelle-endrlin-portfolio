@@ -84,7 +84,7 @@ const tools = [
 ];
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
 
   const clientCount = useCountUp(20, 1500, statsVisible);
