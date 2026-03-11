@@ -325,14 +325,16 @@ const HeroSection = () => {
               border: "1px solid rgba(180,170,155,0.18)",
               boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
               overflow: "hidden",
-            }}
-          >{/* Rainbow top bar */}
-<div
-  style={{
-    height: 4,
-    background: "linear-gradient(90deg, #C9A0A8, #B09BC0, #8B7DB5, #8A9E7A, #C4956A, #E8C86A)",
-  }}
-/>
+            }}        }}
+      >
+        {/* Rainbow top bar */}
+        <div
+          style={{
+            height: 4,
+            background: "linear-gradient(90deg, #8A9E7A, #C9A0A8, #8B7DB5, #7BBFB0, #E8B87A)",
+          }}
+        />
+
             <div style={{ padding: "28px 28px 20px" }}>
               {/* Top row: +50% and +20 */}
               <div className="grid grid-cols-2 gap-4 mb-4">
