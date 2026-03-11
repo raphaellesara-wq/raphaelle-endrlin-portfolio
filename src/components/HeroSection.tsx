@@ -156,7 +156,7 @@ const HeroSection = () => {
         style={{ maxWidth: 1100, padding: "0 24px" }}
       >
         {/* RIGHT SIDE — Text content */}
-        <div className={`flex-1 flex flex-col ${isRTL ? 'items-end text-right' : 'items-start text-left'}`}>
+        <div className={`flex-1 flex flex-col ${isRTL ? "items-end text-right" : "items-start text-left"}`}>
           {/* TAG */}
           <div
             className="hero-fade-up flex items-center gap-3"
@@ -230,7 +230,7 @@ const HeroSection = () => {
 
           {/* BUBBLES */}
           <div
-            className={`flex flex-wrap ${isRTL ? 'justify-end' : 'justify-start'}`}
+            className={`flex flex-wrap ${isRTL ? "justify-end" : "justify-start"}`}
             style={{ gap: 12, marginTop: 28 }}
           >
             {tools.map((tool, i) => (
@@ -325,15 +325,15 @@ const HeroSection = () => {
               border: "1px solid rgba(180,170,155,0.18)",
               boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
               overflow: "hidden",
-                    }}
-      >
-        {/* Rainbow top bar */}
-        <div
-          style={{
-            height: 4,
-            background: "linear-gradient(90deg, #8A9E7A, #C9A0A8, #8B7DB5, #7BBFB0, #E8B87A)",
-          }}
-        />
+            }}
+          >
+            {/* Rainbow top bar */}
+            <div
+              style={{
+                height: 4,
+                background: "linear-gradient(90deg, #8A9E7A, #C9A0A8, #8B7DB5, #7BBFB0, #E8B87A)",
+              }}
+            />
 
             <div style={{ padding: "28px 28px 20px" }}>
               {/* Top row: +50% and +20 */}
@@ -386,7 +386,7 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Bottom row: 21 and 3 */}
+              {/* Bottom row */}
               <div className="grid grid-cols-2 gap-4 mb-5">
                 <div
                   className="text-center"
