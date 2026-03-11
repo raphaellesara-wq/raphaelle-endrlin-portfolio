@@ -156,7 +156,7 @@ const HeroSection = () => {
         style={{ maxWidth: 1100, padding: "0 24px" }}
       >
         {/* RIGHT SIDE — Text content */}
-        <div className="flex-1 flex flex-col items-center lg:items-end text-center lg:text-right">
+        <div className="flex-1 flex flex-col items-end text-right">
           {/* TAG */}
           <div
             className="hero-fade-up flex items-center gap-3"
