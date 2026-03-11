@@ -230,7 +230,7 @@ const HeroSection = () => {
 
           {/* BUBBLES */}
           <div
-            className="flex flex-wrap justify-end"
+            className={`flex flex-wrap ${isRTL ? 'justify-end' : 'justify-start'}`}
             style={{ gap: 12, marginTop: 28 }}
           >
             {tools.map((tool, i) => (
