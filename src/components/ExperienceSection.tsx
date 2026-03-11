@@ -52,7 +52,7 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-8 md:py-16 relative" style={{ background: "transparent" }}>
+    <section id="experience" ref={sectionRef} className="py-8 md:py-16 relative" style={{ background:"transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         {/* Section header */}
         <div
