@@ -110,7 +110,7 @@ const HeroSection = () => {
         overflow: "visible",
         paddingTop: 72,
         paddingBottom: 80,
-        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F0EDE8,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#EDE9E3,transparent), linear-gradient(180deg,#FDFCFB 0%,#F7F4F0 40%,#FDFCFB 100%)",
+        background: "transparent",
         borderBottom: "none",
         boxShadow: "none",
       }}
