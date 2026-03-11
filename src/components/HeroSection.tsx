@@ -467,7 +467,7 @@ const HeroSection = () => {
                       color: tag.color,
                       padding: "6px 16px",
                       borderRadius: 50,
-                      border: `1px solid ${tag.color}33`,
+                      border: `1px solid ${tag.color}33,
                       background: `${tag.color}0A`,
                     }}
                   >
