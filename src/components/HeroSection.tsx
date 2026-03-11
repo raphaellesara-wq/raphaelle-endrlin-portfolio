@@ -104,7 +104,7 @@ const HeroSection = () => {
   return (
     <section
       className="relative flex items-center justify-center"
-      dir="rtl"
+      dir={isRTL ? "rtl" : "ltr"}
       style={{
         minHeight: "auto",
         overflow: "visible",
