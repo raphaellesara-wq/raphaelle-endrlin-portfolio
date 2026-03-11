@@ -110,7 +110,7 @@ const HeroSection = () => {
         overflow: "visible",
         paddingTop: 72,
         paddingBottom: 80,
-        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F5F2EE,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#F2EEE9,transparent), linear-gradient(180deg,#FDFCFB 0%,#FAF8F5 50%,#F8F5F1 100%)",
+        background: "radial-gradient(ellipse 70% 40% at 15% 10%,#F0EDE8,transparent), radial-gradient(ellipse 50% 45% at 85% 55%,#EDE9E3,transparent), linear-gradient(180deg,#FDFCFB 0%,#F7F4F0 40%,#FDFCFB 100%)",
         borderBottom: "none",
         boxShadow: "none",
       }}
@@ -336,7 +336,7 @@ const HeroSection = () => {
             />
 
             <div style={{ padding: "28px 28px 20px" }}>
-              {/* Top row: +50% and +20 */}
+              {/* Top row */}
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div className="text-center">
                   <div
