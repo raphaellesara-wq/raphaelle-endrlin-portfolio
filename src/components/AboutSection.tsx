@@ -22,7 +22,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-6 md:py-12 relative" style={{ background: "linear-gradient(to bottom, #FFFFFF 0%, #FDFCFA 50%, #FAFAF8 100%)" }}>
+    <section id="about" ref={sectionRef} className="py-6 md:py-12 relative" style={{ background: "transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
           {/* Text column */}
