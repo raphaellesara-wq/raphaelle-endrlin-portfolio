@@ -325,7 +325,7 @@ const HeroSection = () => {
               border: "1px solid rgba(180,170,155,0.18)",
               boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
               overflow: "hidden",
-            }}        }}
+                    }}
       >
         {/* Rainbow top bar */}
         <div
@@ -467,7 +467,7 @@ const HeroSection = () => {
                       color: tag.color,
                       padding: "6px 16px",
                       borderRadius: 50,
-                      border: `1px solid ${tag.color}33,
+                      border: `1px solid ${tag.color}33`,
                       background: `${tag.color}0A`,
                     }}
                   >
