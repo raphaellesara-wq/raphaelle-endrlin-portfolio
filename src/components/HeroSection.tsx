@@ -84,7 +84,7 @@ const tools = [
 ];
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
 
   const clientCount = useCountUp(20, 1500, statsVisible);
@@ -104,7 +104,7 @@ const HeroSection = () => {
   return (
     <section
       className="relative flex items-center justify-center"
-      dir="rtl"
+      dir={isRTL ? "rtl" : "ltr"}
       style={{
         minHeight: "auto",
         overflow: "visible",
@@ -156,7 +156,7 @@ const HeroSection = () => {
         style={{ maxWidth: 1100, padding: "0 24px" }}
       >
         {/* RIGHT SIDE — Text content */}
-        <div className="flex-1 flex flex-col items-end text-right">
+        <div className={`flex-1 flex flex-col ${isRTL ? 'items-end text-right' : 'items-start text-left'}`}>
           {/* TAG */}
           <div
             className="hero-fade-up flex items-center gap-3"
@@ -230,7 +230,7 @@ const HeroSection = () => {
 
           {/* BUBBLES */}
           <div
-            className="flex flex-wrap justify-end"
+            className={`flex flex-wrap ${isRTL ? 'justify-end' : 'justify-start'}`}
             style={{ gap: 12, marginTop: 28 }}
           >
             {tools.map((tool, i) => (
