@@ -230,7 +230,7 @@ const HeroSection = () => {
 
           {/* BUBBLES */}
           <div
-            className={`flex flex-wrap ${isRTL ? "justify-end" : "justify-start"}`}
+            className="flex flex-wrap justify-start"
             style={{ gap: 12, marginTop: 28 }}
           >
             {tools.map((tool, i) => (
@@ -275,40 +275,81 @@ const HeroSection = () => {
             className="hero-fade-up flex items-center gap-3"
             style={{ animationDelay: "0.65s", marginTop: 32 }}
           >
-            <button
-              onClick={() => scrollTo("#experience")}
-              className="transition-all duration-200"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 13,
-                fontWeight: 500,
-                color: "#9A9499",
-                padding: "13px 32px",
-                borderRadius: 50,
-                border: "1px solid rgba(180,170,155,0.4)",
-                background: "transparent",
-                cursor: "pointer",
-              }}
-            >
-              {t("הניסיון שלי", "My Experience")}
-            </button>
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: 13,
-                fontWeight: 500,
-                color: "#fff",
-                padding: "13px 32px",
-                borderRadius: 50,
-                border: "none",
-                background: "#1C1A28",
-                cursor: "pointer",
-              }}
-            >
-              {t("צור קשר", "Get in Touch")}
-            </button>
+            {isRTL ? (
+              <>
+                <button
+                  onClick={() => scrollTo("#contact")}
+                  className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    color: "#fff",
+                    padding: "13px 32px",
+                    borderRadius: 50,
+                    border: "none",
+                    background: "#1C1A28",
+                    cursor: "pointer",
+                  }}
+                >
+                  צור קשר
+                </button>
+                <button
+                  onClick={() => scrollTo("#experience")}
+                  className="transition-all duration-200"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    color: "#9A9499",
+                    padding: "13px 32px",
+                    borderRadius: 50,
+                    border: "1px solid rgba(180,170,155,0.4)",
+                    background: "transparent",
+                    cursor: "pointer",
+                  }}
+                >
+                  הניסיון שלי
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => scrollTo("#experience")}
+                  className="transition-all duration-200"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    color: "#9A9499",
+                    padding: "13px 32px",
+                    borderRadius: 50,
+                    border: "1px solid rgba(180,170,155,0.4)",
+                    background: "transparent",
+                    cursor: "pointer",
+                  }}
+                >
+                  My Experience
+                </button>
+                <button
+                  onClick={() => scrollTo("#contact")}
+                  className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    color: "#fff",
+                    padding: "13px 32px",
+                    borderRadius: 50,
+                    border: "none",
+                    background: "#1C1A28",
+                    cursor: "pointer",
+                  }}
+                >
+                  Get in Touch
+                </button>
+              </>
+            )}
           </div>
         </div>
 
