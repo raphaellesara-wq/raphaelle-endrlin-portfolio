@@ -90,7 +90,7 @@ const HeroSection = () => {
   const clientCount = useCountUp(20, 1500, statsVisible);
   const openRate = useCountUp(50, 1500, statsVisible);
   const yearsCount = useCountUp(3, 1000, statsVisible);
-  const journeyCount = useCountUp(21, 1500, statsVisible);
+  const journeyCount = useCountUp(40, 1500, statsVisible);
 
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
