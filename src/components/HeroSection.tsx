@@ -3,6 +3,87 @@ import { useCountUp } from "@/hooks/use-count-up";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import HeroIllustration from "@/components/HeroIllustration";
 
+const tools = [
+  {
+    name: "Claude",
+    color: "#C97B4B",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M8 18L12 7L16 18" stroke="#C97B4B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <line x1="9.5" y1="15" x2="14.5" y2="15" stroke="#C97B4B" strokeWidth="1.4" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Flashy",
+    color: "#7B2FBE",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M13.5 3L7 13H12L10.5 21L18 11H13Z" fill="#7B2FBE" opacity="0.82"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Klaviyo",
+    color: "#1F3A5F",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <rect x="5" y="4" width="3.5" height="16" rx="0.8" fill="#1F3A5F" opacity="0.80"/>
+        <path d="M8.5 12L16 4V8.5L11.5 12L16 15.5V20Z" fill="#1F3A5F" opacity="0.80"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Mailchimp",
+    color: "#FFE01B",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="13.5" rx="5.5" ry="5" fill="#FFE01B" opacity="0.92"/>
+        <circle cx="6.5" cy="14" r="1.8" fill="#FFE01B" opacity="0.72"/>
+        <circle cx="17.5" cy="14" r="1.8" fill="#FFE01B" opacity="0.72"/>
+        <circle cx="10" cy="12" r="1" fill="#241C15"/>
+        <circle cx="14" cy="12" r="1" fill="#241C15"/>
+        <path d="M9.5 15Q12 17 14.5 15" stroke="#241C15" strokeWidth="0.9" fill="none" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: "N8N",
+    color: "#FF6D5A",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="7" cy="12" r="3" fill="#FF6D5A" opacity="0.78"/>
+        <circle cx="17" cy="12" r="3" fill="#FF6D5A" opacity="0.78"/>
+        <line x1="10" y1="12" x2="14" y2="12" stroke="#FF6D5A" strokeWidth="1.6" opacity="0.62"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Make.com",
+    color: "#6D00CC",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="9" cy="12" r="3.2" stroke="#6D00CC" strokeWidth="1.3" fill="none" opacity="0.78"/>
+        <circle cx="15" cy="9" r="2.6" stroke="#6D00CC" strokeWidth="1.2" fill="none" opacity="0.62"/>
+        <circle cx="15" cy="15" r="2.6" stroke="#6D00CC" strokeWidth="1.2" fill="none" opacity="0.62"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Figma",
+    color: "#A259FF",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <rect x="7.5" y="4" width="4.5" height="4.5" rx="0.8" fill="#F24E1E" opacity="0.87"/>
+        <rect x="12" y="4" width="4.5" height="4.5" rx="0.8" fill="#FF7262" opacity="0.87"/>
+        <rect x="7.5" y="8.5" width="4.5" height="4.5" rx="0.8" fill="#A259FF" opacity="0.87"/>
+        <rect x="7.5" y="13" width="4.5" height="7" rx="0.8" fill="#0ACF83" opacity="0.87"/>
+        <circle cx="14.25" cy="10.75" r="2.25" fill="#1ABCFE" opacity="0.87"/>
+      </svg>
+    ),
+  },
+];
+
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
   const { ref: statsRef, isVisible: statsVisible } = useScrollReveal(0.3);
@@ -40,10 +121,6 @@ const HeroSection = () => {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes countFadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
         .hero-fade-up {
           opacity: 0;
           animation: heroFadeUp 0.6s ease-out forwards;
@@ -54,11 +131,11 @@ const HeroSection = () => {
         }
         .illustration-wrap {
           width: 100%;
-          max-width: 480px;
+          max-width: 520px;
         }
         @media (max-width: 640px) {
           .illustration-wrap {
-            max-width: 300px;
+            max-width: 320px;
           }
         }
       `}</style>
@@ -69,8 +146,10 @@ const HeroSection = () => {
       >
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
 
-          {/* RIGHT SIDE — Text content */}
-          <div className={`flex-1 flex flex-col ${isRTL ? "items-end text-right" : "items-start text-left"}`}>
+          {/* Text content */}
+          <div className={`flex-1 flex flex-col ${isRTL ? "items-start text-right" : "items-start text-left"}`}>
+
+            {/* TAG */}
             <div
               className="hero-fade-up flex items-center gap-3"
               style={{ animationDelay: "0.1s" }}
@@ -90,6 +169,7 @@ const HeroSection = () => {
               <div style={{ width: 28, height: 1, background: "#B8B4BC" }} />
             </div>
 
+            {/* NAME */}
             <div
               className="hero-fade-up"
               style={{ animationDelay: "0.25s", marginTop: 20 }}
@@ -120,6 +200,7 @@ const HeroSection = () => {
               </div>
             </div>
 
+            {/* DESC */}
             <p
               className="hero-fade-up"
               style={{
@@ -139,9 +220,36 @@ const HeroSection = () => {
               )}
             </p>
 
+            {/* TOOLS */}
+            <div
+              className="hero-fade-up flex flex-wrap gap-2"
+              style={{ animationDelay: "0.55s", marginTop: 20 }}
+            >
+              {tools.map((tool) => (
+                <div
+                  key={tool.name}
+                  className="flex items-center gap-1.5"
+                  style={{
+                    background: "rgba(255,255,255,0.75)",
+                    border: `1px solid ${tool.color}28`,
+                    borderRadius: 50,
+                    padding: "4px 12px 4px 7px",
+                    fontSize: 11,
+                    color: "#5A5564",
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 400,
+                  }}
+                >
+                  {tool.icon}
+                  <span>{tool.name}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* BUTTONS */}
             <div
               className="hero-fade-up flex items-center gap-3"
-              style={{ animationDelay: "0.65s", marginTop: 32 }}
+              style={{ animationDelay: "0.7s", marginTop: 28 }}
             >
               {isRTL ? (
                 <>
@@ -221,7 +329,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* LEFT SIDE — Stats Card */}
+          {/* Stats Card */}
           <div
             ref={statsRef}
             className="stats-card-enter w-full lg:w-auto"
@@ -242,140 +350,50 @@ const HeroSection = () => {
                   background: "linear-gradient(90deg, #8A9E7A, #C9A0A8, #8B7DB5, #7BBFB0, #E8B87A)",
                 }}
               />
-
               <div style={{ padding: "28px 28px 20px" }}>
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="text-center">
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 42,
-                        fontWeight: 600,
-                        color: "#1C1A28",
-                        lineHeight: 1.1,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 42, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
                       +{openRate}%
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "'Rubik', sans-serif",
-                        fontSize: 12,
-                        color: "#9A9499",
-                        marginTop: 4,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 12, color: "#9A9499", marginTop: 4 }}>
                       {t("מעורבות והצלחה", "Engagement & Success")}
                     </div>
                   </div>
                   <div className="text-center">
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 42,
-                        fontWeight: 600,
-                        color: "#1C1A28",
-                        lineHeight: 1.1,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 42, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
                       +{clientCount}
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "'Rubik', sans-serif",
-                        fontSize: 12,
-                        color: "#9A9499",
-                        marginTop: 4,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 12, color: "#9A9499", marginTop: 4 }}>
                       {t("לקוחות", "Clients")}
                     </div>
                   </div>
                 </div>
-
                 <div className="grid grid-cols-2 gap-4 mb-5">
-                  <div
-                    className="text-center"
-                    style={{
-                      background: "#F5F4F2",
-                      borderRadius: 14,
-                      padding: "20px 12px 16px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 38,
-                        fontWeight: 500,
-                        color: "#8A9E7A",
-                        lineHeight: 1.1,
-                      }}
-                    >
+                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 14, padding: "20px 12px 16px" }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 38, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
                       {journeyCount}
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "'Rubik', sans-serif",
-                        fontSize: 11,
-                        color: "#9A9499",
-                        marginTop: 6,
-                        lineHeight: 1.4,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, color: "#9A9499", marginTop: 6, lineHeight: 1.4 }}>
                       {t("מסעות לקוח ואוטומציות עסקיות", "Customer Journeys & Automations")}
                     </div>
                   </div>
-                  <div
-                    className="text-center"
-                    style={{
-                      background: "#F5F4F2",
-                      borderRadius: 14,
-                      padding: "20px 12px 16px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "'Poppins', sans-serif",
-                        fontSize: 38,
-                        fontWeight: 500,
-                        color: "#8A9E7A",
-                        lineHeight: 1.1,
-                      }}
-                    >
+                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 14, padding: "20px 12px 16px" }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 38, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
                       {yearsCount}
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "'Rubik', sans-serif",
-                        fontSize: 11,
-                        color: "#9A9499",
-                        marginTop: 6,
-                      }}
-                    >
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, color: "#9A9499", marginTop: 6 }}>
                       {t("שנות ניסיון", "Years Experience")}
                     </div>
                   </div>
                 </div>
-
                 <div className="flex flex-wrap justify-center gap-2">
                   {[
                     { he: "שיווק במייל", en: "Email Marketing", color: "#C9A0A8" },
                     { he: "אוטומציות AI", en: "AI Automations", color: "#8B7DB5" },
                     { he: "עיצוב", en: "Design", color: "#9A9499" },
                   ].map((tag, i) => (
-                    <span
-                      key={i}
-                      style={{
-                        fontFamily: "'Rubik', sans-serif",
-                        fontSize: 11,
-                        fontWeight: 400,
-                        color: tag.color,
-                        padding: "6px 16px",
-                        borderRadius: 50,
-                        border: `1px solid ${tag.color}33`,
-                        background: `${tag.color}0A`,
-                      }}
-                    >
+                    <span key={i} style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, fontWeight: 400, color: tag.color, padding: "6px 16px", borderRadius: 50, border: `1px solid ${tag.color}33`, background: `${tag.color}0A` }}>
                       {t(tag.he, tag.en)}
                     </span>
                   ))}
@@ -387,10 +405,7 @@ const HeroSection = () => {
         </div>
 
         {/* ILLUSTRATION */}
-        <div
-          className="stats-card-enter w-full flex justify-center"
-          style={{ marginTop: 40 }}
-        >
+        <div className="stats-card-enter w-full flex justify-center" style={{ marginTop: 48 }}>
           <div className="illustration-wrap">
             <HeroIllustration />
           </div>
