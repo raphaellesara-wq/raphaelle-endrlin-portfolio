@@ -9,15 +9,15 @@ const HeroIllustration = () => {
       style={{
         zIndex: 0,
         top: "50%",
-        transform: "translateY(-50%)",
+        transform: "translateY(-55%)",
         ...(isRTL
-          ? { left: "-2%", right: "auto" }
-          : { right: "-2%", left: "auto" }),
-        width: "50%",
-        maxWidth: 580,
-        opacity: 0.92,
-        maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+          ? { left: "0%", right: "auto" }
+          : { right: "0%", left: "auto" }),
+        width: "55%",
+        maxWidth: 640,
+        opacity: 0.9,
+        maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
       }}
     >
       <video
