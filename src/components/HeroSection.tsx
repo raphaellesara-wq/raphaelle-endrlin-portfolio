@@ -132,10 +132,13 @@ const HeroSection = () => {
       `}</style>
 
       <div
-        className="w-full flex flex-col"
+        className="w-full flex flex-col relative"
         style={{ maxWidth: 1100, padding: "0 24px" }}
       >
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
+        {/* Desktop illustration — absolute behind text */}
+        <HeroIllustration />
+
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 relative" style={{ zIndex: 10 }}>
 
           {/* Text content */}
           <div className={`flex-1 flex flex-col ${isRTL ? "items-start text-right" : "items-start text-left"}`}>
@@ -318,6 +321,30 @@ const HeroSection = () => {
                 </>
               )}
             </div>
+
+            {/* Mobile illustration — between buttons and stats */}
+            <div
+              className="block md:hidden mx-auto hero-fade-up"
+              style={{
+                maxWidth: "85%",
+                marginTop: 24,
+                marginBottom: 8,
+                animationDelay: "0.8s",
+                opacity: 0.92,
+                maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+              }}
+            >
+              <video
+                src="/hero-illustration.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
 
           {/* Stats Card */}
@@ -393,13 +420,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-        </div>
-
-        {/* ILLUSTRATION */}
-        <div className="stats-card-enter w-full flex justify-center" style={{ marginTop: 48 }}>
-          <div className="illustration-wrap">
-            <HeroIllustration />
-          </div>
         </div>
 
       </div>
