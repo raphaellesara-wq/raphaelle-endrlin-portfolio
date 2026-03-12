@@ -129,15 +129,6 @@ const HeroSection = () => {
           opacity: 0;
           animation: heroFadeUp 0.7s ease-out 0.3s forwards;
         }
-        .illustration-wrap {
-          width: 100%;
-          max-width: 520px;
-        }
-        @media (max-width: 640px) {
-          .illustration-wrap {
-            max-width: 320px;
-          }
-        }
       `}</style>
 
       <div
