@@ -138,10 +138,10 @@ const HeroSection = () => {
         {/* Desktop illustration — absolute behind text */}
         <HeroIllustration />
 
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 relative" style={{ zIndex: 10 }}>
+        {/* Text content — foreground z-10 */}
+        <div className="relative flex flex-col" style={{ zIndex: 10 }}>
 
-          {/* Text content */}
-          <div className={`flex-1 flex flex-col ${isRTL ? "items-start text-right" : "items-start text-left"}`}>
+          <div className={`flex flex-col ${isRTL ? "items-start text-right" : "items-start text-left"}`}>
 
             {/* TAG */}
             <div
@@ -204,7 +204,7 @@ const HeroSection = () => {
                 fontSize: 15,
                 lineHeight: 1.7,
                 color: "#5A5564",
-                maxWidth: 520,
+                maxWidth: 480,
                 marginTop: 24,
               }}
             >
@@ -217,7 +217,7 @@ const HeroSection = () => {
             {/* TOOLS */}
             <div
               className="hero-fade-up flex flex-wrap gap-2"
-              style={{ animationDelay: "0.55s", marginTop: 20 }}
+              style={{ animationDelay: "0.55s", marginTop: 20, maxWidth: 420 }}
             >
               {tools.map((tool) => (
                 <div
@@ -321,97 +321,97 @@ const HeroSection = () => {
                 </>
               )}
             </div>
-
-            {/* Mobile illustration — between buttons and stats */}
-            <div
-              className="block md:hidden mx-auto hero-fade-up"
-              style={{
-                maxWidth: "85%",
-                marginTop: 24,
-                marginBottom: 8,
-                animationDelay: "0.8s",
-                opacity: 0.92,
-                maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
-              }}
-            >
-              <video
-                src="/hero-illustration.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto"
-                style={{ objectFit: "contain" }}
-              />
-            </div>
           </div>
 
-          {/* Stats Card */}
+          {/* Mobile illustration — between buttons and stats */}
+          <div
+            className="block md:hidden mx-auto hero-fade-up"
+            style={{
+              maxWidth: "90%",
+              marginTop: 28,
+              marginBottom: 12,
+              animationDelay: "0.8s",
+              opacity: 0.92,
+              maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+            }}
+          >
+            <video
+              src="/hero-illustration.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto"
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+
+          {/* Stats Card — downsized, z-20 */}
           <div
             ref={statsRef}
-            className="stats-card-enter w-full lg:w-auto"
-            style={{ maxWidth: 420 }}
+            className={`stats-card-enter w-full md:w-auto ${isRTL ? "md:self-end" : "md:self-start"} self-center`}
+            style={{ maxWidth: 300, marginTop: 36, position: "relative", zIndex: 20 }}
           >
             <div
               style={{
                 background: "#fff",
-                borderRadius: 20,
+                borderRadius: 16,
                 border: "1px solid rgba(180,170,155,0.18)",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
+                boxShadow: "0 6px 28px rgba(0,0,0,0.05)",
                 overflow: "hidden",
               }}
             >
               <div
                 style={{
-                  height: 4,
+                  height: 3,
                   background: "linear-gradient(90deg, #8A9E7A, #C9A0A8, #8B7DB5, #7BBFB0, #E8B87A)",
                 }}
               />
-              <div style={{ padding: "28px 28px 20px" }}>
-                <div className="grid grid-cols-2 gap-4 mb-4">
+              <div style={{ padding: "18px 18px 14px" }}>
+                <div className="grid grid-cols-2 gap-3 mb-3">
                   <div className="text-center">
-                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 42, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
                       +{openRate}%
                     </div>
-                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 12, color: "#9A9499", marginTop: 4 }}>
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 9, color: "#9A9499", marginTop: 3 }}>
                       {t("מעורבות והצלחה", "Engagement & Success")}
                     </div>
                   </div>
                   <div className="text-center">
-                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 42, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 28, fontWeight: 600, color: "#1C1A28", lineHeight: 1.1 }}>
                       +{clientCount}
                     </div>
-                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 12, color: "#9A9499", marginTop: 4 }}>
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 9, color: "#9A9499", marginTop: 3 }}>
                       {t("לקוחות", "Clients")}
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4 mb-5">
-                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 14, padding: "20px 12px 16px" }}>
-                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 38, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 10, padding: "12px 8px 10px" }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 24, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
                       {journeyCount}
                     </div>
-                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, color: "#9A9499", marginTop: 6, lineHeight: 1.4 }}>
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 8, color: "#9A9499", marginTop: 4, lineHeight: 1.4 }}>
                       {t("מסעות לקוח ואוטומציות עסקיות", "Customer Journeys & Automations")}
                     </div>
                   </div>
-                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 14, padding: "20px 12px 16px" }}>
-                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 38, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
+                  <div className="text-center" style={{ background: "#F5F4F2", borderRadius: 10, padding: "12px 8px 10px" }}>
+                    <div style={{ fontFamily: "'Poppins', sans-serif", fontSize: 24, fontWeight: 500, color: "#8A9E7A", lineHeight: 1.1 }}>
                       {yearsCount}
                     </div>
-                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, color: "#9A9499", marginTop: 6 }}>
+                    <div style={{ fontFamily: "'Rubik', sans-serif", fontSize: 8, color: "#9A9499", marginTop: 4 }}>
                       {t("שנות ניסיון", "Years Experience")}
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap justify-center gap-1.5">
                   {[
                     { he: "שיווק במייל", en: "Email Marketing", color: "#C9A0A8" },
                     { he: "אוטומציות AI", en: "AI Automations", color: "#8B7DB5" },
                     { he: "עיצוב", en: "Design", color: "#9A9499" },
                   ].map((tag, i) => (
-                    <span key={i} style={{ fontFamily: "'Rubik', sans-serif", fontSize: 11, fontWeight: 400, color: tag.color, padding: "6px 16px", borderRadius: 50, border: `1px solid ${tag.color}33`, background: `${tag.color}0A` }}>
+                    <span key={i} style={{ fontFamily: "'Rubik', sans-serif", fontSize: 9, fontWeight: 400, color: tag.color, padding: "4px 10px", borderRadius: 50, border: `1px solid ${tag.color}33`, background: `${tag.color}0A` }}>
                       {t(tag.he, tag.en)}
                     </span>
                   ))}
