@@ -4,7 +4,7 @@ import HeroIllustration from "@/components/HeroIllustration";
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  // הגדרת הנתונים - באנגלית הניסיון מופיע ראשון
+  // הגדרת נתונים נפרדת לחלוטין כדי להבטיח סדר ועיצוב שונה
   const stats = isRTL 
     ? [
         { label: "לקוחות", value: "30+" },
@@ -14,9 +14,9 @@ const HeroSection = () => {
     : [
         { 
           label: (
-            <>
+            <span className="block">
               Years <br /> Experience
-            </>
+            </span>
           ), 
           value: "3" 
         },
@@ -50,16 +50,16 @@ const HeroSection = () => {
           <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות */}
+              {/* סטרייפ סטטיסטיקות מעודכן */}
               <div className={`flex gap-8 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-start gap-0">
                     <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    <span className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-1.5 leading-tight">
+                    <div className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-1.5 leading-[1.2]">
                       {stat.label}
-                    </span>
+                    </div>
                   </div>
                 ))}
               </div>
