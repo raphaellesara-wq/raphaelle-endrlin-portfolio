@@ -45,11 +45,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-53% */}
+          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-57% */}
           <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
-                ${isRTL ? 'md:-mr-[53%]' : 'md:-ml-[53%]'} 
+                ${isRTL ? 'md:-mr-[57%]' : 'md:-ml-[57%]'} 
               `}
             >
                <HeroIllustration />
