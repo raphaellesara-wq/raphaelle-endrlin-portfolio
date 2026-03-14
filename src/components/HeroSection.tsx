@@ -4,11 +4,11 @@ import HeroIllustration from "@/components/HeroIllustration";
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  // הגדרת נתונים עם הזזה ויזואלית בלבד ללקוחות באנגלית
+  // הגדרת נתונים מעודכנת לשני הצדדים
   const stats = isRTL 
     ? [
-        { label: <>לקוחות <br /> &nbsp;</>, value: "30+" },
         { label: <>שנות <br /> ניסיון</>, value: "3" },
+        { label: <>לקוחות <br /> &nbsp;</>, value: "30+" },
         { label: <>אוטומציות <br /> &nbsp;</>, value: "40+" },
       ]
     : [
@@ -16,7 +16,6 @@ const HeroSection = () => {
         { 
           label: <>Clients <br /> &nbsp;</>, 
           value: "30+",
-          // שימוש ב-relative מבטיח שהרווח (Gap) בין העמודות לא משתנה
           className: "relative left-[-20px]" 
         },
         { label: <>Automations <br /> &nbsp;</>, value: "40+" },
@@ -48,7 +47,7 @@ const HeroSection = () => {
           <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות - רווחים שווים (gap-8) */}
+              {/* סטרייפ סטטיסטיקות - עכשיו מסודר נכון בעברית */}
               <div className={`flex gap-8 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div 
@@ -103,14 +102,3 @@ const HeroSection = () => {
       <style>{`
         @keyframes heroFadeUp {
           from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-fade-up {
-          animation: heroFadeUp 0.8s ease-out forwards;
-        }
-      `}</style>
-    </section>
-  );
-};
-
-export default HeroSection;
