@@ -29,20 +29,20 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - טקסט (ימין) > אילוסטרציה (שמאל) */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[7%] mb-20">
+        {/* גוף ההירו */}
+        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[5%] mb-20">
           
-          {/* צד ימין: הטקסט החדש והמתוקן */}
-          <div className="w-full md:w-[45%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
-            <div className="text-right w-full max-w-lg">
+          {/* צד ימין: טקסט שיווקי - Extra Light ללא הדגשות */}
+          <div className="w-full md:w-[50%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
+            <div className="text-right w-full max-w-xl">
               <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
               <p 
-                className="text-2xl md:text-4xl lg:text-5xl text-slate-800 leading-[1.3] tracking-tight font-thin"
+                className="text-2xl md:text-3xl lg:text-4xl text-slate-800 leading-[1.4] tracking-tight font-thin"
                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
               >
                 {isRTL ? (
                   <>
-                    מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות <span className="whitespace-nowrap">לקוח.</span>
+                    מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap italic-none font-thin" style={{ fontWeight: 200 }}>ומסעות לקוח.</span>
                   </>
                 ) : (
                   "End-to-End Growth Engine: Website Design & Development, Business Automation, and Customer Journeys."
@@ -51,8 +51,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד שמאל: אילוסטרציה (קירוב 57%, סקייל גדול) */}
-          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+          {/* צד שמאל: אילוסטרציה - קירוב 57% */}
+          <div className="w-full md:w-[40%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
                 ${isRTL ? 'md:-mr-[57%]' : 'md:-ml-[57%]'} 
