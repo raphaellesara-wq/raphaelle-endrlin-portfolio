@@ -71,11 +71,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד אילוסטרציה - הגדלה של 40% (scale-[3.1]) */}
+          {/* צד אילוסטרציה - קירוב מוגבר (92% בעברית, 72% באנגלית) */}
           <div className="w-full md:w-[35%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[2.5] md:scale-[2.8] lg:scale-[3.1] transition-all duration-500
-                ${isRTL ? 'md:-mr-[77%]' : 'md:-ml-[57%]'} 
+                ${isRTL ? 'md:-mr-[92%]' : 'md:-ml-[72%]'} 
               `}
             >
                <HeroIllustration />
