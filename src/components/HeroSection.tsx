@@ -32,16 +32,20 @@ const HeroSection = () => {
         {/* גוף ההירו */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[5%] mb-20">
           
-          {/* צד טקסט + סטטיסטיקות מעל */}
+          {/* צד טקסט + סטטיסטיקות מוגדלות */}
           <div className={`w-full md:w-[50%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות חדש - מעל הקו */}
-              <div className={`flex gap-6 mb-4 ${isRTL ? 'justify-start flex-row' : 'justify-start flex-row'}`}>
+              {/* סטרייפ סטטיסטיקות - מוגדל ב-45% */}
+              <div className={`flex gap-8 mb-6 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
-                  <div key={index} className="flex items-baseline gap-1">
-                    <span className="text-xl md:text-2xl font-bold text-[#C9A0A8]">{stat.value}</span>
-                    <span className="text-[10px] md:text-xs text-black font-medium uppercase tracking-wider">{stat.label}</span>
+                  <div key={index} className="flex flex-col items-start gap-0">
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C9A0A8] leading-none">
+                      {stat.value}
+                    </span>
+                    <span className="text-xs md:text-sm lg:text-base text-black font-medium uppercase tracking-wider mt-1">
+                      {stat.label}
+                    </span>
                   </div>
                 ))}
               </div>
