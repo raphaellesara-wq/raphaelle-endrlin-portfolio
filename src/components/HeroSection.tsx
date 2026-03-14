@@ -36,7 +36,7 @@ const HeroSection = () => {
           <div className={`w-full md:w-[55%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-2xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות - הגדלה נוספת של 45% */}
+              {/* סטרייפ סטטיסטיקות */}
               <div className={`flex gap-10 md:gap-14 mb-8 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-start gap-0">
@@ -71,10 +71,10 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד אילוסטרציה */}
+          {/* צד אילוסטרציה - הגדלה של 40% (scale-[3.1]) */}
           <div className="w-full md:w-[35%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
-              className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
+              className={`relative w-full aspect-square transform scale-[2.5] md:scale-[2.8] lg:scale-[3.1] transition-all duration-500
                 ${isRTL ? 'md:-mr-[77%]' : 'md:-ml-[57%]'} 
               `}
             >
