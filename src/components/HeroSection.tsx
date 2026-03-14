@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* כותרת השם - ממורכזת למעלה */}
+        {/* כותרת השם - למעלה במרכז */}
         <div className="w-full text-center mb-16 md:mb-24 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
@@ -29,15 +29,21 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* פריסת ההירו: אילוסטרציה בשמאל | טקסט בימין */}
-        {/* השתמשתי ב-flex-row-reverse כברירת מחדל לעברית כדי לכפות את הסדר שביקשת */}
-        <div className="flex flex-col md:flex-row-reverse items-center justify-center w-full max-w-6xl mx-auto gap-8 lg:gap-12 mb-20">
+        {/* גוף ההירו - חלוקה קשיחה ל-2 עמודות נפרדות */}
+        <div className={`flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto gap-8 mb-20`}>
           
-          {/* טור ימני: טקסט שיווקי */}
-          <div className="w-full md:w-1/2 flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
-            <div className="text-right max-w-lg">
-              <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
-              <p className="text-2xl md:text-3xl lg:text-4xl text-slate-900 font-bold leading-[1.2] tracking-tight">
+          {/* 1. צד שמאל: אילוסטרציה (מוגדלת ב-50% לפחות) */}
+          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10 order-2 md:order-1">
+            <div className="relative w-full aspect-square transform scale-[1.5] md:scale-[1.8] lg:scale-[2.1]">
+               <HeroIllustration />
+            </div>
+          </div>
+
+          {/* 2. צד ימין: טקסט שיווקי (מיושר לימין בעברית) */}
+          <div className="w-full md:w-[45%] flex flex-col hero-fade-up z-20 order-1 md:order-2">
+            <div className={`${isRTL ? 'text-right' : 'text-left'} w-full`}>
+              <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
+              <p className="text-2xl md:text-4xl lg:text-5xl text-slate-900 font-bold leading-[1.1] tracking-tight">
                 {t(
                   "מנוע צמיחה מקצה לקצה- עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח",
                   "End-to-End Growth Engine- Website Design & Development, Business Automation, and Customer Journeys"
@@ -46,26 +52,15 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* טור שמאלי: אילוסטרציה (מוגדלת ב-50% ומעלה) */}
-          <div className="w-full md:w-1/2 flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
-            <div className="relative w-full max-w-[550px] aspect-square transform scale-150 lg:scale-[1.7] transition-transform">
-               <HeroIllustration />
-            </div>
-          </div>
-
         </div>
 
-        {/* סקשן סטטיסטיקות תחתון */}
+        {/* סטטיסטיקות תחתונות */}
         <div className="w-full mt-auto pt-10 border-t border-slate-100 hero-fade-up z-10" style={{ animationDelay: "0.5s" }}>
           <div className="grid grid-cols-3 gap-4 md:gap-12 w-full max-w-5xl mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <span className="text-5xl md:text-7xl font-black text-[#C9A0A8] leading-none mb-2">
-                  {stat.value}
-                </span>
-                <span className="text-[10px] md:text-sm text-black uppercase tracking-[0.2em] font-bold">
-                  {stat.label}
-                </span>
+                <span className="text-5xl md:text-7xl font-black text-[#C9A0A8] leading-none mb-2">{stat.value}</span>
+                <span className="text-[10px] md:text-sm text-black uppercase tracking-[0.2em] font-bold">{stat.label}</span>
               </div>
             ))}
           </div>
