@@ -5,16 +5,16 @@ const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
   const stats = [
-    { label: t("לקוחות", "Clients"), value: "20+" },
-    { label: t("שנות ניסיון", "Years Experience"), value: "3" },
-    { label: t("אוטומציות", "Automations"), value: "40+" },
-  ];
+  { label: t("לקוחות", "Clients"), value: "20+" },
+  { label: t("שנות ניסיון", "Years Experience"), value: "3" },
+  { label: t("אוטומציות", "Automations"), value: "40+" }];
+
 
   return (
     <section
       className="relative min-h-screen flex flex-col items-center pt-20 pb-12 overflow-hidden bg-white"
-      dir={isRTL ? "rtl" : "ltr"}
-    >
+      dir={isRTL ? "rtl" : "ltr"}>
+      
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
         {/* כותרת השם */}
@@ -38,46 +38,46 @@ const HeroSection = () => {
               
               {/* סטרייפ סטטיסטיקות */}
               <div className={`flex gap-10 md:gap-14 mb-8 ${isRTL ? 'flex-row' : 'flex-row'}`}>
-                {stats.map((stat, index) => (
-                  <div key={index} className="flex flex-col items-start gap-0">
-                    <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
+                {stats.map((stat, index) =>
+                <div key={index} className="flex flex-col items-start gap-0">
+                    <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#C9A0A8] leading-none tracking-tighter text-left">
                       {stat.value}
                     </span>
                     <span className="text-sm md:text-base lg:text-lg text-black font-semibold uppercase tracking-[0.15em] mt-2">
                       {stat.label}
                     </span>
                   </div>
-                ))}
+                )}
               </div>
 
               {/* הקו הוורוד */}
               <div className={`w-16 h-1.5 bg-[#C9A0A8] mb-8 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
               
               {/* הטקסט השיווקי */}
-              <p 
+              <p
                 className="text-2xl md:text-3xl lg:text-4xl text-slate-800 leading-[1.3] tracking-tight font-thin"
-                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
-              >
-                {isRTL ? (
-                  <>
+                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+                
+                {isRTL ?
+                <>
                     מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap" style={{ fontWeight: 200 }}>ומסעות לקוח.</span>
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap" style={{ fontWeight: 200 }}>Journeys.</span>
                   </>
-                )}
+                }
               </p>
             </div>
           </div>
 
           {/* צד אילוסטרציה - קירוב מוגבר (92% בעברית, 72% באנגלית) */}
           <div className="w-full md:w-[35%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
-            <div 
+            <div
               className={`relative w-full aspect-square transform scale-[2.5] md:scale-[2.8] lg:scale-[3.1] transition-all duration-500
                 ${isRTL ? 'md:-mr-[92%]' : 'md:-ml-[72%]'} 
-              `}
-            >
+              `}>
+              
                <HeroIllustration />
             </div>
           </div>
@@ -94,8 +94,8 @@ const HeroSection = () => {
           animation: heroFadeUp 0.8s ease-out forwards;
         }
       `}</style>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
