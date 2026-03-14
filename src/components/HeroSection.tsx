@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import HeroIllustration from "@/components/HeroIllustration";
-
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
@@ -17,7 +16,7 @@ const HeroSection = () => {
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* כותרת השם - ממורכזת למעלה */}
+        {/* כותרת השם */}
         <div className="w-full text-center mb-16 md:mb-24 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
@@ -32,11 +31,14 @@ const HeroSection = () => {
         {/* גוף ההירו - טקסט (ימין) > אילוסטרציה (שמאל) */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[7%] mb-20">
           
-          {/* צד ימין: טקסט שיווקי - מעודכן למשקל דק (font-light) */}
+          {/* צד ימין: טקסט שיווקי - דק מאוד (font-thin + fontWeight 200) */}
           <div className="w-full md:w-[45%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
             <div className="text-right w-full max-w-lg">
               <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
-              <p className="text-2xl md:text-4xl lg:text-5xl text-slate-900 font-light leading-[1.2] tracking-tight">
+              <p 
+                className="text-2xl md:text-4xl lg:text-5xl text-slate-800 leading-[1.3] tracking-tight font-thin"
+                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
+              >
                 {t(
                   "מנוע צמיחה מקצה לקצה- עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח",
                   "End-to-End Growth Engine- Website Design & Development, Business Automation, and Customer Journeys"
