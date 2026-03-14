@@ -45,8 +45,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-45% מבלי לעלות על הטקסט */}
-          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-48% מבלי לעלות על הטקסט */}
+          <div className="w-full md:w-[48%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
                 ${isRTL ? 'md:-mr-[45%]' : 'md:-ml-[45%]'} 
