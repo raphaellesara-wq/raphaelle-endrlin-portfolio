@@ -29,10 +29,10 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - הפרדה מוחלטת בין השפות */}
+        {/* גוף ההירו */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[5%] mb-20">
           
-          {/* צד טקסט */}
+          {/* צד טקסט - ימין בעברית, שמאל באנגלית */}
           <div className={`w-full md:w-[50%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
@@ -53,11 +53,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד אילוסטרציה - מחזירה את הקירוב המדויק */}
+          {/* צד אילוסטרציה - קירוב מוגבר ב-10% נוספים לעברית (67%) */}
           <div className="w-full md:w-[40%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
-                ${isRTL ? 'md:-mr-[57%]' : 'md:-ml-[57%]'} 
+                ${isRTL ? 'md:-mr-[67%]' : 'md:-ml-[57%]'} 
               `}
             >
                <HeroIllustration />
