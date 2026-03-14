@@ -17,8 +17,8 @@ const HeroSection = () => {
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* כותרת השם - מופרדת למעלה */}
-        <div className="w-full text-center mb-12 md:mb-16 z-20 hero-fade-up">
+        {/* כותרת השם - תמיד במרכז למעלה, מופרדת מהתוכן */}
+        <div className="w-full text-center mb-16 md:mb-24 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
               {t("רפאל", "Raphaëlle")}
@@ -29,14 +29,15 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - חלוקה ל-2 חלקים נפרדים עם מרווח 5% */}
-        <div className={`flex flex-col ${isRTL ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-between w-full gap-[5%] mb-20`}>
+        {/* גוף ההירו - חלוקה ל-2 חלקים: ימין-מרכז ושמאל-מרכז */}
+        {/* ה-max-w-6xl הוא זה שדוחף אותם מהקצוות לכיוון המרכז */}
+        <div className={`flex flex-col ${isRTL ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center w-full max-w-6xl mx-auto gap-12 lg:gap-24 mb-24`}>
           
-          {/* חלק 1: טקסט שיווקי - תופס בדיוק 47.5% מהרוחב */}
-          <div className="w-full md:w-[47.5%] hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
-            <div className={`max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+          {/* צד הטקסט (בעברית: ימין-מרכז) */}
+          <div className="w-full md:w-[45%] flex flex-col hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
+            <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
               <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
-              <p className="text-2xl md:text-3xl lg:text-4xl text-slate-900 font-semibold leading-[1.1] tracking-tight">
+              <p className="text-2xl md:text-4xl lg:text-5xl text-slate-900 font-bold leading-[1.1] tracking-tight">
                 {t(
                   "מנוע צמיחה מקצה לקצה- עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח",
                   "End-to-End Growth Engine- Website Design & Development, Business Automation, and Customer Journeys"
@@ -45,18 +46,17 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* חלק 2: אילוסטרציה - תופס בדיוק 47.5% מהרוחב, מוגדלת ב-50% */}
-          <div className="w-full md:w-[47.5%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
-            <div className={`relative w-full max-w-[500px] aspect-square transform scale-[1.5] transition-transform duration-500
-              ${isRTL ? 'md:translate-x-[-10%]' : 'md:translate-x-[10%]'} 
-            `}>
+          {/* צד האילוסטרציה (בעברית: שמאל-מרכז) */}
+          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+            {/* ה-scale הוגדל ל-2.0 (100% יותר מהמקור) כדי להבטיח נוכחות חזקה */}
+            <div className="relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-transform duration-500">
                <HeroIllustration />
             </div>
           </div>
 
         </div>
 
-        {/* סקשן סטטיסטיקות */}
+        {/* סקשן סטטיסטיקות תחתון */}
         <div className="w-full mt-auto pt-10 border-t border-slate-100 hero-fade-up z-10" style={{ animationDelay: "0.5s" }}>
           <div className="grid grid-cols-3 gap-4 md:gap-12 w-full max-w-5xl mx-auto">
             {stats.map((stat, index) => (
