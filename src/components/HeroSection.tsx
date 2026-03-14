@@ -1,29 +1,20 @@
-import { useLanguage } from "@/contexts/LanguageCoimport { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import HeroIllustration from "@/components/HeroIllustration";
 
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  // הגדרת נתונים נפרדת לחלוטין כדי להבטיח סדר ועיצוב שונה
+  // מבנה נתונים שמבטיח שכל תווית תמיד תתפוס שתי שורות גובה לאחידות מלאה
   const stats = isRTL 
     ? [
-        { label: "לקוחות", value: "30+" },
-        { label: "שנות ניסיון", value: "3" },
-        { label: "אוטומציות", value: "40+" },
+        { label: <>לקוחות <br /> &nbsp;</>, value: "30+" },
+        { label: <>שנות <br /> ניסיון</>, value: "3" },
+        { label: <>אוטומציות <br /> &nbsp;</>, value: "40+" },
       ]
     : [
-        { 
-          // תיקון: יצירת דיב Flex פנימי לשמירה על עובי הגופן בשתי שורות
-          label: (
-            <div className="flex flex-col">
-              <span>Years</span>
-              <span>Experience</span>
-            </div>
-          ), 
-          value: "3" 
-        },
-        { label: "Clients", value: "30+" },
-        { label: "Automations", value: "40+" },
+        { label: <>Years <br /> Experience</>, value: "3" },
+        { label: <>Clients <br /> &nbsp;</>, value: "30+" },
+        { label: <>Automations <br /> &nbsp;</>, value: "40+" },
       ];
 
   return (
@@ -52,15 +43,14 @@ const HeroSection = () => {
           <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות */}
+              {/* סטרייפ סטטיסטיקות - אחידות מלאה בגופן */}
               <div className={`flex gap-8 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-start gap-0">
                     <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    {/* הטקסט מתחת למספר - עכשיו מודגש בצורה אחידה */}
-                    <div className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-1.5 leading-tight">
+                    <div className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2] min-h-[2.4em]">
                       {stat.label}
                     </div>
                   </div>
@@ -115,4 +105,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default HeroSection;export default HeroSection;
