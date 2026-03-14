@@ -29,10 +29,10 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - סדר קשיח: טקסט (ימין) > אילוסטרציה (שמאל) */}
+        {/* גוף ההירו - טקסט (ימין) > אילוסטרציה (שמאל) */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[7%] mb-20">
           
-          {/* צד ימין: טקסט שיווקי - מיושר לימין וצמוד לטור שלו */}
+          {/* צד ימין: טקסט שיווקי */}
           <div className="w-full md:w-[45%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
             <div className="text-right w-full max-w-lg">
               <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
@@ -45,11 +45,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-48% מבלי לעלות על הטקסט */}
-          <div className="w-full md:w-[48%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-48% (עוד 3% מהפעם הקודמת) */}
+          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
-                ${isRTL ? 'md:-mr-[45%]' : 'md:-ml-[45%]'} 
+                ${isRTL ? 'md:-mr-[48%]' : 'md:-ml-[48%]'} 
               `}
             >
                <HeroIllustration />
@@ -58,7 +58,7 @@ const HeroSection = () => {
 
         </div>
 
-        {/* סקשן סטטיסטיקות תחתון */}
+        {/* סטטיסטיקות תחתונות */}
         <div className="w-full mt-auto pt-10 border-t border-slate-100 hero-fade-up z-10" style={{ animationDelay: "0.5s" }}>
           <div className="grid grid-cols-3 gap-4 md:gap-12 w-full max-w-5xl mx-auto">
             {stats.map((stat, index) => (
