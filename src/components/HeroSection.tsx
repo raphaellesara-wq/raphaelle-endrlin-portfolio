@@ -32,18 +32,18 @@ const HeroSection = () => {
         {/* גוף ההירו */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[5%] mb-20">
           
-          {/* צד טקסט + סטטיסטיקות מוגדלות */}
-          <div className={`w-full md:w-[50%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
-            <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+          {/* צד טקסט + סטטיסטיקות ענקיות */}
+          <div className={`w-full md:w-[55%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
+            <div className={`w-full max-w-2xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות - מוגדל ב-45% */}
-              <div className={`flex gap-8 mb-6 ${isRTL ? 'flex-row' : 'flex-row'}`}>
+              {/* סטרייפ סטטיסטיקות - הגדלה נוספת של 45% */}
+              <div className={`flex gap-10 md:gap-14 mb-8 ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-start gap-0">
-                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#C9A0A8] leading-none">
+                    <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    <span className="text-xs md:text-sm lg:text-base text-black font-medium uppercase tracking-wider mt-1">
+                    <span className="text-sm md:text-base lg:text-lg text-black font-semibold uppercase tracking-[0.15em] mt-2">
                       {stat.label}
                     </span>
                   </div>
@@ -51,11 +51,11 @@ const HeroSection = () => {
               </div>
 
               {/* הקו הוורוד */}
-              <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
+              <div className={`w-16 h-1.5 bg-[#C9A0A8] mb-8 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
               
               {/* הטקסט השיווקי */}
               <p 
-                className="text-2xl md:text-3xl lg:text-4xl text-slate-800 leading-[1.4] tracking-tight font-thin"
+                className="text-2xl md:text-3xl lg:text-4xl text-slate-800 leading-[1.3] tracking-tight font-thin"
                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
               >
                 {isRTL ? (
@@ -72,7 +72,7 @@ const HeroSection = () => {
           </div>
 
           {/* צד אילוסטרציה */}
-          <div className="w-full md:w-[40%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+          <div className="w-full md:w-[35%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
                 ${isRTL ? 'md:-mr-[77%]' : 'md:-ml-[57%]'} 
