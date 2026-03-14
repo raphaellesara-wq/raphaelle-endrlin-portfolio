@@ -5,21 +5,21 @@ const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
   const stats = [
-    { label: t("לקוחות", "Clients"), value: "+20" },
+    { label: t("אוטומציות פעילות", "Active Automations"), value: "40+" },
     { label: t("שנות ניסיון", "Years Experience"), value: "3" },
-    { label: t("אוטומציות פעילות", "Active Automations"), value: "+40" },
+    { label: t("לקוחות", "Clients"), value: "20+" },
   ];
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center pt-20 pb-16 overflow-hidden"
+      className="relative min-h-[90vh] flex flex-col items-center pt-24 pb-16 overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* 1. שם מרכזי - רפאל (Secular One Bold) אנדרלין (Rubik Light) */}
-        <div className="w-full text-center mb-10 hero-fade-up">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight">
+        {/* 1. שם - ממורכז (השארתי את מה שעבד) */}
+        <div className="w-full text-center mb-16 md:mb-20 hero-fade-up">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span 
               className="text-[#1C1A28] font-bold inline-block"
               style={{ fontFamily: "'Secular One', sans-serif" }}
@@ -27,7 +27,7 @@ const HeroSection = () => {
               {t("רפאל", "Raphaëlle")}
             </span>
             <span 
-              className="text-[#C9A0A8] font-light inline-block mr-4 md:mr-6"
+              className="text-[#C9A0A8] font-light inline-block"
               style={{ fontFamily: "'Rubik', sans-serif" }}
             >
               {t("אנדרלין", "Enderlin")}
@@ -35,13 +35,15 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* 2. תוכן מרכזי - חלוקה לטורים ללא רווחים מיותרים */}
-        <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-0">
+        {/* 2. גוף ההירו - הגדלתי את הכל! */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20 w-full mb-20 md:mb-28">
           
-          {/* טקסט שיווקי - צד ימין */}
-          <div className="flex-1 text-right hero-fade-up order-2 md:order-1" style={{ animationDelay: "0.2s" }}>
-            <div className="max-w-xl md:pr-12">
-              <p className="text-xl md:text-2xl lg:text-3xl text-slate-700 leading-tight font-medium">
+          {/* טקסט שיווקי - צד ימין - מוגדל ומעוצב */}
+          <div className="flex-1 text-right hero-fade-up max-w-xl md:scale-105" style={{ animationDelay: "0.2s" }}>
+            <div className="relative">
+              {/* קו דקורטיבי קטן מעל */}
+              <div className="w-16 h-1 bg-[#C9A0A8] mb-6 mr-auto md:ml-0 md:mr-0 ml-auto" />
+              <p className="text-2xl md:text-3xl lg:text-4xl text-slate-900 leading-[1.2] font-semibold tracking-tight">
                 {t(
                   "מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.",
                   "End-to-End Growth Engine: Website Design & Development, Business Automation, and Customer Journeys."
@@ -50,35 +52,41 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* אילוסטרציה גדולה מאוד - צד שמאל */}
-          <div className="flex-1 w-full hero-fade-up order-1 md:order-2" style={{ animationDelay: "0.3s" }}>
-            <div className="relative w-full max-w-lg md:max-w-2xl lg:max-w-3xl aspect-square transform md:scale-110 lg:scale-125">
+          {/* אילוסטרציה ענקית - צד שמאל */}
+          <div className="flex-1 w-full max-w-xl lg:max-w-3xl flex justify-center hero-fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="relative w-full aspect-square md:scale-125 lg:scale-150 transform origin-center">
                <HeroIllustration />
             </div>
           </div>
         </div>
 
-        {/* 3. שורת ביצועים - צבעים נייטרליים */}
+        {/* 3. סטרייפ ביצועים - מוגדל וממורכז בצבע אנדרלין */}
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-auto pt-12 border-t border-slate-100 hero-fade-up"
+          className="w-full mt-auto pt-16 pb-6 border-t border-slate-100 hero-fade-up"
           style={{ animationDelay: "0.5s" }}
         >
-          {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center md:items-start">
-              <span className="text-5xl font-bold text-slate-800 mb-1">
-                {stat.value}
-              </span>
-              <span className="text-xs text-slate-400 uppercase tracking-widest font-medium">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <div key={index} className="flex flex-col items-center text-center">
+                {/* מספר ענק בצבע Dusty Rose (#C9A0A8) */}
+                <span className="text-6xl md:text-7xl font-extrabold text-[#C9A0A8] mb-2 leading-none tracking-tighter">
+                  {stat.value}
+                </span>
+                {/* תווית בצבע Dusty Rose קצת שקוף */}
+                <span className="text-xs md:text-sm text-[#C9A0A8]/80 uppercase tracking-[0.3em] font-medium">
+                  {stat.label}
+                </span>
+                {/* קו דקורטיבי קטן */}
+                <div className="w-8 h-[2px] bg-[#C9A0A8]/30 mt-4" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <style>{`
         @keyframes heroFadeUp {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
         .hero-fade-up {
