@@ -7,7 +7,7 @@ const HeroSection = () => {
   const stats = [
     { label: t("לקוחות", "Clients"), value: "20+" },
     { label: t("שנות ניסיון", "Years Experience"), value: "3" },
-    { label: t("אוטומציות פעילות", "Active Automations"), value: "40+" },
+    { label: t("אוטומציות", "Automations"), value: "40+" },
   ];
 
   return (
@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* שם - תמיד במרכז */}
+        {/* כותרת השם */}
         <div className="w-full text-center mb-16 md:mb-24 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
@@ -32,10 +32,24 @@ const HeroSection = () => {
         {/* גוף ההירו */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[5%] mb-20">
           
-          {/* צד טקסט - ימין בעברית, שמאל באנגלית */}
+          {/* צד טקסט + סטטיסטיקות מעל */}
           <div className={`w-full md:w-[50%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+              
+              {/* סטרייפ סטטיסטיקות חדש - מעל הקו */}
+              <div className={`flex gap-6 mb-4 ${isRTL ? 'justify-start flex-row' : 'justify-start flex-row'}`}>
+                {stats.map((stat, index) => (
+                  <div key={index} className="flex items-baseline gap-1">
+                    <span className="text-xl md:text-2xl font-bold text-[#C9A0A8]">{stat.value}</span>
+                    <span className="text-[10px] md:text-xs text-black font-medium uppercase tracking-wider">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* הקו הוורוד */}
               <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
+              
+              {/* הטקסט השיווקי */}
               <p 
                 className="text-2xl md:text-3xl lg:text-4xl text-slate-800 leading-[1.4] tracking-tight font-thin"
                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
@@ -53,7 +67,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד אילוסטרציה - קירוב בעברית הועלה ל-77% */}
+          {/* צד אילוסטרציה */}
           <div className="w-full md:w-[40%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
@@ -64,18 +78,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-        </div>
-
-        {/* סטטיסטיקות */}
-        <div className="w-full mt-auto pt-10 border-t border-slate-100 hero-fade-up z-10" style={{ animationDelay: "0.5s" }}>
-          <div className="grid grid-cols-3 gap-4 md:gap-12 w-full max-w-5xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                <span className="text-5xl md:text-7xl font-black text-[#C9A0A8] leading-none mb-2">{stat.value}</span>
-                <span className="text-[10px] md:text-sm text-black uppercase tracking-[0.2em] font-bold">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
