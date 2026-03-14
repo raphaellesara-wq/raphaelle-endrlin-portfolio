@@ -4,7 +4,7 @@ import HeroIllustration from "@/components/HeroIllustration";
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  // מבנה נתונים שמבטיח שכל תווית תמיד תתפוס שתי שורות גובה לאחידות מלאה
+  // הגדרת נתונים עם הזזה ויזואלית בלבד ללקוחות באנגלית
   const stats = isRTL 
     ? [
         { label: <>לקוחות <br /> &nbsp;</>, value: "30+" },
@@ -13,7 +13,12 @@ const HeroSection = () => {
       ]
     : [
         { label: <>Years <br /> Experience</>, value: "3" },
-        { label: <>Clients <br /> &nbsp;</>, value: "30+" },
+        { 
+          label: <>Clients <br /> &nbsp;</>, 
+          value: "30+",
+          // שימוש ב-relative מבטיח שהרווח (Gap) בין העמודות לא משתנה
+          className: "relative left-[-20px]" 
+        },
         { label: <>Automations <br /> &nbsp;</>, value: "40+" },
       ];
 
@@ -43,10 +48,13 @@ const HeroSection = () => {
           <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
-              {/* סטרייפ סטטיסטיקות - אחידות מלאה בגופן */}
+              {/* סטרייפ סטטיסטיקות - רווחים שווים (gap-8) */}
               <div className={`flex gap-8 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
-                  <div key={index} className="flex flex-col items-start gap-0">
+                  <div 
+                    key={index} 
+                    className={`flex flex-col items-start gap-0 ${stat.className || ""}`}
+                  >
                     <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
