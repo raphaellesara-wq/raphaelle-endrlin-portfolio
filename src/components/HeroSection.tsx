@@ -29,12 +29,11 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - חלוקה קשיחה לפי הסדר שביקשת: טקסט > אילוסטרציה */}
-        {/* ה-flex-row מבטיח שהטקסט יהיה בימין והאיור משמאלו בעברית */}
+        {/* גוף ההירו - טקסט (ימין) > אילוסטרציה (שמאל) */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-[7%] mb-20">
           
-          {/* 1. צד ימין: טקסט שיווקי */}
-          <div className="w-full md:w-[46.5%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
+          {/* צד ימין: טקסט שיווקי */}
+          <div className="w-full md:w-[45%] flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
             <div className="text-right w-full max-w-lg">
               <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
               <p className="text-2xl md:text-4xl lg:text-5xl text-slate-900 font-bold leading-[1.1] tracking-tight">
@@ -46,9 +45,13 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* 2. צד שמאל: אילוסטרציה (שומר על הגודל הנוכחי) */}
-          <div className="w-full md:w-[46.5%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
-            <div className="relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2]">
+          {/* צד שמאל: אילוסטרציה - מקורבת למרכז ב-30% */}
+          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+            <div 
+              className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
+                ${isRTL ? 'md:-mr-[15%]' : 'md:-ml-[15%]'} 
+              `}
+            >
                <HeroIllustration />
             </div>
           </div>
