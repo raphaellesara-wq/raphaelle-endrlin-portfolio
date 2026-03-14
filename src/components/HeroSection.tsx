@@ -4,11 +4,25 @@ import HeroIllustration from "@/components/HeroIllustration";
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  const stats = [
-    { label: t("לקוחות", "Clients"), value: "20+" },
-    { label: t("שנות ניסיון", "Years Experience"), value: "3" },
-    { label: t("אוטומציות", "Automations"), value: "40+" },
-  ];
+  // הגדרת הנתונים - באנגלית הניסיון מופיע ראשון
+  const stats = isRTL 
+    ? [
+        { label: "לקוחות", value: "30+" },
+        { label: "שנות ניסיון", value: "3" },
+        { label: "אוטומציות", value: "40+" },
+      ]
+    : [
+        { 
+          label: (
+            <>
+              Years <br /> Experience
+            </>
+          ), 
+          value: "3" 
+        },
+        { label: "Clients", value: "30+" },
+        { label: "Automations", value: "40+" },
+      ];
 
   return (
     <section
@@ -29,7 +43,7 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - צמצום הרווח המרכזי למינימום */}
+        {/* גוף ההירו */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-2 mb-20">
           
           {/* צד טקסט */}
@@ -37,13 +51,13 @@ const HeroSection = () => {
             <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
               
               {/* סטרייפ סטטיסטיקות */}
-              <div className={`flex gap-8 mb-6 ${isRTL ? 'flex-row' : 'flex-row'}`}>
+              <div className={`flex gap-8 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
                   <div key={index} className="flex flex-col items-start gap-0">
                     <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    <span className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-1.5">
+                    <span className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-1.5 leading-tight">
                       {stat.label}
                     </span>
                   </div>
@@ -71,7 +85,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד אילוסטרציה - קירוב מבוקר שסוגר את הרווח בלי להתמזג */}
+          {/* צד אילוסטרציה */}
           <div className="w-full md:w-[42%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
             <div 
               className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
