@@ -4,7 +4,6 @@ import HeroIllustration from "@/components/HeroIllustration";
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
 
-  // הגדרת נתונים: בעברית הסדר הוא ניסיון -> לקוחות -> אוטומציות
   const stats = isRTL 
     ? [
         { label: <>שנות <br /> ניסיון</>, value: "3" },
@@ -29,8 +28,8 @@ const HeroSection = () => {
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
         {/* כותרת השם */}
-        <div className="w-full text-center mb-16 md:mb-20 z-20 hero-fade-up">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
+        <div className="w-full text-center mb-12 md:mb-20 z-20 hero-fade-up">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
               {t("רפאל", "Raphaëlle")}
             </span>
@@ -40,56 +39,46 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-2 mb-20">
+        {/* גוף ההירו - במובייל הופך ל-reverse כדי שהאיור יהיה מעל הטקסט */}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center w-full max-w-6xl mx-auto gap-8 md:gap-2 mb-20">
           
           {/* צד טקסט */}
-          <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
-            <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+          <div className={`w-full md:w-[48%] flex flex-col hero-fade-up z-20 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+            <div className="w-full max-w-xl">
               
-              {/* סטרייפ סטטיסטיקות - עם דגש על Bold למספרים */}
-              <div className={`flex gap-10 mb-6 items-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
+              {/* סטרייפ סטטיסטיקות */}
+              <div className={`flex gap-6 md:gap-10 mb-6 items-start justify-center md:justify-start ${isRTL ? 'flex-row' : 'flex-row'}`}>
                 {stats.map((stat, index) => (
-                  <div 
-                    key={index} 
-                    className={`flex flex-col items-start gap-0 ${stat.className || ""}`}
-                  >
-                    {/* שינוי ל-font-black ו-text-5xl/7xl לנוכחות מקסימלית */}
-                    <span className="text-5xl md:text-6xl lg:text-7xl font-black text-[#C9A0A8] leading-none tracking-tighter">
+                  <div key={index} className={`flex flex-col items-start gap-0 ${stat.className || ""}`}>
+                    <span className="text-4xl md:text-7xl font-black text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    <div className="text-xs md:text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2] min-h-[2.4em]">
+                    <div className="text-[10px] md:text-sm text-black font-semibold uppercase tracking-[0.1em] md:tracking-[0.15em] mt-2 leading-[1.2] min-h-[2.4em]">
                       {stat.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* הקו הוורוד */}
               <div className={`w-14 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
               
-              {/* הטקסט השיווקי */}
-              <p 
-                className="text-xl md:text-2xl lg:text-3xl text-slate-800 leading-[1.4] tracking-tight font-thin"
-                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
-              >
+              <p className="text-lg md:text-2xl lg:text-3xl text-slate-800 leading-[1.4] tracking-tight font-thin"
+                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
                 {isRTL ? (
-                  <>
-                    מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap" style={{ fontWeight: 200 }}>ומסעות לקוח.</span>
-                  </>
+                  <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
                 ) : (
-                  <>
-                    End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap" style={{ fontWeight: 200 }}>Journeys.</span>
-                  </>
+                  <>End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap">Journeys.</span></>
                 )}
               </p>
             </div>
           </div>
 
-          {/* צד אילוסטרציה */}
-          <div className="w-full md:w-[42%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+          {/* צד אילוסטרציה - תיקון למובייל */}
+          <div className="w-full md:w-[42%] flex justify-center items-center hero-fade-up z-10 mb-8 md:mb-0" style={{ animationDelay: "0.3s" }}>
             <div 
-              className={`relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-all duration-500
+              className={`relative w-[280px] h-[280px] md:w-full md:aspect-square transform transition-all duration-500
+                scale-[1.2] md:scale-[2.0] lg:scale-[2.2]
+                /* המרג'ין השלילי (הקירוב) עובד רק מדסקטופ (md) */
                 ${isRTL ? 'md:-mr-[55%]' : 'md:-ml-[55%]'} 
               `}
             >
