@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       <div className="container max-w-7xl px-6 relative z-10 flex flex-col items-center">
         
-        {/* כותרת השם - תמיד במרכז למעלה, מופרדת מהתוכן */}
+        {/* כותרת השם - ממורכזת למעלה */}
         <div className="w-full text-center mb-16 md:mb-24 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
@@ -29,15 +29,15 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* גוף ההירו - חלוקה ל-2 חלקים: ימין-מרכז ושמאל-מרכז */}
-        {/* ה-max-w-6xl הוא זה שדוחף אותם מהקצוות לכיוון המרכז */}
-        <div className={`flex flex-col ${isRTL ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center w-full max-w-6xl mx-auto gap-12 lg:gap-24 mb-24`}>
+        {/* פריסת ההירו: אילוסטרציה בשמאל | טקסט בימין */}
+        {/* השתמשתי ב-flex-row-reverse כברירת מחדל לעברית כדי לכפות את הסדר שביקשת */}
+        <div className="flex flex-col md:flex-row-reverse items-center justify-center w-full max-w-6xl mx-auto gap-8 lg:gap-12 mb-20">
           
-          {/* צד הטקסט (בעברית: ימין-מרכז) */}
-          <div className="w-full md:w-[45%] flex flex-col hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
-            <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-              <div className={`w-12 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
-              <p className="text-2xl md:text-4xl lg:text-5xl text-slate-900 font-bold leading-[1.1] tracking-tight">
+          {/* טור ימני: טקסט שיווקי */}
+          <div className="w-full md:w-1/2 flex flex-col items-end hero-fade-up z-20" style={{ animationDelay: "0.2s" }}>
+            <div className="text-right max-w-lg">
+              <div className="w-12 h-1 bg-[#C9A0A8] mb-6 mr-0 ml-auto" />
+              <p className="text-2xl md:text-3xl lg:text-4xl text-slate-900 font-bold leading-[1.2] tracking-tight">
                 {t(
                   "מנוע צמיחה מקצה לקצה- עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח",
                   "End-to-End Growth Engine- Website Design & Development, Business Automation, and Customer Journeys"
@@ -46,10 +46,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* צד האילוסטרציה (בעברית: שמאל-מרכז) */}
-          <div className="w-full md:w-[45%] flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
-            {/* ה-scale הוגדל ל-2.0 (100% יותר מהמקור) כדי להבטיח נוכחות חזקה */}
-            <div className="relative w-full aspect-square transform scale-[1.8] md:scale-[2.0] lg:scale-[2.2] transition-transform duration-500">
+          {/* טור שמאלי: אילוסטרציה (מוגדלת ב-50% ומעלה) */}
+          <div className="w-full md:w-1/2 flex justify-center items-center hero-fade-up z-10" style={{ animationDelay: "0.3s" }}>
+            <div className="relative w-full max-w-[550px] aspect-square transform scale-150 lg:scale-[1.7] transition-transform">
                <HeroIllustration />
             </div>
           </div>
