@@ -33,6 +33,21 @@ const freelanceBullets = {
   ],
 };
 
+const freelanceTools = [
+  { name: "Make.com", img: "/Make.com.jpeg" },
+  { name: "Rise.ai", img: "/Rise.png" },
+  { name: "Figma", img: "/Figma-logo.svg.png" },
+  { name: "Canva", img: "/Canva.jpeg" },
+  { name: "Claude", img: "/Claude.jpeg" },
+];
+
+const mavenTools = [
+  { name: "Flashy", img: "/FlashyApp.png" },
+  { name: "Canva", img: "/Canva.jpeg" },
+  { name: "Figma", img: "/Figma-logo.svg.png" },
+  { name: "Sheets", img: "/sheets.png" },
+];
+
 const freelanceAchievements = [
   { he: "Make.com + N8N", en: "Make.com + N8N" },
   { he: "Rise.ai + Shopify", en: "Rise.ai + Shopify" },
