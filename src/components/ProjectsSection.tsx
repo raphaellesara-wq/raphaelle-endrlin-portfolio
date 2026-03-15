@@ -12,6 +12,7 @@ const projects = [
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
     heResult: "חיסכון בזמן יקר, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
     tools: [
+      { name: "Shopify", fileName: "shopify.png" }, // הוספנו את הלוגו החדש
       { name: "Rise.ai", fileName: "Rise.png" },
       { name: "Flashy", fileName: "FlashyApp.png" },
       { name: "Canva", fileName: "Canva.jpeg" }
@@ -69,7 +70,7 @@ const ProjectsSection = () => {
               className={`relative bg-white rounded-[45px] border border-slate-100 p-10 flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center" style={{ color: pink, fontFamily: "'Secular One', sans-serif" }}>
+              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center leading-tight px-2" style={{ color: pink, fontFamily: "'Secular One', sans-serif" }}>
                 {t(project.heTitle, project.enTitle)}
               </h3>
 
@@ -77,12 +78,16 @@ const ProjectsSection = () => {
                 {t(project.heDesc, project.enDesc)}
               </p>
 
-              <div className="mt-auto mb-10 p-6 rounded-[30px] border border-slate-50" style={{ backgroundColor: olivePremium }}>
+              {/* תיבת התוצאה - ירוק זית עדין ויוקרתי */}
+              <div 
+                className="mt-auto mb-10 p-6 rounded-[30px] border border-slate-50 shadow-inner" 
+                style={{ backgroundColor: olivePremium }}
+              >
                 <div className="flex flex-col items-center">
-                  <span className="text-[10px] font-bold uppercase tracking-widest mb-2 px-3 py-1 rounded-full bg-white shadow-sm" style={{ color: oliveDark }}>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2 px-3 py-1 rounded-full bg-white shadow-sm" style={{ color: oliveDark }}>
                     {t("התוצאה בשטח", "Field Result")}
                   </span>
-                  <p className="text-sm md:text-base text-slate-800 text-center font-medium italic">
+                  <p className="text-sm md:text-base text-slate-800 text-center font-medium leading-relaxed italic">
                     "{t(project.heResult, project.enResult)}"
                   </p>
                 </div>
@@ -90,19 +95,20 @@ const ProjectsSection = () => {
 
               <div className="w-full h-[1px] bg-slate-100 mb-8" />
 
-              <div className="flex justify-center gap-6">
+              <div className="flex justify-center gap-5">
                 {project.tools.map((tool, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-2">
-                    <div className="w-14 h-14 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm overflow-hidden">
+                  <div key={idx} className="flex flex-col items-center gap-2 group/tool">
+                    <div className="w-14 h-14 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm transition-all group-hover/tool:scale-110 overflow-hidden">
                       <img 
                         src={`/${tool.fileName}`} 
                         alt={tool.name} 
                         className="w-8 h-8 object-contain"
                         onError={(e) => {
-                          // אם לא מצא ב-root, מנסה לחפש בנתיבים נפוצים אחרים של Lovable
                           const target = e.currentTarget;
-                          if (target.src.includes('/public/')) return;
-                          target.src = `/public/${tool.fileName}`;
+                          // ניסיון למצוא גם בתיקיית public אם המערכת הזיזה אותו לשם
+                          if (!target.src.includes('/public/')) {
+                            target.src = `/public/${tool.fileName}`;
+                          }
                         }}
                       />
                     </div>
