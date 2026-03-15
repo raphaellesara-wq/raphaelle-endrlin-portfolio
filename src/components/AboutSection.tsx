@@ -1,10 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import AboutIllustration from "@/components/AboutIllustration";
 
 const pink = "#C9A0A8";
-const oliveDark = "#8B9E6B"; 
-const olivePremium = "rgba(139, 158, 107, 0.08)"; 
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -29,75 +26,51 @@ const AboutSection = () => {
     <section 
       id="about" 
       ref={sectionRef} 
-      // צמצום Margin שלילי לערך עדין יותר לאחר צמצום ה-Padding בהירו
-      className="pt-4 pb-20 md:pt-8 md:pb-32 -mt-16 md:-mt-24 relative overflow-hidden bg-white z-10"
+      className="py-16 md:py-24 -mt-16 md:-mt-32 relative overflow-hidden bg-white z-10"
     >
-      <div className="container mx-auto px-6 max-w-[1300px]">
-        <div className="grid lg:grid-cols-[1fr_450px] items-center gap-16 lg:gap-24">
+      <div className="container mx-auto px-6 max-w-[900px]"> {/* הקטנתי את הרוחב למרכז את הטקסט */}
+        <div className="flex flex-col items-center text-center space-y-12">
           
-          {/* צד הטקסט */}
-          <div className="space-y-10">
-            <div
-              className={`flex items-center gap-4 transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-              }`}
-            >
-              <div className="w-12 h-px" style={{ background: pink }} />
-              <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
-                {t("אודות", "About Me")}
-              </span>
-            </div>
-
-            <h2
-              className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ fontFamily: "'Secular One', sans-serif" }}
-            >
-              {t("אסטרטגיה שפוגשת", "Strategy Meets")}
-              <br />
-              <span style={{ color: pink }}>
-                {t("טכנולוגיה", "Technology")}
-              </span>
-            </h2>
-
-            <div className="space-y-6 max-w-2xl">
-              {paragraphs.map((para, i) => (
-                <p
-                  key={i}
-                  className={`text-lg md:text-xl leading-relaxed text-slate-500 font-light transition-all duration-700 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
-                  style={{ transitionDelay: `${300 + i * 150}ms` }}
-                >
-                  {para}
-                </p>
-              ))}
-            </div>
-
-            {/* הקו הורוד הוסר מכאן */}
-          </div>
-
-          {/* צד האילוסטרציה - מוגדל */}
+          {/* תגית אודות */}
           <div
-            className={`hidden lg:flex justify-center transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-90 rotate-3"
+            className={`flex items-center gap-4 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
-              {/* עיגול רקע דקורטיבי עדין */}
-              <div className="absolute inset-0 rounded-full blur-3xl opacity-10" style={{ background: pink }} />
-              <div className="relative z-10 w-full transform scale-125">
-                 <AboutIllustration />
-              </div>
-            </div>
+            <div className="w-8 h-px" style={{ background: pink }} />
+            <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
+              {t("אודות", "About Me")}
+            </span>
+            <div className="w-8 h-px" style={{ background: pink }} />
           </div>
 
-          {/* אילוסטרציה למובייל */}
-          <div className="lg:hidden flex justify-center pt-10">
-             <div className="w-full max-w-[280px] opacity-80">
-                <AboutIllustration />
-             </div>
+          {/* כותרת מוגדלת וממורכזת */}
+          <h2
+            className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ fontFamily: "'Secular One', sans-serif" }}
+          >
+            {t("אסטרטגיה שפוגשת", "Strategy Meets")}
+            <br />
+            <span style={{ color: pink }}>
+              {t("טכנולוגיה", "Technology")}
+            </span>
+          </h2>
+
+          {/* פסקאות */}
+          <div className="space-y-8 w-full">
+            {paragraphs.map((para, i) => (
+              <p
+                key={i}
+                className={`text-lg md:text-2xl leading-relaxed text-slate-500 font-light transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: `${300 + i * 150}ms` }}
+              >
+                {para}
+              </p>
+            ))}
           </div>
 
         </div>
