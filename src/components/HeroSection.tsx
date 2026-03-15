@@ -42,9 +42,9 @@ const HeroSection = () => {
         {/* Desktop layout */}
         <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4 overflow-visible">
           
-          {/* Illustration - Scaled and Closer to text */}
+          {/* Illustration - Significant overlap with text to bring them closer */}
           <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2 overflow-visible">
-            <div className={`relative w-full aspect-square transform scale-[1.65] lg:scale-[1.8] transition-all duration-500 pointer-events-none ${isRTL ? '-mr-[11%]' : '-ml-[11%]'}`}>
+            <div className={`relative w-full aspect-square transform scale-[1.65] lg:scale-[1.8] transition-all duration-500 pointer-events-none ${isRTL ? '-mr-[31%]' : '-ml-[31%]'}`}>
                <HeroIllustration />
             </div>
           </div>
