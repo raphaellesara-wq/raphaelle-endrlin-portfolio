@@ -22,7 +22,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center pt-12 md:pt-24 pb-16 overflow-x-hidden bg-white"
+      className="relative min-h-screen flex flex-col items-center pt-12 md:pt-24 pb-4 md:pb-6 overflow-x-hidden bg-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
