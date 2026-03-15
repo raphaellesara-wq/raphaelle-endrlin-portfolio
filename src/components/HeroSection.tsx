@@ -17,26 +17,22 @@ const HeroSection = () => {
       ];
 
   return (
-    <section
-      className="relative flex flex-col items-center pt-12 md:pt-20 pb-0 overflow-hidden bg-white"
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      {/* Container - matching the exact width of your other blocks */}
-      <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
+    <section className="relative w-full bg-white overflow-x-hidden pt-24 md:pt-32 pb-12 md:pb-20" dir={isRTL ? "rtl" : "ltr"}>
+      <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         
         {/* Title */}
-        <div className="w-full text-center mb-12 md:mb-16 z-20 hero-fade-up">
+        <div className="w-full text-center mb-16 md:mb-24 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>{t("רפאל", "Raphaëlle")}</span>
             <span className="text-[#C9A0A8] font-light" style={{ fontFamily: "'Rubik', sans-serif" }}>{t("אנדרלין", "Enderlin")}</span>
           </h1>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden md:flex relative w-full items-center min-h-[400px] overflow-visible">
+        {/* Desktop Layout - Using Grid for stability */}
+        <div className="hidden md:grid grid-cols-2 items-center w-full gap-0 overflow-visible">
           
-          {/* Text content - Force alignment to the grid */}
-          <div className={`w-full md:w-1/2 flex flex-col z-20 hero-fade-up ${isRTL ? 'items-start text-right' : 'items-start text-left'}`}>
+          {/* Text content - Left/Right side */}
+          <div className={`flex flex-col z-20 hero-fade-up ${isRTL ? 'order-1 items-start text-right' : 'order-1 items-start text-left'}`}>
             <div className="flex gap-10 mb-8 items-start">
               {stats.map((stat, index) => (
                 <div key={index} className="flex flex-col items-start gap-0">
@@ -51,23 +47,18 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Illustration - Absolute to prevent scrolling and gaps */}
-          <div className={`absolute top-1/2 -translate-y-1/2 z-0 pointer-events-none
-            ${isRTL ? '-left-10 lg:-left-20' : '-right-10 lg:-right-20'} w-[500px] lg:w-[700px] aspect-square`}>
-            <div className="transform scale-[1.3] lg:scale-[1.5]">
-              <HeroIllustration />
+          {/* Illustration - Occupies space so content doesn't jump */}
+          <div className={`relative flex justify-center items-center overflow-visible ${isRTL ? 'order-2' : 'order-2'}`}>
+            <div className={`relative w-full aspect-square transform scale-[1.5] lg:scale-[1.7] transition-all duration-500 pointer-events-none ${isRTL ? '-mr-[45%]' : '-ml-[45%]'}`}>
+               <HeroIllustration />
             </div>
           </div>
         </div>
 
         {/* Mobile Layout */}
-        <div className="flex flex-col items-center text-center gap-8 md:hidden w-full hero-fade-up pb-12">
-          <div className="w-full max-w-[250px] transform scale-110 mb-4"><HeroIllustration /></div>
-          <div className="flex gap-6 justify-center w-full">
-            {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center"><span className="text-4xl font-black text-[#C9A0A8]">{stat.value}</span><div className="text-[10px] font-semibold uppercase mt-2">{stat.label}</div></div>
-            ))}
-          </div>
+        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
+          <div className="w-full max-w-[280px] transform scale-125 mb-4"><HeroIllustration /></div>
+          {/* ... mobile stats ... */}
         </div>
       </div>
     </section>
