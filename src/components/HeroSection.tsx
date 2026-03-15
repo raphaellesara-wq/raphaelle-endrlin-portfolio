@@ -22,14 +22,14 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex flex-col items-center pt-12 md:pt-24 pb-12 md:pb-20 overflow-visible bg-white"
+      className="relative flex flex-col items-center pt-12 md:pt-24 pb-12 md:pb-24 overflow-x-hidden bg-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
         
-        {/* Title - always first */}
-        <div className="w-full text-center mb-8 md:mb-16 z-20 hero-fade-up">
-          <h1 className="text-5xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
+        {/* Title */}
+        <div className="w-full text-center mb-12 md:mb-24 z-20 hero-fade-up">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
               {t("רפאל", "Raphaëlle")}
             </span>
@@ -39,12 +39,55 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Mobile layout */}
-        <div className="flex flex-col items-center text-center gap-10 md:hidden w-full hero-fade-up">
-          <div className="w-full max-w-[280px]">
+        {/* Desktop layout */}
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4">
+          
+          {/* Illustration - מוגדלת ב-40% נוספים */}
+          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2">
+            <div className={`relative w-full aspect-square transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] ${isRTL ? '-mr-32' : '-ml-32'}`}>
+               <HeroIllustration />
+            </div>
+          </div>
+
+          {/* Text content */}
+          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+            <div className="w-full max-w-xl">
+              
+              <div className="flex gap-10 mb-8 items-start justify-start">
+                {stats.map((stat, index) => (
+                  <div key={index} className={`flex flex-col items-start gap-0 ${stat.className || ""}`}>
+                    <span className="text-7xl font-black text-[#C9A0A8] leading-none tracking-tighter">
+                      {stat.value}
+                    </span>
+                    <div className="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2]">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className={`w-14 h-1 bg-[#C9A0A8] mb-8 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
+              
+              <p className="text-2xl lg:text-3xl text-slate-800 leading-[1.4] tracking-tight font-thin"
+                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+                {isRTL ? (
+                  <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
+                ) : (
+                  <>End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap">Journeys.</span></>
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile layout - עכשיו הקוד המלא נמצא כאן */}
+        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
+          {/* Illustration Mobile */}
+          <div className="w-full max-w-[320px] transform scale-125 mb-4">
             <HeroIllustration />
           </div>
 
+          {/* Stats Mobile */}
           <div className="flex gap-6 items-start justify-center w-full">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
@@ -58,9 +101,10 @@ const HeroSection = () => {
             ))}
           </div>
 
+          {/* Text Mobile */}
           <div className="flex flex-col items-center">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
-            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-2"
+            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4"
                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
               {isRTL ? (
                 <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
@@ -69,48 +113,6 @@ const HeroSection = () => {
               )}
             </p>
           </div>
-        </div>
-
-        {/* Desktop layout */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-8">
-          
-          {/* Illustration - Scaled down to prevent overflow bugs */}
-          <div className="w-[45%] flex justify-center items-center hero-fade-up z-10 order-2">
-            <div className="relative w-full aspect-square transform scale-125 lg:scale-150">
-               <HeroIllustration />
-            </div>
-          </div>
-
-          {/* Text content */}
-          <div className={`w-[55%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
-            <div className="w-full max-w-xl">
-              
-              <div className="flex gap-10 mb-8 items-start">
-                {stats.map((stat, index) => (
-                  <div key={index} className={`flex flex-col items-start gap-0 ${stat.className || ""}`}>
-                    <span className="text-7xl font-black text-[#C9A0A8] leading-none tracking-tighter">
-                      {stat.value}
-                    </span>
-                    <div className="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2]">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className={`w-14 h-1 bg-[#C9A0A8] mb-6 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
-              
-              <p className="text-2xl lg:text-3xl text-slate-800 leading-[1.4] tracking-tight font-thin"
-                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
-                {isRTL ? (
-                  <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
-                ) : (
-                  <>End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap">Journeys.</span></>
-                )}
-              </p>
-            </div>
-          </div>
-
         </div>
       </div>
 
