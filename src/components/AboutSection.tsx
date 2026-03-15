@@ -29,13 +29,11 @@ const AboutSection = () => {
       className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* כאן הסוד ליישור: max-w-7xl יחד עם px-4 md:px-6 
-         מבטיח שהטקסט יתחיל באותו קו בדיוק כמו בלוק הפרויקטים.
-      */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      {/* פתרון היישור: שימוש ב-max-w-7xl וביטול px שמסיט את הטקסט */}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6">
         <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-12`}>
           
-          {/* תגית אודות עם קו דקורטיבי מיושר */}
+          {/* תגית אודות */}
           <div
             className={`flex items-center gap-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -72,7 +70,7 @@ const AboutSection = () => {
             </span>
           </h2>
 
-          {/* פסקאות - הסרתי את הגבלת ה-900px המיותרת */}
+          {/* פסקאות */}
           <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
