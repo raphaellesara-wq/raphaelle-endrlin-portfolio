@@ -29,11 +29,14 @@ const AboutSection = () => {
       className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* פתרון היישור: שימוש ב-max-w-7xl וביטול px שמסיט את הטקסט */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6">
+      {/* הסרתי את ה-container. 
+          השתמשתי ב-px-4 כדי שלא יידבק למסך בנייד, 
+          אבל ב-md:px-12 (או הערך המדויק של הפרויקטים שלך) כדי ליישר את הקו.
+      */}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-12`}>
           
-          {/* תגית אודות */}
+          {/* תגית אודות - הקו והטקסט מיושרים לקצה הימני ב-RTL */}
           <div
             className={`flex items-center gap-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -56,7 +59,7 @@ const AboutSection = () => {
             )}
           </div>
 
-          {/* כותרת מוגדלת */}
+          {/* כותרת - היישור כאן קריטי */}
           <h2
             className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -70,12 +73,12 @@ const AboutSection = () => {
             </span>
           </h2>
 
-          {/* פסקאות */}
+          {/* פסקאות - מיושרות לקו האפס של הכותרת */}
           <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-lg md:text-2xl leading-relaxed text-slate-500 font-light transition-all duration-700 ${
+                className={`text-lg md:text-2xl leading-relaxed text-slate-600 font-light transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${300 + i * 150}ms` }}
