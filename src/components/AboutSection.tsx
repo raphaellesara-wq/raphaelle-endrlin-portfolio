@@ -1,93 +1,39 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
-const pink = "#C9A0A8";
-
 const AboutSection = () => {
   const { t, isRTL } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
 
-  const paragraphs = [
-    t(
-      "שלוש שנות ניסיון בניהול מחלקת Email Marketing במשרד הפרסום MAVEN MEDIA. ניהלתי מעל 20 לקוחות, תוך השגת אחוזי פתיחה של 50%+ — פי 2 מממוצע הענף.",
-      "Three years of proven experience leading Email Marketing at MAVEN MEDIA — 20+ clients, 50%+ open rates, 2x industry average."
-    ),
-    t(
-      "כיום אני מתמחה ב-AI ואוטומציות עסקיות עם MAKE.com ו-N8N, ומשלבת את הניסיון השיווקי שלי עם כלי הדור הבא.",
-      "Currently advancing in AI & business automation with MAKE.com and N8N."
-    ),
-    t(
-      "מחפשת תפקיד שמשלב שיווק, אוטומציה ועיצוב — בארגון שמאמין בחדשנות ולמידה מתמדת. דוברת 4 שפות בשוטף.",
-      "Seeking a role combining marketing, automation, and design. Fluent in 4 languages."
-    ),
-  ];
-
   return (
-    <section 
-      id="about" 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      {/* ביטול ה-container לטובת יישור ידני שמתאים לבלוק הפרויקטים. 
-          השתמשתי ב-px-6 ו-md:px-12 כדי לוודא שזה נצמד לקו של הבלוקים למטה.
-      */}
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-10 md:space-y-12`}>
+    <section id="about" ref={sectionRef} className="py-20 md:py-32 bg-white relative z-10 overflow-hidden" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Remove side padding from container on desktop to align with Projects */}
+      <div className="max-w-7xl mx-auto px-4 md:px-0"> 
+        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'}`}>
           
-          {/* תגית אודות - מיושרת לקו ההתחלה של הפרויקטים */}
-          <div
-            className={`flex items-center gap-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-             {/* היפוך סדר הקו כדי שיהיה זהה לבלוק הפרויקטים */}
+          <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
             {isRTL ? (
-              <>
-                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
-                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
-                  {t("אודות", "About Me")}
-                </span>
-              </>
+               <>
+                <div className="w-16 h-px bg-[#C9A0A8]" />
+                <span className="text-sm font-bold tracking-[0.3em] text-[#C9A0A8] uppercase">{t("אודות", "ABOUT ME")}</span>
+               </>
             ) : (
-              <>
-                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
-                  {t("אודות", "About Me")}
-                </span>
-                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
-              </>
+               <>
+                <span className="text-sm font-bold tracking-[0.3em] text-[#C9A0A8] uppercase">{t("אודות", "ABOUT ME")}</span>
+                <div className="w-16 h-px bg-[#C9A0A8]" />
+               </>
             )}
           </div>
 
-          {/* כותרת מוגדלת - כאן היישור קריטי */}
-          <h2
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{ fontFamily: "'Secular One', sans-serif" }}
-          >
-            {t("אסטרטגיה שפוגשת", "Strategy Meets")}
-            <br />
-            <span style={{ color: pink }}>
-              {t("טכנולוגיה", "Technology")}
-            </span>
+          <h2 className={`text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-10 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`} style={{ fontFamily: "'Secular One', sans-serif" }}>
+            {t("אסטרטגיה שפוגשת", "Strategy Meets")} <br />
+            <span className="text-[#C9A0A8]">{t("טכנולוגיה", "Technology")}</span>
           </h2>
 
-          {/* פסקאות */}
-          <div className="space-y-6 md:space-y-8 w-full max-w-3xl">
-            {paragraphs.map((para, i) => (
-              <p
-                key={i}
-                className={`text-lg md:text-2xl leading-relaxed text-slate-600 font-light transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
-                style={{ transitionDelay: `${300 + i * 150}ms` }}
-              >
-                {para}
-              </p>
-            ))}
+          <div className="max-w-3xl space-y-6 text-xl md:text-2xl text-slate-600 font-light leading-relaxed">
+             <p>{t("שלוש שנות ניסיון בניהול מחלקת Email Marketing...", "Three years of experience...")}</p>
+             <p>{t("כיום אני מתמחה ב-AI ואוטומציות עסקיות...", "Currently advancing in AI...")}</p>
           </div>
-
         </div>
       </div>
     </section>
