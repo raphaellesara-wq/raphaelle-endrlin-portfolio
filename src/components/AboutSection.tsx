@@ -4,7 +4,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 const pink = "#C9A0A8";
 
 const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
 
   const paragraphs = [
@@ -27,24 +27,24 @@ const AboutSection = () => {
       id="about" 
       ref={sectionRef} 
       className="py-16 md:py-24 -mt-16 md:-mt-32 relative overflow-hidden bg-white z-10"
+      dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="container mx-auto px-6 max-w-[900px]"> {/* הקטנתי את הרוחב למרכז את הטקסט */}
-        <div className="flex flex-col items-center text-center space-y-12">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-12`}>
           
-          {/* תגית אודות */}
+          {/* תגית אודות - מיושרת לצד עם קו אחד */}
           <div
             className={`flex items-center gap-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <div className="w-8 h-px" style={{ background: pink }} />
+            <div className="w-12 h-px" style={{ background: pink }} />
             <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
               {t("אודות", "About Me")}
             </span>
-            <div className="w-8 h-px" style={{ background: pink }} />
           </div>
 
-          {/* כותרת מוגדלת וממורכזת */}
+          {/* כותרת מוגדלת ומיושרת לצד */}
           <h2
             className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -58,8 +58,8 @@ const AboutSection = () => {
             </span>
           </h2>
 
-          {/* פסקאות */}
-          <div className="space-y-8 w-full">
+          {/* פסקאות - מיושרות לצד */}
+          <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
                 key={i}
