@@ -1,5 +1,3 @@
-// src/components/HeroSection.tsx
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import HeroIllustration from "@/components/HeroIllustration";
 
@@ -42,14 +40,11 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-12 overflow-visible">
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4 overflow-visible">
           
-          {/* Illustration */}
+          {/* Illustration - Scaled and Closer to text */}
           <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2 overflow-visible">
-            {/* 1. הקטנה ב-25%: scale-[2.2] ל-scale-[1.65], lg:scale-[2.4] ל-lg:scale-[1.8]
-                2. קירוב ב-15% לטקסט: ממרג'ין 30% למרג'ין 25.5% (עיגלתי ל-26%)
-            */}
-            <div className={`relative w-full aspect-square transform scale-[1.65] lg:scale-[1.8] transition-all duration-500 pointer-events-none ${isRTL ? '-mr-[26%]' : '-ml-[26%]'}`}>
+            <div className={`relative w-full aspect-square transform scale-[1.65] lg:scale-[1.8] transition-all duration-500 pointer-events-none ${isRTL ? '-mr-[11%]' : '-ml-[11%]'}`}>
                <HeroIllustration />
             </div>
           </div>
@@ -83,7 +78,6 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
-
         </div>
 
         {/* Mobile layout */}
@@ -91,29 +85,18 @@ const HeroSection = () => {
           <div className="w-full max-w-[280px] transform scale-125 mb-4 pointer-events-none">
             <HeroIllustration />
           </div>
-
           <div className="flex gap-6 items-start justify-center w-full">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
-                <span className="text-4xl font-black text-[#C9A0A8] leading-none tracking-tighter">
-                  {stat.value}
-                </span>
-                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">
-                  {stat.label}
-                </div>
+                <span className="text-4xl font-black text-[#C9A0A8] leading-none tracking-tighter">{stat.value}</span>
+                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">{stat.label}</div>
               </div>
             ))}
           </div>
-
           <div className="flex flex-col items-center">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
-            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4"
-               style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
-              {isRTL ? (
-                <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
-              ) : (
-                <>End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap">Journeys.</span></>
-              )}
+            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4" style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+              {t("מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.", "End-to-End Growth Engine: Website Design & Development, Business Automation and Customer Journeys.")}
             </p>
           </div>
         </div>
