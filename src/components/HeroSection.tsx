@@ -25,7 +25,7 @@ const HeroSection = () => {
       className="relative flex flex-col items-center pt-12 md:pt-24 pb-12 md:pb-24 overflow-x-hidden bg-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
+      <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center overflow-visible">
         
         {/* Title */}
         <div className="w-full text-center mb-12 md:mb-24 z-20 hero-fade-up">
@@ -40,17 +40,17 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4">
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4 overflow-visible">
           
-          {/* Illustration - מוגדלת ב-40% נוספים */}
-          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2">
-            <div className={`relative w-full aspect-square transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] ${isRTL ? '-mr-32' : '-ml-32'}`}>
+          {/* Illustration - Scaled up + Moved 20% to center */}
+          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2 overflow-visible">
+            <div className={`relative w-full aspect-square transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] pointer-events-none ${isRTL ? '-mr-16' : '-ml-16'}`}>
                <HeroIllustration />
             </div>
           </div>
 
           {/* Text content */}
-          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 overflow-visible ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
             <div className="w-full max-w-xl">
               
               <div className="flex gap-10 mb-8 items-start justify-start">
@@ -80,14 +80,12 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Mobile layout - עכשיו הקוד המלא נמצא כאן */}
-        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
-          {/* Illustration Mobile */}
-          <div className="w-full max-w-[320px] transform scale-125 mb-4">
+        {/* Mobile layout */}
+        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up overflow-visible">
+          <div className="w-full max-w-[320px] transform scale-125 mb-4 pointer-events-none">
             <HeroIllustration />
           </div>
 
-          {/* Stats Mobile */}
           <div className="flex gap-6 items-start justify-center w-full">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
@@ -101,7 +99,6 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* Text Mobile */}
           <div className="flex flex-col items-center">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
             <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4"
