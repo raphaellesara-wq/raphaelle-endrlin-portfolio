@@ -23,7 +23,9 @@ const projects = [
     heTitle: "מסע לקוח פרסונלי מבוסס זמן",
     enTitle: "Personalized Pregnancy Journey",
     heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון של המשתמשת ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס.",
+    enDesc: "Smart email system delivering tailored content based on pregnancy week to promote TENS devices.",
     heResult: "מעורבות גבוהה של מעל 60% פתיחה לאורך שנה והצטרפות של אלפי נשים למאגר הלקוחות.",
+    enResult: "Increased warm audience and high brand engagement with 60%+ open rate.",
     tools: [
       { name: "Flashy", img: "/FlashyApp.png" },
       { name: "Figma", img: "/Figma-logo.svg.png" },
