@@ -126,7 +126,7 @@ const ExperienceSection = () => {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {freelanceAchievements.map((a, i) => (
                   <span
                     key={i}
@@ -134,6 +134,17 @@ const ExperienceSection = () => {
                   >
                     {t(a.he, a.en)}
                   </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                {freelanceTools.map((tool, idx) => (
+                  <div key={idx} className="flex flex-col items-center gap-1.5">
+                    <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center bg-background overflow-hidden">
+                      <img src={tool.img} alt={tool.name} className="w-6 h-6 object-contain" />
+                    </div>
+                    <span className="text-[9px] text-muted-foreground font-medium">{tool.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
