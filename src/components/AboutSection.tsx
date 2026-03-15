@@ -29,23 +29,37 @@ const AboutSection = () => {
       className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Container max-w-7xl ensures it matches the Projects block alignment */}
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+      {/* ביטול ה-container לטובת יישור ידני שמתאים לבלוק הפרויקטים. 
+          השתמשתי ב-px-6 ו-md:px-12 כדי לוודא שזה נצמד לקו של הבלוקים למטה.
+      */}
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-10 md:space-y-12`}>
           
-          {/* Header Tag - Aligned to side with single line */}
+          {/* תגית אודות - מיושרת לקו ההתחלה של הפרויקטים */}
           <div
             className={`flex items-center gap-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
-              {t("אודות", "About Me")}
-            </span>
-            <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
+             {/* היפוך סדר הקו כדי שיהיה זהה לבלוק הפרויקטים */}
+            {isRTL ? (
+              <>
+                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
+                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
+                  {t("אודות", "About Me")}
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
+                  {t("אודות", "About Me")}
+                </span>
+                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
+              </>
+            )}
           </div>
 
-          {/* Main Heading */}
+          {/* כותרת מוגדלת - כאן היישור קריטי */}
           <h2
             className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -59,7 +73,7 @@ const AboutSection = () => {
             </span>
           </h2>
 
-          {/* Paragraphs - Limited width for readability but aligned to the same start point */}
+          {/* פסקאות */}
           <div className="space-y-6 md:space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
