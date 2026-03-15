@@ -22,13 +22,13 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center pt-12 md:pt-24 pb-4 md:pb-6 overflow-x-hidden bg-white"
+      className="relative flex flex-col items-center pt-12 md:pt-24 pb-12 md:pb-20 overflow-visible bg-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
         
         {/* Title - always first */}
-        <div className="w-full text-center mb-8 md:mb-20 z-20 hero-fade-up">
+        <div className="w-full text-center mb-8 md:mb-16 z-20 hero-fade-up">
           <h1 className="text-5xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
               {t("רפאל", "Raphaëlle")}
@@ -39,26 +39,25 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Mobile layout: illustration -> stats -> text stacked vertically */}
+        {/* Mobile layout */}
         <div className="flex flex-col items-center text-center gap-10 md:hidden w-full hero-fade-up">
-          {/* Illustration */}
-          <HeroIllustration />
+          <div className="w-full max-w-[280px]">
+            <HeroIllustration />
+          </div>
 
-          {/* Stats stripe */}
           <div className="flex gap-6 items-start justify-center w-full">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
                 <span className="text-4xl font-black text-[#C9A0A8] leading-none tracking-tighter">
                   {stat.value}
                 </span>
-                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2] min-h-[2.4em]">
+                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">
                   {stat.label}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Divider + marketing text */}
           <div className="flex flex-col items-center">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
             <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-2"
@@ -72,32 +71,27 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Desktop layout: preserved as-is */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-2">
+        {/* Desktop layout */}
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-8">
           
-          {/* Illustration */}
-          <div className="w-[42%] flex justify-center items-center hero-fade-up z-10 order-2">
-            <div 
-              className={`relative w-full aspect-square transform transition-all duration-500
-                scale-[2.0] lg:scale-[2.2]
-                ${isRTL ? '-mr-[55%]' : '-ml-[55%]'} 
-              `}
-            >
+          {/* Illustration - Scaled down to prevent overflow bugs */}
+          <div className="w-[45%] flex justify-center items-center hero-fade-up z-10 order-2">
+            <div className="relative w-full aspect-square transform scale-125 lg:scale-150">
                <HeroIllustration />
             </div>
           </div>
 
           {/* Text content */}
-          <div className={`w-[48%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end' : 'items-start'}`} style={{ animationDelay: "0.2s" }}>
-            <div className={`w-full max-w-xl ${isRTL ? 'text-right' : 'text-left'}`}>
+          <div className={`w-[55%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+            <div className="w-full max-w-xl">
               
-              <div className="flex gap-10 mb-8 items-start justify-start">
+              <div className="flex gap-10 mb-8 items-start">
                 {stats.map((stat, index) => (
                   <div key={index} className={`flex flex-col items-start gap-0 ${stat.className || ""}`}>
                     <span className="text-7xl font-black text-[#C9A0A8] leading-none tracking-tighter">
                       {stat.value}
                     </span>
-                    <div className="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2] min-h-[2.4em]">
+                    <div className="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.2]">
                       {stat.label}
                     </div>
                   </div>
