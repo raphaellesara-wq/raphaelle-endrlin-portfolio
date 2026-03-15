@@ -2,105 +2,99 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const pink = "#C9A0A8";
-const olive = "#8B9E6B"; // הירוק העדין מהאיור
+const olive = "#8B9E6B";
 
 const projects = [
   {
     heTitle: "מועדון לקוחות חכם (Shopify & Rise.ai)",
     enTitle: "Smart Loyalty Club (Shopify & Rise.ai)",
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
-    enDesc: "Implementing an automated loyalty system providing credits and rewards. Includes 3 marketing journeys for retention and membership renewal.",
+    enDesc: "Implementing an automated loyalty system with credits and rewards. Includes 3 marketing journeys for retention and renewal.",
     tools: [
-      { name: "Shopify", icon: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
-      { name: "Rise.ai", icon: "🛍️" },
-      { name: "Flashy", icon: "⚡" },
-      { name: "Canva", icon: "🎨" }
+      { name: "Shopify", img: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
+      { name: "Rise.ai", img: "https://static.wixstatic.com/media/7f4851_5e5d590469b6408283a0026e499d63c4~mv2.png" },
+      { name: "Flashy", img: "https://flashyapp.com/wp-content/uploads/2021/03/flashy-logo-icon.png" },
+      { name: "Canva", img: "https://cdn.worldvectorlogo.com/logos/canva-1.svg" }
     ],
   },
   {
     heTitle: "מסע לקוח פרסונלי מבוסס זמן",
     enTitle: "Personalized Pregnancy Journey",
     heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון של המשתמשת ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס.",
-    enDesc: "A smart email system that calculates pregnancy weeks to deliver tailored informative and sales content for TENS devices.",
+    enDesc: "A smart email system that calculates pregnancy weeks to deliver tailored informative content for TENS devices.",
     tools: [
-      { name: "Flashy", icon: "⚡" },
-      { name: "Figma", icon: "https://cdn.worldvectorlogo.com/logos/figma-1.svg" },
-      { name: "Canva", icon: "🎨" }
+      { name: "Flashy", img: "https://flashyapp.com/wp-content/uploads/2021/03/flashy-logo-icon.png" },
+      { name: "Figma", img: "https://cdn.worldvectorlogo.com/logos/figma-1.svg" },
+      { name: "Canva", img: "https://cdn.worldvectorlogo.com/logos/canva-1.svg" }
     ],
   },
   {
     heTitle: "מערכת ניהול לידים אוטומטית",
     enTitle: "Automated Lead Management System",
     heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת למניעת אובדן פוטנציאל עסקי.",
-    enDesc: "Complex automation routing leads from Telegram groups to Google Sheets with real-time alerts to ensure no opportunity is missed.",
+    enDesc: "Complex automation routing leads from Telegram to Google Sheets with real-time alerts to ensure no opportunity is missed.",
     tools: [
-      { name: "Make", icon: "https://cdn.worldvectorlogo.com/logos/make-com.svg" },
-      { name: "Telegram", icon: "https://cdn.worldvectorlogo.com/logos/telegram-1.svg" },
-      { name: "Sheets", icon: "📊" }
+      { name: "Make", img: "https://cdn.worldvectorlogo.com/logos/make-com.svg" },
+      { name: "Telegram", img: "https://cdn.worldvectorlogo.com/logos/telegram-1.svg" },
+      { name: "Sheets", img: "https://cdn.worldvectorlogo.com/logos/google-sheets-4.svg" }
     ],
   },
 ];
 
 const ProjectsSection = () => {
-  const { t, isRTL } = useLanguage();
+  const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
 
   return (
-    <section 
-      id="projects" 
-      ref={sectionRef} 
-      className="py-16 md:py-24 bg-white -mt-10 md:-mt-20 relative z-20"
-    >
-      <div className="container mx-auto px-4 max-w-[1400px]">
+    <section id="projects" ref={sectionRef} className="py-20 bg-white -mt-20 relative z-20 font-sans">
+      <div className="container mx-auto px-6 max-w-[1400px]">
         
-        {/* כותרת הסקשן בסגנון הנקי של האתר */}
-        <div className={`mb-16 text-center md:text-right transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-          <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
-            <span className="text-sm tracking-[0.2em] font-bold uppercase" style={{ color: pink }}>
+        {/* כותרת הסקשן - ללא Italic */}
+        <div className={`mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-16 h-[1px]" style={{ background: pink }} />
+            <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
               {t("פרויקטים", "Projects")}
             </span>
-            <div className="w-12 h-px" style={{ background: pink }} />
           </div>
-          <h2 className="text-5xl md:text-7xl font-display font-bold text-slate-900 leading-tight">
+          <h2 className="text-6xl md:text-8xl font-bold text-slate-900 tracking-tighter leading-[0.9]" style={{ fontFamily: "'Secular One', sans-serif" }}>
             {t("ניסיון ", "Field ")}
-            <span className="font-light italic" style={{ color: pink }}>{t("בשטח", "Experience")}</span>
+            <span style={{ color: pink }}>{t("בשטח", "Experience")}</span>
           </h2>
         </div>
 
-        {/* גריד רחב ונקי לפי התיעוד החדש */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* גריד הכרטיסיות */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`group bg-white rounded-[40px] border border-slate-100 p-10 md:p-12 flex flex-col transition-all duration-500 shadow-[0_2px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-              style={{ transitionDelay: `${(i + 1) * 100}ms` }}
+              className={`relative bg-white rounded-[45px] border border-slate-50 p-12 flex flex-col transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.05)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              {/* נקודת קישוט קטנה בצד לפי התיעוד */}
-              <div className="absolute top-8 left-8 w-2 h-2 rounded-full opacity-20" style={{ background: olive }} />
+              {/* נקודה דקורטיבית קטנה למעלה */}
+              <div className="absolute top-10 left-10 w-2 h-2 rounded-full opacity-20" style={{ background: olive }} />
 
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center leading-tight">
+              {/* כותרת הפרויקט - Secular One מודגש */}
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center leading-tight px-2" style={{ fontFamily: "'Secular One', sans-serif" }}>
                 {t(project.heTitle, project.enTitle)}
               </h3>
 
-              <p className="text-lg text-slate-500 text-center leading-relaxed mb-10 flex-grow font-light">
+              {/* תיאור הפרויקט */}
+              <p className="text-xl text-slate-500 text-center leading-relaxed mb-12 flex-grow font-light">
                 {t(project.heDesc, project.enDesc)}
               </p>
 
-              {/* קו מפריד עדין */}
-              <div className="w-full h-px bg-slate-100 mb-8" />
+              {/* קו מפריד עדין לפני האייקונים */}
+              <div className="w-full h-[1px] bg-slate-100 mb-10" />
 
-              {/* אייקונים של כלים בתחתית - בדיוק לפי התיעוד */}
-              <div className="flex flex-wrap justify-center gap-4">
-                {project.tools.map((tool, index) => (
-                  <div key={index} className="flex flex-col items-center gap-2">
-                    <div className="w-12 h-12 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm hover:scale-110 transition-transform">
-                      {tool.icon.startsWith('http') ? (
-                        <img src={tool.icon} alt={tool.name} className="w-6 h-6 object-contain grayscale hover:grayscale-0 transition-all" />
-                      ) : (
-                        <span className="text-xl">{tool.icon}</span>
-                      )}
+              {/* שורת אייקונים נקייה בתחתית */}
+              <div className="flex justify-center gap-6">
+                {project.tools.map((tool, idx) => (
+                  <div key={idx} className="flex flex-col items-center gap-3">
+                    <div className="w-14 h-14 rounded-full border border-slate-50 flex items-center justify-center bg-white shadow-sm hover:scale-110 transition-transform duration-300">
+                      <img src={tool.img} alt={tool.name} className="w-7 h-7 object-contain opacity-70 hover:opacity-100 transition-opacity" />
                     </div>
-                    <span className="text-[10px] text-slate-400 font-medium uppercase tracking-tighter">{tool.name}</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{tool.name}</span>
                   </div>
                 ))}
               </div>
