@@ -28,7 +28,7 @@ const HeroSection = () => {
       <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
         
         {/* Title */}
-        <div className="w-full text-center mb-12 md:mb-24 z-20 hero-fade-up">
+        <div className="w-full text-center mb-12 md:mb-20 z-20 hero-fade-up">
           <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight leading-tight flex flex-row flex-wrap justify-center gap-4 md:gap-8 items-baseline">
             <span className="text-[#1C1A28] font-bold" style={{ fontFamily: "'Secular One', sans-serif" }}>
               {t("רפאל", "Raphaëlle")}
@@ -39,21 +39,12 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Desktop layout */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4">
+        {/* Desktop Layout - Re-engineered */}
+        <div className="hidden md:flex relative w-full max-w-6xl mx-auto items-center min-h-[500px]">
           
-          {/* Illustration - Moved 30% Right + Scroll Kill Strategy */}
-          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2">
-            {/* max-h-0 prevents the parent from expanding and creating a scrollbar */}
-            <div className={`relative w-full aspect-square max-h-0 flex items-center justify-center transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] pointer-events-none ${isRTL ? 'mr-[30%]' : 'ml-[30%]'}`}>
-               <HeroIllustration />
-            </div>
-          </div>
-
-          {/* Text content */}
-          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+          {/* Text content - Fixed Width to prevent shifting */}
+          <div className={`w-[55%] flex flex-col z-20 hero-fade-up ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
             <div className="w-full max-w-xl">
-              
               <div className="flex gap-10 mb-8 items-start justify-start">
                 {stats.map((stat, index) => (
                   <div key={index} className={`flex flex-col items-start gap-0 ${stat.className || ""}`}>
@@ -79,11 +70,22 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
+
+          {/* Illustration - Absolute Positioned to Kill Scrollbars */}
+          <div className={`absolute top-1/2 -translate-y-1/2 z-10 pointer-events-none transition-all duration-700
+            ${isRTL ? 'left-[40%]' : 'right-[40%]'} 
+            w-[600px] lg:w-[800px] aspect-square flex justify-center items-center`}
+          >
+            <div className="transform scale-[1.8] lg:scale-[2.0]">
+               <HeroIllustration />
+            </div>
+          </div>
+
         </div>
 
-        {/* Mobile layout */}
+        {/* Mobile Layout */}
         <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
-          <div className="w-full max-w-[320px] transform scale-125 mb-16 pointer-events-none">
+          <div className="w-full max-w-[280px] transform scale-110 mb-4">
             <HeroIllustration />
           </div>
 
@@ -104,11 +106,7 @@ const HeroSection = () => {
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
             <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4"
                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
-              {isRTL ? (
-                <>מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות <span className="whitespace-nowrap">ומסעות לקוח.</span></>
-              ) : (
-                <>End-to-End Growth Engine: Website Design & Development, Business Automation and Customer <span className="whitespace-nowrap">Journeys.</span></>
-              )}
+              {t("מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.", "End-to-End Growth Engine: Website Design & Development, Business Automation and Customer Journeys.")}
             </p>
           </div>
         </div>
