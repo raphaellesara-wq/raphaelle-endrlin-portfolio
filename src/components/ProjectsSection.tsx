@@ -10,7 +10,9 @@ const projects = [
     heTitle: "מועדון לקוחות חכם (Shopify & Rise.ai)",
     enTitle: "Smart Loyalty Club (Shopify & Rise.ai)",
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
+    enDesc: "Automated loyalty system providing credits and birthday rewards. Includes 3 marketing journeys for retention and membership renewal.",
     heResult: "חיסכון בזמן יקר, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
+    enResult: "Saved operational time and increased conversion rates.",
     tools: [
       { name: "Rise.ai", img: "/Rise.png" },
       { name: "Flashy", img: "/FlashyApp.png" },
@@ -21,7 +23,9 @@ const projects = [
     heTitle: "מסע לקוח פרסונלי מבוסס זמן",
     enTitle: "Personalized Pregnancy Journey",
     heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון של המשתמשת ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס.",
+    enDesc: "Smart email system delivering tailored content based on pregnancy week to promote TENS devices.",
     heResult: "מעורבות גבוהה של מעל 60% פתיחה לאורך שנה והצטרפות של אלפי נשים למאגר הלקוחות.",
+    enResult: "Increased warm audience and high brand engagement with 60%+ open rate.",
     tools: [
       { name: "Flashy", img: "/FlashyApp.png" },
       { name: "Figma", img: "/Figma-logo.svg.png" },
@@ -32,7 +36,9 @@ const projects = [
     heTitle: "מערכת ניהול לידים אוטומטית",
     enTitle: "Automated Lead Management System",
     heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת בעזרת AI למניעת אובדן פוטנציאל עסקי.",
+    enDesc: "Complex automation routing inquiries from Telegram groups to Google Sheets with real-time AI alerts.",
     heResult: "ניהול פניות מסודר וקיצור משמעותי בזמני התגובה בעזרת סיווג אוטומטי של המחלקה הרלוונטית.",
+    enResult: "Organized lead management and significantly reduced response times via automatic classification.",
     tools: [
       { name: "Make", img: "/Make.com.jpeg" },
       { name: "Claude", img: "/Claude.jpeg" },
