@@ -39,11 +39,18 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Desktop Layout - Re-engineered */}
-        <div className="hidden md:flex relative w-full max-w-6xl mx-auto items-center min-h-[500px]">
+        {/* Desktop Layout - התיקון הסופי */}
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto overflow-visible">
           
-          {/* Text content - Fixed Width to prevent shifting */}
-          <div className={`w-[55%] flex flex-col z-20 hero-fade-up ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+          {/* Illustration - מוגדלת ומוסטת ימינה ב-30% */}
+          <div className={`w-[50%] flex justify-center items-center hero-fade-up z-10 order-2 overflow-visible`}>
+            <div className={`relative w-full aspect-square transform scale-[2.2] lg:scale-[2.4] transition-all duration-500 ${isRTL ? '-mr-[30%]' : 'ml-[30%]'}`}>
+               <HeroIllustration />
+            </div>
+          </div>
+
+          {/* Text content */}
+          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
             <div className="w-full max-w-xl">
               <div className="flex gap-10 mb-8 items-start justify-start">
                 {stats.map((stat, index) => (
@@ -70,42 +77,24 @@ const HeroSection = () => {
               </p>
             </div>
           </div>
-
-          {/* Illustration - Absolute Positioned to Kill Scrollbars */}
-          <div className={`absolute top-1/2 -translate-y-1/2 z-10 pointer-events-none transition-all duration-700
-            ${isRTL ? 'left-[40%]' : 'right-[40%]'} 
-            w-[600px] lg:w-[800px] aspect-square flex justify-center items-center`}
-          >
-            <div className="transform scale-[1.8] lg:scale-[2.0]">
-               <HeroIllustration />
-            </div>
-          </div>
-
         </div>
 
         {/* Mobile Layout */}
         <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
-          <div className="w-full max-w-[280px] transform scale-110 mb-4">
+          <div className="w-full max-w-[280px] transform scale-125 mb-4">
             <HeroIllustration />
           </div>
-
           <div className="flex gap-6 items-start justify-center w-full">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
-                <span className="text-4xl font-black text-[#C9A0A8] leading-none tracking-tighter">
-                  {stat.value}
-                </span>
-                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">
-                  {stat.label}
-                </div>
+                <span className="text-4xl font-black text-[#C9A0A8] leading-none tracking-tighter">{stat.value}</span>
+                <div className="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">{stat.label}</div>
               </div>
             ))}
           </div>
-
           <div className="flex flex-col items-center">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
-            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4"
-               style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+            <p className="text-xl text-slate-800 leading-[1.4] tracking-tight font-thin px-4" style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
               {t("מנוע צמיחה מקצה לקצה: עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.", "End-to-End Growth Engine: Website Design & Development, Business Automation and Customer Journeys.")}
             </p>
           </div>
