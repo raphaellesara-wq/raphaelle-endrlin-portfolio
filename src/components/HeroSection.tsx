@@ -25,7 +25,7 @@ const HeroSection = () => {
       className="relative flex flex-col items-center pt-12 md:pt-24 pb-12 md:pb-24 overflow-x-hidden bg-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center overflow-visible">
+      <div className="container max-w-7xl px-4 md:px-6 relative z-10 flex flex-col items-center">
         
         {/* Title */}
         <div className="w-full text-center mb-12 md:mb-24 z-20 hero-fade-up">
@@ -40,17 +40,18 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop layout */}
-        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4 overflow-visible">
+        <div className="hidden md:flex flex-row items-center justify-center w-full max-w-6xl mx-auto md:gap-4">
           
-          {/* Illustration - Scaled up + Moved 20% to center */}
-          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2 overflow-visible">
-            <div className={`relative w-full aspect-square transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] pointer-events-none ${isRTL ? '-mr-16' : '-ml-16'}`}>
+          {/* Illustration - Moved 30% Right + Scroll Kill Strategy */}
+          <div className="w-[50%] flex justify-center items-center hero-fade-up z-10 order-2">
+            {/* max-h-0 prevents the parent from expanding and creating a scrollbar */}
+            <div className={`relative w-full aspect-square max-h-0 flex items-center justify-center transform transition-transform duration-500 scale-[2.2] lg:scale-[2.4] pointer-events-none ${isRTL ? 'mr-[30%]' : 'ml-[30%]'}`}>
                <HeroIllustration />
             </div>
           </div>
 
           {/* Text content */}
-          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 overflow-visible ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
+          <div className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end text-right' : 'items-start text-left'}`} style={{ animationDelay: "0.2s" }}>
             <div className="w-full max-w-xl">
               
               <div className="flex gap-10 mb-8 items-start justify-start">
@@ -81,8 +82,8 @@ const HeroSection = () => {
         </div>
 
         {/* Mobile layout */}
-        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up overflow-visible">
-          <div className="w-full max-w-[320px] transform scale-125 mb-4 pointer-events-none">
+        <div className="flex flex-col items-center text-center gap-12 md:hidden w-full hero-fade-up">
+          <div className="w-full max-w-[320px] transform scale-125 mb-16 pointer-events-none">
             <HeroIllustration />
           </div>
 
