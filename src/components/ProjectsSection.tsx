@@ -10,7 +10,9 @@ const projects = [
     heTitle: "מועדון לקוחות חכם (Shopify & Rise.ai)",
     enTitle: "Smart Loyalty Club (Shopify & Rise.ai)",
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
+    enDesc: "Automated loyalty system providing credits and birthday rewards. Includes 3 marketing journeys for retention and membership renewal.",
     heResult: "חיסכון בזמן יקר, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
+    enResult: "Saved operational time and increased conversion rates.",
     tools: [
       { name: "Rise.ai", img: "/Rise.png" },
       { name: "Flashy", img: "/FlashyApp.png" },
