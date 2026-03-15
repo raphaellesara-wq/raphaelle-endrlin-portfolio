@@ -2,8 +2,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { ShoppingBag, Baby, MessageSquare } from "lucide-react";
 
-const pink = "#C9A0A8";
-const olive = "#556B2F"; // גוון ירוק זית עמוק ונוכח יותר
+// צבעים שנדגמו מהאילוסטרציה ליצירת המשכיות
+const pink = "#C9A0A8"; // הוורוד העתיק מהכותרת
+const illustrationOlive = "#8B9E6B"; // הירוק זית המדויק מהעלים באיור
+const illustrationPeach = "#FDF5F2"; // גוון הרקע העדין מהאיור
 
 const projects = [
   {
@@ -22,7 +24,7 @@ const projects = [
     enTitle: "Personalized Journey",
     heSubtitle: "Flashy · מסע מבוסס זמן",
     enSubtitle: "Flashy · Time-Based Flow",
-    heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס. תוצאה: הגדלת הקהל החם ומעורבות גבוהה במותג.",
+    heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס. תוצאה: הגדלת הקהל החם ומעורבות גבוהה.",
     enDesc: "Smart email system delivering tailored content based on pregnancy week. Result: Increased warm audience and high brand engagement.",
     tools: ["Flashy", "Figma", "Canva"],
   },
@@ -46,10 +48,11 @@ const ProjectsSection = () => {
     <section 
       id="projects" 
       ref={sectionRef} 
-      // צמצום רווחים משמעותי מההירו בעזרת מרג'ין שלילי
-      className="py-12 md:py-24 bg-white -mt-12 md:-mt-24 relative z-20"
+      // py-12 מצמצם את הריווח האנכי המוגזם
+      className="py-12 md:py-20 bg-white -mt-16 md:-mt-24 relative z-20"
     >
-      <div className="container mx-auto px-5 md:px-6">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1400px]"> {/* max-w-1400 הופך את הבלוק לרחב יותר */}
+        
         <div className={`mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-px" style={{ background: pink }} />
@@ -57,57 +60,53 @@ const ProjectsSection = () => {
               {t("פרויקטים", "Projects")}
             </span>
           </div>
-          {/* הגדלת הכותרת שתתאים להירו */}
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] tracking-tighter text-slate-900">
             {t("ניסיון ", "Field ")}
             <em className="not-italic font-light" style={{ color: pink }}>{t("בשטח", "Experience")}</em>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        {/* גריד רחב עם רווחים גדולים יותר בין הכרטיסיות */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-12">
           {projects.map((project, i) => {
             const Icon = project.icon;
             return (
               <div
                 key={i}
-                className={`group relative rounded-[32px] border border-slate-100 bg-white p-8 md:p-10 flex flex-col transition-all duration-700 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                className={`group relative rounded-[40px] border border-slate-100 bg-white p-10 md:p-12 flex flex-col transition-all duration-700 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_rgba(139,158,107,0.15)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 style={{
                   transitionDelay: `${(i + 1) * 150}ms`,
-                  // בורדר ירוק זית עבה יותר בצד
-                  borderInlineStart: `6px solid ${olive}`,
-                  // רקע ירוק זית עדין מאוד לכל הכרטיסייה
-                  backgroundColor: `${olive}05` 
+                  // בורדר עליון עדין במקום צדי, ליצירת מראה רחב יותר
+                  borderTop: `4px solid ${illustrationOlive}`,
+                  backgroundColor: illustrationPeach // צבע רקע עדין מהאיור
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-8px)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-10px)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; }}
               >
-                {/* Icon Container מוגדל */}
-                <div className="mb-6 w-14 h-14 rounded-2xl flex items-center justify-center transition-colors group-hover:bg-white" style={{ background: `${olive}15` }}>
-                  <Icon size={28} strokeWidth={1.5} style={{ color: olive }} />
+                {/* Icon Container */}
+                <div className="mb-8 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: `${illustrationOlive}20` }}>
+                  <Icon size={32} strokeWidth={1.5} style={{ color: illustrationOlive }} />
                 </div>
 
-                {/* Title מוגדל */}
-                <h3 className="font-display font-bold text-slate-900 text-2xl md:text-3xl leading-tight mb-2">
+                <h3 className="font-display font-bold text-slate-900 text-3xl md:text-4xl leading-tight mb-3">
                   {t(project.heTitle, project.enTitle)}
                 </h3>
 
-                {/* Subtitle */}
-                <p className="text-base md:text-lg font-semibold mb-6" style={{ color: pink }}>
+                <p className="text-lg md:text-xl font-semibold mb-6" style={{ color: pink }}>
                   {t(project.heSubtitle, project.enSubtitle)}
                 </p>
 
-                {/* Description מוגדל */}
-                <p className="text-lg md:text-xl leading-relaxed text-slate-600 mb-8 flex-1 font-light">
-                  {t(project.heDesc, project.enDesc)}
+                <p className="text-xl md:text-2xl leading-relaxed text-slate-600 mb-10 flex-1 font-light italic">
+                  "{t(project.heDesc, project.enDesc)}"
                 </p>
 
-                {/* Tools - עיצוב בולט יותר */}
-                <div className="flex flex-wrap gap-2 mt-auto">
+                {/* Tools - Tags מעוצבים יותר */}
+                <div className="flex flex-wrap gap-3 mt-auto">
                   {project.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="rounded-full font-bold border text-xs md:text-sm px-4 py-1.5 transition-colors group-hover:bg-white"
-                      style={{ color: olive, borderColor: `${olive}30`, background: `${olive}10` }}
+                      className="rounded-xl font-bold border text-sm px-5 py-2 transition-all group-hover:bg-white group-hover:border-transparent shadow-sm"
+                      style={{ color: illustrationOlive, borderColor: `${illustrationOlive}40`, background: "white" }}
                     >
                       {tool}
                     </span>
