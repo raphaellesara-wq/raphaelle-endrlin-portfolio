@@ -10,39 +10,33 @@ const projects = [
     heTitle: "מועדון לקוחות חכם (Shopify & Rise.ai)",
     enTitle: "Smart Loyalty Club (Shopify & Rise.ai)",
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
-    enDesc: "Automated loyalty system providing credits and birthday rewards. Includes 3 marketing journeys for retention and membership renewal.",
     heResult: "חיסכון בזמן יקר, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
-    enResult: "Saved operational time and increased conversion rates.",
     tools: [
-      { name: "Rise.ai", img: "/Rise.png" },
-      { name: "Flashy", img: "/FlashyApp.png" },
-      { name: "Canva", img: "/Canva.jpeg" }
+      { name: "Rise.ai", fileName: "Rise.png" },
+      { name: "Flashy", fileName: "FlashyApp.png" },
+      { name: "Canva", fileName: "Canva.jpeg" }
     ],
   },
   {
     heTitle: "מסע לקוח פרסונלי מבוסס זמן",
     enTitle: "Personalized Pregnancy Journey",
     heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון של המשתמשת ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס.",
-    enDesc: "Smart email system delivering tailored content based on pregnancy week to promote TENS devices.",
     heResult: "מעורבות גבוהה של מעל 60% פתיחה לאורך שנה והצטרפות של אלפי נשים למאגר הלקוחות.",
-    enResult: "Increased warm audience and high brand engagement with 60%+ open rate.",
     tools: [
-      { name: "Flashy", img: "/FlashyApp.png" },
-      { name: "Figma", img: "/Figma-logo.svg.png" },
-      { name: "Canva", img: "/Canva.jpeg" }
+      { name: "Flashy", fileName: "FlashyApp.png" },
+      { name: "Figma", fileName: "Figma-logo.svg.png" },
+      { name: "Canva", fileName: "Canva.jpeg" }
     ],
   },
   {
     heTitle: "מערכת ניהול לידים אוטומטית",
     enTitle: "Automated Lead Management System",
     heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת בעזרת AI למניעת אובדן פוטנציאל עסקי.",
-    enDesc: "Complex automation routing inquiries from Telegram groups to Google Sheets with real-time AI alerts.",
     heResult: "ניהול פניות מסודר וקיצור משמעותי בזמני התגובה בעזרת סיווג אוטומטי של המחלקה הרלוונטית.",
-    enResult: "Organized lead management and significantly reduced response times via automatic classification.",
     tools: [
-      { name: "Make", img: "/Make.com.jpeg" },
-      { name: "Claude", img: "/Claude.jpeg" },
-      { name: "Sheets", img: "/sheets.png" }
+      { name: "Make", fileName: "Make.com.jpeg" },
+      { name: "Claude", fileName: "Claude.jpeg" },
+      { name: "Sheets", fileName: "sheets.png" }
     ],
   },
 ];
@@ -52,7 +46,7 @@ const ProjectsSection = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 bg-white -mt-20 relative z-20 font-sans">
+    <section id="projects" ref={sectionRef} className="py-20 bg-white -mt-20 relative z-20">
       <div className="container mx-auto px-6 max-w-[1400px]">
         
         <div className={`mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
@@ -75,7 +69,7 @@ const ProjectsSection = () => {
               className={`relative bg-white rounded-[45px] border border-slate-100 p-10 flex flex-col transition-all duration-500 shadow-sm hover:shadow-2xl ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center leading-tight" style={{ color: pink, fontFamily: "'Secular One', sans-serif" }}>
+              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center" style={{ color: pink, fontFamily: "'Secular One', sans-serif" }}>
                 {t(project.heTitle, project.enTitle)}
               </h3>
 
@@ -83,15 +77,12 @@ const ProjectsSection = () => {
                 {t(project.heDesc, project.enDesc)}
               </p>
 
-              <div 
-                className="mt-auto mb-10 p-6 rounded-[30px] border border-slate-50" 
-                style={{ backgroundColor: olivePremium }}
-              >
+              <div className="mt-auto mb-10 p-6 rounded-[30px] border border-slate-50" style={{ backgroundColor: olivePremium }}>
                 <div className="flex flex-col items-center">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] mb-2 px-3 py-1 rounded-full bg-white shadow-sm" style={{ color: oliveDark }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest mb-2 px-3 py-1 rounded-full bg-white shadow-sm" style={{ color: oliveDark }}>
                     {t("התוצאה בשטח", "Field Result")}
                   </span>
-                  <p className="text-sm md:text-base text-slate-800 text-center font-medium leading-relaxed italic">
+                  <p className="text-sm md:text-base text-slate-800 text-center font-medium italic">
                     "{t(project.heResult, project.enResult)}"
                   </p>
                 </div>
@@ -101,18 +92,17 @@ const ProjectsSection = () => {
 
               <div className="flex justify-center gap-6">
                 {project.tools.map((tool, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-2 group/tool">
-                    <div className="w-14 h-14 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm transition-all group-hover/tool:scale-110 overflow-hidden">
+                  <div key={idx} className="flex flex-col items-center gap-2">
+                    <div className="w-14 h-14 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm overflow-hidden">
                       <img 
-                        src={tool.img} 
+                        src={`/${tool.fileName}`} 
                         alt={tool.name} 
                         className="w-8 h-8 object-contain"
                         onError={(e) => {
-                          // ניסיון אחרון - אם לא מצא ב-root, יחפש בתיקיית הציבורית
-                          const currentSrc = e.currentTarget.src;
-                          if (!currentSrc.includes('/public/')) {
-                             e.currentTarget.src = '/public' + tool.img;
-                          }
+                          // אם לא מצא ב-root, מנסה לחפש בנתיבים נפוצים אחרים של Lovable
+                          const target = e.currentTarget;
+                          if (target.src.includes('/public/')) return;
+                          target.src = `/public/${tool.fileName}`;
                         }}
                       />
                     </div>
