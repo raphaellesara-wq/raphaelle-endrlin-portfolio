@@ -24,7 +24,11 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-white">
+    <section 
+      id="about" 
+      ref={sectionRef} 
+      className="py-12 md:py-20 -mt-10 md:-mt-24 relative overflow-hidden bg-white z-10"
+    >
       <div className="container mx-auto px-6 max-w-[1300px]">
         <div className="grid lg:grid-cols-[1fr_450px] items-center gap-16 lg:gap-24">
           
@@ -68,20 +72,20 @@ const AboutSection = () => {
               ))}
             </div>
 
-            {/* תוספת קטנה של 'חתימה' עיצובית */}
+            {/* אלמנט דקורטיבי תחתון */}
             <div className={`pt-4 transition-all duration-700 delay-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
                <div className="w-20 h-1 rounded-full" style={{ background: pink, opacity: 0.3 }} />
             </div>
           </div>
 
-          {/* צד האילוסטרציה - מוגדל */}
+          {/* צד האילוסטרציה (למחשב) */}
           <div
             className={`hidden lg:flex justify-center transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-90 rotate-3"
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
             }`}
           >
             <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
-              {/* עיגול רקע דקורטיבי עדין */}
+              {/* הילה ורודה עדינה ברקע */}
               <div className="absolute inset-0 rounded-full blur-3xl opacity-10" style={{ background: pink }} />
               <div className="relative z-10 w-full transform scale-125">
                  <AboutIllustration />
@@ -89,7 +93,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* אילוסטרציה למובייל */}
+          {/* אילוסטרציה (למובייל) */}
           <div className="lg:hidden flex justify-center pt-10">
              <div className="w-full max-w-[280px] opacity-80">
                 <AboutIllustration />
