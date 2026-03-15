@@ -36,7 +36,9 @@ const projects = [
     heTitle: "מערכת ניהול לידים אוטומטית",
     enTitle: "Automated Lead Management System",
     heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת בעזרת AI למניעת אובדן פוטנציאל עסקי.",
+    enDesc: "Complex automation routing inquiries from Telegram groups to Google Sheets with real-time AI alerts.",
     heResult: "ניהול פניות מסודר וקיצור משמעותי בזמני התגובה בעזרת סיווג אוטומטי של המחלקה הרלוונטית.",
+    enResult: "Organized lead management and significantly reduced response times via automatic classification.",
     tools: [
       { name: "Make", img: "/Make.com.jpeg" },
       { name: "Claude", img: "/Claude.jpeg" },
