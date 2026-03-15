@@ -9,10 +9,12 @@ const projects = [
     heTitle: "מועדון לקוחות חכם (Shopify & Rise.ai)",
     enTitle: "Smart Loyalty Club (Shopify & Rise.ai)",
     heDesc: "הקמת מערכת נאמנות אוטומטית המעניקה קרדיטים והטבות יום הולדת ללא מגע יד אדם. המערכת כוללת 3 מסעות לקוח שיווקיים לשימור לקוחות וחידוש חברות.",
-    enDesc: "Implementing an automated loyalty system with credits and rewards. Includes 3 marketing journeys for retention and renewal.",
+    enDesc: "Automated loyalty system providing credits and rewards. Includes 3 marketing journeys for customer retention.",
+    heResult: "חסיכון בזמן יקר, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
+    enResult: "Significant time savings, fully automated system, and high conversion rates.",
     tools: [
       { name: "Shopify", img: "https://cdn.worldvectorlogo.com/logos/shopify.svg" },
-      { name: "Rise.ai", img: "https://static.wixstatic.com/media/7f4851_5e5d590469b6408283a0026e499d63c4~mv2.png" },
+      { name: "Rise.ai", img: "https://upload.wikimedia.org/wikipedia/commons/4/49/Shopping_cart_icon.svg" }, // Fallback icon
       { name: "Flashy", img: "https://flashyapp.com/wp-content/uploads/2021/03/flashy-logo-icon.png" },
       { name: "Canva", img: "https://cdn.worldvectorlogo.com/logos/canva-1.svg" }
     ],
@@ -21,7 +23,9 @@ const projects = [
     heTitle: "מסע לקוח פרסונלי מבוסס זמן",
     enTitle: "Personalized Pregnancy Journey",
     heDesc: "מערכת דיוור חכמה המחשבת את שבוע ההיריון של המשתמשת ומגישה תוכן אינפורמטיבי ומכירתי מותאם אישית לקידום מכשירי טנס.",
-    enDesc: "A smart email system that calculates pregnancy weeks to deliver tailored informative content for TENS devices.",
+    enDesc: "Smart email system calculating pregnancy weeks to deliver tailored content promoting TENS devices.",
+    heResult: "מעורבות גבוהה של מעל 60% פתיחה לאורך שנה והצטרפות של אלפי נשים למאגר הלקוחות.",
+    enResult: "High engagement (60%+ open rate) and thousands of new leads joined the database.",
     tools: [
       { name: "Flashy", img: "https://flashyapp.com/wp-content/uploads/2021/03/flashy-logo-icon.png" },
       { name: "Figma", img: "https://cdn.worldvectorlogo.com/logos/figma-1.svg" },
@@ -31,8 +35,10 @@ const projects = [
   {
     heTitle: "מערכת ניהול לידים אוטומטית",
     enTitle: "Automated Lead Management System",
-    heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת למניעת אובדן פוטנציאל עסקי.",
-    enDesc: "Complex automation routing leads from Telegram to Google Sheets with real-time alerts to ensure no opportunity is missed.",
+    heDesc: "אוטומציה מורכבת המנתבת פניות מקבוצות טלגרם ישירות ל-Google Sheets ומייצרת התראות בזמן אמת בעזרת AI למניעת אובדן פוטנציאל עסקי.",
+    enDesc: "Complex automation routing leads from Telegram to Google Sheets with real-time AI alerts.",
+    heResult: "ניהול פניות מסודר וקיצור משמעותי בזמני התגובה בעזרת סיווג אוטומטי של המחלקה הרלוונטית.",
+    enResult: "Organized lead management and significantly faster response times via automated classification.",
     tools: [
       { name: "Make", img: "https://cdn.worldvectorlogo.com/logos/make-com.svg" },
       { name: "Telegram", img: "https://cdn.worldvectorlogo.com/logos/telegram-1.svg" },
@@ -46,11 +52,10 @@ const ProjectsSection = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 bg-white -mt-20 relative z-20 font-sans">
+    <section id="projects" ref={sectionRef} className="py-20 bg-white -mt-20 relative z-20">
       <div className="container mx-auto px-6 max-w-[1400px]">
         
-        {/* כותרת הסקשן - ללא Italic */}
-        <div className={`mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className={`mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-[1px]" style={{ background: pink }} />
             <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
@@ -63,38 +68,46 @@ const ProjectsSection = () => {
           </h2>
         </div>
 
-        {/* גריד הכרטיסיות */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {projects.map((project, i) => (
             <div
               key={i}
-              className={`relative bg-white rounded-[45px] border border-slate-50 p-12 flex flex-col transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.05)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              className={`relative bg-white rounded-[45px] border border-slate-50 p-10 md:p-12 flex flex-col transition-all duration-500 shadow-[0_2px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              {/* נקודה דקורטיבית קטנה למעלה */}
               <div className="absolute top-10 left-10 w-2 h-2 rounded-full opacity-20" style={{ background: olive }} />
 
-              {/* כותרת הפרויקט - Secular One מודגש */}
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center leading-tight px-2" style={{ fontFamily: "'Secular One', sans-serif" }}>
+              {/* כותרת מוקטנת בוורוד עם Secular One */}
+              <h3 className="text-xl md:text-2xl font-bold mb-6 text-center leading-tight" style={{ color: pink, fontFamily: "'Secular One', sans-serif" }}>
                 {t(project.heTitle, project.enTitle)}
               </h3>
 
-              {/* תיאור הפרויקט */}
-              <p className="text-xl text-slate-500 text-center leading-relaxed mb-12 flex-grow font-light">
+              <p className="text-lg text-slate-500 text-center leading-relaxed mb-6 font-light">
                 {t(project.heDesc, project.enDesc)}
               </p>
 
-              {/* קו מפריד עדין לפני האייקונים */}
-              <div className="w-full h-[1px] bg-slate-100 mb-10" />
+              {/* שורת תוצאה */}
+              <div className="mb-8 p-4 rounded-2xl bg-slate-50/50 border border-slate-50">
+                <p className="text-sm md:text-base text-slate-700 text-center font-medium">
+                  <span className="font-bold" style={{ color: olive }}>{t("תוצאה: ", "Result: ")}</span>
+                  {t(project.heResult, project.enResult)}
+                </p>
+              </div>
 
-              {/* שורת אייקונים נקייה בתחתית */}
-              <div className="flex justify-center gap-6">
+              <div className="w-full h-[1px] bg-slate-100 mb-8 mt-auto" />
+
+              <div className="flex justify-center gap-5">
                 {project.tools.map((tool, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-3">
-                    <div className="w-14 h-14 rounded-full border border-slate-50 flex items-center justify-center bg-white shadow-sm hover:scale-110 transition-transform duration-300">
-                      <img src={tool.img} alt={tool.name} className="w-7 h-7 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                  <div key={idx} className="flex flex-col items-center gap-2">
+                    <div className="w-12 h-12 rounded-full border border-slate-100 flex items-center justify-center bg-white shadow-sm overflow-hidden">
+                      <img 
+                        src={tool.img} 
+                        alt={tool.name} 
+                        className="w-6 h-6 object-contain opacity-80"
+                        onError={(e) => { e.currentTarget.src = "https://cdn-icons-png.flaticon.com/512/2111/2111432.png"; }} // תיקון אם לינק נשבר
+                      />
                     </div>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{tool.name}</span>
+                    <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">{tool.name}</span>
                   </div>
                 ))}
               </div>
