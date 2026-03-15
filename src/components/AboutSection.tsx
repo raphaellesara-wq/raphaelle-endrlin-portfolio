@@ -29,29 +29,28 @@ const AboutSection = () => {
       className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* ביטול ה-container לטובת יישור ידני שמתאים לבלוק הפרויקטים. 
-          השתמשתי ב-px-6 ו-md:px-12 כדי לוודא שזה נצמד לקו של הבלוקים למטה.
+      {/* כאן הסוד ליישור: max-w-7xl יחד עם px-4 md:px-6 
+         מבטיח שהטקסט יתחיל באותו קו בדיוק כמו בלוק הפרויקטים.
       */}
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-10 md:space-y-12`}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-12`}>
           
-          {/* תגית אודות - מיושרת לקו ההתחלה של הפרויקטים */}
+          {/* תגית אודות עם קו דקורטיבי מיושר */}
           <div
             className={`flex items-center gap-4 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-             {/* היפוך סדר הקו כדי שיהיה זהה לבלוק הפרויקטים */}
             {isRTL ? (
               <>
                 <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
-                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
+                <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
                   {t("אודות", "About Me")}
                 </span>
               </>
             ) : (
               <>
-                <span className="text-xs md:text-sm tracking-[0.3em] font-bold uppercase" style={{ color: pink }}>
+                <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
                   {t("אודות", "About Me")}
                 </span>
                 <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
@@ -59,7 +58,7 @@ const AboutSection = () => {
             )}
           </div>
 
-          {/* כותרת מוגדלת - כאן היישור קריטי */}
+          {/* כותרת מוגדלת */}
           <h2
             className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -73,12 +72,12 @@ const AboutSection = () => {
             </span>
           </h2>
 
-          {/* פסקאות */}
-          <div className="space-y-6 md:space-y-8 w-full max-w-3xl">
+          {/* פסקאות - הסרתי את הגבלת ה-900px המיותרת */}
+          <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-lg md:text-2xl leading-relaxed text-slate-600 font-light transition-all duration-700 ${
+                className={`text-lg md:text-2xl leading-relaxed text-slate-500 font-light transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${300 + i * 150}ms` }}
