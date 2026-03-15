@@ -2,6 +2,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import AboutIllustration from "@/components/AboutIllustration";
 
+const pink = "#C9A0A8";
+
 const AboutSection = () => {
   const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
@@ -22,75 +24,78 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-2 md:py-6 relative" style={{ background: "transparent" }}>
-      <div className="container mx-auto px-5 md:px-6">
-        <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
-          {/* Text column */}
-          <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
+    <section id="about" ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-white">
+      <div className="container mx-auto px-6 max-w-[1300px]">
+        <div className="grid lg:grid-cols-[1fr_450px] items-center gap-16 lg:gap-24">
+          
+          {/* צד הטקסט */}
+          <div className="space-y-10">
             <div
-              className={`flex items-center gap-3 transition-all duration-100 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              className={`flex items-center gap-4 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
               }`}
             >
-              <div className="w-8 h-px bg-muted-foreground/30" />
-              <span className="text-sm tracking-wide text-muted-foreground font-medium">
-                {t("אודות", "About")}
+              <div className="w-12 h-px" style={{ background: pink }} />
+              <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
+                {t("אודות", "About Me")}
               </span>
             </div>
 
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-100 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
+              style={{ fontFamily: "'Secular One', sans-serif" }}
             >
               {t("אסטרטגיה שפוגשת", "Strategy Meets")}
               <br />
-              <em className="not-italic text-muted-foreground">
+              <span style={{ color: pink }}>
                 {t("טכנולוגיה", "Technology")}
-              </em>
+              </span>
             </h2>
 
-            {paragraphs.map((para, i) => (
-              <p
-                key={i}
-                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-                }`}
-                style={{ transitionDelay: `${i * 30}ms` }}
-              >
-                {para}
-              </p>
-            ))}
+            <div className="space-y-6 max-w-2xl">
+              {paragraphs.map((para, i) => (
+                <p
+                  key={i}
+                  className={`text-lg md:text-xl leading-relaxed text-slate-500 font-light transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
+                  style={{ transitionDelay: `${300 + i * 150}ms` }}
+                >
+                  {para}
+                </p>
+              ))}
+            </div>
+
+            {/* תוספת קטנה של 'חתימה' עיצובית */}
+            <div className={`pt-4 transition-all duration-700 delay-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+               <div className="w-20 h-1 rounded-full" style={{ background: pink, opacity: 0.3 }} />
+            </div>
           </div>
 
-          {/* Illustration — beside text on desktop, below on mobile */}
+          {/* צד האילוסטרציה - מוגדל */}
           <div
-            className="hidden lg:flex about-illust-wrap justify-center"
-            style={{
-              opacity: isVisible ? 0.9 : 0,
-              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
-              transition: 'opacity 0.1s ease-out, transform 0.1s ease-out',
-              maxWidth: '360px',
-              width: '100%',
-            }}
+            className={`hidden lg:flex justify-center transition-all duration-1000 delay-300 ${
+              isVisible ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-90 rotate-3"
+            }`}
           >
-            <AboutIllustration />
+            <div className="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
+              {/* עיגול רקע דקורטיבי עדין */}
+              <div className="absolute inset-0 rounded-full blur-3xl opacity-10" style={{ background: pink }} />
+              <div className="relative z-10 w-full transform scale-125">
+                 <AboutIllustration />
+              </div>
+            </div>
           </div>
 
-          {/* Mobile illustration — centered, balanced */}
-          <div
-            className="flex lg:hidden justify-center"
-            style={{
-              opacity: isVisible ? 0.85 : 0,
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.97)',
-              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
-              maxWidth: '220px',
-              width: '100%',
-              margin: '8px auto 0',
-            }}
-          >
-            <AboutIllustration />
+          {/* אילוסטרציה למובייל */}
+          <div className="lg:hidden flex justify-center pt-10">
+             <div className="w-full max-w-[280px] opacity-80">
+                <AboutIllustration />
+             </div>
           </div>
+
         </div>
       </div>
     </section>
