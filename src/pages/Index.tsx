@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -11,14 +11,24 @@ import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import BackToTopButton from "@/components/BackToTopButton";
 import SplashScreen from "@/components/SplashScreen";
+import SplashPentagon from "@/components/SplashPentagon";
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const handleSplashComplete = useCallback(() => setShowSplash(false), []);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      {showSplash && (
+        isMobile
+          ? <SplashPentagon onComplete={handleSplashComplete} />
+          : <SplashScreen onComplete={handleSplashComplete} />
+      )}
       <ScrollProgressBar />
       <Navbar />
       <HeroSection />

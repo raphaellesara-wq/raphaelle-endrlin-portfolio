@@ -22,7 +22,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-6 md:py-10 relative" style={{ background: "transparent" }}>
+    <section id="about" ref={sectionRef} className="pt-6 pb-2 md:py-10 relative" style={{ background: "transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
           {/* Text column */}
