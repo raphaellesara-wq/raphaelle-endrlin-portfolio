@@ -17,14 +17,14 @@ const Index = () => {
   const handleSplashComplete = useCallback(() => setShowSplash(false), []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       <ScrollProgressBar />
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <ExperienceSection />
       <ProjectsSection />
+      <ExperienceSection />
       <DesignShowcase />
       <SkillsSection />
       <ContactSection />

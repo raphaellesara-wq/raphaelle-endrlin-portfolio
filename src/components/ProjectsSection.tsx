@@ -1,139 +1,234 @@
-import { useState, useCallback, useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Mail, Settings, Palette, Zap, Search, ChevronLeft, ChevronRight } from "lucide-react";
 
-const cardIcons = [Settings, Palette, Zap, Search];
-
-const featuredProject = {
-  heTitle: "מסעות לקוח ומועדון חברות",
-  enTitle: "Customer Journeys & Loyalty Club",
-  subtitle: "FlashyApp · Shopify · Rise.ai",
-  heDesc: "בניית מועדון לקוחות ב-Shopify עם מנגנון קרדיטים (Rise.ai) ומסעות לקוח מותאמים אישית. עיצוב ניוזלטרים ומסעות שיווקיים לקהילת הסופרפוד.",
-  enDesc: "Built a complete loyalty club with a credit system on Shopify via Rise.ai. Designed 3 customer journeys: welcome, birthday benefit, pre-expiry reminder. Branded newsletters and marketing campaigns for the superfood community.",
-  tags: ["Shopify", "Rise.ai", "FlashyApp", "Customer Journey", "Email Design"],
-  accent: "#3D8B6E",
+// Tool logo components using SVG shapes per brand
+const ToolLogo = ({ name }: { name: string }) => {
+  const logos: Record<string, JSX.Element> = {
+    Shopify: (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#96BF48" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">S</text>
+      </svg>
+    ),
+    "Rise.ai": (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#FF6B35" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">R</text>
+      </svg>
+    ),
+    FlashyApp: (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#1E40AF" />
+        <path d="M28 10 L18 27 H26 L22 40 L34 21 H26 Z" fill="white" />
+      </svg>
+    ),
+    Figma: (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#F24E1E" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="18" fontWeight="bold" fontFamily="sans-serif">Fg</text>
+      </svg>
+    ),
+    Canva: (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#00C4CC" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">C</text>
+      </svg>
+    ),
+    "Make.com": (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#6D00CC" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">Mk</text>
+      </svg>
+    ),
+    "Claude AI": (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="10" fill="#D97706" />
+        <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">AI</text>
+      </svg>
+    ),
+    Telegram: (
+      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#2AABEE" />
+        <path d="M10 25 L38 14 L28 38 L22 30 Z" fill="white" opacity="0.8" />
+        <path d="M22 30 L20 38 L26 32 Z" fill="white" />
+      </svg>
+    ),
+  };
+  return logos[name] ?? (
+    <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <rect width="50" height="50" rx="10" fill="#94A3B8" />
+      <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">
+        {name.slice(0, 2)}
+      </text>
+    </svg>
+  );
 };
 
-const carouselProjects = [
-  { heTitle: "אוטומציית Abandon Cart", enTitle: "Abandoned Cart Automation", subtitle: "FlashyApp · Customer Journey Automation", heDesc: "בניית מסע לקוח מורכב לשחזור עגלות נטושות עם לוגיקת IF/ELSE, עיכובים מחושבים ושליחת מיילים מותאמים אישית בזמן הנכון.", enDesc: "Built a complex abandoned cart flow with IF/ELSE logic, calculated time delays, and personalized email sequences.", tags: ["Automation", "FlashyApp", "Customer Journey", "Email Marketing"], accent: "#4E7FA8" },
-  { heTitle: "עיצוב ניוזלטרים — לקוחות מגוונים", enTitle: "Newsletter Design — Diverse Clients", subtitle: "Figma · Canva · FlashyApp · Klaviyo", heDesc: "עיצוב ניוזלטרים ו-pop-up forms עבור מותגים: amika, laliteva, Nintendo Israel, צירים ועוד — כל אחד עם שפה ויזואלית ייחודית.", enDesc: "Newsletter and pop-up form design for brands: amika, laliteva, Nintendo Israel, Tzirim and more — each with a distinct visual identity.", tags: ["Figma", "Canva", "Newsletter Design", "Pop-up Forms"], accent: "#D4798A" },
-  { heTitle: "אוטומציית התראות לעסקים — Make.com", enTitle: "Business Inquiry Automation — Make.com", subtitle: "Make.com · Google Sheets · Claude AI · Telegram", heDesc: "בניית אוטומציה לניהול פניות נכנסות לעסקים: קליטת נתונים מטפסי פניות, ניתוח חכם בעזרת Claude AI, ושליחת התראות מיידיות למנהל בטלגרם. הפתרון מצמצם זמן תגובה ומונע פניות שנופלות בין הכסאות.", enDesc: "Built a business inquiry automation: capturing form submissions, AI-powered analysis with Claude, and instant Telegram alerts to managers. Reduces response time and ensures no lead is missed.", tags: ["Make.com", "Claude AI", "Google Sheets", "Telegram", "Business Automation"], accent: "#7B68A8" },
-  { heTitle: "סוכן AI לניתוח ושיפור אתרי Shopify", enTitle: "AI Agent for Shopify Site Analysis", subtitle: "Make.com · Web Scraping · Claude AI · Shopify", heDesc: "סוכן AI שסורק אתרי ecommerce בשופיפיי, מנתח את המבנה, העיצוב וחוויית המשתמש, ומייצר דוח מפורט עם המלצות מעשיות לשיפור. הפתרון משלב web scraping ובינה מלאכותית לאבחון מהיר ואפקטיבי.", enDesc: "An AI agent that scrapes Shopify ecommerce sites, analyzes structure, design and UX, then generates a detailed improvement report. Combines web scraping and AI for fast, actionable insights.", tags: ["Make.com", "Web Scraping", "Claude AI", "Shopify", "UX Analysis"], accent: "#C4834A" },
+const projects = [
+  {
+    heTitle: "מועדון לקוחות חכם — Umina Superfood",
+    enTitle: "Smart Loyalty Club — Umina Superfood",
+    heDesc: "בניית מועדון לקוחות בשופיפיי עם מנגנון קרדיטים אוטומטי דרך Rise.ai — הקצאת קרדיטים עם רכישת החברות ו-3 מסעות לקוח: ברכת הצטרפות, הטבת יום הולדת והתראה לפני סיום החברות.",
+    enDesc: "Built a complete loyalty program on Shopify using Rise.ai: automatic credit allocation upon membership purchase, plus 3 automated customer journeys — welcome series, birthday benefit, and a pre-expiry renewal reminder.",
+    heResult: "חיסכון בזמן, יצירת מערכת אוטומטית לחלוטין ואחוזי המרה גבוהים.",
+    enResult: "Time saved through full automation — high conversion rates and hands-off membership management.",
+    tools: ["Shopify", "Rise.ai", "FlashyApp", "Canva"],
+    accent: "hsl(var(--accent-green))",
+    paleBg: "hsl(var(--accent-green-pale))",
+  },
+  {
+    heTitle: "מסע לקוח פרסונלי לנשים הריוניות",
+    enTitle: "Personalized Pregnancy Journey",
+    heDesc: "בניית מסע לקוח מותאם אישית לנשים הריוניות, המתאים את תדירות התוכן לשלב ההריון. שלב מוקדם — ניוזלטר אחד בשבוע; שלב מאוחר — שניים בשבוע.",
+    enDesc: "Built a personalized email journey for pregnant women, adapting content frequency to their pregnancy stage. Early-stage subscribers receive 1 newsletter/week; closer to birth, 2/week.",
+    heResult: "מעורבות גבוהה של מעל 60% פתיחה לאורך שנה והצטרפות של אלפי נשים למאגר הלקוחות.",
+    enResult: "60%+ open rate sustained over a year, with thousands of women joining the customer database.",
+    tools: ["FlashyApp", "Figma", "Canva"],
+    accent: "hsl(var(--accent-pink))",
+    paleBg: "hsl(var(--accent-pink-pale))",
+  },
+  {
+    heTitle: "מערכת ניהול לידים אוטומטית",
+    enTitle: "Automated Lead Management System",
+    heDesc: "בניית מערכת ניהול פניות חכמה לחדר כושר. Claude AI מנתח כל פנייה נכנסת ומזהה מחלקה, רמת דחיפות וסיכום — ושולח התראה מיידית בטלגרם למחלקה הרלוונטית.",
+    enDesc: "Built an AI-powered inquiry routing system for a gym. Claude AI analyzes each incoming form submission to extract department, urgency, and summary — then instantly dispatches a Telegram alert to the right team.",
+    heResult: "ניהול פניות מסודר וקיצור משמעותי בזמני התגובה באמצעות סיווג אוטומטי של המחלקה הרלוונטית.",
+    enResult: "Organized inquiry management and significantly reduced response times through automated department routing.",
+    tools: ["Make.com", "Claude AI", "Telegram"],
+    accent: "hsl(var(--accent-purple))",
+    paleBg: "hsl(var(--accent-purple-pale))",
+  },
 ];
 
-function useVisibleCount() {
-  const [count, setCount] = useState(3);
-  useEffect(() => {
-    const update = () => { const w = window.innerWidth; setCount(w <= 640 ? 1 : w <= 1023 ? 2 : 3); };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-  return count;
-}
-
 const ProjectsSection = () => {
-  const { t, isRTL } = useLanguage();
+  const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
-  const visibleCount = useVisibleCount();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = carouselProjects.length - visibleCount;
-  const touchStartX = useRef<number | null>(null);
-
-  const goTo = useCallback((idx: number) => setCurrentIndex(Math.max(0, Math.min(idx, maxIndex))), [maxIndex]);
-
-  useEffect(() => { if (currentIndex > maxIndex) setCurrentIndex(Math.max(0, maxIndex)); }, [maxIndex, currentIndex]);
-
-  const gap = 20;
-  const cardPercent = 100 / visibleCount;
-  const offset = currentIndex * cardPercent;
-  const translateDir = isRTL ? offset : -offset;
-  const totalDots = maxIndex + 1;
-
-  const renderCard = (project: typeof carouselProjects[0], iconIdx: number) => {
-    const Icon = cardIcons[iconIdx];
-    return (
-      <div
-        className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out h-full"
-        style={{ borderBottom: "3px solid transparent" }}
-        onMouseEnter={(e) => { const el = e.currentTarget; el.style.transform = "translateY(-3px)"; el.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; el.style.borderBottom = `3px solid ${project.accent}`; }}
-        onMouseLeave={(e) => { const el = e.currentTarget; el.style.transform = "translateY(0)"; el.style.boxShadow = "none"; el.style.borderBottom = "3px solid transparent"; }}
-      >
-        <Icon size={20} strokeWidth={1.5} color={project.accent} className="absolute top-6 end-6 opacity-60" />
-        <h3 className="font-bold text-foreground mb-1 pe-8" style={{ fontSize: 17 }}>{t(project.heTitle, project.enTitle)}</h3>
-        <p className="text-muted-foreground mb-3" style={{ fontSize: 12, marginTop: 4 }}>{project.subtitle}</p>
-        <p className="mb-4" style={{ fontSize: 14, color: "hsl(var(--muted-foreground))", lineHeight: 1.7, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{t(project.heDesc, project.enDesc)}</p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="rounded-full font-medium border" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: "transparent", color: project.accent, borderColor: `${project.accent}44` }}>{tag}</span>
-          ))}
-        </div>
-      </div>
-    );
-  };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-8 md:py-16" style={{ background: "linear-gradient(to bottom, #FFFFFF 0%, #FDFCFA 50%, #FAFAF8 100%)" }}>
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-6 md:py-10"
+      style={{ background: "#FFFFFF" }}
+    >
       <div className="container mx-auto px-5 md:px-6">
-        <div className={`mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+
+        {/* Section header */}
+        <div
+          className={`mb-10 md:mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-accent-pink" />
-            <span className="text-sm tracking-wide font-medium text-accent-pink">{t("פרויקטים", "Projects")}</span>
+            <span className="text-sm tracking-wide font-medium text-accent-pink">
+              {t("פרויקטים", "Projects")}
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1]">
             {t("ניסיון ", "Field ")}
             <em className="not-italic text-accent-pink">{t("בשטח", "Experience")}</em>
           </h2>
         </div>
 
-        {/* Featured */}
-        <div className={`mb-5 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "200ms" }}>
-          <div
-            className="group relative rounded-[20px] border border-border bg-card p-5 md:p-8 transition-all duration-200 ease-out"
-            style={{ borderInlineStart: `3px solid ${featuredProject.accent}` }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(44,44,58,0.08)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
-          >
-            <Mail size={20} strokeWidth={1.5} color={featuredProject.accent} className="absolute top-6 end-6 opacity-60" />
-            <h3 className="font-bold text-foreground mb-1 pe-8" style={{ fontSize: 17 }}>{t(featuredProject.heTitle, featuredProject.enTitle)}</h3>
-            <p className="text-muted-foreground mb-3" style={{ fontSize: 12, marginTop: 4 }}>{featuredProject.subtitle}</p>
-            <p className="mb-4" style={{ fontSize: 14, color: "hsl(var(--muted-foreground))", lineHeight: 1.7, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical" }}>{t(featuredProject.heDesc, featuredProject.enDesc)}</p>
-            <div className="flex flex-wrap gap-1.5">
-              {featuredProject.tags.slice(0, 3).map((tag) => (
-                <span key={tag} className="rounded-full font-medium border" style={{ fontSize: 11, padding: "3px 10px", backgroundColor: "transparent", color: featuredProject.accent, borderColor: `${featuredProject.accent}44` }}>{tag}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Carousel */}
-        <div className={`relative transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "400ms" }}>
-          <button className="hidden sm:flex absolute top-1/2 -translate-y-1/2 w-11 h-11 rounded-full items-center justify-center z-10 transition-all duration-200 bg-card border border-border" style={{ [isRTL ? "left" : "right"]: -22, boxShadow: "0 4px 16px rgba(44,44,58,0.10)", opacity: currentIndex >= maxIndex ? 0.3 : 1, cursor: currentIndex >= maxIndex ? "not-allowed" : "pointer" }} disabled={currentIndex >= maxIndex} onClick={() => goTo(currentIndex + 1)}>
-            {isRTL ? <ChevronLeft size={20} className="text-foreground" /> : <ChevronRight size={20} className="text-foreground" />}
-          </button>
-          <button className="hidden sm:flex absolute top-1/2 -translate-y-1/2 w-11 h-11 rounded-full items-center justify-center z-10 transition-all duration-200 bg-card border border-border" style={{ [isRTL ? "right" : "left"]: -22, boxShadow: "0 4px 16px rgba(44,44,58,0.10)", opacity: currentIndex <= 0 ? 0.3 : 1, cursor: currentIndex <= 0 ? "not-allowed" : "pointer" }} disabled={currentIndex <= 0} onClick={() => goTo(currentIndex - 1)}>
-            {isRTL ? <ChevronRight size={20} className="text-foreground" /> : <ChevronLeft size={20} className="text-foreground" />}
-          </button>
-
-          <div className="overflow-hidden">
-            <div className="flex" style={{ gap, transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)", willChange: "transform", transform: `translateX(${translateDir}%)` }}
-              onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
-              onTouchEnd={(e) => { if (touchStartX.current === null) return; const delta = e.changedTouches[0].clientX - touchStartX.current; if (Math.abs(delta) > 50) { const direction = isRTL ? (delta > 0 ? 1 : -1) : (delta > 0 ? -1 : 1); goTo(currentIndex + direction); } touchStartX.current = null; }}
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-7">
+          {projects.map((project, i) => (
+            <div
+              key={i}
+              className={`group relative rounded-[20px] border border-border bg-card p-5 md:p-6 flex flex-col transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${200 + i * 150}ms` }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "translateY(-4px)";
+                el.style.boxShadow = "0 16px 40px rgba(44,44,58,0.10)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
+              }}
             >
-              {carouselProjects.map((project, i) => (
-                <div key={i} style={{ flex: `0 0 calc(${cardPercent}% - ${(gap * (visibleCount - 1)) / visibleCount}px)`, minWidth: 0 }}>
-                  {renderCard(project, i)}
-                </div>
-              ))}
-            </div>
-          </div>
+              {/* Top accent bar */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[20px]"
+                style={{ backgroundColor: project.accent }}
+              />
 
-          <div className="flex justify-center gap-2 mt-7">
-            {Array.from({ length: totalDots }).map((_, i) => (
-              <button key={i} onClick={() => goTo(i)} className="transition-all duration-250 rounded-full" style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", background: i === currentIndex ? "hsl(var(--accent-purple))" : "hsl(var(--border))", cursor: "pointer", border: "none", padding: 0 }} />
-            ))}
-          </div>
+              {/* Title */}
+              <h3
+                className="mb-3 leading-snug"
+                style={{ fontSize: 17, fontWeight: 700, color: project.accent }}
+              >
+                {t(project.heTitle, project.enTitle)}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="mb-4"
+                style={{
+                  fontSize: 14,
+                  color: "hsl(var(--muted-foreground))",
+                  lineHeight: 1.7,
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              >
+                {t(project.heDesc, project.enDesc)}
+              </p>
+
+              {/* Field Result box */}
+              <div
+                className="rounded-[12px] px-4 py-3 mb-5"
+                style={{ backgroundColor: project.paleBg }}
+              >
+                <p
+                  className="mb-1 uppercase tracking-widest"
+                  style={{ fontSize: 10, fontWeight: 600, color: project.accent }}
+                >
+                  {t("התוצאה בשטח", "Field Result")}
+                </p>
+                <p
+                  className="italic"
+                  style={{
+                    fontSize: 13,
+                    color: "hsl(var(--foreground))",
+                    lineHeight: 1.65,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  "{t(project.heResult, project.enResult)}"
+                </p>
+              </div>
+
+              {/* Tool logos */}
+              <div className="flex flex-wrap items-end gap-4 mt-auto pt-2">
+                {project.tools.map((tool) => (
+                  <div key={tool} className="flex flex-col items-center gap-1">
+                    <ToolLogo name={tool} />
+                    <span
+                      style={{
+                        fontSize: 10,
+                        fontWeight: 500,
+                        color: "hsl(var(--muted-foreground))",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                      }}
+                    >
+                      {tool}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

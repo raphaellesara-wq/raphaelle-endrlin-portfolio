@@ -22,7 +22,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="py-6 md:py-12 relative" style={{ background: "transparent" }}>
+    <section id="about" ref={sectionRef} className="py-6 md:py-10 relative" style={{ background: "transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
           {/* Text column */}
@@ -39,7 +39,7 @@ const AboutSection = () => {
             </div>
 
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-[1.1] transition-all duration-100 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] transition-all duration-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
               }`}
             >
@@ -53,7 +53,7 @@ const AboutSection = () => {
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
+                className={`text-base md:text-lg leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
                 style={{ transitionDelay: `${i * 30}ms` }}

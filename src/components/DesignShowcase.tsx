@@ -5,20 +5,6 @@ import { ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 type TabKey = "newsletters" | "popups" | "webdesign" | "automation";
 
-function useVisibleCount() {
-  const [count, setCount] = useState(3);
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      setCount(w < 641 ? 1 : w < 1024 ? 2 : 3);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-  return count;
-}
-
 interface GalleryCardData {
   src: string;
   heLabel: string;
@@ -33,12 +19,6 @@ interface GalleryCardData {
   imageMaxHeight?: number;
 }
 
-const tabs: { key: TabKey; he: string; en: string }[] = [
-  { key: "newsletters", he: "ניוזלטרים", en: "Newsletters" },
-  { key: "popups", he: "Pop-up Forms", en: "Pop-up Forms" },
-  { key: "webdesign", he: "עיצוב ופיתוח אתרים", en: "Web Design & Dev" },
-  { key: "automation", he: "אוטומציות", en: "Automations" },
-];
 
 const galleryData: Record<TabKey, GalleryCardData[]> = {
   newsletters: [
@@ -78,12 +58,18 @@ const Lightbox = ({ card, onClose, t }: { card: GalleryCardData; onClose: () => 
       style={{ background: "rgba(28,26,40,0.88)", backdropFilter: "blur(6px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="relative bg-background rounded-[20px] overflow-hidden flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250" style={{ maxWidth: "90vw", maxHeight: "90vh", width: "auto" }}>
+      <div className="relative bg-background rounded-[20px] overflow-hidden flex flex-col animate-in slide-in-from-bottom-3 fade-in duration-250" style={{ maxWidth: "min(95vw, 950px)", maxHeight: "90vh", width: "auto" }}>
         <button onClick={onClose} className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-background flex items-center justify-center border border-border shadow-md hover:scale-110 transition-transform">
           <X size={18} className="text-foreground" />
         </button>
-        <div className="flex items-start justify-center" style={{ background: card.imageBg ?? "#F6F5F0", overflow: isTall ? "auto" : "hidden", ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : {}) }}>
-          <img src={card.src} alt={card.enLabel} className="block" style={{ maxHeight: "calc(90vh - 80px)", maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain" }} onLoad={(e) => { if (e.currentTarget.naturalHeight > 1200) setIsTall(true); }} />
+        <div style={{ overflow: isTall ? "auto" : "hidden", display: "flex", alignItems: "center", justifyContent: "center", ...(isTall ? { maxHeight: "calc(90vh - 80px)" } : { maxHeight: "calc(90vh - 80px)" }) }}>
+          <img
+            src={card.src}
+            alt={card.enLabel}
+            className="block"
+            style={{ maxHeight: "calc(90vh - 80px)", maxWidth: "min(95vw, 950px)", width: "auto", height: "auto", display: "block" }}
+            onLoad={(e) => { if (e.currentTarget.naturalHeight > 1200) setIsTall(true); }}
+          />
         </div>
         <div className="px-5 py-4 border-t border-border flex-shrink-0" style={{ minHeight: 60 }}>
           <p className="font-display font-bold text-foreground text-lg md:text-xl">{t(card.heLabel, card.enLabel)}</p>
@@ -127,34 +113,185 @@ const GalleryCard = ({ card, index, isVisible, onClick, t }: { card: GalleryCard
   </div>
 );
 
+const categoryMeta: { key: TabKey; he: string; en: string; accent: string; paleBg: string }[] = [
+  { key: "newsletters",  he: "ניוזלטרים",              en: "Newsletters",        accent: "#4E7FA8", paleBg: "#EEF4FA" },
+  { key: "popups",       he: "Pop-up Forms",            en: "Pop-up Forms",       accent: "#D4798A", paleBg: "#FDF4F5" },
+  { key: "webdesign",    he: "עיצוב ופיתוח אתרים",    en: "Web Design & Dev",   accent: "#C4834A", paleBg: "#FDF1E8" },
+  { key: "automation",   he: "אוטומציות",               en: "Automations",        accent: "#3D8B6E", paleBg: "#EDF6F2" },
+];
+
+/* ── Category Preview Card ── */
+const CategoryCard = ({ meta, isVisible, index, onClick, t }: {
+  meta: typeof categoryMeta[0]; isVisible: boolean; index: number;
+  onClick: () => void; t: (he: string, en: string) => string;
+}) => {
+  const images = galleryData[meta.key];
+  return (
+    <div
+      onClick={onClick}
+      className="group cursor-pointer rounded-2xl overflow-hidden border border-border transition-all duration-300"
+      style={{
+        background: "white", boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(12px)",
+        transitionDelay: `${100 * index}ms`,
+      }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 10px 28px rgba(44,44,58,0.12)"; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = isVisible ? "translateY(0)" : "translateY(12px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; }}
+    >
+      {/* Preview collage */}
+      <div className="relative w-full overflow-hidden" style={{ height: 220, background: meta.paleBg }}>
+        {images.length === 1 && (
+          <img src={images[0].src} alt="" className="w-full h-full object-cover object-top" />
+        )}
+        {images.length === 2 && (
+          <div className="flex h-full gap-0.5">
+            {images.map((img) => <img key={img.src} src={img.src} alt="" className="w-1/2 h-full object-cover object-top" />)}
+          </div>
+        )}
+        {images.length >= 3 && (
+          <div className="flex h-full gap-0.5">
+            <img src={images[0].src} alt="" className="h-full object-cover object-top" style={{ width: "50%" }} />
+            <div className="flex flex-col gap-0.5" style={{ width: "50%" }}>
+              <img src={images[1].src} alt="" className="w-full object-cover object-top" style={{ height: "50%" }} />
+              <img src={images[2].src} alt="" className="w-full object-cover object-top" style={{ height: "50%" }} />
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/8 transition-colors duration-300" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform duration-250">
+          <ZoomIn size={18} className="text-foreground" />
+        </div>
+      </div>
+      {/* Label */}
+      <div className="px-5 py-4 flex items-center gap-3">
+        <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: meta.accent }} />
+        <p className="font-display font-bold text-foreground text-base md:text-lg">{t(meta.he, meta.en)}</p>
+      </div>
+    </div>
+  );
+};
+
+/* ── Gallery Modal (carousel) ── */
+const GalleryModal = ({ meta, onClose, onOpenLightbox, t }: {
+  meta: typeof categoryMeta[0]; onClose: () => void;
+  onOpenLightbox: (card: GalleryCardData) => void; t: (he: string, en: string) => string;
+}) => {
+  const cards = galleryData[meta.key];
+  const [index, setIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  const prev = useCallback(() => setIndex((i) => (i - 1 + cards.length) % cards.length), [cards.length]);
+  const next = useCallback(() => setIndex((i) => (i + 1) % cards.length), [cards.length]);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") next();
+      if (e.key === "ArrowRight") prev();
+    };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", handler); document.body.style.overflow = ""; };
+  }, [onClose, prev, next]);
+
+  const card = cards[index];
+
+  return (
+    <div
+      className="fixed inset-0 z-[998] flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200"
+      style={{ background: "rgba(28,26,40,0.85)", backdropFilter: "blur(6px)" }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      {/* Scrollable modal — height adapts to image */}
+      <div
+        className="bg-background rounded-2xl overflow-hidden animate-in slide-in-from-bottom-3 fade-in duration-250"
+        style={{ maxWidth: 480, width: "100%", maxHeight: "90vh" }}
+        onTouchStart={(e) => setTouchStart(e.targetTouches[0].clientX)}
+        onTouchEnd={(e) => {
+          if (touchStart === null) return;
+          const delta = touchStart - e.changedTouches[0].clientX;
+          if (delta > 50) next();
+          else if (delta < -50) prev();
+          setTouchStart(null);
+        }}
+      >
+        {/* Header — sticky at top while scrolling */}
+        <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-3 border-b border-border bg-background">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: meta.accent }} />
+            <h3 className="font-display font-bold text-foreground text-base md:text-lg">{t(meta.he, meta.en)}</h3>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-muted-foreground">{index + 1} / {cards.length}</span>
+            <button onClick={onClose} className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:scale-110 transition-transform">
+              <X size={18} className="text-foreground" />
+            </button>
+          </div>
+        </div>
+
+        {/* Image — contained, whole design visible */}
+        <div className="relative flex items-center justify-center" style={{ background: "rgba(28,26,40,0.92)", height: "60vh" }}>
+          <img
+            key={card.src}
+            src={card.src}
+            alt={card.enLabel}
+            className="animate-in fade-in duration-200"
+            onClick={() => onOpenLightbox(card)}
+            style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", cursor: "zoom-in" }}
+          />
+          {/* Desktop arrows — float over image */}
+          {cards.length > 1 && (
+            <>
+              <button onClick={prev} className="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 border border-border items-center justify-center shadow-md hover:scale-110 transition-transform">
+                <ChevronLeft size={20} />
+              </button>
+              <button onClick={next} className="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 border border-border items-center justify-center shadow-md hover:scale-110 transition-transform">
+                <ChevronRight size={20} />
+              </button>
+            </>
+          )}
+          <button onClick={() => onOpenLightbox(card)} className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-background/80 flex items-center justify-center shadow border border-border hover:scale-110 transition-transform">
+            <ZoomIn size={16} className="text-foreground" />
+          </button>
+        </div>
+
+        {/* Info + dots */}
+        <div className="px-5 py-4 border-t border-border">
+          <p className="font-display font-bold text-foreground text-base md:text-lg mb-1">{t(card.heLabel, card.enLabel)}</p>
+          {card.heDesc && <p className="text-muted-foreground text-sm mb-2 leading-relaxed">{t(card.heDesc, card.enDesc ?? "")}</p>}
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {card.tags.map((tag) => (
+              <span key={tag} className="rounded-full font-medium text-xs border border-transparent" style={{ padding: "3px 10px", backgroundColor: card.paleBg, color: card.accent }}>{tag}</span>
+            ))}
+          </div>
+          {cards.length > 1 && (
+            <div className="flex justify-center gap-2 pt-1">
+              {cards.map((_, i) => (
+                <button key={i} onClick={() => setIndex(i)}
+                  style={{ width: i === index ? 24 : 8, height: 8, borderRadius: i === index ? 4 : "50%", backgroundColor: i === index ? meta.accent : "#D1D5DB", border: "none", padding: 0, transition: "all 0.25s" }}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 /* ── Main Section ── */
 const DesignShowcase = () => {
-  const { t, isRTL } = useLanguage();
+  const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.08);
-  const [activeTab, setActiveTab] = useState<TabKey>("newsletters");
+  const [activeCategory, setActiveCategory] = useState<typeof categoryMeta[0] | null>(null);
   const [lightboxCard, setLightboxCard] = useState<GalleryCardData | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const visibleCount = useVisibleCount();
 
   const closeLightbox = useCallback(() => setLightboxCard(null), []);
-  const cards = galleryData[activeTab];
-  const maxIndex = Math.max(0, cards.length - visibleCount);
-
-  useEffect(() => { setCurrentIndex(0); }, [activeTab]);
-
-  const goPrev = useCallback(() => setCurrentIndex((i) => Math.max(0, i - 1)), []);
-  const goNext = useCallback(() => setCurrentIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
-
-  const cardPercent = 100 / visibleCount;
-  const gapPx = visibleCount === 1 ? 0 : 20;
-  const adjustedGap = gapPx * (visibleCount - 1) / visibleCount;
-  const offset = currentIndex * cardPercent;
-  const translateDir = isRTL ? offset : -offset;
+  const closeModal = useCallback(() => setActiveCategory(null), []);
 
   return (
     <>
-      <section id="showcase" ref={sectionRef} className="showcase-section relative py-12 md:py-24" style={{ background: "linear-gradient(to bottom, #FAFAF8 0%, #F7F6F3 20%, #F7F6F3 80%, #FFFFFF 100%)" }}>
+      <section id="showcase" ref={sectionRef} className="showcase-section relative py-12 md:py-24" style={{ background: "white" }}>
         <div className="container mx-auto px-5 md:px-6">
           {/* Header */}
           <div className={`mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
@@ -171,74 +308,18 @@ const DesignShowcase = () => {
             </p>
           </div>
 
-          {/* Tabs */}
-          <div className={`flex flex-wrap gap-2 mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "150ms" }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className="rounded-full px-5 py-2 text-sm font-medium border transition-all duration-200"
-                style={activeTab === tab.key
-                  ? { backgroundColor: "hsl(var(--accent-green))", color: "white", borderColor: "hsl(var(--accent-green))", fontWeight: 600 }
-                  : { backgroundColor: "rgba(255,255,255,0.7)", color: "hsl(var(--muted-foreground))", borderColor: "hsl(var(--border))" }}
-              >
-                {t(tab.he, tab.en)}
-              </button>
+          {/* 2×2 category grid */}
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`} style={{ transitionDelay: "150ms" }}>
+            {categoryMeta.map((meta, i) => (
+              <CategoryCard key={meta.key} meta={meta} isVisible={isVisible} index={i} onClick={() => setActiveCategory(meta)} t={t} />
             ))}
-          </div>
-
-          {/* Carousel */}
-          <div className="relative" style={{ overflow: "visible" }}>
-            {visibleCount > 1 && (
-              <>
-                <button onClick={isRTL ? goNext : goPrev} disabled={isRTL ? currentIndex >= maxIndex : currentIndex <= 0}
-                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border border-border transition-all duration-200"
-                  style={{ top: "40%", transform: "translateY(-50%)", [isRTL ? "left" : "right"]: -22, boxShadow: "0 4px 16px rgba(0,0,0,0.10)", opacity: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? 0.25 : 1, cursor: (isRTL ? currentIndex >= maxIndex : currentIndex <= 0) ? "default" : "pointer" }}
-                >
-                  {isRTL ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
-                </button>
-                <button onClick={isRTL ? goPrev : goNext} disabled={isRTL ? currentIndex <= 0 : currentIndex >= maxIndex}
-                  className="hidden sm:flex absolute z-10 items-center justify-center w-11 h-11 rounded-full bg-background border border-border transition-all duration-200"
-                  style={{ top: "40%", transform: "translateY(-50%)", [isRTL ? "right" : "left"]: -22, boxShadow: "0 4px 16px rgba(0,0,0,0.10)", opacity: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? 0.25 : 1, cursor: (isRTL ? currentIndex <= 0 : currentIndex >= maxIndex) ? "default" : "pointer" }}
-                >
-                  {isRTL ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
-                </button>
-              </>
-            )}
-
-            <div style={{ overflow: "hidden" }}>
-              <div
-                className="flex"
-                style={{ gap: gapPx, transform: `translateX(${translateDir}%)`, transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)", willChange: "transform" }}
-                onTouchStart={(e) => setTouchStart(e.targetTouches[0].clientX)}
-                onTouchEnd={(e) => {
-                  if (touchStart === null) return;
-                  const delta = touchStart - e.changedTouches[0].clientX;
-                  if (isRTL) { if (delta < -50) goNext(); if (delta > 50) goPrev(); }
-                  else { if (delta > 50) goNext(); if (delta < -50) goPrev(); }
-                  setTouchStart(null);
-                }}
-              >
-                {cards.map((card, i) => (
-                  <div key={card.src + i} style={{ flex: `0 0 calc(${cardPercent}% - ${adjustedGap}px)`, minWidth: 0 }}>
-                    <GalleryCard card={card} index={i} isVisible={isVisible} onClick={() => setLightboxCard(card)} t={t} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {cards.length > visibleCount && (
-              <div className="flex justify-center gap-2 mt-6">
-                {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                  <button key={i} onClick={() => setCurrentIndex(i)} className="rounded-full transition-all duration-250"
-                    style={{ width: i === currentIndex ? 24 : 8, height: 8, borderRadius: i === currentIndex ? 4 : "50%", backgroundColor: i === currentIndex ? "hsl(var(--accent-green))" : "hsl(var(--border))", cursor: "pointer", border: "none", padding: 0 }}
-                  />
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </section>
+
+      {activeCategory && (
+        <GalleryModal meta={activeCategory} onClose={closeModal} onOpenLightbox={setLightboxCard} t={t} />
+      )}
       {lightboxCard && <Lightbox card={lightboxCard} onClose={closeLightbox} t={t} />}
     </>
   );

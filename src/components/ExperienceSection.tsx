@@ -52,7 +52,7 @@ const ExperienceSection = () => {
   const freeBullets = t("he", "en") === "he" ? freelanceBullets.he : freelanceBullets.en;
 
   return (
-    <section id="experience" ref={sectionRef} className="py-8 md:py-16 relative" style={{ background:"transparent" }}>
+    <section id="experience" ref={sectionRef} className="py-6 md:py-10 relative" style={{ background:"transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         {/* Section header */}
         <div
@@ -75,58 +75,9 @@ const ExperienceSection = () => {
 
         {/* Timeline cards */}
         <div className="space-y-5">
-          {/* Freelance card */}
-          <div
-            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            {/* Decorative diamond */}
-            <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ bottom: 20, left: 20, opacity: 0.25 }} aria-hidden="true">
-              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#A98ED4" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <div className="relative z-10">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
-                <div>
-                  <span className="text-xs text-muted-foreground font-medium">2021 – present</span>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-normal text-foreground mt-1">
-                    Freelance
-                  </h3>
-                </div>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-orange-pale text-accent-orange self-start">
-                  {t("עצמאי", "Freelance")}
-                </span>
-              </div>
-
-              <p className="text-sm md:text-base font-medium text-foreground mb-5">
-                {t("ניהול שיווק, אוטומציות ובניית אתרים", "Marketing, Automations & Web Design")}
-              </p>
-
-              <ul className="space-y-2 mb-6">
-                {freeBullets.map((bullet, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-2">
-                {freelanceAchievements.map((a, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 text-xs font-medium rounded-full bg-foreground text-primary-foreground"
-                  >
-                    {t(a.he, a.en)}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
           {/* MAVEN MEDIA card */}
           <div
-            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
+            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-200 hover:-translate-y-1 hover:shadow-lg ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
@@ -166,6 +117,55 @@ const ExperienceSection = () => {
 
               <div className="flex flex-wrap gap-2">
                 {achievements.map((a, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 text-xs font-medium rounded-full bg-foreground text-primary-foreground"
+                  >
+                    {t(a.he, a.en)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Freelance card */}
+          <div
+            className={`relative rounded-2xl border border-border bg-card p-5 md:p-10 overflow-hidden transition-all duration-700 delay-400 hover:-translate-y-1 hover:shadow-lg ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            {/* Decorative diamond */}
+            <svg className="absolute hidden md:block pointer-events-none" width="12" height="12" viewBox="0 0 12 12" style={{ bottom: 20, left: 20, opacity: 0.25 }} aria-hidden="true">
+              <rect x="3" y="3" width="6" height="6" rx="1" stroke="#A98ED4" strokeWidth="1.5" fill="none" transform="rotate(45 6 6)" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="relative z-10">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
+                <div>
+                  <span className="text-xs text-muted-foreground font-medium">2025 – present</span>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-normal text-foreground mt-1">
+                    Freelance
+                  </h3>
+                </div>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent-orange-pale text-accent-orange self-start">
+                  {t("עצמאי", "Freelance")}
+                </span>
+              </div>
+
+              <p className="text-sm md:text-base font-medium text-foreground mb-5">
+                {t("ניהול שיווק, אוטומציות ובניית אתרים", "Marketing, Automations & Web Design")}
+              </p>
+
+              <ul className="space-y-2 mb-6">
+                {freeBullets.map((bullet, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2">
+                {freelanceAchievements.map((a, i) => (
                   <span
                     key={i}
                     className="px-3 py-1.5 text-xs font-medium rounded-full bg-foreground text-primary-foreground"

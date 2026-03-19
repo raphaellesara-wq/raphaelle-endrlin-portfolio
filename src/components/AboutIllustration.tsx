@@ -1,122 +1,187 @@
 /**
- * About section illustration — laptop with botanicals, speech bubbles and blobs.
- * Inspired by reference: hand-drawn laptop with flowers, leaves, chat bubbles.
- * Uses site palette only.
+ * About illustration — automation pentagon.
+ * 5 coloured nodes at pentagon vertices, animated flow lines,
+ * rotating gear at centre. Flat design, site palette, transparent bg.
  */
-const AboutIllustration = () => (
-  <svg
-    id="about-illustration"
-    className="about-illust"
-    aria-hidden="true"
-    viewBox="-20 -10 440 390"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{ overflow: 'visible' }}
-  >
-    {/* Background blobs */}
-    <ellipse cx="80" cy="160" rx="90" ry="100" fill="#D4798A" fillOpacity="0.12">
-      <animate attributeName="rx" values="90;95;90" dur="6s" repeatCount="indefinite" />
-    </ellipse>
-    <ellipse cx="300" cy="100" rx="85" ry="80" fill="#C4834A" fillOpacity="0.12">
-      <animate attributeName="ry" values="80;85;80" dur="7s" repeatCount="indefinite" />
-    </ellipse>
-    <ellipse cx="320" cy="290" rx="70" ry="60" fill="#7B68A8" fillOpacity="0.12">
-      <animate attributeName="rx" values="70;75;70" dur="5s" repeatCount="indefinite" />
-    </ellipse>
-    <ellipse cx="140" cy="310" rx="60" ry="40" fill="#C4834A" fillOpacity="0.1" />
+const AboutIllustration = () => {
+  // Pentagon vertices: centre (160, 210), circumradius 100
+  // angles: -90°, -18°, 54°, 126°, 198°
+  const verts: [number, number][] = [
+    [160, 110],   // V0 top
+    [255, 179],   // V1 top-right
+    [219, 291],   // V2 bottom-right
+    [101, 291],   // V3 bottom-left
+    [65,  179],   // V4 top-left
+  ];
 
-    {/* Speech bubble — top left */}
-    <g className="about-bubble">
-      <rect x="80" y="30" width="90" height="55" rx="10" stroke="hsl(252,20%,13%)" strokeWidth="1.5" fill="white" fillOpacity="0.04" />
-      <path d="M120 85 L115 100 L130 85" stroke="hsl(252,20%,13%)" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
-      {/* Lines inside bubble */}
-      <line x1="95" y1="48" x2="155" y2="48" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
-      <line x1="95" y1="58" x2="145" y2="58" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
-      <line x1="95" y1="68" x2="150" y2="68" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
-    </g>
+  const colors = ['#E03468', '#D4834A', '#3AAA80', '#9070C0', '#3AAAC0'];
+  const delays = ['0s', '0.28s', '0.56s', '0.84s', '1.12s'];
+  const durations = ['1.4s', '1.55s', '1.45s', '1.6s', '1.5s'];
 
-    {/* Laptop body */}
-    <rect x="105" y="110" width="200" height="140" rx="8" stroke="hsl(252,20%,13%)" strokeWidth="1.5" fill="white" fillOpacity="0.04" />
-    {/* Screen area */}
-    <rect x="115" y="120" width="180" height="115" rx="4" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-    {/* Browser dots in screen */}
-    <circle cx="130" cy="130" r="3" fill="#D4798A" fillOpacity="0.85" />
-    <circle cx="140" cy="130" r="3" fill="#C4834A" fillOpacity="0.85" />
-    <circle cx="150" cy="130" r="3" fill="#6DC4A0" fillOpacity="0.85" />
+  return (
+    <svg
+      id="about-illustration"
+      className="about-illust"
+      aria-hidden="true"
+      viewBox="0 0 320 430"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Scale + centre in viewBox */}
+      <g transform="translate(45 64) scale(0.72)">
 
-    {/* Content grid inside laptop */}
-    <rect x="125" y="142" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="#7B68A8" fillOpacity="0.06" />
-    <path d="M125 182 L145 160 L162 172 L180 152 L180 182 Z" fill="#7B68A8" fillOpacity="0.1" />
-    <rect x="185" y="142" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="#C4834A" fillOpacity="0.05" />
-    <path d="M205 155 Q210 148 218 155 Q225 150 222 158 Q228 162 222 165 Q225 172 218 168 Q210 175 205 168 Q198 172 200 165 Q194 162 200 158 Q198 150 205 155 Z" stroke="#D4798A" strokeWidth="1" fill="#D4798A" fillOpacity="0.08" />
-    <rect x="125" y="188" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-    {/* Globe icon */}
-    <circle cx="152" cy="208" r="10" stroke="hsl(252,20%,13%)" strokeWidth="0.8" fill="none" />
-    <ellipse cx="152" cy="208" rx="5" ry="10" stroke="hsl(252,20%,13%)" strokeWidth="0.6" fill="none" />
-    <line x1="142" y1="208" x2="162" y2="208" stroke="hsl(252,20%,13%)" strokeWidth="0.6" />
-    <rect x="185" y="188" width="55" height="40" rx="3" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-    {/* Text lines */}
-    <line x1="192" y1="200" x2="232" y2="200" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
-    <line x1="192" y1="210" x2="225" y2="210" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.25" />
-    <line x1="192" y1="220" x2="228" y2="220" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" opacity="0.2" />
+        {/* Gentle float up/down */}
+        <g>
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            values="0 0; 0 -10; 0 0"
+            keyTimes="0; 0.5; 1"
+            calcMode="spline"
+            keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
+            dur="4s"
+            repeatCount="indefinite"
+          />
 
-    {/* Laptop base */}
-    <path d="M85 250 L105 250 L115 260 L295 260 L305 250 L325 250" stroke="hsl(252,20%,13%)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    {/* Trackpad hint */}
-    <rect x="185" y="252" width="40" height="6" rx="2" stroke="hsl(252,20%,13%)" strokeWidth="0.8" fill="none" opacity="0.4" />
+          {/* ── PENTAGON BACKGROUND ── */}
+          <path
+            d="M 160 110 L 255 179 L 219 291 L 101 291 L 65 179 Z"
+            fill="rgba(144,112,192,0.06)"
+            stroke="#9070C0"
+            strokeWidth="1.5"
+            strokeDasharray="6 5"
+            opacity="0.35"
+          />
 
-    {/* Large leaf — bottom left */}
-    <g className="about-leaf-1">
-      <path d="M30 320 Q5 270 35 230 Q55 280 30 320 Z" stroke="hsl(252,20%,13%)" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
-      <line x1="32" y1="315" x2="38" y2="250" stroke="hsl(252,20%,13%)" strokeWidth="1" strokeLinecap="round" />
-      <line x1="34" y1="295" x2="20" y2="275" stroke="hsl(252,20%,13%)" strokeWidth="0.8" strokeLinecap="round" />
-      <line x1="35" y1="280" x2="45" y2="262" stroke="hsl(252,20%,13%)" strokeWidth="0.8" strokeLinecap="round" />
-      <line x1="34" y1="268" x2="22" y2="253" stroke="hsl(252,20%,13%)" strokeWidth="0.8" strokeLinecap="round" />
-    </g>
+          {/* ── ANIMATED FLOW LINES (one per edge) ── */}
+          {verts.map((v, i) => {
+            const n = verts[(i + 1) % 5];
+            return (
+              <line
+                key={`fl-${i}`}
+                x1={v[0]} y1={v[1]}
+                x2={n[0]} y2={n[1]}
+                stroke={colors[i]}
+                strokeWidth="2.5"
+                strokeDasharray="9 7"
+                strokeLinecap="round"
+                opacity="0.7"
+              >
+                <animate
+                  attributeName="stroke-dashoffset"
+                  from="0" to="-48"
+                  dur={durations[i]}
+                  begin={delays[i]}
+                  repeatCount="indefinite"
+                />
+              </line>
+            );
+          })}
 
-    {/* Branch with berries — left */}
-    <path d="M55 280 Q50 240 60 200" stroke="hsl(252,20%,13%)" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <circle cx="48" cy="230" r="5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.2" />
-    <circle cx="42" cy="215" r="4.5" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
-    <circle cx="52" cy="205" r="4" stroke="#7B68A8" strokeWidth="1.2" fill="#7B68A8" fillOpacity="0.18" />
+          {/* ── NODE GLOW RINGS (pulse) ── */}
+          {verts.map((v, i) => (
+            <circle
+              key={`glow-${i}`}
+              cx={v[0]} cy={v[1]}
+              r="26"
+              fill={colors[i]}
+              opacity="0.14"
+            >
+              <animate attributeName="r"
+                values="24;32;24"
+                dur={`${2.4 + i * 0.35}s`}
+                begin={`${i * 0.45}s`}
+                repeatCount="indefinite"
+              />
+              <animate attributeName="opacity"
+                values="0.14;0.26;0.14"
+                dur={`${2.4 + i * 0.35}s`}
+                begin={`${i * 0.45}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          ))}
 
-    {/* Flower — top right */}
-    <g className="about-flower">
-      <circle cx="330" cy="70" r="12" stroke="hsl(252,20%,13%)" strokeWidth="1.2" fill="none" />
-      <circle cx="330" cy="70" r="6" stroke="hsl(252,20%,13%)" strokeWidth="0.8" fill="#C4834A" fillOpacity="0.15" />
-      <circle cx="330" cy="70" r="2.5" fill="#C4834A" fillOpacity="0.3" />
-      {/* Outer petals hint */}
-      <path d="M330 55 Q335 48 340 55" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-      <path d="M330 85 Q325 92 320 85" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-      <path d="M315 70 Q308 65 315 60" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-      <path d="M345 70 Q352 75 345 80" stroke="hsl(252,20%,13%)" strokeWidth="1" fill="none" />
-    </g>
+          {/* ── NODE CIRCLES ── */}
+          {verts.map((v, i) => (
+            <circle key={`nd-${i}`} cx={v[0]} cy={v[1]} r="22" fill={colors[i]} />
+          ))}
 
-    {/* Simple flower — right side */}
-    <g className="about-flower-2">
-      <circle cx="360" cy="180" r="8" stroke="#D4798A" strokeWidth="1.2" fill="none" />
-      <circle cx="360" cy="180" r="3" fill="#D4798A" fillOpacity="0.25" />
-      <line x1="360" y1="188" x2="360" y2="220" stroke="#6DC4A0" strokeWidth="1.2" strokeLinecap="round" />
-      <path d="M360 200 Q370 192 375 198" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
-      <path d="M360 210 Q350 202 345 208" stroke="#6DC4A0" strokeWidth="1" fill="#6DC4A0" fillOpacity="0.1" />
-    </g>
+          {/* ── NODE ICONS (white) ── */}
 
-    {/* Sprig — right of laptop */}
-    <path d="M340 260 Q335 230 340 200" stroke="#6DC4A0" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-    <path d="M340 245 Q355 238 358 225" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
-    <path d="M340 230 Q325 222 328 208" stroke="#6DC4A0" strokeWidth="1.2" fill="#6DC4A0" fillOpacity="0.1" strokeLinejoin="round" />
+          {/* V0 (160,110) — Lightning bolt */}
+          <path
+            d="M 163 99 L 155 113 L 161 113 L 157 121 L 165 107 L 160 107 Z"
+            fill="white" opacity="0.92"
+          />
 
-    {/* Small accent dots — animated */}
-    <circle cx="380" cy="140" r="2" fill="#6DC4A0" opacity="0.6">
-      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="25" cy="180" r="2" fill="#C4834A" opacity="0.6">
-      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="370" cy="310" r="2.5" fill="#D4798A" opacity="0.55">
-      <animate attributeName="opacity" values="0.55;0.2;0.55" dur="3.5s" repeatCount="indefinite" />
-    </circle>
-  </svg>
-);
+          {/* V1 (255,179) — Gear: ring + 4 teeth + centre hole */}
+          <circle cx="255" cy="179" r="9"
+            fill="none" stroke="white" strokeWidth="2.5" opacity="0.92" />
+          <rect x="252" y="167" width="6" height="5" rx="1.5" fill="white" opacity="0.92" />
+          <rect x="252" y="187" width="6" height="5" rx="1.5" fill="white" opacity="0.92" />
+          <rect x="243" y="176" width="5" height="6" rx="1.5" fill="white" opacity="0.92" />
+          <rect x="263" y="176" width="5" height="6" rx="1.5" fill="white" opacity="0.92" />
+          <circle cx="255" cy="179" r="4" fill="white" opacity="0.92" />
+
+          {/* V2 (219,291) — Checkmark */}
+          <path
+            d="M 209 291 L 216 299 L 229 281"
+            stroke="white" strokeWidth="3"
+            fill="none" strokeLinecap="round" strokeLinejoin="round"
+            opacity="0.92"
+          />
+
+          {/* V3 (101,291) — Three horizontal bars (data) */}
+          <line x1="92" y1="285" x2="110" y2="285" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.92" />
+          <line x1="92" y1="291" x2="110" y2="291" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.92" />
+          <line x1="92" y1="297" x2="110" y2="297" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.92" />
+
+          {/* V4 (65,179) — Double chevron right (flow/forward) */}
+          <path d="M 55 172 L 63 179 L 55 186"
+            stroke="white" strokeWidth="3" fill="none"
+            strokeLinecap="round" strokeLinejoin="round" opacity="0.92" />
+          <path d="M 63 172 L 71 179 L 63 186"
+            stroke="white" strokeWidth="3" fill="none"
+            strokeLinecap="round" strokeLinejoin="round" opacity="0.92" />
+
+          {/* ── CENTRE CIRCLE ── */}
+          <circle cx="160" cy="210" r="36" fill="#1C1A28" opacity="0.88" />
+          <circle cx="160" cy="210" r="30" fill="#26223A" />
+
+          {/* ── ROTATING GEAR (centre) ── */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 160 210"
+              to="360 160 210"
+              dur="10s"
+              repeatCount="indefinite"
+            />
+            {/* 8 teeth */}
+            {([0,45,90,135,180,225,270,315] as number[]).map((a, i) => (
+              <rect key={`t-${i}`}
+                x="157" y="193" width="6" height="9" rx="2"
+                fill="#9070C0"
+                transform={`rotate(${a} 160 210)`}
+              />
+            ))}
+            <circle cx="160" cy="210" r="13" fill="#9070C0" />
+            <circle cx="160" cy="210" r="5.5" fill="#26223A" />
+          </g>
+
+          {/* ── PULSING RING around centre ── */}
+          <circle cx="160" cy="210" r="40"
+            fill="none" stroke="#9070C0" strokeWidth="1.2" opacity="0.18">
+            <animate attributeName="r"     values="38;48;38" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.18;0;0.18" dur="3s" repeatCount="indefinite" />
+          </circle>
+
+        </g>
+      </g>
+    </svg>
+  );
+};
 
 export default AboutIllustration;
