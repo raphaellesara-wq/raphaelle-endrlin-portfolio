@@ -83,50 +83,43 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         }
       `}</style>
 
-      {/* ── MOBILE: Hexagon ── */}
+      {/* ── MOBILE: Diamond ── */}
       <div
         className="md:hidden"
         style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "84vw",
-          height: "calc(84vw * 1.155)",
+          position: "relative",
+          width: "92vw",
+          height: "92vw",
         }}
       >
-        {/* Pointy-top hexagon: taller than wide, fills the vertical space better */}
+        {/* Diamond (rotated square) */}
         <svg
-          viewBox="0 0 260 300"
+          viewBox="0 0 300 300"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         >
-          {/* Pointy-top hexagon (R≈128, center at 130,150) */}
+          {/* Diamond: top, right, bottom, left */}
           {showRect1 && (
-            <g className="pop-in" style={{ transformOrigin: "130px 150px" }}>
+            <g className="pop-in" style={{ transformOrigin: "150px 150px" }}>
               <polygon
-                points="130,18 242,83 242,217 130,282 18,217 18,83"
+                points="150,12 288,150 150,288 12,150"
                 stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray="8 5" fill="none"
               />
             </g>
           )}
 
-          {/* Dots at 6 vertices */}
+          {/* Dots at 4 vertices */}
           {showCircles && (
             <>
-              <circle cx="130" cy="18" r="7" fill="hsl(348,30%,70%)"
+              <circle cx="150" cy="12" r="7" fill="hsl(348,30%,70%)"
                 className="drop-circle" style={{ animationDelay: "0ms" }} />
-              <circle cx="242" cy="83" r="7" fill="hsl(155,30%,65%)"
-                className="drop-circle" style={{ animationDelay: "200ms" }} />
-              <circle cx="242" cy="217" r="7" fill="hsl(258,18%,60%)"
-                className="drop-circle" style={{ animationDelay: "400ms" }} />
-              <circle cx="130" cy="282" r="7" fill="hsl(27,35%,60%)"
+              <circle cx="288" cy="150" r="7" fill="hsl(155,30%,65%)"
+                className="drop-circle" style={{ animationDelay: "300ms" }} />
+              <circle cx="150" cy="288" r="7" fill="hsl(258,18%,60%)"
                 className="drop-circle" style={{ animationDelay: "600ms" }} />
-              <circle cx="18" cy="217" r="7" fill="hsl(348,30%,70%)"
-                className="drop-circle" style={{ animationDelay: "800ms" }} />
-              <circle cx="18" cy="83" r="7" fill="hsl(155,30%,65%)"
-                className="drop-circle" style={{ animationDelay: "1000ms" }} />
+              <circle cx="12" cy="150" r="7" fill="hsl(27,35%,60%)"
+                className="drop-circle" style={{ animationDelay: "900ms" }} />
             </>
           )}
         </svg>
