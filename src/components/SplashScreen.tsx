@@ -33,8 +33,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const showCircles = pIdx >= 5;
   const showLogo    = pIdx >= 6;
 
-  const logoInitial = isRTL ? "ר.א" : "R.E";
-  const logoName    = isRTL ? "רפאל אנדרלין" : "Raphaëlle Enderlin";
+  const logoInitial = "R.E";
+  const logoName    = "Raphaëlle Enderlin";
 
   return (
     <div
