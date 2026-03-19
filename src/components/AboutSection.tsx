@@ -1,10 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-
-const pink = "#C9A0A8";
+import AboutIllustration from "@/components/AboutIllustration";
 
 const AboutSection = () => {
-  const { t, isRTL } = useLanguage();
+  const { t } = useLanguage();
   const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
 
   const paragraphs = [
@@ -51,21 +50,47 @@ const AboutSection = () => {
               </em>
             </h2>
 
-          {/* פסקאות - מיושרות לקו האפס של הכותרת */}
-          <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
                 key={i}
                 className={`text-base md:text-lg leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
-                style={{ transitionDelay: `${300 + i * 150}ms` }}
+                style={{ transitionDelay: `${i * 30}ms` }}
               >
                 {para}
               </p>
             ))}
           </div>
 
+          {/* Illustration — beside text on desktop, below on mobile */}
+          <div
+            className="hidden lg:flex about-illust-wrap justify-center"
+            style={{
+              opacity: isVisible ? 0.9 : 0,
+              transform: isVisible ? 'scale(1)' : 'scale(0.98)',
+              transition: 'opacity 0.1s ease-out, transform 0.1s ease-out',
+              maxWidth: '360px',
+              width: '100%',
+            }}
+          >
+            <AboutIllustration />
+          </div>
+
+          {/* Mobile illustration — centered, balanced */}
+          <div
+            className="flex lg:hidden justify-center"
+            style={{
+              opacity: isVisible ? 0.85 : 0,
+              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.97)',
+              transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
+              maxWidth: '220px',
+              width: '100%',
+              margin: '8px auto 0',
+            }}
+          >
+            <AboutIllustration />
+          </div>
         </div>
       </div>
     </section>
