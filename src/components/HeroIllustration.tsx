@@ -1,13 +1,25 @@
+import { useEffect, useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroIllustration = () => {
   const { isRTL } = useLanguage();
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    [mobileVideoRef, desktopVideoRef].forEach((ref) => {
+      if (ref.current) {
+        ref.current.play().catch(() => {});
+      }
+    });
+  }, []);
 
   return (
     <>
       {/* Mobile version */}
       <div className="block md:hidden w-full flex justify-center" style={{ minHeight: 300 }}>
         <video
+          ref={mobileVideoRef}
           src="/hero-illustration.mp4"
           autoPlay
           loop
@@ -40,6 +52,7 @@ const HeroIllustration = () => {
         }}
       >
         <video
+          ref={desktopVideoRef}
           src="/hero-illustration.mp4"
           autoPlay
           loop
