@@ -33,21 +33,6 @@ const freelanceBullets = {
   ],
 };
 
-const freelanceTools = [
-  { name: "Make.com", img: "/Make.com.jpeg" },
-  { name: "Rise.ai", img: "/Rise.png" },
-  { name: "Figma", img: "/Figma-logo.svg.png" },
-  { name: "Canva", img: "/Canva.jpeg" },
-  { name: "Claude", img: "/Claude.jpeg" },
-];
-
-const mavenTools = [
-  { name: "Flashy", img: "/FlashyApp.png" },
-  { name: "Canva", img: "/Canva.jpeg" },
-  { name: "Figma", img: "/Figma-logo.svg.png" },
-  { name: "Sheets", img: "/sheets.png" },
-];
-
 const freelanceAchievements = [
   { he: "Make.com + N8N", en: "Make.com + N8N" },
   { he: "Rise.ai + Shopify", en: "Rise.ai + Shopify" },
@@ -130,7 +115,7 @@ const ExperienceSection = () => {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2">
                 {achievements.map((a, i) => (
                   <span
                     key={i}
@@ -138,17 +123,6 @@ const ExperienceSection = () => {
                   >
                     {t(a.he, a.en)}
                   </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                {mavenTools.map((tool, idx) => (
-                  <div key={idx} className="flex flex-col items-center gap-1.5">
-                    <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center bg-background overflow-hidden">
-                      <img src={tool.img} alt={tool.name} className="w-6 h-6 object-contain" />
-                    </div>
-                    <span className="text-[9px] text-muted-foreground font-medium">{tool.name}</span>
-                  </div>
                 ))}
               </div>
             </div>

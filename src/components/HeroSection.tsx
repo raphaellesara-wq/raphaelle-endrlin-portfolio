@@ -64,6 +64,7 @@ const HeroSection = () => {
               )}
             </p>
           </div>
+        </div>
 
         {/* Desktop layout */}
         <div className="hidden md:flex flex-row items-center justify-center w-full max-w-4xl mx-auto gap-0">
@@ -79,7 +80,6 @@ const HeroSection = () => {
                <HeroIllustration />
             </div>
           </div>
-        </div>
 
           {/* Text content */}
           <div
@@ -120,6 +120,16 @@ const HeroSection = () => {
 
         </div>
       </div>
+
+      <style>{`
+        @keyframes heroFadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-fade-up {
+          animation: heroFadeUp 0.8s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 };
