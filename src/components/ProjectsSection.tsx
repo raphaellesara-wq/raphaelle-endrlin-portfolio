@@ -108,7 +108,7 @@ const ProjectsSection = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="pt-3 pb-6 md:py-10"
+      className="pt-2 pb-6 md:pt-4 md:pb-10 lg:pt-10"
       style={{ background: "#FFFFFF" }}
     >
       <div className="container mx-auto px-5 md:px-6">

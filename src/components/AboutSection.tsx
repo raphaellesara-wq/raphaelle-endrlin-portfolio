@@ -22,7 +22,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" ref={sectionRef} className="pt-6 pb-2 md:py-10 relative" style={{ background: "transparent" }}>
+    <section id="about" ref={sectionRef} className="pt-6 pb-2 md:pt-10 md:pb-4 lg:pb-10 relative" style={{ background: "transparent" }}>
       <div className="container mx-auto px-5 md:px-6">
         <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
           {/* Text column */}
@@ -79,14 +79,14 @@ const AboutSection = () => {
 
           {/* Mobile illustration — centered, balanced */}
           <div
-            className="flex lg:hidden justify-center -mb-4"
+            className="flex lg:hidden justify-center"
             style={{
               opacity: isVisible ? 0.85 : 0,
               transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.97)',
               transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
-              maxWidth: '180px',
+              maxWidth: '220px',
               width: '100%',
-              margin: '0 auto',
+              margin: '8px auto 0',
             }}
           >
             <AboutIllustration />
