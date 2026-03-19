@@ -1,7 +1,8 @@
+import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
-const LOGOS: Record<string, JSX.Element> = {
+const LOGOS: Record<string, React.ReactElement> = {
   "Figma": (
     <svg viewBox="0 0 38 57" width="16" height="24" aria-hidden="true">
       <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/>
