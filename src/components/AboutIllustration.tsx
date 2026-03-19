@@ -23,7 +23,7 @@ const AboutIllustration = () => {
       id="about-illustration"
       className="about-illust"
       aria-hidden="true"
-      viewBox="0 0 320 430"
+      viewBox="0 87 320 243"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
