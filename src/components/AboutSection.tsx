@@ -23,63 +23,41 @@ const AboutSection = () => {
   ];
 
   return (
-    <section 
-      id="about" 
-      ref={sectionRef} 
-      className="py-16 md:py-24 relative overflow-hidden bg-white z-10"
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      {/* הסרתי את ה-container. 
-          השתמשתי ב-px-4 כדי שלא יידבק למסך בנייד, 
-          אבל ב-md:px-12 (או הערך המדויק של הפרויקטים שלך) כדי ליישר את הקו.
-      */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className={`flex flex-col ${isRTL ? 'items-start text-right' : 'items-start text-left'} space-y-12`}>
-          
-          {/* תגית אודות - הקו והטקסט מיושרים לקצה הימני ב-RTL */}
-          <div
-            className={`flex items-center gap-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            {isRTL ? (
-              <>
-                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
-                <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
-                  {t("אודות", "About Me")}
-                </span>
-              </>
-            ) : (
-              <>
-                <span className="text-sm md:text-base tracking-[0.2em] font-medium uppercase" style={{ color: pink }}>
-                  {t("אודות", "About Me")}
-                </span>
-                <div className="w-12 md:w-16 h-px" style={{ background: pink }} />
-              </>
-            )}
-          </div>
+    <section id="about" ref={sectionRef} className="py-6 md:py-10 relative" style={{ background: "transparent" }}>
+      <div className="container mx-auto px-5 md:px-6">
+        <div className="grid lg:grid-cols-[1fr_380px] items-center gap-0 lg:gap-0">
+          {/* Text column */}
+          <div className="max-w-2xl mx-auto lg:mx-0 space-y-5">
+            <div
+              className={`flex items-center gap-3 transition-all duration-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
+            >
+              <div className="w-8 h-px bg-muted-foreground/30" />
+              <span className="text-sm tracking-wide text-muted-foreground font-medium">
+                {t("אודות", "About")}
+              </span>
+            </div>
 
-          {/* כותרת - היישור כאן קריטי */}
-          <h2
-            className={`text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tighter text-slate-900 transition-all duration-1000 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{ fontFamily: "'Secular One', sans-serif" }}
-          >
-            {t("אסטרטגיה שפוגשת", "Strategy Meets")}
-            <br />
-            <span style={{ color: pink }}>
-              {t("טכנולוגיה", "Technology")}
-            </span>
-          </h2>
+            <h2
+              className={`text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] transition-all duration-100 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
+            >
+              {t("אסטרטגיה שפוגשת", "Strategy Meets")}
+              <br />
+              <em className="not-italic text-muted-foreground">
+                {t("טכנולוגיה", "Technology")}
+              </em>
+            </h2>
 
           {/* פסקאות - מיושרות לקו האפס של הכותרת */}
           <div className="space-y-8 w-full max-w-3xl">
             {paragraphs.map((para, i) => (
               <p
                 key={i}
-                className={`text-lg md:text-2xl leading-relaxed text-slate-600 font-light transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                className={`text-base md:text-lg leading-relaxed text-muted-foreground max-w-xl transition-all duration-100 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
                 style={{ transitionDelay: `${300 + i * 150}ms` }}
               >
