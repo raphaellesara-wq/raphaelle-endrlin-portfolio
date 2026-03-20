@@ -37,10 +37,10 @@ const HeroSection = () => {
         </div>
 
         {/* Mobile layout: illustration → stats → text */}
-        <div className="flex flex-col items-center text-center gap-10 md:hidden w-full hero-fade-up">
+        <div className="flex flex-col gap-10 md:hidden w-full hero-fade-up items-start">
           <HeroIllustration />
 
-          <div className="flex gap-6 items-start justify-center w-full">
+          <div className="flex gap-6 items-start w-full justify-start">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col items-center gap-0">
                 <span className="text-3xl font-black text-[#1C1A28] leading-none tracking-tighter">
@@ -53,7 +53,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start w-full">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
             <p className="text-xl text-slate-800 leading-[1.6] tracking-tight px-2"
                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
