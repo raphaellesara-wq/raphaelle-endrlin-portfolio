@@ -11,7 +11,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const { t } = useLanguage();
+  const { t, lang, toggle } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,9 +53,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-14 md:h-16 px-5 md:px-6">
-        <div className="font-display text-2xl tracking-tight text-foreground">
-          ר.א
-        </div>
+        <button
+          onClick={toggle}
+          className="font-display text-base font-bold tracking-widest border border-[#C9A0A8] text-[#C9A0A8] rounded-full px-4 py-1 hover:bg-[#C9A0A8] hover:text-white transition-all duration-200"
+          aria-label="Toggle language"
+        >
+          {lang === "he" ? "EN" : "עב"}
+        </button>
 
         {/* Desktop nav + toggle */}
         <div className="hidden md:flex items-center gap-6">
