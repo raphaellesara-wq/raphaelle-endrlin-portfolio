@@ -1,5 +1,61 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import HeroIllustration from "@/components/HeroIllustration";
+import { useEffect, useRef, useState } from "react";
+
+function parseVal(val: string): { num: number; suffix: string } {
+  const m = val.match(/^(\d+)(.*)$/);
+  return m ? { num: parseInt(m[1]), suffix: m[2] } : { num: 0, suffix: val };
+}
+
+function CountUp({
+  value,
+  numClass,
+  labelClass,
+  label,
+}: {
+  value: string;
+  numClass: string;
+  labelClass: string;
+  label: React.ReactNode;
+}) {
+  const { num, suffix } = parseVal(value);
+  const [count, setCount] = useState(0);
+  const animated = useRef(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !animated.current) {
+          animated.current = true;
+          const steps = Math.max(num * 2, 20);
+          const duration = 1200;
+          let step = 0;
+          const interval = setInterval(() => {
+            step++;
+            setCount(Math.round((step / steps) * num));
+            if (step >= steps) clearInterval(interval);
+          }, duration / steps);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [num]);
+
+  return (
+    <div ref={ref} style={{ display: "grid", justifyItems: "center", gap: 0 }}>
+      <span className={numClass}>
+        {count}
+        {suffix}
+      </span>
+      <div className={labelClass}>{label}</div>
+    </div>
+  );
+}
 
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
@@ -11,7 +67,7 @@ const HeroSection = () => {
         { label: "אוטומציות", value: "40+" },
       ]
     : [
-        { label: "Years Experience", value: "3" },
+        { label: "Years\nExperience", value: "3" },
         { label: "Clients", value: "30+" },
         { label: "Automations", value: "40+" },
       ];
@@ -37,30 +93,38 @@ const HeroSection = () => {
         </div>
 
         {/* Mobile layout: illustration → stats → text */}
-        <div className="flex flex-col gap-10 md:hidden w-full hero-fade-up items-start">
+        <div className="flex flex-col gap-10 md:hidden w-full hero-fade-up items-center">
           <HeroIllustration />
 
-          <div className="flex gap-6 items-start w-full justify-center">
+          {/* Stats — centered on mobile */}
+          <div className="flex gap-8 items-start w-full justify-center">
             {stats.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center gap-0">
-                <span className="text-3xl font-black text-[#1C1A28] leading-none tracking-tighter">
-                  {stat.value}
-                </span>
-                <div className="text-[10px] text-[#C9A0A8] font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.2]">
-                  {stat.label}
-                </div>
-              </div>
+              <CountUp
+                key={index}
+                value={stat.value}
+                numClass="text-3xl font-black text-[#C9A0A8] leading-none tracking-tighter"
+                labelClass="text-[10px] text-black font-semibold uppercase tracking-[0.1em] mt-2 leading-[1.3] text-center whitespace-nowrap"
+                label={
+                  stat.label.includes("\n")
+                    ? stat.label.split("\n").map((line, i) => (
+                        <span key={i} style={{ display: "block" }}>{line}</span>
+                      ))
+                    : stat.label
+                }
+              />
             ))}
           </div>
 
-          <div className={`flex flex-col ${isRTL ? 'items-end' : 'items-start'} w-full`}>
+          <div className="flex flex-col items-start w-full">
             <div className="w-14 h-1 bg-[#C9A0A8] mb-6" />
-            <p className={`text-xl text-slate-800 leading-[1.6] tracking-tight px-2 ${isRTL ? 'text-right' : 'text-left'}`}
-               style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+            <p
+              className="text-xl text-slate-800 leading-[1.6] tracking-tight px-2"
+              style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
+            >
               {isRTL ? (
-                <>מנוע צמיחה מקצה לקצה:<br/>עיצוב ופיתוח אתרים,<br/>אוטומציות עסקיות ומסעות לקוח.</>
+                <>מנוע צמיחה מקצה לקצה:<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
               ) : (
-                <>End-to-End Growth Engine:<br/>Website Design & Development,<br/>Business Automation and Customer Journeys.</>
+                <>End-to-End Growth Engine:<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
               )}
             </p>
           </div>
@@ -74,45 +138,49 @@ const HeroSection = () => {
             <div
               className={`relative w-full aspect-square transform transition-all duration-500
                 scale-[1.6] lg:scale-[1.8]
-                ${isRTL ? '-mr-[84%]' : '-ml-[84%]'}
+                ${isRTL ? "-mr-[84%]" : "-ml-[84%]"}
               `}
             >
-               <HeroIllustration />
+              <HeroIllustration />
             </div>
           </div>
 
           {/* Text content */}
           <div
-            className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? 'items-end' : 'items-start'}`}
+            className={`w-[50%] flex flex-col hero-fade-up z-20 order-1 ${isRTL ? "items-end" : "items-start"}`}
             style={{ animationDelay: "0.2s" }}
           >
-            <div className={`w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+            <div className={`w-full ${isRTL ? "text-right" : "text-left"}`}>
 
               {/* Stats — above paragraph text */}
               <div className="flex gap-8 mb-8 justify-start">
                 {stats.map((stat, index) => (
-                  <div key={index} style={{ display: 'grid', justifyItems: 'center', gap: 0 }}>
-                    <span className="text-5xl font-black text-[#C9A0A8] leading-none tracking-tighter">
-                      {stat.value}
-                    </span>
-                    <div className="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.3] text-center whitespace-nowrap">
-                      {!isRTL && index === 0
-                        ? <><span>Years</span><br/><span>Experience</span></>
+                  <CountUp
+                    key={index}
+                    value={stat.value}
+                    numClass="text-5xl font-black text-[#C9A0A8] leading-none tracking-tighter"
+                    labelClass="text-sm text-black font-semibold uppercase tracking-[0.15em] mt-2 leading-[1.3] text-center whitespace-nowrap"
+                    label={
+                      stat.label.includes("\n")
+                        ? stat.label.split("\n").map((line, i) => (
+                            <span key={i} style={{ display: "block" }}>{line}</span>
+                          ))
                         : stat.label
-                      }
-                    </div>
-                  </div>
+                    }
+                  />
                 ))}
               </div>
 
-              <div className={`w-14 h-1 bg-[#C9A0A8] mb-5 ${isRTL ? 'mr-0 ml-auto' : 'ml-0 mr-auto'}`} />
+              <div className={`w-14 h-1 bg-[#C9A0A8] mb-5 ${isRTL ? "mr-0 ml-auto" : "ml-0 mr-auto"}`} />
 
-              <p className="text-2xl lg:text-3xl text-slate-800 leading-[1.5] tracking-tight"
-                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}>
+              <p
+                className="text-2xl lg:text-3xl text-slate-800 leading-[1.5] tracking-tight"
+                style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
+              >
                 {isRTL ? (
-                  <>מנוע צמיחה מקצה לקצה:<br/>עיצוב ופיתוח אתרים,<br/>אוטומציות עסקיות ומסעות לקוח.</>
+                  <>מנוע צמיחה מקצה לקצה:<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
                 ) : (
-                  <>End-to-End Growth Engine:<br/>Website Design & Development,<br/>Business Automation and Customer Journeys.</>
+                  <>End-to-End Growth Engine:<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
                 )}
               </p>
             </div>
