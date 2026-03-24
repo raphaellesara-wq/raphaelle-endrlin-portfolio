@@ -55,7 +55,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-14 md:h-16 px-5 md:px-6">
         <button
           onClick={toggle}
-          className="font-display text-base font-bold tracking-widest border border-[#C9A0A8] text-[#C9A0A8] rounded-full px-4 py-1 hover:bg-[#C9A0A8] hover:text-white transition-all duration-200"
+          className="font-display text-base font-bold tracking-widest border border-[#A98ED4] text-[#A98ED4] rounded-full px-4 py-1 hover:bg-[#A98ED4] hover:text-white transition-all duration-200"
           aria-label="Toggle language"
         >
           {lang === "he" ? "EN" : "עב"}

@@ -1,47 +1,76 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-type Phase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "circles" | "logo" | "exit";
+type Phase = "draw" | "circles" | "logo" | "exit";
+
+// Desktop phases (tree animation, compressed to ~6s)
+type DesktopPhase = "rect1" | "line1" | "rect2" | "line2" | "rect3" | "circles" | "logo" | "exit";
 
 const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
   const { isRTL } = useLanguage();
-  const [phase, setPhase] = useState<Phase>("rect1");
+  const [phase, setPhase]    = useState<Phase>("draw");
+  const [dPhase, setDPhase]  = useState<DesktopPhase>("rect1");
 
+  // ── Mobile timeline (6 s) ──
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase("line1"), 900),
-      setTimeout(() => setPhase("rect2"), 2000),
-      setTimeout(() => setPhase("line2"), 3100),
-      setTimeout(() => setPhase("rect3"), 4200),
-      setTimeout(() => setPhase("circles"), 5400),
-      setTimeout(() => setPhase("logo"), 5600),
-      // Last circle finishes at ~5400 + 1200delay + 900anim = ~7500ms → +2000 = 9500
-      setTimeout(() => setPhase("exit"), 9500),
-      setTimeout(onComplete, 10200),
+      setTimeout(() => setPhase("circles"), 1200),
+      setTimeout(() => setPhase("logo"),    2200),
+      setTimeout(() => setPhase("exit"),    5000),
+      setTimeout(onComplete,               5700),
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
-  const phases: Phase[] = ["rect1", "line1", "rect2", "line2", "rect3", "circles", "logo", "exit"];
-  const pIdx = phases.indexOf(phase);
+  // ── Desktop timeline (~6 s) ──
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setDPhase("line1"),   600),
+      setTimeout(() => setDPhase("rect2"),  1300),
+      setTimeout(() => setDPhase("line2"),  2000),
+      setTimeout(() => setDPhase("rect3"),  2700),
+      setTimeout(() => setDPhase("circles"),3500),
+      setTimeout(() => setDPhase("logo"),   3700),
+      setTimeout(() => setDPhase("exit"),   5000),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
-  const showRect1   = pIdx >= 0;
-  const showLine1   = pIdx >= 1;
-  const showRect2   = pIdx >= 2;
-  const showLine2   = pIdx >= 3;
-  const showRect3   = pIdx >= 4;
-  const showCircles = pIdx >= 5;
-  const showLogo    = pIdx >= 6;
+  const dPhases: DesktopPhase[] = ["rect1","line1","rect2","line2","rect3","circles","logo","exit"];
+  const dIdx = dPhases.indexOf(dPhase);
+  const dShowRect1   = dIdx >= 0;
+  const dShowLine1   = dIdx >= 1;
+  const dShowRect2   = dIdx >= 2;
+  const dShowLine2   = dIdx >= 3;
+  const dShowRect3   = dIdx >= 4;
+  const dShowCircles = dIdx >= 5;
+  const dShowLogo    = dIdx >= 6;
+
+  const showCircles = phase === "circles" || phase === "logo" || phase === "exit";
+  const showLogo    = phase === "logo" || phase === "exit";
+
+  // Diamond perimeter ≈ 780px (4 sides × ~195px each)
+  const PERIMETER = 780;
 
   const logoInitial = "R.E";
   const logoName    = "Raphaëlle Enderlin";
 
+  const isExiting = phase === "exit" || dPhase === "exit";
+
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center ${
-        phase === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
-      }`}
-      style={{ background: "#FAFAF8", transition: "opacity 0.7s ease-out" }}
+      style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0, bottom: 0,
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#FAFAF8",
+        transition: "opacity 0.7s ease-out",
+        opacity: isExiting ? 0 : 1,
+        pointerEvents: isExiting ? "none" : "auto",
+      }}
     >
       <style>{`
         @keyframes popIn {
@@ -63,6 +92,10 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           from { stroke-dashoffset: 200; opacity: 0; }
           to   { stroke-dashoffset: 0;   opacity: 0.55; }
         }
+        @keyframes drawDiamond {
+          from { stroke-dashoffset: ${PERIMETER}; }
+          to   { stroke-dashoffset: 0; }
+        }
 
         .pop-in-tread {
           animation: popIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
@@ -76,10 +109,14 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           stroke-dashoffset: 200;
           animation: lineGrow 1s ease-out forwards;
         }
-
         .drop-circle {
           animation: dropIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
           opacity: 0;
+        }
+        .draw-diamond {
+          stroke-dasharray: ${PERIMETER};
+          stroke-dashoffset: ${PERIMETER};
+          animation: drawDiamond 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
       `}</style>
 
@@ -88,43 +125,55 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         className="md:hidden"
         style={{
           position: "relative",
-          width: "92vw",
-          height: "92vw",
+          width: "min(88vw, 65vh)",
+          height: "min(88vw, 65vh)",
         }}
       >
-        {/* Diamond (rotated square) */}
         <svg
           viewBox="0 0 300 300"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         >
-          {/* Diamond: top, right, bottom, left */}
-          {showRect1 && (
-            <g className="pop-in" style={{ transformOrigin: "150px 150px" }}>
-              <polygon
-                points="150,12 288,150 150,288 12,150"
-                stroke="hsl(348,30%,70%)" strokeWidth="2" strokeDasharray="8 5" fill="none"
-              />
-            </g>
+          {/* Diamond: draws as solid, then fades out */}
+          {!showCircles && (
+            <polygon
+              points="150,12 288,150 150,288 12,150"
+              stroke="hsl(348,30%,70%)"
+              strokeWidth="2"
+              fill="none"
+              className="draw-diamond"
+            />
           )}
+          {/* Dashed diamond: fades in after drawing */}
+          <polygon
+            points="150,12 288,150 150,288 12,150"
+            stroke="hsl(348,30%,70%)"
+            strokeWidth="2"
+            strokeDasharray="8 5"
+            fill="none"
+            style={{
+              opacity: showCircles ? 1 : 0,
+              transition: "opacity 0.4s ease-in",
+            }}
+          />
 
-          {/* Dots at 4 vertices */}
+          {/* Dots at 4 vertices — appear after drawing */}
           {showCircles && (
             <>
-              <circle cx="150" cy="12" r="7" fill="hsl(348,30%,70%)"
+              <circle cx="150" cy="12"  r="7" fill="hsl(348,30%,70%)"
                 className="drop-circle" style={{ animationDelay: "0ms" }} />
               <circle cx="288" cy="150" r="7" fill="hsl(155,30%,65%)"
-                className="drop-circle" style={{ animationDelay: "300ms" }} />
+                className="drop-circle" style={{ animationDelay: "200ms" }} />
               <circle cx="150" cy="288" r="7" fill="hsl(258,18%,60%)"
+                className="drop-circle" style={{ animationDelay: "400ms" }} />
+              <circle cx="12"  cy="150" r="7" fill="hsl(27,35%,60%)"
                 className="drop-circle" style={{ animationDelay: "600ms" }} />
-              <circle cx="12" cy="150" r="7" fill="hsl(27,35%,60%)"
-                className="drop-circle" style={{ animationDelay: "900ms" }} />
             </>
           )}
         </svg>
 
-        {/* Name centered inside hexagon */}
+        {/* Name centered inside diamond */}
         <div
           style={{
             position: "absolute",
@@ -135,7 +184,7 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             justifyContent: "center",
             opacity: showLogo ? 1 : 0,
             transform: showLogo ? "scale(1)" : "scale(0.95)",
-            transition: "opacity 0.7s ease-out, transform 0.7s ease-out",
+            transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
           }}
         >
           <span
@@ -173,8 +222,8 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
         <div
           className="text-center z-10 transition-all duration-700"
           style={{
-            opacity: showLogo ? 1 : 0,
-            transform: showLogo ? "translateY(0) scale(1)" : "translateY(6px) scale(0.96)",
+            opacity: dShowLogo ? 1 : 0,
+            transform: dShowLogo ? "translateY(0) scale(1)" : "translateY(6px) scale(0.96)",
           }}
         >
           <span
@@ -197,152 +246,101 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           </p>
         </div>
 
-        {/* Tree SVG – viewBox wide enough so level-3 rects never overlap */}
+        {/* Tree SVG */}
         <svg
           viewBox="0 0 520 200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-[96vw] sm:w-[86vw] md:w-[700px] lg:w-[900px] xl:w-[1050px] h-auto"
         >
-          {/* ── Level 1 ── center rect */}
+          {/* Level 1 */}
           <rect
             x="220" y="8" width="80" height="34" rx="5"
             stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect1 ? "pop-in-tread" : "opacity-0"}
+            className={dShowRect1 ? "pop-in-tread" : "opacity-0"}
             style={{ transformOrigin: "260px 25px" }}
           />
-          {/* circle L1 */}
-          {showCircles && (
-            <circle
-              cx="260" cy="25" r="7"
-              fill="hsl(258,18%,60%)"
-              className="drop-circle"
-              style={{ animationDelay: "0ms" }}
-            />
+          {dShowCircles && (
+            <circle cx="260" cy="25" r="7" fill="hsl(258,18%,60%)"
+              className="drop-circle" style={{ animationDelay: "0ms" }} />
           )}
 
-          {/* ── Lines L1 → L2 ── */}
-          {showLine1 && (
+          {/* Lines L1 → L2 */}
+          {dShowLine1 && (
             <>
-              <path
-                d="M 260 42 L 260 60 L 130 60 L 130 78"
-                stroke="hsl(348,30%,70%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-              />
-              <path
-                d="M 260 42 L 260 60 L 390 60 L 390 78"
-                stroke="hsl(155,30%,65%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-                style={{ animationDelay: "150ms" }}
-              />
+              <path d="M 260 42 L 260 60 L 130 60 L 130 78"
+                stroke="hsl(348,30%,70%)" strokeWidth="1.5" fill="none" className="line-grow" />
+              <path d="M 260 42 L 260 60 L 390 60 L 390 78"
+                stroke="hsl(155,30%,65%)" strokeWidth="1.5" fill="none" className="line-grow"
+                style={{ animationDelay: "150ms" }} />
             </>
           )}
 
-          {/* ── Level 2 ── two rects */}
-          <rect
-            x="90" y="78" width="80" height="34" rx="5"
+          {/* Level 2 */}
+          <rect x="90" y="78" width="80" height="34" rx="5"
             stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect2 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "130px 95px" }}
-          />
-          {showCircles && (
-            <circle
-              cx="130" cy="95" r="7"
-              fill="hsl(348,30%,70%)"
-              className="drop-circle"
-              style={{ animationDelay: "300ms" }}
-            />
+            className={dShowRect2 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "130px 95px" }} />
+          {dShowCircles && (
+            <circle cx="130" cy="95" r="7" fill="hsl(348,30%,70%)"
+              className="drop-circle" style={{ animationDelay: "300ms" }} />
           )}
-
-          <rect
-            x="350" y="78" width="80" height="34" rx="5"
+          <rect x="350" y="78" width="80" height="34" rx="5"
             stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect2 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "390px 95px" }}
-          />
-          {showCircles && (
-            <circle
-              cx="390" cy="95" r="7"
-              fill="hsl(155,30%,65%)"
-              className="drop-circle"
-              style={{ animationDelay: "600ms" }}
-            />
+            className={dShowRect2 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "390px 95px" }} />
+          {dShowCircles && (
+            <circle cx="390" cy="95" r="7" fill="hsl(155,30%,65%)"
+              className="drop-circle" style={{ animationDelay: "600ms" }} />
           )}
 
-          {/* ── Lines L2 → L3 ── */}
-          {showLine2 && (
+          {/* Lines L2 → L3 */}
+          {dShowLine2 && (
             <>
-              <path
-                d="M 130 112 L 130 130 L 55 130 L 55 148"
-                stroke="hsl(27,35%,60%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-              />
-              <path
-                d="M 130 112 L 130 130 L 205 130 L 205 148"
-                stroke="hsl(258,18%,60%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-                style={{ animationDelay: "120ms" }}
-              />
-              <path
-                d="M 390 112 L 390 130 L 315 130 L 315 148"
-                stroke="hsl(348,30%,70%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-                style={{ animationDelay: "240ms" }}
-              />
-              <path
-                d="M 390 112 L 390 130 L 465 130 L 465 148"
-                stroke="hsl(155,30%,65%)" strokeWidth="1.5" fill="none"
-                className="line-grow"
-                style={{ animationDelay: "360ms" }}
-              />
+              <path d="M 130 112 L 130 130 L 55 130 L 55 148"
+                stroke="hsl(27,35%,60%)" strokeWidth="1.5" fill="none" className="line-grow" />
+              <path d="M 130 112 L 130 130 L 205 130 L 205 148"
+                stroke="hsl(258,18%,60%)" strokeWidth="1.5" fill="none" className="line-grow"
+                style={{ animationDelay: "120ms" }} />
+              <path d="M 390 112 L 390 130 L 315 130 L 315 148"
+                stroke="hsl(348,30%,70%)" strokeWidth="1.5" fill="none" className="line-grow"
+                style={{ animationDelay: "240ms" }} />
+              <path d="M 390 112 L 390 130 L 465 130 L 465 148"
+                stroke="hsl(155,30%,65%)" strokeWidth="1.5" fill="none" className="line-grow"
+                style={{ animationDelay: "360ms" }} />
             </>
           )}
 
-          {/* ── Level 3 ── four rects, no overlap */}
-          {/* rect A: x=15..95  center=55 */}
-          <rect
-            x="15" y="148" width="80" height="34" rx="5"
+          {/* Level 3 */}
+          <rect x="15" y="148" width="80" height="34" rx="5"
             stroke="hsl(27,35%,60%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect3 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "55px 165px" }}
-          />
-          {showCircles && (
+            className={dShowRect3 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "55px 165px" }} />
+          {dShowCircles && (
             <circle cx="55" cy="165" r="7" fill="hsl(27,35%,60%)"
               className="drop-circle" style={{ animationDelay: "900ms" }} />
           )}
-
-          {/* rect B: x=165..245  center=205 */}
-          <rect
-            x="165" y="148" width="80" height="34" rx="5"
+          <rect x="165" y="148" width="80" height="34" rx="5"
             stroke="hsl(258,18%,60%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect3 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "205px 165px" }}
-          />
-          {showCircles && (
+            className={dShowRect3 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "205px 165px" }} />
+          {dShowCircles && (
             <circle cx="205" cy="165" r="7" fill="hsl(258,18%,60%)"
               className="drop-circle" style={{ animationDelay: "1200ms" }} />
           )}
-
-          {/* rect C: x=275..355  center=315 */}
-          <rect
-            x="275" y="148" width="80" height="34" rx="5"
+          <rect x="275" y="148" width="80" height="34" rx="5"
             stroke="hsl(348,30%,70%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect3 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "315px 165px" }}
-          />
-          {showCircles && (
+            className={dShowRect3 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "315px 165px" }} />
+          {dShowCircles && (
             <circle cx="315" cy="165" r="7" fill="hsl(348,30%,70%)"
               className="drop-circle" style={{ animationDelay: "1500ms" }} />
           )}
-
-          {/* rect D: x=425..505  center=465 */}
-          <rect
-            x="425" y="148" width="80" height="34" rx="5"
+          <rect x="425" y="148" width="80" height="34" rx="5"
             stroke="hsl(155,30%,65%)" strokeWidth="1.5" strokeDasharray="5 4" fill="none"
-            className={showRect3 ? "pop-in-tread" : "opacity-0"}
-            style={{ transformOrigin: "465px 165px" }}
-          />
-          {showCircles && (
+            className={dShowRect3 ? "pop-in-tread" : "opacity-0"}
+            style={{ transformOrigin: "465px 165px" }} />
+          {dShowCircles && (
             <circle cx="465" cy="165" r="7" fill="hsl(155,30%,65%)"
               className="drop-circle" style={{ animationDelay: "1800ms" }} />
           )}
