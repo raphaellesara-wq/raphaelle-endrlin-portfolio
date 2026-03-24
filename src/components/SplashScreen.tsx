@@ -59,10 +59,18 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center ${
-        isExiting ? "opacity-0 pointer-events-none" : "opacity-100"
-      }`}
-      style={{ background: "#FAFAF8", transition: "opacity 0.7s ease-out" }}
+      style={{
+        position: "fixed",
+        top: 0, left: 0, right: 0, bottom: 0,
+        zIndex: 9999,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#FAFAF8",
+        transition: "opacity 0.7s ease-out",
+        opacity: isExiting ? 0 : 1,
+        pointerEvents: isExiting ? "none" : "auto",
+      }}
     >
       <style>{`
         @keyframes popIn {
@@ -115,7 +123,11 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
       {/* ── MOBILE: Diamond ── */}
       <div
         className="md:hidden"
-        style={{ position: "relative", width: "92vw", height: "92vw" }}
+        style={{
+          position: "relative",
+          width: "min(88vw, 65vh)",
+          height: "min(88vw, 65vh)",
+        }}
       >
         <svg
           viewBox="0 0 300 300"
