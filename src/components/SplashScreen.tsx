@@ -135,14 +135,27 @@ const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           xmlns="http://www.w3.org/2000/svg"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         >
-          {/* Diamond drawn with stroke animation */}
+          {/* Diamond: draws as solid, then fades out */}
+          {!showCircles && (
+            <polygon
+              points="150,12 288,150 150,288 12,150"
+              stroke="hsl(348,30%,70%)"
+              strokeWidth="2"
+              fill="none"
+              className="draw-diamond"
+            />
+          )}
+          {/* Dashed diamond: fades in after drawing */}
           <polygon
             points="150,12 288,150 150,288 12,150"
             stroke="hsl(348,30%,70%)"
             strokeWidth="2"
             strokeDasharray="8 5"
             fill="none"
-            className="draw-diamond"
+            style={{
+              opacity: showCircles ? 1 : 0,
+              transition: "opacity 0.4s ease-in",
+            }}
           />
 
           {/* Dots at 4 vertices — appear after drawing */}
