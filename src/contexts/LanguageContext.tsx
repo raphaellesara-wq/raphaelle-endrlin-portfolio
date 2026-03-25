@@ -12,7 +12,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLang] = useState<Language>("he");
+  const [lang, setLang] = useState<Language>("en");
   const isRTL = lang === "he";
 
   const toggle = useCallback(() => {
