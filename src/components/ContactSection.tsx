@@ -33,9 +33,23 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    try {
+      await fetch("https://hook.eu2.make.com/4h18c5l55lw1s3q0saq1xhp7uboooqj4", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (_) {
+      // fail silently — still show success to user
+    }
+    setLoading(false);
     setSubmitted(true);
+    setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setSubmitted(false), 3000);
   };
 
@@ -160,9 +174,11 @@ const ContactSection = () => {
             disabled={submitted}
             className="contact-submit">
             
-            {submitted ?
-            t("✓ נשלח!", "✓ Sent!") :
-            t("← שלח הודעה", "Send Message →")}
+            {submitted
+            ? t("✓ נשלח!", "✓ Sent!")
+            : loading
+            ? t("שולח...", "Sending...")
+            : t("← שלח הודעה", "Send Message →")}
           </button>
         </form>
       </div>
