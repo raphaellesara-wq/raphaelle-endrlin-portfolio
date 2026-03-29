@@ -200,7 +200,7 @@ const ProjectsSection = () => {
                     lineHeight: 1.65,
                   }}
                 >
-                  "{t(project.heResult, project.enResult)}"
+                  {t(project.heResult, project.enResult)}
                 </p>
               </div>
 
