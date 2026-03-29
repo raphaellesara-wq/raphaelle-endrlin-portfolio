@@ -16,8 +16,8 @@ const AboutSection = () => {
       "Currently advancing in AI & business automation with MAKE.com and N8N."
     ),
     t(
-      "מחפשת תפקיד שמשלב שיווק, אוטומציה ועיצוב — בארגון שמאמין בחדשנות ולמידה מתמדת. דוברת 4 שפות בשוטף.",
-      "Seeking a role combining marketing, automation, and design. Fluent in 4 languages."
+      "מחפשת תפקיד שמשלב שיווק, אוטומציה ועיצוב — בארגון שמאמין בחדשנות ולמידה מתמדת.",
+      "Seeking a role combining marketing, automation, and design."
     ),
   ];
 
