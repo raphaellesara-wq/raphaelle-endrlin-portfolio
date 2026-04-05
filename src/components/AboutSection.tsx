@@ -13,7 +13,7 @@ const AboutSection = () => {
     ),
     t(
       "כיום אני מתמחה ב-AI ואוטומציות עסקיות עם MAKE.com ו-N8N, ומשלבת את הניסיון שצברתי עם כלי העתיד. ",
-      "Currently advancing in AI & business automation with MAKE.com and N8N."
+      "Currently mastering in AI & business automation with MAKE.com and N8N."
     ),
     t(
       "מחפשת תפקיד שמשלב בניית מערכות אוטומטיות יחד עם יצירתיות- בארגון שמאמין בחדשנות ולמידה מתמדת.",
