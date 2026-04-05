@@ -172,10 +172,6 @@ const ProjectsSection = () => {
                   fontSize: 14,
                   color: "hsl(var(--muted-foreground))",
                   lineHeight: 1.7,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
                 }}
               >
                 {t(project.heDesc, project.enDesc)}
