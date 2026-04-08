@@ -13,7 +13,13 @@ const BackToTopButton = () => {
 
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => {
+        const el = document.getElementById("contact");
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }}
       className="fixed z-40 transition-all duration-300"
       style={{
         bottom: 28,
@@ -32,7 +38,7 @@ const BackToTopButton = () => {
         cursor: "pointer",
       }}
     >
-      {t("↑ חזרה למעלה", "↑ Back to Top")}
+      {t("✉ צור קשר", "✉ Contact Me")}
     </button>
   );
 };
