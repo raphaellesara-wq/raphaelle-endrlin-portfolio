@@ -38,7 +38,7 @@ const BackToTopButton = () => {
         cursor: "pointer",
       }}
     >
-      {t("צרו קשר", "✉ Contact Me")}
+      {t("צרו קשר", "Contact Me")}
     </button>
   );
 };
