@@ -8,11 +8,26 @@ const HeroIllustration = () => {
 
   useEffect(() => {
     [mobileVideoRef, desktopVideoRef].forEach((ref) => {
-      if (ref.current) {
-        ref.current.play().catch(() => {});
+      const video = ref.current;
+      if (!video) return;
+
+      const tryPlay = () => {
+        video.play().catch(() => {});
+      };
+
+      // If already loaded enough, play immediately; otherwise wait
+      if (video.readyState >= 2) {
+        tryPlay();
+      } else {
+        video.addEventListener("canplay", tryPlay, { once: true });
       }
     });
   }, []);
+
+  const videoStyle: React.CSSProperties = {
+    WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+    maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+  };
 
   return (
     <>
@@ -25,12 +40,9 @@ const HeroIllustration = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="h-[300px] w-auto object-contain"
-          style={{
-            transform: "scale(1.2)",
-            maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
-          }}
+          style={{ ...videoStyle, transform: "scale(1.2)" }}
         />
       </div>
 
@@ -47,8 +59,7 @@ const HeroIllustration = () => {
           width: "55%",
           maxWidth: 640,
           opacity: 0.9,
-          maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+          ...videoStyle,
         }}
       >
         <video
@@ -58,6 +69,7 @@ const HeroIllustration = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-auto"
           style={{ objectFit: "contain" }}
         />
