@@ -9,10 +9,10 @@ const Footer = () => {
         <span className="footer-name">Raphaelle Enderlin</span>
         <span className="footer-copy">© 2025</span>
       </div>
+      <span className="footer-copy" style={{ fontSize: 11, opacity: 0.6 }}>
+        {t("האתר נוצר בעזרת Vibe Coding", "Built with Vibe Coding")}
+      </span>
       <div className="footer-links">
-        <a href="mailto:raphaellesara@gmail.com" className="footer-link">
-          {t("אימייל", "Email")}
-        </a>
         <a
           href="https://www.linkedin.com/in/raphaelle-endrlin/"
           target="_blank"
