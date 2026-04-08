@@ -136,44 +136,46 @@ const ContactSection = () => {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`
         }>
         
-        <form onSubmit={handleSubmit} className="contact-form flex flex-col gap-4 w-full">
+        <form onSubmit={handleSubmit} className="contact-form flex flex-col gap-4 w-full" noValidate>
           <div className="form-group flex flex-col gap-1.5">
-            <label>{t("שם מלא", "Full Name")}</label>
+            <label htmlFor="contact-name">{t("שם מלא", "Full Name")}</label>
             <input
+              id="contact-name"
               type="text"
               required
               value={formData.name}
               onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-              placeholder={t("הכנס שם מלא", "Enter your full name")} />
-            
+              placeholder={t("הכנס שם מלא", "Enter your full name")}
+              autoComplete="name" />
           </div>
 
           <div className="form-group flex flex-col gap-1.5">
-            <label>{t("אימייל", "Email")}</label>
+            <label htmlFor="contact-email">{t("אימייל", "Email")}</label>
             <input
+              id="contact-email"
               type="email"
               required
               value={formData.email}
               onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-              placeholder={t("הכנס אימייל", "Enter your email")} />
-            
+              placeholder={t("הכנס אימייל", "Enter your email")}
+              autoComplete="email" />
           </div>
 
           <div className="form-group flex flex-col gap-1.5">
-            <label>{t("הודעה", "Message")}</label>
+            <label htmlFor="contact-message">{t("הודעה", "Message")}</label>
             <textarea
+              id="contact-message"
               required
               value={formData.message}
               onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
               placeholder={t("כתוב הודעה...", "Write your message...")} />
-            
           </div>
 
           <button
             type="submit"
-            disabled={submitted}
-            className="contact-submit">
-            
+            disabled={submitted || loading}
+            className="contact-submit"
+            aria-live="polite">
             {submitted
             ? t("✓ נשלח!", "✓ Sent!")
             : loading

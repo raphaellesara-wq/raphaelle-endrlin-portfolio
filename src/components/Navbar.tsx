@@ -48,6 +48,7 @@ const Navbar = () => {
 
   return (
     <nav
+      aria-label={t("ניווט ראשי", "Main navigation")}
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
         scrolled ? "glass-nav shadow-sm" : "bg-transparent"
       }`}
@@ -83,7 +84,8 @@ const Navbar = () => {
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={t("פתח תפריט", "Open menu")}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
