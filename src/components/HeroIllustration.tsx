@@ -41,6 +41,7 @@ const HeroIllustration = () => {
           muted
           playsInline
           preload="auto"
+          aria-hidden="true"
           className="h-[300px] w-auto object-contain"
           style={{ ...videoStyle, transform: "scale(1.2)" }}
         />
@@ -70,6 +71,7 @@ const HeroIllustration = () => {
           muted
           playsInline
           preload="auto"
+          aria-hidden="true"
           className="w-full h-auto"
           style={{ objectFit: "contain" }}
         />

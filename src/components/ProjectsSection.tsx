@@ -3,51 +3,52 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 // Tool logo components using SVG shapes per brand
 const ToolLogo = ({ name }: { name: string }) => {
+  const svgProps = { viewBox: "0 0 50 50", width: 32, height: 32, xmlns: "http://www.w3.org/2000/svg", role: "img" as const, "aria-label": name };
   const logos: Record<string, JSX.Element> = {
     Shopify: (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#96BF48" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">S</text>
       </svg>
     ),
     "Rise.ai": (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#FF6B35" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">R</text>
       </svg>
     ),
     FlashyApp: (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#1E40AF" />
         <path d="M28 10 L18 27 H26 L22 40 L34 21 H26 Z" fill="white" />
       </svg>
     ),
     Figma: (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#F24E1E" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="18" fontWeight="bold" fontFamily="sans-serif">Fg</text>
       </svg>
     ),
     Canva: (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#00C4CC" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">C</text>
       </svg>
     ),
     "Make.com": (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#6D00CC" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">Mk</text>
       </svg>
     ),
     "Claude AI": (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="10" fill="#D97706" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">AI</text>
       </svg>
     ),
     Telegram: (
-      <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <svg {...svgProps}>
         <rect width="50" height="50" rx="25" fill="#2AABEE" />
         <path d="M10 25 L38 14 L28 38 L22 30 Z" fill="white" opacity="0.8" />
         <path d="M22 30 L20 38 L26 32 Z" fill="white" />
@@ -55,7 +56,7 @@ const ToolLogo = ({ name }: { name: string }) => {
     ),
   };
   return logos[name] ?? (
-    <svg viewBox="0 0 50 50" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+    <svg {...svgProps}>
       <rect width="50" height="50" rx="10" fill="#94A3B8" />
       <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">
         {name.slice(0, 2)}
