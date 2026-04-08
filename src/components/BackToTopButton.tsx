@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const BackToTopButton = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const BackToTopButton = () => {
       className="fixed z-40 transition-all duration-300"
       style={{
         bottom: 28,
-        left: 28,
+        ...(isRTL ? { right: 28 } : { left: 28 }),
         background: "#A98ED4",
         color: "white",
         borderRadius: 100,
@@ -38,7 +38,7 @@ const BackToTopButton = () => {
         cursor: "pointer",
       }}
     >
-      {t("✉ צור קשר", "✉ Contact Me")}
+      {t("צרו קשר", "✉ Contact Me")}
     </button>
   );
 };
