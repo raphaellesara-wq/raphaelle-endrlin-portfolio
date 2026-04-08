@@ -1,23 +1,9 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Mail, Phone, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 const contactLinks = [
-{
-  icon: Mail,
-  heLabel: "אימייל",
-  enLabel: "Email",
-  value: "raphaellesara@gmail.com",
-  href: "mailto:raphaellesara@gmail.com"
-},
-{
-  icon: Phone,
-  heLabel: "טלפון",
-  enLabel: "Phone",
-  value: "050-293-9686",
-  href: "tel:+972502939686"
-},
 {
   icon: Linkedin,
   heLabel: "לינקדאין",
