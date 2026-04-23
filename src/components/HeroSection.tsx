@@ -74,7 +74,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex flex-col items-center pt-20 md:pt-16 pb-5 md:pb-8 bg-white"
+      className="relative flex flex-col items-center pt-28 md:pt-24 pb-5 md:pb-8 bg-white"
       style={{ overflow: "clip" }}
       dir={isRTL ? "rtl" : "ltr"}
     >
