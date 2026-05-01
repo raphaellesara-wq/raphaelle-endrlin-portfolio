@@ -39,7 +39,7 @@ const HeroIllustration = () => {
           autoPlay
           loop
           muted
-          defaultMuted
+          {...({ "x-webkit-airplay": "deny" } as Record<string, string>)}
           playsInline
           disablePictureInPicture
           disableRemotePlayback
