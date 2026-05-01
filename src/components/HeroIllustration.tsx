@@ -39,10 +39,15 @@ const HeroIllustration = () => {
           autoPlay
           loop
           muted
+          defaultMuted
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          controls={false}
           preload="auto"
           aria-hidden="true"
-          className="h-[300px] w-auto object-contain"
+          tabIndex={-1}
+          className="h-[300px] w-auto object-contain pointer-events-none"
           style={{ ...videoStyle, transform: "scale(1.2)" }}
         />
       </div>
