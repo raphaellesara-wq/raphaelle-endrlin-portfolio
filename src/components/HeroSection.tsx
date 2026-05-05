@@ -122,7 +122,7 @@ const HeroSection = () => {
               style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
             >
               {isRTL ? (
-                <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים.<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
+                <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים.<br />עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.</>
               ) : (
                 <>Building Smart, Intuitive Systems for Companies and Businesses.<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
               )}
@@ -178,7 +178,7 @@ const HeroSection = () => {
                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
               >
                 {isRTL ? (
-                  <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים.<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
+                  <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים.<br />עיצוב ופיתוח אתרים, אוטומציות עסקיות ומסעות לקוח.</>
                 ) : (
                   <>Building Smart, Intuitive Systems for Companies and Businesses.<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
                 )}
