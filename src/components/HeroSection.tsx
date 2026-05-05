@@ -122,9 +122,9 @@ const HeroSection = () => {
               style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
             >
               {isRTL ? (
-                <>מנוע צמיחה מקצה לקצה:<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
+                <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
               ) : (
-                <>End-to-End Growth Engine:<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
+                <>Building Smart, Intuitive Systems for Companies and Businesses<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
               )}
             </p>
           </div>
@@ -178,9 +178,9 @@ const HeroSection = () => {
                 style={{ fontFamily: "'Rubik', sans-serif", fontWeight: 200 }}
               >
                 {isRTL ? (
-                  <>מנוע צמיחה מקצה לקצה:<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
+                  <>מחוללת מערכות חכמות ואינטואיטיביות לחברות ועסקים<br />עיצוב ופיתוח אתרים,<br />אוטומציות עסקיות ומסעות לקוח.</>
                 ) : (
-                  <>End-to-End Growth Engine:<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
+                  <>Building Smart, Intuitive Systems for Companies and Businesses<br />Website Design & Development,<br />Business Automation and Customer Journeys.</>
                 )}
               </p>
             </div>
